@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class InventoryRow : MonoBehaviour
 {
-    InventorySlot[] InventorySlots;
-    int CurrentSlot = 0; 
-
-    public void Awake() //awake should work. 
+    public void AddSlot(InventorySlot slot)
     {
-        InventorySlots = GetComponentsInChildren<InventorySlot>();
+        slot.transform.parent = transform;
+        slot.transform.localScale = new Vector3(1, 1, 1);
+        slot.EnableAll();
     }
         
-    public void FillFirstAvailableSlot(Item item)
+    public void RemoveAllSlots()
     {
-        GetFirstAvailableSlot().SetItem(item);
-        CurrentSlot++;
-    }
-
-    public InventorySlot GetFirstAvailableSlot()
-    {
-        return InventorySlots[CurrentSlot];
+        foreach (Transform t in transform)
+        {
+            t.parent = null;
+        }
     }
 }

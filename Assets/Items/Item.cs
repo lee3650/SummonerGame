@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Item : MonoBehaviour //base class for every item 
 {
-    public virtual void OnPickup()
+    [SerializeField] SpriteRenderer SpriteRenderer;
+    private bool AbleToBePickedUp = true;
+
+    public bool CanBePickedUp()
     {
-        
+        return AbleToBePickedUp;
+    }
+
+    public virtual void OnPickup(Transform collector)
+    {
+        AbleToBePickedUp = false;
+        SpriteRenderer.enabled = false; 
     }
     public virtual void OnDrop()
     {
-
+        AbleToBePickedUp = true; 
     }
 }

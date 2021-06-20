@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     public void PickUpItem(Item item)
     {
-        item.OnPickup();
+        item.OnPickup(transform);
         Items.Add(item); //pretty much it. 
         ItemPickedUp(item);
     }
