@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : ItemSlot
 {
-    private Item MyItem;
     [SerializeField] Button Button;
-    [SerializeField] Image Image;
-    
-    public void SetItem(Item item)
+    private InventorySlotManager InventorySlotManager;
+
+    public void SetManager(InventorySlotManager inventorySlotManager)
     {
-        MyItem = item;
+        InventorySlotManager = inventorySlotManager;
     }
 
     public void EnableAll()
@@ -20,9 +19,8 @@ public class InventorySlot : MonoBehaviour
         Image.enabled = true;
     }
 
-    public Item GetItem()
+    public void OnClick()
     {
-        return MyItem;
+        InventorySlotManager.SlotSelected(this);
     }
-
 }

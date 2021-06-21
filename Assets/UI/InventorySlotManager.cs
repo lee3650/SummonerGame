@@ -6,6 +6,8 @@ public class InventorySlotManager : MonoBehaviour
 {
     [SerializeField] Inventory Inventory; //so, for now we're serializing the inventory it refers to. All these references may cause issues later. 
 
+    [SerializeField] GameObject SlotMenu;
+
     [SerializeField] Transform Content;
 
     [SerializeField] InventoryRow InventoryRowPrefab;
@@ -16,7 +18,13 @@ public class InventorySlotManager : MonoBehaviour
 
     private List<InventorySlot> InventorySlots = new List<InventorySlot>();
     private List<InventoryRow> InventoryRows = new List<InventoryRow>();
-    
+
+    private bool SwapMode = false;
+
+    private InventorySlot SelectedSlot;
+
+    [SerializeField] private List<ItemSlot> HotbarSlots;
+
     private void Start()
     {
         //I guess on start? Sure, I guess. 
@@ -24,10 +32,23 @@ public class InventorySlotManager : MonoBehaviour
         Inventory.ItemPickedUp += Inventory_ItemPickedUp;
     }
 
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        SwapMode = false;
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+        SlotMenu.SetActive(false);
+    }
+
     private void Inventory_ItemPickedUp(Item obj)
     {
         InventorySlot newSlot = Instantiate<InventorySlot>(InventorySlotPrefab);
         newSlot.SetItem(obj);
+        newSlot.SetManager(this);
         InventorySlots.Add(newSlot);
 
         DisplayInventorySlots();
@@ -53,12 +74,16 @@ public class InventorySlotManager : MonoBehaviour
 
     private void DisplayInventorySlots()
     {
-        //so, first destroy our current display. 
         DestroyCurrentDisplay();
 
-        int rowNum = Mathf.CeilToInt((float)InventorySlots.Count / (float)ItemsPerRow);
+        CreateNewDisplay();
 
-        print("row num: " + rowNum);
+        UpdateHotbar();
+    }
+
+    void CreateNewDisplay()
+    {
+        int rowNum = Mathf.CeilToInt((float)InventorySlots.Count / (float)ItemsPerRow);
 
         for (int i = 0; i < rowNum; i++)
         {
@@ -78,7 +103,21 @@ public class InventorySlotManager : MonoBehaviour
             InventoryRows.Add(row);
         }
     }
-
+    
+    void UpdateHotbar()
+    {
+        for (int i = 0; i < HotbarSlots.Count; i++)
+        {
+            if (i < InventorySlots.Count)
+            {
+                HotbarSlots[i].SetItem(InventorySlots[i].GetItem());
+            } else
+            {
+                HotbarSlots[i].ResetItem();
+            }
+        }
+    }
+    
     private void DestroyCurrentDisplay()
     {
         foreach (InventoryRow row in InventoryRows)
@@ -90,8 +129,45 @@ public class InventorySlotManager : MonoBehaviour
         InventoryRows = new List<InventoryRow>();
     }
 
-    public void ShowSlotMenu(InventorySlot slot)
+    public void EnterSwapMode()
     {
+        SwapMode = true;
+        SlotMenu.SetActive(false);
+    }
+    
+    public void DropItem()
+    {
+        Inventory.DropItem(SelectedSlot.GetItem());
+        SlotMenu.SetActive(false);
+    }
 
+    public void SlotSelected(InventorySlot slot)
+    {
+        //so, technically we want to get from the item what menu listings to show - i.e., equip, drink, etc... well, probably not drink, but equip, at least. 
+        
+        if (SwapMode)
+        {
+            Item oldItem = SelectedSlot.GetItem();
+            SelectedSlot.SetItem(slot.GetItem());
+            slot.SetItem(oldItem);
+            SwapMode = false;
+
+            UpdateHotbar();
+        }
+        else
+        {
+            SlotMenu.transform.position = slot.transform.position;
+            SlotMenu.SetActive(true);
+        }
+
+        SelectedSlot = slot;
+    }
+
+    public bool Active
+    {
+        get
+        {
+            return gameObject.activeInHierarchy;
+        }
     }
 }

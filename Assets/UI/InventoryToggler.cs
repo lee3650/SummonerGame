@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryToggler : MonoBehaviour
 {
-    [SerializeField] GameObject InventoryParent;
+    [SerializeField] InventorySlotManager InventorySlotManager;
 
     private void Update()
     {
@@ -16,6 +16,13 @@ public class InventoryToggler : MonoBehaviour
 
     public void ToggleInventory()
     {
-        InventoryParent.SetActive(!InventoryParent.activeSelf);
+        if (InventorySlotManager.Active)
+        {
+            InventorySlotManager.Hide();
+        } 
+        else
+        {
+            InventorySlotManager.Show();
+        }
     }
 }

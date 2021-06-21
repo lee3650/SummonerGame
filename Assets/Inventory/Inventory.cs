@@ -25,8 +25,8 @@ public class Inventory : MonoBehaviour
     //so, actually, this would be called from the UI, which is a little weird. 
     public void DropItem(Item item)
     {
-        item.OnDrop();
         Items.Remove(item);
+        item.OnDrop();
         ItemDropped(item);
     }
 }
