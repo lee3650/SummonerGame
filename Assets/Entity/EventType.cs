@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateController : StateController
+public enum EventType 
 {
-
+    Fire,
+    Magic,
+    Physical,
 }

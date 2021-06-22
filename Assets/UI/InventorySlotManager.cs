@@ -97,9 +97,8 @@ public class InventorySlotManager : MonoBehaviour
                 {
                     row.AddSlot(InventorySlots[index]);
                 }
-
             }
-
+            
             InventoryRows.Add(row);
         }
     }
