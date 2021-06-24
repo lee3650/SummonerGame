@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState : MonoBehaviour, IState
+public class AIIdleState : MonoBehaviour, IState
 {
     [SerializeField] TargetManager TargetManager;
     [SerializeField] StateController StateController;
-    [SerializeField] EnemyPursuitState PursuitState;
+    [SerializeField] AIPursuitState PursuitState;
 
     public void EnterState()
     {

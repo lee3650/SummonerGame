@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyEntity : MonoBehaviour, ILivingEntity
+public class AIEntity : MonoBehaviour, ILivingEntity
 {
     [SerializeField] Factions Faction;
     [SerializeField] int Precedence;

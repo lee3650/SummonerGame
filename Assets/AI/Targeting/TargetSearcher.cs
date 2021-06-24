@@ -8,6 +8,7 @@ public class TargetSearcher : MonoBehaviour
     [SerializeField] float SightRange; 
     [SerializeField] bool UsePrecedence;
     [Space(20)]
+    [SerializeField] AIEntity MyEntity;
     [SerializeField] TargetManager TargetManager;
     [SerializeField] float SearchSpeed = 1f;
 
@@ -29,8 +30,12 @@ public class TargetSearcher : MonoBehaviour
 
             List<ILivingEntity> candidates = GetPossibleTargets(cols);
 
-            ILivingEntity target = ChooseTargetFromColliders(candidates); //if this is null, do we set it to null? 
-            TargetManager.Target = target;
+            ILivingEntity target = ChooseTargetFromColliders(candidates);
+            
+            if (target != null)
+            {
+                TargetManager.Target = target;
+            }
             
             yield return new WaitForSeconds(SearchSpeed);
         }
@@ -45,7 +50,7 @@ public class TargetSearcher : MonoBehaviour
             ILivingEntity livingEntity;
             if (col.TryGetComponent<ILivingEntity>(out livingEntity))
             {
-                if (livingEntity.IsAlive())
+                if (livingEntity.IsAlive() && livingEntity.GetFaction() != MyEntity.GetFaction())
                 {
                     candidates.Add(livingEntity);
                 }
