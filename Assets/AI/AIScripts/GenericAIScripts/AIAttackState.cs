@@ -7,6 +7,7 @@ public class AIAttackState : MonoBehaviour, IState
     [SerializeField] float AttackLength;
     [SerializeField] float AttackRange;
     [SerializeField] bool RotateWhileAttacking = true;
+    [SerializeField] bool MoveWhileAttacking = false;
 
     [SerializeField] AIStateMachine AIStateMachine;
     [SerializeField] AIPursuitState AIPursuitState;
@@ -30,7 +31,10 @@ public class AIAttackState : MonoBehaviour, IState
             TargetManager.LookAtTarget();
         }
 
-        TargetManager.MoveAtTarget();
+        if (MoveWhileAttacking)
+        {
+            TargetManager.MoveAtTarget();
+        }
 
         if (AttackTimer > AttackLength)
         {

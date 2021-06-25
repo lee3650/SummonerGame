@@ -6,9 +6,19 @@ using UnityEngine;
 public class PlayerEntity : MonoBehaviour, ILivingEntity
 {
     [SerializeField] int Precedence;
+    [SerializeField] HealthManager HealthManager;
 
-    bool Alive = true;
-    
+    private void Start()
+    {
+        HealthManager.OnDeath += OnDeath;
+    }
+
+    private void OnDeath()
+    {
+        //so, disable collider, etc. 
+
+    }
+
     public Factions GetFaction()
     {
         return Factions.Player;
@@ -21,7 +31,7 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     public bool IsAlive()
     {
-        return Alive;
+        return HealthManager.IsAlive();
     }
 
     public Vector2 GetPosition()
@@ -31,9 +41,13 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     public void HandleEvent (Event e)
     {
-        switch (e)
+        switch (e.MyType)
         {
-
+            case EventType.Fire:
+            case EventType.Magic:
+            case EventType.Physical:
+                HealthManager.SubtractHealth(e.Magnitude);
+                break;
         }
     }
 }

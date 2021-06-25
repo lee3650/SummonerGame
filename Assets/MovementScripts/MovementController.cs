@@ -30,6 +30,11 @@ public class MovementController : MonoBehaviour
         rb.velocity = Vector2.Lerp(rb.velocity, targetVel, Sensitivity * Time.deltaTime);
     }
 
+    public void DisableRigidbody()
+    {
+        rb.isKinematic = true;
+    }
+
     public void SetVelocity(Vector2 direction, float magnitude)
     {
         rb.velocity = direction * magnitude;

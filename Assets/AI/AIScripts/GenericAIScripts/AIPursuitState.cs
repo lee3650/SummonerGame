@@ -19,7 +19,11 @@ public class AIPursuitState : MonoBehaviour, IState
     {
         if (TargetManager.Target.IsAlive())
         {
-            TargetManager.MoveAtTarget();
+            if (!AIAttackManager.IsTargetInRange(TargetManager.Target))
+            {
+                TargetManager.MoveAtTarget();
+            }
+            
             TargetManager.LookAtTarget();
             AIAttackManager.TryAttack(TargetManager.Target); 
         }
