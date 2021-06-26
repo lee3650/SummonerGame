@@ -10,4 +10,5 @@ public interface ILivingEntity : IEntity
     bool IsAlive();
 
     Vector2 GetPosition();
+
 }

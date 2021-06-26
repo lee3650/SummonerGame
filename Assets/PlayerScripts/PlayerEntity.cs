@@ -7,15 +7,23 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 {
     [SerializeField] int Precedence;
     [SerializeField] HealthManager HealthManager;
+    [SerializeField] Collider2D col;
 
     private void Start()
     {
         HealthManager.OnDeath += OnDeath;
+        HealthManager.OnDamageTaken += OnDamageTaken;
     }
 
     private void OnDeath()
     {
         //so, disable collider, etc. 
+        //we'd actually want to transition to the death state, right. 
+        col.enabled = false;
+    }
+
+    private void OnDamageTaken()
+    {
 
     }
 
