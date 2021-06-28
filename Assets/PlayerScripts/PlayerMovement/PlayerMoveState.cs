@@ -10,6 +10,7 @@ public class PlayerMoveState : MonoBehaviour, IState
     [SerializeField] PlayerInput PlayerInput;
 
     [SerializeField] PlayerDodgeState PlayerDodgeState;
+    [SerializeField] PlayerAttackState PlayerAttackState;
 
     //so, do we want to serialize the dodge state or just use get component? 
     //I feel like serialization is better, because it's slightly decoupled. 
@@ -29,6 +30,11 @@ public class PlayerMoveState : MonoBehaviour, IState
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerStateController.TransitionToState(PlayerDodgeState);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerStateController.TransitionToState(PlayerAttackState);
         }
     }
     

@@ -10,4 +10,9 @@ public class SummonWeapon : Weapon
     {
 
     }
+
+    public override WeaponType GetWeaponType()
+    {
+        return WeaponType.Summon;
+    }
 }

@@ -71,7 +71,7 @@ public class ItemSelection : MonoBehaviour
             ChangeSelection(newIndex);
         }
     }
-    
+
     private void ChangeSelection(int newSelect)
     {
         print("new selection: " + newSelect);

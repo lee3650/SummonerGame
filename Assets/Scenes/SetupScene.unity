@@ -190,7 +190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 525.92035}
+  m_AnchoredPosition: {x: -437.25012, y: 525.9205}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -865,6 +865,7 @@ MonoBehaviour:
   RotationController: {fileID: 333112608}
   PlayerInput: {fileID: 333112611}
   PlayerDodgeState: {fileID: 333112612}
+  PlayerAttackState: {fileID: 0}
 --- !u!114 &333112611
 MonoBehaviour:
   m_ObjectHideFlags: 0
