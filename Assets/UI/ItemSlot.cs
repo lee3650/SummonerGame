@@ -24,4 +24,9 @@ public class ItemSlot : MonoBehaviour
         Image.sprite = null;
         MyItem = null;
     }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 }

@@ -33,4 +33,16 @@ public class Item : MonoBehaviour //base class for every item
         transform.parent = null;
         col.enabled = true;
     }
+
+    public virtual void OnSelection()
+    {
+        SpriteRenderer.enabled = true;
+        col.enabled = true; 
+    }
+    
+    public virtual void OnDeselection()
+    {
+        SpriteRenderer.enabled = false;
+        col.enabled = false;
+    }
 }

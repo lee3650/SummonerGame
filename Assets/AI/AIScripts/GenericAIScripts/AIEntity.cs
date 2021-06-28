@@ -17,7 +17,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity
 
     private void OnDeath()
     {
-
+        //enter death state
     }
 
     public void HandleEvent(Event e)
