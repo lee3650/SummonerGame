@@ -6,13 +6,16 @@ public class AIPursuitState : MonoBehaviour, IState
 {
     [SerializeField] TargetManager TargetManager;
     [SerializeField] AIStateMachine AIStateMachine;
-    [SerializeField] AIIdleState IdleState;
+    [SerializeField] MonoBehaviour ExitToState;
     [SerializeField] MovementController MovementController;
     [SerializeField] AIAttackManager AIAttackManager;
 
     public void EnterState()
     {
-
+        if (TargetManager.Target == null)
+        {
+            throw new System.Exception("No target?");
+        }
     }
 
     public void UpdateState()
@@ -29,7 +32,7 @@ public class AIPursuitState : MonoBehaviour, IState
         }
         else
         {
-            AIStateMachine.TransitionToState(IdleState);
+            AIStateMachine.TransitionToState(ExitToState as IState);
         }
     }
 

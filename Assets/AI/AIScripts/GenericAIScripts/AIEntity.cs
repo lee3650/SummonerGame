@@ -7,8 +7,8 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     [SerializeField] Factions Faction;
     [SerializeField] int Precedence;
     [SerializeField] HealthManager HealthManager;
-
-    bool Alive;
+    [SerializeField] AIDeathState AIDeathState;
+    [SerializeField] StateController StateController;
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     private void OnDeath()
     {
         //enter death state
+        StateController.TransitionToState(AIDeathState);
     }
 
     public void HandleEvent(Event e)
@@ -34,7 +35,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity
 
     public bool IsAlive()
     {
-        return Alive;
+        return HealthManager.IsAlive();
     }
 
     public Factions GetFaction()

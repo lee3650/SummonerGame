@@ -35,6 +35,11 @@ public class MovementController : MonoBehaviour
         rb.isKinematic = true;
     }
 
+    public void DisableAllMovement()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+    }
+
     public void SetVelocity(Vector2 direction, float magnitude)
     {
         rb.velocity = direction * magnitude;

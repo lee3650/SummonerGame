@@ -15,10 +15,13 @@ public class SummonDeathNotifier : MonoBehaviour
 
     public void Awake()
     {
-        HealthManager.OnDeath += OnDeath;    
+        if (HealthManager != null)
+        {
+            HealthManager.OnDeath += SummonEnds;    
+        }
     }
 
-    private void OnDeath()
+    protected void SummonEnds()
     {
         MySummoner.OnSummonDeath(ManaRefundAmount);
     }

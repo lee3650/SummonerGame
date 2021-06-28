@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Summoner : MonoBehaviour
 {
+    [SerializeField] ManaManager ManaManager;
     public void OnSummonDeath(float manaCost)
     {
-        
+        ManaManager.IncreaseMaxMana(manaCost);
     }
 }

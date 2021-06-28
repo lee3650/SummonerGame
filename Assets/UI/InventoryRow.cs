@@ -6,16 +6,16 @@ public class InventoryRow : MonoBehaviour
 {
     public void AddSlot(InventorySlot slot)
     {
-        slot.transform.parent = transform;
+        slot.transform.SetParent(transform, false);
         slot.transform.localScale = new Vector3(1, 1, 1);
         slot.EnableAll();
     }
-        
+
     public void RemoveAllSlots()
     {
         foreach (Transform t in transform)
         {
-            t.parent = null;
+            t.SetParent(null, false);
         }
     }
 }

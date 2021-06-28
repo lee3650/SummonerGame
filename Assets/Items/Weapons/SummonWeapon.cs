@@ -12,12 +12,13 @@ public class SummonWeapon : Weapon
     
     public override void UseWeapon()
     {
-        Instantiate(Summon, transform.position + transform.up * 4, transform.rotation);
-        Summon.GetComponent<SummonDeathNotifier>().SetSummoner(Wielder.GetComponent<Summoner>());
+        GameObject summoned = Instantiate(Summon, transform.position + transform.up * 4, transform.rotation);
+       
+        summoned.GetComponent<SummonDeathNotifier>().SetSummoner(Wielder.GetComponent<Summoner>());
 
         if (ReduceMaxMana)
         {
-            Summon.GetComponent<SummonDeathNotifier>().ManaRefundAmount = GetManaDrain();
+            summoned.GetComponent<SummonDeathNotifier>().ManaRefundAmount = GetManaDrain();
         }
     }
 

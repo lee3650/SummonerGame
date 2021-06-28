@@ -30,6 +30,8 @@ public class TargetSearcher : MonoBehaviour
 
             List<ILivingEntity> candidates = GetPossibleTargets(cols);
 
+            print("Number of candidates: " + candidates.Count + " from faction " + MyEntity.GetFaction());
+
             ILivingEntity target = ChooseTargetFromColliders(candidates);
             
             if (target != null)

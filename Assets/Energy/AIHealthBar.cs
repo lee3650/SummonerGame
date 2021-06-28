@@ -18,11 +18,10 @@ public class AIHealthBar : MonoBehaviour
         healthGraphic = Instantiate<Transform>(Resources.Load<Transform>("healthGraphic"));
         defaultScale = healthGraphic.localScale.x * (HealthManager.GetMaxHealth() / NormalHealth);
     }
-
+    
     private void Update()
     {
         healthGraphic.position = (Vector2)transform.position + new Vector2(WidthAdjustment, Height);
-        healthGraphic.localScale = new Vector3(defaultScale * HealthManager.GetHealthPercentage(), healthGraphic.localScale.y);
+        healthGraphic.localScale = new Vector3(Mathf.Clamp(defaultScale * HealthManager.GetHealthPercentage(), 0, Mathf.Infinity), healthGraphic.localScale.y);
     }
-
 }
