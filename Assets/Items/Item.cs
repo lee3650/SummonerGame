@@ -8,6 +8,8 @@ public class Item : MonoBehaviour //base class for every item
     [SerializeField] Collider2D col;
     private bool AbleToBePickedUp = true;
 
+    protected Transform Wielder; 
+
     public bool CanBePickedUp()
     {
         return AbleToBePickedUp;
@@ -18,12 +20,13 @@ public class Item : MonoBehaviour //base class for every item
         return SpriteRenderer.sprite;
     }
 
-    public virtual void OnPickup(Transform collector)
+    public virtual void OnPickup(Transform collector, Transform wielder)
     {
         AbleToBePickedUp = false;
         SpriteRenderer.enabled = false;
         transform.parent = collector;
         col.enabled = false;
+        Wielder = wielder; 
     }
 
     public virtual void OnDrop()

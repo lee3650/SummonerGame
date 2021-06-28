@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] MonoBehaviour MyEntity; 
+
     private List<Item> Items = new List<Item>();
 
     public event Action<Item> ItemPickedUp = delegate { };
@@ -12,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     public void PickUpItem(Item item)
     {
-        item.OnPickup(transform);
+        item.OnPickup(transform, transform);
         Items.Add(item); //pretty much it. 
         ItemPickedUp(item);
     }

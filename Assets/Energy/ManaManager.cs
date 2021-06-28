@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ManaManager : MonoBehaviour
+public class ManaManager : MonoBehaviour, IEnergyManager
 {
     [SerializeField] float MaxMana;
     [SerializeField] float CurrentMana;
@@ -46,6 +46,20 @@ public class ManaManager : MonoBehaviour
         }
     }
 
+    public void DecreaseMaxMana(float amt)
+    {
+        MaxMana -= amt; 
+        if (CurrentMana > MaxMana)
+        {
+            CurrentMana = MaxMana;
+        }
+    }
+
+    public void IncreaseMaxMana(float amt)
+    {
+        MaxMana += amt;
+    }
+
     public bool IsManaMoreThanOrEqual(float amt)
     {
         if (CurrentMana >= amt)
@@ -63,5 +77,18 @@ public class ManaManager : MonoBehaviour
             return true; 
         }
         return false;
+    }
+
+    public float GetMax()
+    {
+        return MaxMana;
+    }
+    public float GetRemainingPercentage()
+    {
+        return CurrentMana/MaxMana;
+    }
+    public float GetCurrent()
+    {
+        return CurrentMana;
     }
 }

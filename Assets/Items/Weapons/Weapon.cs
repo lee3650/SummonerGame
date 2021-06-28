@@ -18,11 +18,6 @@ public class Weapon : Item
         return AttackLength;
     }
 
-    public override void OnPickup(Transform collector)
-    {
-        base.OnPickup(collector);
-    }
-
     public virtual void UseWeapon()
     {
     }
