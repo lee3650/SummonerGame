@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class PlayerSummonController : MonoBehaviour
 {
     [SerializeField] PlayerInput PlayerInput;
+    [SerializeField] ItemSelection ItemSelection; //so, we just need to make sure the current item is the summon controller. 
 
     private ControllableSummon SelectedSummon = null;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (MousePressedUsingController(0))
         {
             if (SelectedSummon == null)
             {
@@ -31,7 +32,7 @@ public class PlayerSummonController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (MousePressedUsingController(1))
         {
             if (SelectedSummon != null)
             {
@@ -39,6 +40,11 @@ public class PlayerSummonController : MonoBehaviour
                 DeselectSummon();
             }
         }
+    }
+    
+    bool MousePressedUsingController(int mouseKey)
+    {
+        return Input.GetMouseButtonDown(mouseKey) && ItemSelection.HasItem() && (ItemSelection.SelectedItem.GetItemType() == ItemType.SummonController);
     }
 
     void SelectSummon(ControllableSummon s)

@@ -6,6 +6,8 @@ public class Item : MonoBehaviour //base class for every item
 {
     [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] Collider2D col;
+    [SerializeField] ItemType ItemType = ItemType.Weapon;
+    
     private bool AbleToBePickedUp = true;
 
     protected Transform Wielder; 
@@ -43,6 +45,11 @@ public class Item : MonoBehaviour //base class for every item
         col.enabled = true; 
     }
     
+    public virtual ItemType GetItemType()
+    {
+        return ItemType;
+    }
+
     public virtual void OnDeselection()
     {
         SpriteRenderer.enabled = false;
