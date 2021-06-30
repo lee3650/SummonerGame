@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class FollowSummonerState : MonoBehaviour, IState
 {
-    [SerializeField] Summon Summon;
+    Summon Summon;
     [SerializeField] MovementController MovementController;
     [SerializeField] RotationController RotationController;
     [SerializeField] TargetManager TargetManager;
     [SerializeField] StateController StateController;
     [SerializeField] AIPursuitState AIPursuitState;
+
+    private void Awake()
+    {
+        Summon = GetComponent<Summon>();
+    }
 
     public void EnterState()
     {

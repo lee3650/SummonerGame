@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSummonController : MonoBehaviour
 {
     [SerializeField] PlayerInput PlayerInput;
 
-    private Summon SelectedSummon = null;
+    private ControllableSummon SelectedSummon = null;
 
     private void Update()
     {
@@ -14,23 +15,19 @@ public class PlayerSummonController : MonoBehaviour
         {
             if (SelectedSummon == null)
             {
-                Summon s = GetSummonUnderMouse();
-                if (s != null)
-                {
-                    SelectedSummon = s;
-                    print("Selected summon!");
-                } else
-                {
-                    print("there was no summon!");
-                }
+                ControllableSummon s = GetSummonUnderMouse();
+                SelectSummon(s);
             }
             else
             {
                 ITargetable target = GetTargetUnderMouse();
 
-                SelectedSummon.SetTarget(target);
-                
-                SelectedSummon = null;
+                if (target != null && target != (SelectedSummon as ITargetable))
+                {
+                    SelectedSummon.SetTarget(target);
+                }
+
+                DeselectSummon();
             }
         }
 
@@ -39,9 +36,35 @@ public class PlayerSummonController : MonoBehaviour
             if (SelectedSummon != null)
             {
                 SelectedSummon.GoToPoint(PlayerInput.GetWorldMousePosition());
-                SelectedSummon = null;
+                DeselectSummon();
             }
         }
+    }
+
+    void SelectSummon(ControllableSummon s)
+    {
+        if (s != null)
+        {
+            SelectedSummon = s;
+
+            SelectableComponent sc;
+            if (SelectedSummon.TryGetComponent<SelectableComponent>(out sc))
+            {
+                print("selectable component should show graphic!");
+                sc.Select();
+            }
+        }
+    }
+
+    void DeselectSummon()
+    {
+        SelectableComponent sc;
+        if (SelectedSummon.TryGetComponent<SelectableComponent>(out sc))
+        {
+            sc.Deselect();
+        }
+
+        SelectedSummon = null;
     }
 
     ITargetable GetTargetUnderMouse()
@@ -60,14 +83,14 @@ public class PlayerSummonController : MonoBehaviour
         return null;
     }
 
-    Summon GetSummonUnderMouse()
+    ControllableSummon GetSummonUnderMouse()
     {
         Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 2f);
         print("colliders found: " + cols.Length);
         foreach (Collider2D col in cols)
         {
-            Summon s;
-            if (col.TryGetComponent<Summon>(out s))
+            ControllableSummon s;
+            if (col.TryGetComponent<ControllableSummon>(out s))
             {
                 print("There was a summon!");
                 //so, there is a summon. 

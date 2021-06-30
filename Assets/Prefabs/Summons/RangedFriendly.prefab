@@ -55,8 +55,9 @@ GameObject:
   - component: {fileID: 1740066754483794926}
   - component: {fileID: 1740066754483794927}
   - component: {fileID: 2373476659259646865}
-  - component: {fileID: -1346322166249631522}
   - component: {fileID: -6475379290944958394}
+  - component: {fileID: 6878306609116838067}
+  - component: {fileID: 1193450098595219183}
   m_Layer: 0
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -202,7 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976c84ebbd470ef4999126e179293558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Summon: {fileID: -1346322166249631522}
   MovementController: {fileID: 1740066754483794916}
   RotationController: {fileID: 1740066754483794915}
   TargetManager: {fileID: 1740066754483794918}
@@ -379,23 +379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1740066754483794916}
   col: {fileID: 1740066754483794920}
---- !u!114 &-1346322166249631522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2ff6fba98ac294191bfb714743f1d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthManager: {fileID: 1740066754483794926}
-  TravelToPointState: {fileID: -6475379290944958394}
-  StateController: {fileID: 1740066754483794912}
-  TargetSearcher: {fileID: 1740066754483794914}
-  ManaRefundAmount: 0
 --- !u!114 &-6475379290944958394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,3 +394,36 @@ MonoBehaviour:
   MovementController: {fileID: 1740066754483794916}
   StateToExitTo: {fileID: 1887377134369214885}
   RotationController: {fileID: 1740066754483794915}
+--- !u!114 &6878306609116838067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff94719048abe24bb36688f8b0c6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 1740066754483794926}
+  ManaRefundAmount: 0
+  TravelToPointState: {fileID: -6475379290944958394}
+  StateController: {fileID: 1740066754483794912}
+  TargetSearcher: {fileID: 1740066754483794914}
+--- !u!114 &1193450098595219183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99340feb68423f14ab31d54560e5daaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 1740066754483794921}
+  SelectedMaterial: {fileID: 2100000, guid: 06cf8cb215df9d54c9bbc9b2bcb30582, type: 2}
+  SelectGraphic: {fileID: 3926530807043809730, guid: 1fd5b16d0661f8b489d2746828a6b8ea,
+    type: 3}

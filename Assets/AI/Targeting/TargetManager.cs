@@ -26,7 +26,10 @@ public class TargetManager : MonoBehaviour
 
     public void LookAtTarget()
     {
-        RotationController.FacePoint(Target.GetPosition());
+        if (Target != null)
+        {
+            RotationController.FacePoint(Target.GetPosition());
+        }
     }
 
     public bool IsTargetAlive()
