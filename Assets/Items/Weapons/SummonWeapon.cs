@@ -14,11 +14,11 @@ public class SummonWeapon : Weapon
     {
         GameObject summoned = Instantiate(Summon, transform.position + transform.up * 4, transform.rotation);
        
-        summoned.GetComponent<SummonDeathNotifier>().SetSummoner(Wielder.GetComponent<Summoner>());
+        summoned.GetComponent<Summon>().SetSummoner(Wielder.GetComponent<Summoner>());
 
         if (ReduceMaxMana)
         {
-            summoned.GetComponent<SummonDeathNotifier>().ManaRefundAmount = GetManaDrain();
+            summoned.GetComponent<Summon>().ManaRefundAmount = GetManaDrain();
         }
     }
 

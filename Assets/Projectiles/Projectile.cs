@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour, IEntity
 
         MovementController.SetVelocity(Vector2.zero, 0f);
         MovementController.DisableRigidbody();
+        GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
         IEntity entity;
         if (collision.transform.TryGetComponent<IEntity>(out entity))

@@ -9,4 +9,9 @@ public class Summoner : MonoBehaviour
     {
         ManaManager.IncreaseMaxMana(manaCost);
     }
+    
+    public Vector2 GetPosition()
+    {
+        return transform.position;
+    }
 }

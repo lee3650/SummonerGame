@@ -19,6 +19,16 @@ public class RotationController : MonoBehaviour
         rb.rotation = Mathf.LerpAngle(rb.rotation, z, RotationSpeed * Time.deltaTime);
     }
 
+    public void StopRotation()
+    {
+        rb.angularVelocity = 0f;
+    }
+
+    public void FaceForward()
+    {
+        FaceDirection(rb.velocity.normalized);
+    }
+
     public float GetDirectionFacingPoint(Vector2 worldPoint)
     {
         float deltaX = worldPoint.x - rb.position.x;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonDeathNotifier : MonoBehaviour
+public class Summon : MonoBehaviour
 {
     [SerializeField] HealthManager HealthManager;
     private Summoner MySummoner;
@@ -13,15 +13,20 @@ public class SummonDeathNotifier : MonoBehaviour
         MySummoner = summoner;
     }
 
+    public Vector2 GetSummonerPosition()
+    {
+        return MySummoner.GetPosition();
+    }
+
     public void Awake()
     {
         if (HealthManager != null)
         {
-            HealthManager.OnDeath += SummonEnds;    
+            HealthManager.OnDeath += SummonEnds;
         }
     }
 
-    protected void SummonEnds()
+    protected virtual void SummonEnds()
     {
         MySummoner.OnSummonDeath(ManaRefundAmount);
     }

@@ -3096,7 +3096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetManager: {fileID: 1358632070}
   AIStateMachine: {fileID: 1358632080}
-  ExitToState: {fileID: 0}
+  ExitToState: {fileID: 1358632069}
   MovementController: {fileID: 1358632068}
   AIAttackManager: {fileID: 1358632076}
 --- !u!114 &1358632066
@@ -3187,7 +3187,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 5
   m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
