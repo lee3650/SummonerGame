@@ -7,7 +7,7 @@ public class AIAttackManager : MonoBehaviour
     [SerializeField] AIAttackState AttackState;
     [SerializeField] AIStateMachine AIStateMachine;
 
-    public bool IsTargetInRange(ILivingEntity CurrentTarget)
+    public bool IsTargetInRange(ITargetable CurrentTarget)
     {
         if (Vector2.Distance(CurrentTarget.GetPosition(), transform.position) < AttackState.GetAttackRange())
         {
@@ -16,7 +16,7 @@ public class AIAttackManager : MonoBehaviour
         return false; 
     }
 
-    public virtual void TryAttack(ILivingEntity CurrentTarget)
+    public virtual void TryAttack(ITargetable CurrentTarget)
     {
         if (IsTargetInRange(CurrentTarget))
         {

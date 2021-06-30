@@ -7,7 +7,7 @@ public class TargetManager : MonoBehaviour
     [SerializeField] MovementController MovementController;
     [SerializeField] RotationController RotationController;
 
-    private ILivingEntity target;
+    private ITargetable target;
 
     public bool HasTarget()
     {
@@ -38,7 +38,7 @@ public class TargetManager : MonoBehaviour
         return false;
     }
 
-    public ILivingEntity Target
+    public ITargetable Target
     {
         get
         {

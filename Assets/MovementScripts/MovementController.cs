@@ -14,6 +14,12 @@ public class MovementController : MonoBehaviour
         
     }
 
+    public void MoveTowardPoint(Vector2 worldPoint)
+    {
+        Vector2 dir = worldPoint - rb.position;
+        MoveInDirection(dir.normalized);
+    }
+
     public void MoveInDirection(Vector2 dir)
     {
         float mag = dir.magnitude;

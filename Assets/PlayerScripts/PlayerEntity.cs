@@ -9,10 +9,13 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
     [SerializeField] HealthManager HealthManager;
     [SerializeField] Collider2D col;
 
+    StateController StateController;
+
     private void Start()
     {
         HealthManager.OnDeath += OnDeath;
         HealthManager.OnDamageTaken += OnDamageTaken;
+        StateController = GetComponent<StateController>();
     }
 
     private void OnDeath()
@@ -25,6 +28,15 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
     private void OnDamageTaken()
     {
 
+    }
+
+    public bool CanChangeSelectedItem()
+    {
+        if (StateController.GetCurrentState() is PlayerAttackState)
+        {
+            return false;
+        }
+        return true; 
     }
 
     public Factions GetFaction()

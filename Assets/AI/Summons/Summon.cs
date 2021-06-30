@@ -5,6 +5,10 @@ using UnityEngine;
 public class Summon : MonoBehaviour
 {
     [SerializeField] HealthManager HealthManager;
+    [SerializeField] TravelToPointState TravelToPointState;
+    [SerializeField] StateController StateController;
+    [SerializeField] TargetSearcher TargetSearcher;
+
     private Summoner MySummoner;
     public float ManaRefundAmount;
 
@@ -16,6 +20,17 @@ public class Summon : MonoBehaviour
     public Vector2 GetSummonerPosition()
     {
         return MySummoner.GetPosition();
+    }
+
+    public virtual void GoToPoint(Vector2 point)
+    {
+        TravelToPointState.PointToTravelTo = point;
+        StateController.TransitionToState(TravelToPointState);
+    }
+
+    public virtual void SetTarget(ITargetable target)
+    {
+        TargetSearcher.AssignTarget(target);
     }
 
     public void Awake()

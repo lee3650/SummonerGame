@@ -22,6 +22,11 @@ public class StateController : MonoBehaviour
         CurrentState.EnterState();
     }
 
+    public IState GetCurrentState()
+    {
+        return CurrentState;
+    }
+
     public void Update()
     {
         CurrentState.UpdateState();

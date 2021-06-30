@@ -13,7 +13,7 @@ public class FollowSummonerState : MonoBehaviour, IState
 
     public void EnterState()
     {
-        
+
     }
 
     public void UpdateState()

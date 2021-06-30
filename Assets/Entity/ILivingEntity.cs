@@ -2,13 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ILivingEntity : IEntity
+public interface ILivingEntity : IEntity, ITargetable
 {
     Factions GetFaction();
-    int GetPrecedence();
-
-    bool IsAlive();
-
-    Vector2 GetPosition();
-
 }

@@ -69,6 +69,7 @@ public class PlayerAttackState : MonoBehaviour, IState
             StateController.TransitionToState(PlayerMoveState);
         }
     }
+
     public void ExitState()
     {
 

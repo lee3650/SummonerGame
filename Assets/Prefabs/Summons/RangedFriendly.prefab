@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 1740066754483794927}
   - component: {fileID: 2373476659259646865}
   - component: {fileID: -1346322166249631522}
+  - component: {fileID: -6475379290944958394}
   m_Layer: 0
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -391,4 +392,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 1740066754483794926}
+  TravelToPointState: {fileID: -6475379290944958394}
+  StateController: {fileID: 1740066754483794912}
+  TargetSearcher: {fileID: 1740066754483794914}
   ManaRefundAmount: 0
+--- !u!114 &-6475379290944958394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe3be1b9766e9541a6e081663923280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 1740066754483794916}
+  StateToExitTo: {fileID: 1887377134369214885}
+  RotationController: {fileID: 1740066754483794915}

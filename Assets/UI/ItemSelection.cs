@@ -9,6 +9,8 @@ public class ItemSelection : MonoBehaviour
 
     [SerializeField] Transform SelectionImage;
 
+    [SerializeField] PlayerEntity PlayerEntity;
+
     private int ItemSlotsLength;
 
     private const int ZeroIndex = (int)KeyCode.Alpha1;
@@ -74,6 +76,11 @@ public class ItemSelection : MonoBehaviour
 
     private void ChangeSelection(int newSelect)
     {
+        if (!PlayerEntity.CanChangeSelectedItem())
+        {
+            return; 
+        }
+
         print("new selection: " + newSelect);
         if (SelectedItem != null)
         {

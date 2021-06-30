@@ -14,6 +14,8 @@ public class TargetSearcher : MonoBehaviour
 
     private bool ShouldSearchForTarget = true;
 
+    private SearchStates searchState = SearchStates.SearchForTarget;
+
     void Start()
     {
         StartCoroutine(SearchForTarget());
@@ -26,20 +28,42 @@ public class TargetSearcher : MonoBehaviour
 
         while (ShouldSearchForTarget)
         {
-            Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, SightRange);
-
-            List<ILivingEntity> candidates = GetPossibleTargets(cols);
-
-            print("Number of candidates: " + candidates.Count + " from faction " + MyEntity.GetFaction());
-
-            ILivingEntity target = ChooseTargetFromColliders(candidates);
-            
-            if (target != null)
+            switch (searchState)
             {
-                TargetManager.Target = target;
+                case SearchStates.SearchForTarget:
+                    SetTarget();
+                    break;
+                case SearchStates.AssignedTarget:
+                    if (!TargetManager.IsTargetAlive())
+                    {
+                        searchState = SearchStates.SearchForTarget;
+                    }
+                    break;
             }
             
             yield return new WaitForSeconds(SearchSpeed);
+        }
+    }
+
+    public void AssignTarget(ITargetable newTarget)
+    {
+        TargetManager.Target = newTarget;
+        searchState = SearchStates.AssignedTarget;
+    }
+
+    void SetTarget()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, SightRange);
+
+        List<ILivingEntity> candidates = GetPossibleTargets(cols);
+
+        //print("Number of candidates: " + candidates.Count + " from faction " + MyEntity.GetFaction());
+
+        ILivingEntity target = ChooseTargetFromColliders(candidates);
+
+        if (target != null && searchState == SearchStates.SearchForTarget)
+        {
+            TargetManager.Target = target;
         }
     }
 
@@ -116,5 +140,11 @@ public class TargetSearcher : MonoBehaviour
         }
 
         return result; 
+    }
+
+    enum SearchStates
+    {
+        SearchForTarget,
+        AssignedTarget,
     }
 }
