@@ -21,6 +21,15 @@ public class AIEntity : MonoBehaviour, ILivingEntity
         StateController.TransitionToState(AIDeathState);
     }
 
+    public void WakeUp()
+    {
+        AISleepState aISleepState;
+        if (TryGetComponent<AISleepState>(out aISleepState))
+        {
+            aISleepState.WakeUp();
+        }
+    }
+
     public void HandleEvent(Event e)
     {
         switch (e.MyType)

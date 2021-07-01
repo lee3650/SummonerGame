@@ -59,6 +59,9 @@ public class PlayerSummonController : MonoBehaviour
                 print("selectable component should show graphic!");
                 sc.Select();
             }
+
+            Time.timeScale = 0.1f;
+            Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
         }
     }
 
@@ -71,6 +74,9 @@ public class PlayerSummonController : MonoBehaviour
         }
 
         SelectedSummon = null;
+
+        Time.fixedDeltaTime = 1f/50f;
+        Time.timeScale = 1f;
     }
 
     ITargetable GetTargetUnderMouse()

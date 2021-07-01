@@ -6,7 +6,7 @@ public class RangedAttackState : AIAttackState
 {
     //so, we need to serialize a projectile here. That's fine. 
     //I recall the collision code being super complicated. Hm.
-
+    
     [SerializeField] Projectile Projectile;
     [SerializeField] Transform firingPosition;
 

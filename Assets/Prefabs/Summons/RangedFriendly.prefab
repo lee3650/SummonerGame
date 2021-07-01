@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca15db625f30372448b8498f411c888a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackLength: 1
+  AttackLength: 2
   AttackRange: 15
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0

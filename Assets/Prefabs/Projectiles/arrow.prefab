@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8853c215ea9b2a4fb338c7538164486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 6
   EventType: 2
   Velocity: 12
   StickToTarget: 1
