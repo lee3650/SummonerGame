@@ -14,7 +14,14 @@ public class AIAttackState : MonoBehaviour, IState
 
     [SerializeField] TargetManager TargetManager;
 
+    protected AIEntity AIEntity;
+
     float AttackTimer = 0f;
+
+    private void Awake()
+    {
+        AIEntity = GetComponent<AIEntity>();
+    }
 
     public void EnterState()
     {

@@ -10,4 +10,6 @@ public interface ITargetable
 
     Vector2 GetPosition();
 
+    bool CanBeTargeted();
+
 }

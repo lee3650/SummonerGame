@@ -13,6 +13,8 @@ public class RangedAttackState : AIAttackState
     public override void StartAttack()
     {
         Projectile p = Instantiate(Projectile, firingPosition.position, transform.rotation);
+        p.gameObject.layer = LayerMask.NameToLayer(LayerManager.GetProjLayerFromFaction(AIEntity.GetFaction()));
         p.Fire();
     }
+
 }

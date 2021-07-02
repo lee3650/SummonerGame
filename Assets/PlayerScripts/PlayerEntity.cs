@@ -30,6 +30,11 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     }
 
+    public bool CanBeTargeted()
+    {
+        return true; 
+    }
+
     public bool CanChangeSelectedItem()
     {
         if (StateController.GetCurrentState() is PlayerAttackState)

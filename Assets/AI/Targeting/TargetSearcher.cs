@@ -76,7 +76,7 @@ public class TargetSearcher : MonoBehaviour
             ILivingEntity livingEntity;
             if (col.TryGetComponent<ILivingEntity>(out livingEntity))
             {
-                if (livingEntity.IsAlive() && livingEntity.GetFaction() != MyEntity.GetFaction())
+                if (livingEntity.CanBeTargeted() && livingEntity.GetFaction() != MyEntity.GetFaction())
                 {
                     candidates.Add(livingEntity);
                 }

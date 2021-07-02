@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1740066753122141735}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: firingPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: -6475379290944958394}
   - component: {fileID: 6878306609116838067}
   - component: {fileID: 1193450098595219183}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
   m_Icon: {fileID: 0}

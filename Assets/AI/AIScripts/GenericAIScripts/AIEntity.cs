@@ -42,6 +42,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
         }
     }
 
+    public bool CanBeTargeted()
+    {
+        return IsAlive() && (StateController.GetCurrentState() is AISleepState == false); //so, only if we're awake, basically... 
+    }
+
     public bool IsAlive()
     {
         return HealthManager.IsAlive();
