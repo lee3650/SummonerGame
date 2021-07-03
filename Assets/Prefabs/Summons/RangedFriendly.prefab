@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a924acb6055e5a140981e7fa040dcb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingState: {fileID: 1887377134369214885}
+  StartingState: {fileID: 6726932860956113883}
 --- !u!114 &1740066754483794913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1740066754483794916}
   col: {fileID: 1740066754483794920}
+  SpriteRenderer: {fileID: 0}
 --- !u!114 &-6475379290944958394
 MonoBehaviour:
   m_ObjectHideFlags: 0

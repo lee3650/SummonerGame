@@ -43,10 +43,17 @@ public class Projectile : MonoBehaviour, IEntity
         {
             col.enabled = false;
             transform.parent = collision.transform;
+            StartCoroutine(Destroy());
         } 
         else
         {
             Destroy(gameObject);
         }
+    }
+    
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(15f);
+        Destroy(gameObject);
     }
 }

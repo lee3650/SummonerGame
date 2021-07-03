@@ -10,11 +10,17 @@ public class SummonWeapon : Weapon
     [SerializeField] GameObject Summon;
     public bool ReduceMaxMana;
     
-    public override void UseWeapon()
+    public override void UseWeapon(Vector2 mousePos)
     {
-        GameObject summoned = Instantiate(Summon, transform.position + transform.up * 4, transform.rotation);
+        GameObject summoned = Instantiate(Summon, mousePos, transform.rotation);
        
         summoned.GetComponent<Summon>().SetSummoner(Wielder.GetComponent<Summoner>());
+
+        ControllableSummon cs;
+        if (summoned.TryGetComponent<ControllableSummon>(out cs))
+        {
+            cs.HoldPoint(mousePos);
+        }
 
         if (ReduceMaxMana)
         {

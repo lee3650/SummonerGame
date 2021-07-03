@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 8775604864804320806}
   Attack: {fileID: 7400000, guid: ed9838a76592ed34caacc3a5abaf4388, type: 2}
-  Magnitude: 8
+  Magnitude: 4
   EventType: 2
 --- !u!1 &9194925930672925386
 GameObject:
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a924acb6055e5a140981e7fa040dcb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingState: {fileID: 9047250708347553904}
+  StartingState: {fileID: 3520532898615948338}
 --- !u!114 &9194925930672925236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 9194925930672925233}
   col: {fileID: 9194925930672925245}
+  SpriteRenderer: {fileID: 0}
 --- !u!114 &4728165821187000723
 MonoBehaviour:
   m_ObjectHideFlags: 0

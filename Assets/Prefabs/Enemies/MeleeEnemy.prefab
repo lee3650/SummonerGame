@@ -499,5 +499,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 5487195001173321388}
   Attack: {fileID: 7400000, guid: ed9838a76592ed34caacc3a5abaf4388, type: 2}
-  Magnitude: 8
+  Magnitude: 4
   EventType: 2

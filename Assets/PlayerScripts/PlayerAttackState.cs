@@ -31,7 +31,7 @@ public class PlayerAttackState : MonoBehaviour, IState
                 ManaManager.DecreaseMaxMana(attackDecrement);
             }
 
-            weapon.UseWeapon();
+            weapon.UseWeapon(PlayerInput.GetWorldMousePosition());
             
             //play an animation, a sound, stuff like that
         } else

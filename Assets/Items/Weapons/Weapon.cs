@@ -18,7 +18,7 @@ public class Weapon : Item
         return AttackLength;
     }
 
-    public virtual void UseWeapon()
+    public virtual void UseWeapon(Vector2 mousePos)
     {
     }
 

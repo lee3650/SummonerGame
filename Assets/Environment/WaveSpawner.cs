@@ -9,12 +9,30 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveNum = 1;
 
+    float WaveTime = 30f;
+    float timer = 0f;
+
+    bool runTimer = false; 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SpawnEnemies(2 * waveNum);    
-            waveNum++; 
+            SpawnEnemies(waveNum);    
+            waveNum++;
+            runTimer = true;
+            timer = 0f;
+        }
+
+        if (runTimer)
+        {
+            timer += Time.deltaTime;
+            if (timer > WaveTime)
+            {
+                timer = 0f;
+                SpawnEnemies(waveNum);
+                waveNum++; 
+            }
         }
     }
 
