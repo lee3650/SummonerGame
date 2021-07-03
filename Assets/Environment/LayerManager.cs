@@ -7,8 +7,8 @@ public class LayerManager : MonoBehaviour
 
     public void Awake()
     {
-        FactionToProjLayer[Factions.Nonplayer] = "EnemyProjectile";
-        FactionToProjLayer[Factions.Player] = "PlayerProjectile";
+        FactionToProjLayer[Factions.Nonplayer] = "EnemyAttack";
+        FactionToProjLayer[Factions.Player] = "PlayerAttack";
     }
 
     public static string GetProjLayerFromFaction(Factions factions)

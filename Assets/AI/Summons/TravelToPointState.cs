@@ -5,8 +5,9 @@ using UnityEngine;
 public class TravelToPointState : MonoBehaviour, IState
 {
     [SerializeField] MovementController MovementController;
-    [SerializeField] MonoBehaviour StateToExitTo;
+    [SerializeField] FollowSummonerState FollowSummonerState;
     [SerializeField] RotationController RotationController;
+    [SerializeField] AIPursuitState AIPursuitState;
     StateController StateController;
 
     private void Awake()
@@ -22,7 +23,7 @@ public class TravelToPointState : MonoBehaviour, IState
 
     public void EnterState()
     {
-
+        AIPursuitState.SetExitState(FollowSummonerState);
     }
     
     public void UpdateState()
@@ -33,7 +34,7 @@ public class TravelToPointState : MonoBehaviour, IState
             RotationController.FaceForward();
         } else
         {
-            StateController.TransitionToState(StateToExitTo as IState);
+            StateController.TransitionToState(FollowSummonerState as IState);
         }
     }
 

@@ -40,11 +40,30 @@ public class PlayerSummonController : MonoBehaviour
                 DeselectSummon();
             }
         }
+
+        if (ShouldTellSummonToHoldPoint())
+        {
+            if (SelectedSummon != null)
+            {
+                SelectedSummon.HoldPoint(PlayerInput.GetWorldMousePosition());
+                DeselectSummon();
+            }
+        }
     }
-    
+
+    bool ShouldTellSummonToHoldPoint()
+    {
+        return Input.GetKeyDown(KeyCode.E) && UsingController();
+    }
+
     bool MousePressedUsingController(int mouseKey)
     {
-        return Input.GetMouseButtonDown(mouseKey) && ItemSelection.HasItem() && (ItemSelection.SelectedItem.GetItemType() == ItemType.SummonController);
+        return Input.GetMouseButtonDown(mouseKey) && UsingController();
+    }
+
+    bool UsingController()
+    {
+        return ItemSelection.HasItem() && (ItemSelection.SelectedItem.GetItemType() == ItemType.SummonController);
     }
 
     void SelectSummon(ControllableSummon s)
@@ -97,7 +116,7 @@ public class PlayerSummonController : MonoBehaviour
 
     ControllableSummon GetSummonUnderMouse()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 2f);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 0.5f);
         print("colliders found: " + cols.Length);
         foreach (Collider2D col in cols)
         {

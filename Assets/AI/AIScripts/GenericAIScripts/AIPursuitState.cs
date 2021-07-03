@@ -35,6 +35,11 @@ public class AIPursuitState : MonoBehaviour, IState
             AIStateMachine.TransitionToState(ExitToState as IState);
         }
     }
+    
+    public void SetExitState(MonoBehaviour exitState)
+    {
+        ExitToState = exitState;
+    }
 
     public void ExitState()
     {

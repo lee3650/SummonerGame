@@ -10,7 +10,7 @@ public class AIAttackState : MonoBehaviour, IState
     [SerializeField] bool MoveWhileAttacking = false;
 
     [SerializeField] AIStateMachine AIStateMachine;
-    [SerializeField] AIPursuitState AIPursuitState;
+    [SerializeField] AIPursuitState PursuitState;
 
     [SerializeField] TargetManager TargetManager;
 
@@ -27,8 +27,9 @@ public class AIAttackState : MonoBehaviour, IState
     {
         StartAttack();
         AttackTimer = 0f;
+        TargetManager.LookAtTarget();
     }
-    
+
     public void UpdateState()
     {
         AttackTimer += Time.deltaTime;
@@ -45,11 +46,16 @@ public class AIAttackState : MonoBehaviour, IState
 
         if (AttackTimer > AttackLength)
         {
-            AIStateMachine.TransitionToState(AIPursuitState);
+            AIStateMachine.TransitionToState(PursuitState);
         }
     }
 
     public void ExitState()
+    {
+        EndAttack();
+    }
+
+    public virtual void EndAttack()
     {
 
     }

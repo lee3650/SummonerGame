@@ -10,7 +10,7 @@ public class CameraPosition : MonoBehaviour
     public void FixedUpdate()
     {
         Vector2 mousePos = GetWorldMousePos();
-        transform.position = ((Vector2)Player.position + mousePos) / 2;
+        transform.position = ((Vector2)Player.position + (3 * mousePos)) / 4;
     }
 
     Vector2 GetWorldMousePos()
