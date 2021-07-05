@@ -50,6 +50,11 @@ public class Item : MonoBehaviour //base class for every item
         return ItemType;
     }
 
+    public Color GetColor()
+    {
+        return SpriteRenderer.color;
+    }
+
     public virtual void OnDeselection()
     {
         SpriteRenderer.enabled = false;

@@ -12,6 +12,7 @@ public class ItemSlot : MonoBehaviour
     {
         MyItem = item;
         Image.sprite = item.GetInventorySprite();
+        Image.color = item.GetColor();
     }
 
     public Item GetItem()
@@ -23,6 +24,7 @@ public class ItemSlot : MonoBehaviour
     {
         Image.sprite = null;
         MyItem = null;
+        Image.color = Color.white;
     }
 
     public Vector3 GetPosition()
