@@ -11,6 +11,8 @@ public class PlayerAttackState : MonoBehaviour, IState
     [SerializeField] PlayerInput PlayerInput;
     [SerializeField] MovementController MovementController;
 
+    [SerializeField] HealthManager HealthManager;
+
     [SerializeField] PlayerMoveState PlayerMoveState;
     [SerializeField] StateController StateController;
 
@@ -25,7 +27,11 @@ public class PlayerAttackState : MonoBehaviour, IState
             SummonWeapon weapon = ItemSelection.SelectedItem as SummonWeapon;
             float attackDecrement = weapon.GetManaDrain();
 
-            ManaManager.DecreaseMana(attackDecrement);
+            if (ManaManager.TryDecreaseMana(attackDecrement) == false)
+            {
+                HealthManager.SubtractHealth(attackDecrement);
+            }
+
             if (weapon.ReduceMaxMana)
             {
                 ManaManager.DecreaseMaxMana(attackDecrement);
@@ -49,7 +55,7 @@ public class PlayerAttackState : MonoBehaviour, IState
 
         if (weapon != null)
         {
-            if (ManaManager.IsManaMoreThanOrEqual(weapon.GetManaDrain()) && !InventorySlotManager.Active)
+            if (!InventorySlotManager.Active)
             {
                 return true;
             }

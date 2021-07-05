@@ -31,6 +31,15 @@ public class TargetManager : MonoBehaviour
             RotationController.FacePoint(Target.GetPosition());
         }
     }
+    
+    public float DistanceFromTargetToPoint(Vector2 point)
+    {
+        if (Target == null)
+        {
+            throw new System.Exception("Cannot give distance from point to null target!");
+        }
+        return Vector2.Distance(Target.GetPosition(), point); 
+    }
 
     public bool IsTargetAlive()
     {

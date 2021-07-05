@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1090552370236627257}
   col: {fileID: 1090552370236627253}
+  SpriteRenderer: {fileID: 0}
 --- !u!114 &1090552370236627244
 MonoBehaviour:
   m_ObjectHideFlags: 0

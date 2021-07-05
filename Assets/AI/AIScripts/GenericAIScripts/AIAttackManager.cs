@@ -9,7 +9,7 @@ public class AIAttackManager : MonoBehaviour
 
     public bool IsTargetInRange(ITargetable CurrentTarget)
     {
-        if (Vector2.Distance(CurrentTarget.GetPosition(), transform.position) < AttackState.GetAttackRange())
+        if (Vector2.Distance(CurrentTarget.GetPosition(), transform.position) <= AttackState.GetAttackRange())
         {
             return true;
         }

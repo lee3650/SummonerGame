@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AIPursuitState : MonoBehaviour, IState
 {
-    [SerializeField] TargetManager TargetManager;
+    [SerializeField] protected TargetManager TargetManager;
     [SerializeField] AIStateMachine AIStateMachine;
     [SerializeField] MonoBehaviour ExitToState;
-    [SerializeField] MovementController MovementController;
-    [SerializeField] AIAttackManager AIAttackManager;
+    [SerializeField] protected MovementController MovementController;
+    [SerializeField] protected AIAttackManager AIAttackManager;
 
     public void EnterState()
     {
@@ -22,13 +22,15 @@ public class AIPursuitState : MonoBehaviour, IState
     {
         if (TargetManager.Target.IsAlive())
         {
-            if (!AIAttackManager.IsTargetInRange(TargetManager.Target))
+            if (ShouldMoveAtTarget())
             {
                 TargetManager.MoveAtTarget();
             }
             
             TargetManager.LookAtTarget();
-            AIAttackManager.TryAttack(TargetManager.Target); 
+            AIAttackManager.TryAttack(TargetManager.Target);
+
+            MiscUpdate(); 
         }
         else
         {
@@ -36,6 +38,16 @@ public class AIPursuitState : MonoBehaviour, IState
         }
     }
     
+    public virtual void MiscUpdate()
+    {
+
+    }
+
+    public virtual bool ShouldMoveAtTarget()
+    {
+        return !AIAttackManager.IsTargetInRange(TargetManager.Target);
+    }
+
     public void SetExitState(MonoBehaviour exitState)
     {
         ExitToState = exitState;

@@ -5,8 +5,19 @@ using UnityEngine;
 public class Summoner : MonoBehaviour
 {
     [SerializeField] ManaManager ManaManager;
+    ILivingEntity Entity;
 
     List<Summon> Summons = new List<Summon>();
+
+    private void Awake()
+    {
+        Entity = GetComponent<ILivingEntity>();
+    }
+
+    public void OnHit(IEntity hit)
+    {
+        Entity.OnHit(hit);
+    }
 
     public void OnSummonDeath(float manaCost)
     {

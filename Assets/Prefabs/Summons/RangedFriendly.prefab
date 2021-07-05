@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 1887377134369214885}
   - component: {fileID: 1740066754483794915}
   - component: {fileID: 1740066754483794912}
-  - component: {fileID: 1740066754483794913}
   - component: {fileID: 1740066754483794918}
   - component: {fileID: 1740066754483794914}
   - component: {fileID: 1740066754483794923}
@@ -59,6 +58,7 @@ GameObject:
   - component: {fileID: 6878306609116838067}
   - component: {fileID: 1193450098595219183}
   - component: {fileID: 6726932860956113883}
+  - component: {fileID: -1836844598834230740}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -208,7 +208,7 @@ MonoBehaviour:
   RotationController: {fileID: 1740066754483794915}
   TargetManager: {fileID: 1740066754483794918}
   StateController: {fileID: 1740066754483794912}
-  AIPursuitState: {fileID: 1740066754483794913}
+  AIPursuitState: {fileID: -1836844598834230740}
 --- !u!114 &1740066754483794915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,23 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingState: {fileID: 6726932860956113883}
---- !u!114 &1740066754483794913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fe6168976572840a7b2f812f7c2934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetManager: {fileID: 1740066754483794918}
-  AIStateMachine: {fileID: 1740066754483794912}
-  ExitToState: {fileID: 1887377134369214885}
-  MovementController: {fileID: 1740066754483794916}
-  AIAttackManager: {fileID: 1740066754483794924}
 --- !u!114 &1740066754483794918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,9 +301,9 @@ MonoBehaviour:
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1740066754483794912}
-  PursuitState: {fileID: 1740066754483794913}
+  PursuitState: {fileID: -1836844598834230740}
   TargetManager: {fileID: 1740066754483794918}
-  Projectile: {fileID: 919925079335150363, guid: 75df5a1faf357f04792e0d24a67b95cc,
+  Projectile: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
     type: 3}
   firingPosition: {fileID: 1740066753122141735}
 --- !u!114 &1740066754483794924
@@ -396,7 +379,6 @@ MonoBehaviour:
   MovementController: {fileID: 1740066754483794916}
   FollowSummonerState: {fileID: 1887377134369214885}
   RotationController: {fileID: 1740066754483794915}
-  AIPursuitState: {fileID: 1740066754483794913}
 --- !u!114 &6878306609116838067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,8 +425,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db598acab1301a49928751995e02673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PursuitState: {fileID: 1740066754483794913}
+  PursuitState: {fileID: -1836844598834230740}
   MovementController: {fileID: 1740066754483794916}
   RotationController: {fileID: 1740066754483794915}
   TargetManager: {fileID: 1740066754483794918}
   StateController: {fileID: 1740066754483794912}
+--- !u!114 &-1836844598834230740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a1bdfadf9321b4685c517392bdc330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetManager: {fileID: 1740066754483794918}
+  AIStateMachine: {fileID: 1740066754483794912}
+  ExitToState: {fileID: 6726932860956113883}
+  MovementController: {fileID: 1740066754483794916}
+  AIAttackManager: {fileID: 1740066754483794924}
+  HoldPointState: {fileID: 6726932860956113883}

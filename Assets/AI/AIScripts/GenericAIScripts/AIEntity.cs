@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     {
         //enter death state
         StateController.TransitionToState(AIDeathState);
+        if (Faction != Factions.Player)
+        {
+            EnemyDeathManager.OnEnemyDeath();
+        }
     }
 
     public void WakeUp()
@@ -28,6 +33,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
         {
             aISleepState.WakeUp();
         }
+    }
+    
+    public virtual void OnHit(IEntity hit)
+    {
+
     }
 
     public void HandleEvent(Event e)
