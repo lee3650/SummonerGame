@@ -12,6 +12,11 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     StateController StateController;
 
+    private void Awake()
+    {
+        TargetableEntitiesManager.AddTargetable(this);
+    }
+
     private void Start()
     {
         HealthManager.OnDeath += OnDeath;

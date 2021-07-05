@@ -11,6 +11,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     [SerializeField] AIDeathState AIDeathState;
     [SerializeField] StateController StateController;
 
+    private void Awake()
+    {
+        TargetableEntitiesManager.AddTargetable(this);
+    }
+
     private void Start()
     {
         HealthManager.OnDeath += OnDeath;

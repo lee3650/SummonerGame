@@ -53,9 +53,9 @@ public class TargetSearcher : MonoBehaviour
 
     void SetTarget()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, SightRange);
+        List<ILivingEntity> livingEntities = TargetableEntitiesManager.GetTargetables();
 
-        List<ILivingEntity> candidates = GetPossibleTargets(cols);
+        List<ILivingEntity> candidates = GetPossibleTargets(livingEntities);
 
         //print("Number of candidates: " + candidates.Count + " from faction " + MyEntity.GetFaction());
 
@@ -67,19 +67,15 @@ public class TargetSearcher : MonoBehaviour
         }
     }
 
-    List<ILivingEntity> GetPossibleTargets(Collider2D[] cols)
+    List<ILivingEntity> GetPossibleTargets(List<ILivingEntity> livingEntities)
     {
         List<ILivingEntity> candidates = new List<ILivingEntity>();
 
-        foreach (Collider2D col in cols)
+        foreach (ILivingEntity e in livingEntities)
         {
-            ILivingEntity livingEntity;
-            if (col.TryGetComponent<ILivingEntity>(out livingEntity))
+            if (e.CanBeTargeted() && e.GetFaction() != MyEntity.GetFaction())
             {
-                if (livingEntity.CanBeTargeted() && livingEntity.GetFaction() != MyEntity.GetFaction())
-                {
-                    candidates.Add(livingEntity);
-                }
+                candidates.Add(e);
             }
         }
 
