@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 1193450098595219183}
   - component: {fileID: 6726932860956113883}
   - component: {fileID: -1836844598834230740}
+  - component: {fileID: 7656610161056084375}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -448,3 +449,15 @@ MonoBehaviour:
   MovementController: {fileID: 1740066754483794916}
   AIAttackManager: {fileID: 1740066754483794924}
   HoldPointState: {fileID: 6726932860956113883}
+--- !u!114 &7656610161056084375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acab30976aba2f04da030b9447b8f901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

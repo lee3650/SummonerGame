@@ -4,13 +4,33 @@ using UnityEngine;
 
 public class CoatingManager : MonoBehaviour
 {
-    public void ModifyEvent()
+    private Coating CurrentCoating; 
+    
+    public Event ModifyEvent(Event input)
     {
-
+        if (CurrentCoating != null)
+        {
+            return CurrentCoating.GetModifiedEvent(input);
+        } else
+        {
+            return input; 
+        }
+    }
+    
+    public void SetCoating(Coating newCoating)
+    {
+        CurrentCoating = newCoating;
     }
 
-    public void SetCoating()
+    private void Update()
     {
-
+        if (CurrentCoating != null)
+        {
+            CurrentCoating.TimeLeft -= Time.deltaTime;
+            if (CurrentCoating.TimeLeft <= 0f)
+            {
+                CurrentCoating = null; 
+            }
+        }    
     }
 }

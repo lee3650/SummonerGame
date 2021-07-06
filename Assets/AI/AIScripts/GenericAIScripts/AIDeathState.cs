@@ -18,8 +18,15 @@ public class AIDeathState : MonoBehaviour, IState
             SpriteRenderer = GetComponent<SpriteRenderer>();
         }
         SpriteRenderer.color = new Color(SpriteRenderer.color.r, SpriteRenderer.color.g, SpriteRenderer.color.b, 0.25f);
+
+        VirtualEnterState();
     }
     
+    public virtual void VirtualEnterState()
+    {
+
+    }
+
     public void UpdateState()
     {
 

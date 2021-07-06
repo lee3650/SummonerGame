@@ -57,9 +57,13 @@ public class PlayerAttackState : MonoBehaviour, IState
         {
             if (!InventorySlotManager.Active)
             {
-                return true;
+                if (HealthManager.IsHealthGreaterThan(weapon.GetManaDrain()) || ManaManager.IsManaMoreThanOrEqual(weapon.GetManaDrain()))
+                {
+                    return true;
+                }
             }
         }
+
         return false; 
     }
 

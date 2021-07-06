@@ -166,13 +166,14 @@ GameObject:
   - component: {fileID: 9194925930672925241}
   - component: {fileID: 9194925930672925243}
   - component: {fileID: 9194925930672925242}
-  - component: {fileID: 5138410804603435588}
   - component: {fileID: 4728165821187000723}
   - component: {fileID: 4092543355812176230}
   - component: {fileID: 8588638947005751098}
   - component: {fileID: 9194925930672925389}
   - component: {fileID: 3520532898615948338}
   - component: {fileID: 5632586608850875388}
+  - component: {fileID: -6588670612194777328}
+  - component: {fileID: -1732080778231695159}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -396,8 +397,9 @@ MonoBehaviour:
   Faction: 0
   Precedence: 5
   HealthManager: {fileID: 9194925930672925243}
-  AIDeathState: {fileID: 5138410804603435588}
+  AIDeathState: {fileID: -1732080778231695159}
   StateController: {fileID: 9194925930672925237}
+  CoatingManager: {fileID: 0}
 --- !u!114 &9194925930672925241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,21 +443,6 @@ MonoBehaviour:
   HealthManager: {fileID: 9194925930672925243}
   Height: 1.5
   WidthAdjustment: -0.85
---- !u!114 &5138410804603435588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194925930672925386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c276181bedd4c8c4199c7c878985e664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementController: {fileID: 9194925930672925233}
-  col: {fileID: 9194925930672925245}
-  SpriteRenderer: {fileID: 0}
 --- !u!114 &4728165821187000723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,3 +547,31 @@ MonoBehaviour:
   MovementController: {fileID: 9194925930672925233}
   AIAttackManager: {fileID: 9194925930672925241}
   HoldPointState: {fileID: 3520532898615948338}
+--- !u!114 &-6588670612194777328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acab30976aba2f04da030b9447b8f901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1732080778231695159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39c05975e477864a8741c1be6025de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 9194925930672925233}
+  col: {fileID: 9194925930672925245}
+  SpriteRenderer: {fileID: 0}
+  MeleeWeapon: {fileID: 8775604864804320805}

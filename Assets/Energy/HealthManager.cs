@@ -21,6 +21,11 @@ public class HealthManager : MonoBehaviour, IEnergyManager
         return CurrentHealth > 0f;
     }
 
+    public bool IsHealthGreaterThan(float amt)
+    {
+        return CurrentHealth > amt; 
+    }
+    
     public float GetHealthPercentage()
     {
         return CurrentHealth / MaxHealth;

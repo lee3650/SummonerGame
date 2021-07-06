@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e355910d32884468664609724db8ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
+  Damage: 12
   EventType: 2
 --- !u!114 &5154709158764781020
 MonoBehaviour:

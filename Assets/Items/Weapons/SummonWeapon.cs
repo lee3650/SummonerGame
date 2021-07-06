@@ -8,11 +8,13 @@ public class SummonWeapon : Weapon
     //What exactly is the point of the Weapon class? 
 
     [SerializeField] GameObject Summon;
-    public bool ReduceMaxMana;
+    [SerializeField] float rotationOffset; 
     
+    public bool ReduceMaxMana;
+        
     public override void UseWeapon(Vector2 mousePos)
     {
-        GameObject summoned = Instantiate(Summon, mousePos, transform.rotation);
+        GameObject summoned = Instantiate(Summon, mousePos, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset)));
        
         summoned.GetComponent<Summon>().SetSummoner(Wielder.GetComponent<Summoner>());
 

@@ -10,10 +10,15 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     [SerializeField] HealthManager HealthManager;
     [SerializeField] AIDeathState AIDeathState;
     [SerializeField] StateController StateController;
+    [SerializeField] CoatingManager CoatingManager;
 
     private void Awake()
     {
         TargetableEntitiesManager.AddTargetable(this);
+        if (CoatingManager == null)
+        {
+            CoatingManager = GetComponent<CoatingManager>();
+        }
     }
 
     private void Start()
@@ -47,6 +52,8 @@ public class AIEntity : MonoBehaviour, ILivingEntity
 
     public void HandleEvent(Event e)
     {
+        e = CoatingManager.ModifyEvent(e);
+
         switch (e.MyType)
         {
             case EventType.Fire:

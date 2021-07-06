@@ -9,12 +9,17 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
     [SerializeField] HealthManager HealthManager;
     [SerializeField] Collider2D col;
     [SerializeField] PlayerDeathState PlayerDeathState;
+    [SerializeField] CoatingManager CoatingManager;
 
     StateController StateController;
 
     private void Awake()
     {
         TargetableEntitiesManager.AddTargetable(this);
+        if (CoatingManager == null)
+        {
+            CoatingManager = GetComponent<CoatingManager>();
+        }
     }
 
     private void Start()
@@ -78,6 +83,8 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     public void HandleEvent (Event e)
     {
+        e = CoatingManager.ModifyEvent(e);
+
         switch (e.MyType)
         {
             case EventType.Fire:
