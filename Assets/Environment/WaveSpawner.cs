@@ -8,50 +8,96 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] PlayerEntity PlayerEntity;
     [SerializeField] List<GameObject> Enemies;
+    [SerializeField] Slider Slider;
     [SerializeField] TextMeshProUGUI WaveText;
+    [SerializeField] TextMeshProUGUI NextWaveText;
     [SerializeField] Transform TopRight, BottomLeft; //this is of the spawn zone. 
+
+    List<GameObject> NextWave = new List<GameObject>(); 
 
     private int waveNum = 1;
 
     float WaveTime = 30f;
     float timer = 0f;
 
-    bool runTimer = false; 
+    bool runTimer = false;
+
+    private void Awake()
+    {
+        GenerateNextWave(1);
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SpawnEnemies(waveNum);    
-            waveNum++;
-            runTimer = true;
-            timer = 0f;
-        }
+        WaveText.text = "Wave: " + waveNum;
 
         if (runTimer)
         {
             timer += Time.deltaTime;
             if (timer > WaveTime)
             {
-                timer = 0f;
-                SpawnEnemies(waveNum);
-                waveNum++; 
+                SpawnAndGenerateWave();
             }
         }
+
+        Slider.value = timer; 
     }
 
-    void SpawnEnemies(int num)
+    void GenerateNextWave(int num)
     {
-        WaveText.text = "Wave: " + waveNum;
+        NextWave = new List<GameObject>();
 
         for (int i = 0; i < num; i++)
         {
-            GameObject enemy = Instantiate(Enemies[Random.Range(0, Enemies.Count)], GetRandomPointInSpawnZone(), Quaternion.Euler(Vector3.zero));
+            NextWave.Add(Enemies[Random.Range(0, Enemies.Count)]);
+        }
+
+        UpdateNextWaveUI();
+    }
+
+    public void SpawnAndGenerateWave()
+    {
+        timer = 0f;
+        SpawnNextWave();
+        waveNum++;
+        GenerateNextWave(waveNum);
+        runTimer = true;
+    }
+
+    void UpdateNextWaveUI()
+    {
+        NextWaveText.text = "";
+
+        Dictionary<string, int> enemyNameToNum = new Dictionary<string, int>();
+
+        foreach (GameObject g in NextWave)
+        {
+            if (enemyNameToNum.ContainsKey(g.name))
+            {
+                enemyNameToNum[g.name] += 1; 
+
+            } else
+            {
+                enemyNameToNum[g.name] = 1;
+            }
+        }
+
+        foreach (KeyValuePair<string, int> keyPair in enemyNameToNum)
+        {
+            NextWaveText.text += keyPair.Key + " x " + keyPair.Value + "\n";
+        }
+    }
+    
+    void SpawnNextWave()
+    {
+        for (int i = 0; i < NextWave.Count; i++)
+        {
+            GameObject enemy = Instantiate(NextWave[i], GetRandomPointInSpawnZone(), Quaternion.Euler(Vector3.zero));
             enemy.GetComponent<AIEntity>().WakeUp();
             enemy.GetComponent<TargetManager>().Target = PlayerEntity;
         }
     }
-    
+
     Vector2 GetRandomPointInSpawnZone()
     {
         return new Vector2(Random.Range(BottomLeft.position.x, TopRight.position.x), Random.Range(BottomLeft.position.y, TopRight.position.y)); 
