@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5487195000452624890}
   - component: {fileID: 5487195000452624891}
-  - component: {fileID: 5487195000452624888}
   - component: {fileID: 5487195000452624889}
   - component: {fileID: 5487195000452624838}
   - component: {fileID: 5487195000452624839}
@@ -27,6 +26,7 @@ GameObject:
   - component: {fileID: 5487195000452624846}
   - component: {fileID: 4876094762447304020}
   - component: {fileID: 5175556300910716848}
+  - component: {fileID: 4792795634857391296}
   m_Layer: 12
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -98,32 +98,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5487195000452624888
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5487195000452624840}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.002216339, y: 0.046459794}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.25}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0766876, y: 0.6464608}
-  m_EdgeRadius: 0
 --- !u!50 &5487195000452624889
 Rigidbody2D:
   serializedVersion: 4
@@ -370,9 +344,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementController: {fileID: 5487195000452624838}
-  col: {fileID: 5487195000452624888}
+  col: {fileID: 4792795634857391296}
   SpriteRenderer: {fileID: 0}
   MeleeWeapon: {fileID: 5487195001173321385}
+--- !u!58 &4792795634857391296
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.03}
+  serializedVersion: 2
+  m_Radius: 0.44
 --- !u!1 &5487195001173321385
 GameObject:
   m_ObjectHideFlags: 0

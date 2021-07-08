@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1740066754483794922}
   - component: {fileID: 1740066754483794921}
-  - component: {fileID: 1740066754483794920}
   - component: {fileID: 1740066754483794919}
   - component: {fileID: 1740066754483794916}
   - component: {fileID: 1887377134369214885}
@@ -60,6 +59,7 @@ GameObject:
   - component: {fileID: 6726932860956113883}
   - component: {fileID: -1836844598834230740}
   - component: {fileID: 7656610161056084375}
+  - component: {fileID: 7390820102105440794}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -131,32 +131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1740066754483794920
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.002216339, y: 0.046459794}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.25}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0766876, y: 0.6464608}
-  m_EdgeRadius: 0
 --- !u!50 &1740066754483794919
 Rigidbody2D:
   serializedVersion: 4
@@ -285,6 +259,7 @@ MonoBehaviour:
   HealthManager: {fileID: 1740066754483794926}
   AIDeathState: {fileID: 2373476659259646865}
   StateController: {fileID: 1740066754483794912}
+  CoatingManager: {fileID: 0}
 --- !u!114 &1740066754483794925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1740066754483794916}
-  col: {fileID: 1740066754483794920}
+  col: {fileID: 7390820102105440794}
   SpriteRenderer: {fileID: 0}
 --- !u!114 &-6475379290944958394
 MonoBehaviour:
@@ -461,3 +436,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acab30976aba2f04da030b9447b8f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &7390820102105440794
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.42
