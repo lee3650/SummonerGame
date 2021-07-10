@@ -10,6 +10,8 @@ public class HoldPointState : MonoBehaviour, IState
     [SerializeField] TargetManager TargetManager;
     [SerializeField] StateController StateController;
 
+    Vector2 pointToHold; 
+
     public void EnterState()
     {
         PursuitState.SetExitState(this);
@@ -17,13 +19,13 @@ public class HoldPointState : MonoBehaviour, IState
 
     public void UpdateState()
     {
-        if (Vector2.Distance(transform.position, PointToHold) > 0.5f)
+        if (Vector2.Distance(transform.position, PointToHold) > 0.75f)
         {
-            MovementController.MoveTowardPoint(PointToHold);
+            MovementController.MonitorGoalAndFollowPath();
             RotationController.FaceForward();
         }
 
-        if (TargetManager.HasTarget())
+        if (TargetManager.HasTarget() && Vector2.Distance(transform.position, PointToHold) < 2.5f)
         {
             StateController.TransitionToState(PursuitState);
         }
@@ -35,7 +37,14 @@ public class HoldPointState : MonoBehaviour, IState
 
     public Vector2 PointToHold
     {
-        get;
-        set;
+        get
+        {
+            return pointToHold; 
+        }
+        set
+        {
+            pointToHold = value;
+            MovementController.SetPathfindGoal(pointToHold);
+        }
     }
 }

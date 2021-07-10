@@ -27,22 +27,52 @@ public class MovementController : MonoBehaviour
     {
         if (pathfindPath == null)
         {
-            //print("pathfindpath was null!");
+            print("pathfindpath was null!");
             return; 
         }
 
-        MoveTowardPoint(new Vector2(pathfindPath.x, pathfindPath.y));
-
-        if (Vector2.Distance(new Vector2(pathfindPath.x, pathfindPath.y), transform.position) < 0.1f)
+        if ((pathfindPath.x != (int)pathfindGoal.x && pathfindPath.y != (int)pathfindGoal.y) && CanSeePathfindTarget())
         {
-            pathfindPath = pathfindPath.ParentNode; 
+            pathfindPath = new SearchNode((int)pathfindGoal.x, (int)pathfindGoal.y);
         }
+        else
+        {
+            MoveTowardPoint(new Vector2(pathfindPath.x, pathfindPath.y));
+
+            if (Vector2.Distance(new Vector2(pathfindPath.x, pathfindPath.y), transform.position) < 0.25f)
+            {
+                if (pathfindPath.ParentNode != null)
+                {
+                    pathfindPath = pathfindPath.ParentNode;
+                }
+            }
+        }
+    }
+
+    bool CanSeePathfindTarget()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, (pathfindGoal - (Vector2)transform.position), Vector2.Distance(pathfindGoal, transform.position));
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.transform.CompareTag("Untraversable"))
+            {
+                return false; 
+            }
+        }
+
+        return true; 
     }
 
     public void SetPathfindGoal(Vector2 goal)
     {
         pathfindGoal = goal;
-        pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position);
+        if (CanSeePathfindTarget())
+        {
+            pathfindPath = new SearchNode((int)goal.x, (int)goal.y);
+        } else
+        {
+            pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position);
+        }
     }
 
     public void MoveInDirection(Vector2 dir)

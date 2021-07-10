@@ -12,6 +12,8 @@ public class AIPursuitState : MonoBehaviour, IState
 
     RotationController RotationController;
 
+    Vector2 oldTargetPos; 
+
     private void Awake()
     {
         RotationController = GetComponent<RotationController>();
@@ -25,6 +27,7 @@ public class AIPursuitState : MonoBehaviour, IState
         }
         
         MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
+        oldTargetPos = TargetManager.Target.GetPosition();
     }
 
     public void UpdateState()
@@ -35,6 +38,12 @@ public class AIPursuitState : MonoBehaviour, IState
             {
                 TargetManager.MoveAtTarget();
                 RotationController.FaceForward();
+                
+                if (Vector2.Distance(oldTargetPos, TargetManager.Target.GetPosition()) > 3) 
+                {
+                    oldTargetPos = TargetManager.Target.GetPosition();
+                    MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
+                }
             }
             
             //TargetManager.LookAtTarget();

@@ -10,7 +10,7 @@ public class SummonPursuitState : AIPursuitState
     {
         if (Vector2.Distance(transform.position, HoldPointState.PointToHold) > 2f)
         {
-            MovementController.MoveTowardPoint(HoldPointState.PointToHold);
+            MovementController.MonitorGoalAndFollowPath();
         }
     }
     
