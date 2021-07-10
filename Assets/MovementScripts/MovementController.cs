@@ -9,6 +9,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] float MoveSpeed;
     [SerializeField] float Sensitivity;
 
+    Vector2 pathfindGoal;
+    SearchNode pathfindPath = null; 
+
     void Start()
     {
         
@@ -18,6 +21,28 @@ public class MovementController : MonoBehaviour
     {
         Vector2 dir = worldPoint - rb.position;
         MoveInDirection(dir.normalized);
+    }
+
+    public void MonitorGoalAndFollowPath()
+    {
+        if (pathfindPath == null)
+        {
+            //print("pathfindpath was null!");
+            return; 
+        }
+
+        MoveTowardPoint(new Vector2(pathfindPath.x, pathfindPath.y));
+
+        if (Vector2.Distance(new Vector2(pathfindPath.x, pathfindPath.y), transform.position) < 0.1f)
+        {
+            pathfindPath = pathfindPath.ParentNode; 
+        }
+    }
+
+    public void SetPathfindGoal(Vector2 goal)
+    {
+        pathfindGoal = goal;
+        pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position);
     }
 
     public void MoveInDirection(Vector2 dir)

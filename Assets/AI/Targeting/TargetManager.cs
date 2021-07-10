@@ -20,8 +20,12 @@ public class TargetManager : MonoBehaviour
 
     public void MoveAtTarget()
     {
-        Vector2 dir = Target.GetPosition() - (Vector2)transform.position;
-        MovementController.MoveInDirection(dir.normalized);
+        //MovementController.GoToPointWithPathfindingIfNecessary(Target.GetPosition());
+
+        MovementController.MonitorGoalAndFollowPath(); //so this pretty much breaks everything, yeah? 
+
+        //Vector2 dir = Target.GetPosition() - (Vector2)transform.position;
+        //MovementController.MoveInDirection(dir.normalized);
     }
 
     public void LookAtTarget()

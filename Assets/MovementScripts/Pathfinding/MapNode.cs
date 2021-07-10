@@ -5,7 +5,10 @@ using UnityEngine;
 public class MapNode 
 {
     public bool Traversable;
-    public TileType TileType;
+    public MapNode(bool traversable)
+    {
+        Traversable = traversable;
+    }
 }
 
 public enum TileType

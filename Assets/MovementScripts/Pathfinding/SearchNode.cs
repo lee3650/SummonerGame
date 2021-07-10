@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SearchNode
 {
-    public SearchNode NextNode = null; //so, just next? Should we go both ways? Eh, alright. 
-    public SearchNode PrevNode = null;
+    public SearchNode NextNode = null; 
 
     public SearchNode ParentNode = null; 
 

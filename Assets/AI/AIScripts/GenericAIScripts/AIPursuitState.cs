@@ -10,12 +10,21 @@ public class AIPursuitState : MonoBehaviour, IState
     [SerializeField] protected MovementController MovementController;
     [SerializeField] protected AIAttackManager AIAttackManager;
 
+    RotationController RotationController;
+
+    private void Awake()
+    {
+        RotationController = GetComponent<RotationController>();
+    }
+
     public void EnterState()
     {
         if (TargetManager.Target == null)
         {
             throw new System.Exception("No target?");
         }
+        
+        MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
     }
 
     public void UpdateState()
@@ -25,9 +34,10 @@ public class AIPursuitState : MonoBehaviour, IState
             if (ShouldMoveAtTarget())
             {
                 TargetManager.MoveAtTarget();
+                RotationController.FaceForward();
             }
             
-            TargetManager.LookAtTarget();
+            //TargetManager.LookAtTarget();
             AIAttackManager.TryAttack(TargetManager.Target);
 
             MiscUpdate(); 
