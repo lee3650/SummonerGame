@@ -21,5 +21,6 @@ public enum TileType
 {
     Water,
     Land,
-    Undefined, 
+    Valley,
+    Bridge, 
 }

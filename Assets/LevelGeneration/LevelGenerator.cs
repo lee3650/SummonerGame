@@ -7,24 +7,46 @@ public class LevelGenerator : MonoBehaviour
 {
     [SerializeField] MapGenerator MapGenerator;
     [SerializeField] WaveSpawner WaveSpawner;
+    [SerializeField] MapDrawer MapDrawer;
     private int levelNum;
 
     int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 
 
     public void GenerateNextLevel()
     {
+        MapDrawer.DestroyOldMap();
+
         Vector2 mapSize = GetMapSize(levelNum);
-        
+
+        MapManager.SetMapSize(mapSize);
+
         List<MapFeature> features = GetMapFeatures(levelNum);
 
         //we need to generate a list of features based on the level number 
-        MapNode[,] newMap = MapGenerator.GenerateLevel(mapSize, features);
+        MapNode[,] newMap = MapGenerator.GenerateLevel((int)mapSize.x, (int)mapSize.y, features);
 
         List<Vector2> spawnRegion = GenerateSpawnRegion(mapSize, levelNum); //this will have to depend on the terrain - we don't want to spawn entities on an invalid tile. 
-            
+
+        RemoveInvalidTiles(spawnRegion, newMap); 
+
         WaveSpawner.SetSpawnRegion(spawnRegion);
 
+        MapManager.SetMap(newMap);
+
+        MapDrawer.InstantiateMap(newMap);
+
         levelNum++; 
+    }
+
+    void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
+    {
+        for (int i = spawnRegion.Count - 1; i >= 0; i--)
+        {
+            if (map[(int)spawnRegion[i].x, (int)spawnRegion[i].y].Traversable == false)
+            {
+                spawnRegion.RemoveAt(i);
+            } 
+        }
     }
 
     //so, this isn't deterministic, which I guess is good. 

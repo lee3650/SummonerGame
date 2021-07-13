@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class MapManager
 {
-    public const int xSize = 36;
-    public const int ySize = 17;
+    public static int xSize = 36;
+    public static int ySize = 17;
 
     static MapNode[,] Map = new MapNode[xSize, ySize]; //I believe all these entries are automatically null. 
+    
+    public static void SetMapSize(Vector2 mapSize)
+    {
+        xSize = (int)mapSize.x;
+        ySize = (int)mapSize.y;
+    }
+
+    public static void SetMap(MapNode[,] newMap)
+    {
+        Map = newMap;
+    }
 
     public static bool IsPointTraversable(Vector2 point)
     {

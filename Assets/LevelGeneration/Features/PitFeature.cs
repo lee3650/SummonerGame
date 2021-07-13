@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PitFeature : MapFeature
 {
+    public override void AddFeature(int xSize, int ySize, MapNode[,] map)
+    {
 
+    }
 }
