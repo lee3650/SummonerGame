@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //so, this should take instead a list of 'features' 
+    public MapNode[,] GenerateLevel(Vector2 dimension, List<MapFeature> features)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //last step needs to be surrounding the map with walls - yeah this is kind of lame because 'dimension' has to be subtracted 1 from. 
     }
 }

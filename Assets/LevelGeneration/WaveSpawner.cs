@@ -11,7 +11,11 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Slider Slider;
     [SerializeField] TextMeshProUGUI WaveText;
     [SerializeField] TextMeshProUGUI NextWaveText;
-    [SerializeField] Transform TopRight, BottomLeft; //this is of the spawn zone. 
+
+    [SerializeField] Transform BottomLeft, TopRight;
+    [SerializeField] bool UseTransforms; 
+
+    List<Vector2> SpawnRegion; 
 
     List<GameObject> NextWave = new List<GameObject>(); 
 
@@ -24,7 +28,17 @@ public class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
+        if (UseTransforms)
+        {
+            SpawnRegion = LevelGenerator.GetPointsWithinBoundaries(BottomLeft.position, TopRight.position);
+        }
+
         GenerateNextWave(1);
+    }
+
+    public void SetSpawnRegion(List<Vector2> region)
+    {
+        SpawnRegion = region; 
     }
 
     private void Update()
@@ -100,6 +114,6 @@ public class WaveSpawner : MonoBehaviour
 
     Vector2 GetRandomPointInSpawnZone()
     {
-        return new Vector2(Random.Range(BottomLeft.position.x, TopRight.position.x), Random.Range(BottomLeft.position.y, TopRight.position.y)); 
+        return SpawnRegion[Random.Range(0, SpawnRegion.Count)]; 
     }
 }
