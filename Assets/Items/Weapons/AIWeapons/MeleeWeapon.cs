@@ -2,12 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class MeleeWeapon : MonoBehaviour, IDamager
 {
     [SerializeField] Animator Animator;
     [SerializeField] AnimationClip Attack;
     [SerializeField] float Magnitude;
     [SerializeField] EventType EventType;
+
+    List<Event> EventsToApplyOnHit = new List<Event>();
+
+    private void Awake()
+    {
+        EventsToApplyOnHit.Add(new Event(EventType, Magnitude));
+    }
+
+    public void AddAttackModifier(Event e)
+    {
+        EventsToApplyOnHit.Add(e);
+    }
 
     public void StartAttack()
     {
@@ -25,6 +37,9 @@ public class MeleeWeapon : MonoBehaviour
 
     protected virtual void HandleCollision(IEntity entity)
     {
-        entity.HandleEvent(new Event(EventType, Magnitude));
+        foreach (Event e in EventsToApplyOnHit)
+        {
+            entity.HandleEvent(e);
+        }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Summoner : MonoBehaviour
 {
     [SerializeField] ManaManager ManaManager;
+    [SerializeField] CharmManager CharmManager;
     ILivingEntity Entity;
 
     List<Summon> Summons = new List<Summon>();
@@ -13,6 +14,28 @@ public class Summoner : MonoBehaviour
     private void Awake()
     {
         Entity = GetComponent<ILivingEntity>();
+    }
+
+    public void AddCharm(Charm charm)
+    {
+        CharmManager.AddCharm(charm);
+        foreach (Summon s in Summons)
+        {
+            TryAddCharmToSummon(s, charm);
+        }
+    }
+
+    void TryAddCharmToSummon(Summon s, Charm charm)
+    {
+        if (charm.ApplyToType(s.GetSummonType()) && charm.HasAttackModifier())
+        {
+            s.AddAttackCharm(charm);
+        }
+    }
+
+    public Event GetCharmModifiedEvent(Event e, SummonType type)
+    {
+        return CharmManager.GetCharmModifiedEvent(e, type);
     }
 
     public void OnHit(IEntity hit)
@@ -28,6 +51,11 @@ public class Summoner : MonoBehaviour
     public void AddSummonToParty(Summon s)
     {
         Summons.Add(s);
+        print("Charms: " + CharmManager.GetCharms().Count);
+        foreach (Charm c in CharmManager.GetCharms())
+        {
+            TryAddCharmToSummon(s, c);
+        }
     }
 
     public void RemoveSummonFromParty(Summon s)
@@ -52,7 +80,10 @@ public class Summoner : MonoBehaviour
                 ManaManager.IncreaseMaxMana(10f);
                 ManaManager.IncreaseMana(10f);
             }
-            Destroy(s.gameObject);
+            if (s != null)
+            {
+                Destroy(s.gameObject);
+            } 
         }
 
         Summons = new List<Summon>();

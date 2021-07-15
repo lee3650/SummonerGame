@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 0}
+  SummonType: 1
   ManaRefundAmount: 0
 --- !u!212 &5154709158764781011
 SpriteRenderer:

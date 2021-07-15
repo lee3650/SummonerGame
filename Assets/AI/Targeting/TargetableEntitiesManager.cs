@@ -10,7 +10,11 @@ public class TargetableEntitiesManager : MonoBehaviour
     {
         AllTargetables.Add(targetable);
     }
-    //do we need to remove them? Eh, probably not. 
+
+    public static void RemoveTargetable(ILivingEntity targetable)
+    {
+        AllTargetables.Remove(targetable);
+    }
 
     public static List<ILivingEntity> GetTargetables()
     {

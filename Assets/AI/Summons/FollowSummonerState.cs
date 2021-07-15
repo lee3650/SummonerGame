@@ -32,7 +32,7 @@ public class FollowSummonerState : MonoBehaviour, IState
             LookAtSummoner();
         }
 
-        if (TargetManager.HasTarget())
+        if (TargetManager.HasLivingTarget())
         {
             StateController.TransitionToState(AIPursuitState);
         }

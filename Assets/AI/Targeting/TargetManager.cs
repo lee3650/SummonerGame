@@ -9,11 +9,11 @@ public class TargetManager : MonoBehaviour
 
     private ITargetable target;
 
-    public bool HasTarget()
+    public bool HasLivingTarget()
     {
         if (Target != null)
         {
-            return true;
+            return Target.IsAlive();
         }
         return false; 
     }
@@ -47,13 +47,13 @@ public class TargetManager : MonoBehaviour
 
     public bool IsTargetAlive()
     {
-        if (HasTarget())
+        if (Target != null)
         {
             return Target.IsAlive();
         }
         return false;
     }
-
+    
     public ITargetable Target
     {
         get

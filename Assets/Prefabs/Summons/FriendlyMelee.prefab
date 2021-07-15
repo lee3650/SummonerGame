@@ -161,7 +161,6 @@ GameObject:
   - component: {fileID: 9194925930672925237}
   - component: {fileID: 9194925930672925235}
   - component: {fileID: 9194925930672925239}
-  - component: {fileID: 9194925930672925246}
   - component: {fileID: 9194925930672925241}
   - component: {fileID: 9194925930672925243}
   - component: {fileID: 9194925930672925242}
@@ -174,6 +173,7 @@ GameObject:
   - component: {fileID: -6588670612194777328}
   - component: {fileID: -1732080778231695159}
   - component: {fileID: 8709340639070952995}
+  - component: {fileID: 5690190742799855652}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -353,27 +353,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SightRange: 20
   UsePrecedence: 0
-  MyEntity: {fileID: 9194925930672925246}
+  MyEntity: {fileID: 5690190742799855652}
   TargetManager: {fileID: 9194925930672925235}
   SearchSpeed: 1
---- !u!114 &9194925930672925246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194925930672925386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f24b6a9c486d3254b8adcdd0827202df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Faction: 0
-  Precedence: 5
-  HealthManager: {fileID: 9194925930672925243}
-  AIDeathState: {fileID: -1732080778231695159}
-  StateController: {fileID: 9194925930672925237}
-  CoatingManager: {fileID: 0}
 --- !u!114 &9194925930672925241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 9194925930672925243}
+  SummonType: 2
+  Damager: {fileID: 8775604864804320804}
   ManaRefundAmount: 0
   TravelToPointState: {fileID: 4728165821187000723}
   StateController: {fileID: 9194925930672925237}
@@ -547,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 9194925930672925233}
   col: {fileID: 8709340639070952995}
-  SpriteRenderer: {fileID: 0}
+  SpriteRenderer: {fileID: 9194925930672925244}
   MeleeWeapon: {fileID: 8775604864804320805}
 --- !u!58 &8709340639070952995
 CircleCollider2D:
@@ -565,3 +549,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.03}
   serializedVersion: 2
   m_Radius: 0.44
+--- !u!114 &5690190742799855652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc8c77baeaeb7646a2955d56a6f0a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Faction: 0
+  Precedence: 5
+  HealthManager: {fileID: 9194925930672925243}
+  AIDeathState: {fileID: -1732080778231695159}
+  StateController: {fileID: 9194925930672925237}
+  CoatingManager: {fileID: -6588670612194777328}
+  summon: {fileID: 4092543355812176230}

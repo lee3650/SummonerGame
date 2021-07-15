@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType 
+public interface IDamager
 {
-    Weapon,
-    SummonController, 
-    Charm, 
+    void AddAttackModifier(Event modifier);
 }

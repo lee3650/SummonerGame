@@ -15,6 +15,7 @@ public class HoldPointState : MonoBehaviour, IState
     public void EnterState()
     {
         PursuitState.SetExitState(this);
+        MovementController.SetPathfindGoal(pointToHold);
     }
 
     public void UpdateState()
@@ -25,7 +26,7 @@ public class HoldPointState : MonoBehaviour, IState
             RotationController.FaceForward();
         }
 
-        if (TargetManager.HasTarget() && Vector2.Distance(transform.position, PointToHold) < 2.5f)
+        if (TargetManager.HasLivingTarget() && Vector2.Distance(transform.position, PointToHold) < 2.5f)
         {
             StateController.TransitionToState(PursuitState);
         }
@@ -44,7 +45,6 @@ public class HoldPointState : MonoBehaviour, IState
         set
         {
             pointToHold = value;
-            MovementController.SetPathfindGoal(pointToHold);
         }
     }
 }

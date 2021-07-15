@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IEntity
+public class Projectile : MonoBehaviour, IEntity, IDamager
 {
     [SerializeField] float Damage;
     [SerializeField] EventType EventType;
@@ -12,6 +12,13 @@ public class Projectile : MonoBehaviour, IEntity
     [SerializeField] MovementController MovementController;
     [SerializeField] Collider2D col;
 
+    List<Event> EventsToApply = new List<Event>();
+
+    private void Awake()
+    {
+        EventsToApply.Add(new Event(EventType, Damage));
+    }
+
     public void Fire()
     {
         MovementController.SetVelocity(transform.up, Velocity);
@@ -19,7 +26,12 @@ public class Projectile : MonoBehaviour, IEntity
 
     public void HandleEvent(Event e)
     {
+        
+    }
 
+    public void AddAttackModifier(Event e)
+    {
+        EventsToApply.Add(e);
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,7 +39,6 @@ public class Projectile : MonoBehaviour, IEntity
         //so, if it's an entity, we apply event
         //no matter what, we parent if StickToTarget is true. 
 
-        Event myEvent = new Event(EventType, Damage);
 
         MovementController.SetVelocity(Vector2.zero, 0f);
         MovementController.DisableRigidbody();
@@ -36,7 +47,10 @@ public class Projectile : MonoBehaviour, IEntity
         IEntity entity;
         if (collision.transform.TryGetComponent<IEntity>(out entity))
         {
-            entity.HandleEvent(myEvent);
+            foreach (Event e in EventsToApply)
+            {
+                entity.HandleEvent(e);
+            }
         }
 
         if (StickToTarget)

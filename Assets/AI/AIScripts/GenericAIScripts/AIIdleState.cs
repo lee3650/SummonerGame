@@ -15,7 +15,7 @@ public class AIIdleState : MonoBehaviour, IState
 
     public void UpdateState()
     {
-        if (TargetManager.HasTarget())
+        if (TargetManager.HasLivingTarget())
         {
             StateController.TransitionToState(PursuitState);
         }

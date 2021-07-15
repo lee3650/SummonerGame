@@ -5,14 +5,6 @@ using UnityEngine;
 public class SummonPursuitState : AIPursuitState
 {
     [SerializeField] HoldPointState HoldPointState;
-
-    public override void MiscUpdate()
-    {
-        if (Vector2.Distance(transform.position, HoldPointState.PointToHold) > 2f)
-        {
-            MovementController.MonitorGoalAndFollowPath();
-        }
-    }
     
     public override bool ShouldMoveAtTarget()
     {

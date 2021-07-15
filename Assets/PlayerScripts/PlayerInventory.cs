@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInventory : Inventory
 {
     [SerializeField] private float ReachRadius;
+    [SerializeField] Summoner MySummoner;
 
     public void Update()
     {
@@ -28,6 +29,10 @@ public class PlayerInventory : Inventory
                 if (item.CanBePickedUp())
                 {
                     PickUpItem(item);
+                    if (item.GetItemType() == ItemType.Charm)
+                    {
+                        MySummoner.AddCharm(item.GetComponent<Charm>());
+                    }
                 }
             }
         }

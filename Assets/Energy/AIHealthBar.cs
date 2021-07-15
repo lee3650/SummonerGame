@@ -13,6 +13,14 @@ public class AIHealthBar : MonoBehaviour
     Transform healthGraphic;
     float defaultScale;
 
+    private void OnDestroy()
+    {
+        if (healthGraphic != null)
+        {
+            Destroy(healthGraphic.gameObject);
+        }
+    }
+
     private void Awake()
     {
         healthGraphic = Instantiate<Transform>(Resources.Load<Transform>("healthGraphic"));

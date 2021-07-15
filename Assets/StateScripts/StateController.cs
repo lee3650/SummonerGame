@@ -12,7 +12,7 @@ public class StateController : MonoBehaviour
         TransitionToState(StartingState as IState);
     }
 
-    public void TransitionToState(IState newState)
+    public virtual void TransitionToState(IState newState)
     {
         if (CurrentState != null)
         {

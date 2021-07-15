@@ -50,7 +50,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity
 
     }
 
-    public void HandleEvent(Event e)
+    public virtual void HandleEvent(Event e)
     {
         e = CoatingManager.ModifyEvent(e);
 
@@ -62,6 +62,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
                 HealthManager.SubtractHealth(e.Magnitude);
                 break;
         }
+    }
+
+    public void OnDestroy()
+    {
+        TargetableEntitiesManager.RemoveTargetable(this);
     }
 
     public bool CanBeTargeted()

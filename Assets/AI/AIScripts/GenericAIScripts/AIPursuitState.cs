@@ -48,18 +48,11 @@ public class AIPursuitState : MonoBehaviour, IState
             
             //TargetManager.LookAtTarget();
             AIAttackManager.TryAttack(TargetManager.Target);
-
-            MiscUpdate(); 
         }
         else
         {
             AIStateMachine.TransitionToState(ExitToState as IState);
         }
-    }
-    
-    public virtual void MiscUpdate()
-    {
-
     }
 
     public virtual bool ShouldMoveAtTarget()
