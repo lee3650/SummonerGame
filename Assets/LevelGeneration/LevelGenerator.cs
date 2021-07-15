@@ -8,12 +8,14 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] MapGenerator MapGenerator;
     [SerializeField] WaveSpawner WaveSpawner;
     [SerializeField] MapDrawer MapDrawer;
-    private int levelNum;
+    private int levelNum = 0;
 
     int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 
 
-    public void GenerateNextLevel()
+    public void GenerateNextLevel(int level)
     {
+        levelNum = level; 
+
         MapDrawer.DestroyOldMap();
 
         Vector2 mapSize = GetMapSize(levelNum);
@@ -35,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
 
         MapDrawer.InstantiateMap(newMap);
 
-        levelNum++; 
+        //levelNum++; 
     }
 
     void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
@@ -95,13 +97,18 @@ public class LevelGenerator : MonoBehaviour
         };
 
         int numOfFeatures = (int)Mathf.Lerp(Random.Range(1, 4), 1, LevelPercentage(levelNum));
-        int highestFeature = (int)Mathf.Lerp(Features.Count - 1, 1, Mathf.Pow(LevelPercentage(levelNum), 3));
+        int highestFeature = Mathf.RoundToInt(Mathf.Lerp(Features.Count, 0, Mathf.Pow(LevelPercentage(levelNum), 3)));
 
         List<MapFeature> result = new List<MapFeature>();
 
         for (int i = 0; i < numOfFeatures; i++)
         {
-            result.Add(Features[Random.Range(0, highestFeature)]);
+            result.Add(Features[Random.Range(0, highestFeature)]); //this is exclusive
+        }
+
+        foreach (MapFeature feature in result)
+        {
+            print("feature type: " + feature.GetType());
         }
 
         return result; 
@@ -143,7 +150,7 @@ public class LevelGenerator : MonoBehaviour
         return result;
     }
 
-    float LevelPercentage(int levelNum)
+    public float LevelPercentage(int levelNum)
     {
         return (float)((float)levelNum / (float)maxLevel);
     }

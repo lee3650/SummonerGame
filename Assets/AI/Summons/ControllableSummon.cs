@@ -20,6 +20,10 @@ public class ControllableSummon : Summon
         TargetSearcher.AssignTarget(target);
     }
 
+    public override bool CanRefundMana()
+    {
+        return true; 
+    }
     public virtual void HoldPoint(Vector2 point)
     {
         //so, basically we're not leaving the point until we die or until we get a command to move to a point 

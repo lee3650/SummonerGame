@@ -27,10 +27,12 @@ public class PlayerMoveState : MonoBehaviour, IState
 
         RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
         
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerStateController.TransitionToState(PlayerDodgeState);
         }
+         */
 
         if (Input.GetMouseButtonDown(0))
         {

@@ -100,11 +100,14 @@ public class TargetSearcher : MonoBehaviour
 
         foreach (ILivingEntity e in candidates)
         {
-            float dist = Vector2.Distance(transform.position, e.GetPosition());
-            if (dist < minDist)
+            if (e != null)
             {
-                result = e;
-                minDist = dist;
+                float dist = Vector2.Distance(transform.position, e.GetPosition());
+                if (dist < minDist)
+                {
+                    result = e;
+                    minDist = dist;
+                }
             }
         }
 

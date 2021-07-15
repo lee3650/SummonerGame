@@ -23,4 +23,5 @@ public enum TileType
     Land,
     Valley,
     Bridge, 
+    Wall, 
 }

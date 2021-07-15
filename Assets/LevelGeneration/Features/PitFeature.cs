@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PitFeature : MapFeature
+public class PitFeature : LakeFeature
 {
-    public override void AddFeature(int xSize, int ySize, MapNode[,] map)
+    protected override TileType GetLakeTileType()
     {
-
+        return TileType.Valley;
+    }
+    protected override bool IsTraversable()
+    {
+        return false; 
     }
 }

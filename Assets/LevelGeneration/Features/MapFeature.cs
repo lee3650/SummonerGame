@@ -8,6 +8,6 @@ public abstract class MapFeature
 
     public static bool IsPointOnMap(Vector2 point, int xSize, int ySize)
     {
-        return point.x >= 0 && point.y < xSize && point.y >= 0 && point.y < ySize;
+        return point.x >= 0 && point.x < xSize && point.y >= 0 && point.y < ySize;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Summoner : MonoBehaviour
@@ -40,6 +41,21 @@ public class Summoner : MonoBehaviour
         {
             s.TryToMoveToSummoner();
         }
+    }
+
+    public void RefundManaFromAllLivingSummons()
+    {
+        foreach (Summon s in Summons)
+        {
+            if (s.CanRefundMana())
+            {
+                ManaManager.IncreaseMaxMana(10f);
+                ManaManager.IncreaseMana(10f);
+            }
+            Destroy(s.gameObject);
+        }
+
+        Summons = new List<Summon>();
     }
 
     public Vector2 GetPosition()

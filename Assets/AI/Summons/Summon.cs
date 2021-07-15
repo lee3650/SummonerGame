@@ -25,6 +25,11 @@ public class Summon : MonoBehaviour
         transform.position = 2 * UnityEngine.Random.insideUnitCircle + MySummoner.GetPosition(); 
     }
 
+    public virtual bool CanRefundMana()
+    {
+        return false; 
+    }
+
     public void Awake()
     {
         if (HealthManager != null)

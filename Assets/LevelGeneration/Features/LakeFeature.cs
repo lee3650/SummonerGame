@@ -25,7 +25,10 @@ public class LakeFeature : MapFeature
             {
                 if (Vector2.Distance(center + new Vector2(x, y), center) <= radius)
                 {
-                    map[(int)center.x + x, (int)center.y + y] = new MapNode(IsTraversable(), GetLakeTileType());
+                    if (IsPointOnMap(center + new Vector2(x, y), xSize, ySize))
+                    {
+                        map[(int)center.x + x, (int)center.y + y] = new MapNode(IsTraversable(), GetLakeTileType());
+                    }
                 }
             }
         }

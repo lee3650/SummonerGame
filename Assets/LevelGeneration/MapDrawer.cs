@@ -8,7 +8,7 @@ public class MapDrawer : MonoBehaviour
 
     GameObject[,] DrawnMap = null;
 
-    Dictionary<TileType, GameObject> TileToPrefab; 
+    Dictionary<TileType, GameObject> TileToPrefab = new Dictionary<TileType, GameObject>(); 
 
     private void Awake()
     {

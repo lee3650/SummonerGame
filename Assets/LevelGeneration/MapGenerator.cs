@@ -16,7 +16,24 @@ public class MapGenerator : MonoBehaviour
             feature.AddFeature(xSize, ySize, newMap);
         }
 
+        AddWalls(newMap, xSize, ySize);
+
         return newMap;
+    }
+
+    void AddWalls(MapNode[,] newMap, int xSize, int ySize)
+    {
+        for (int x = 0; x < xSize; x++)
+        {
+            newMap[x, 0] = new MapNode(false, TileType.Wall);
+            newMap[x, ySize - 1] = new MapNode(false, TileType.Wall);
+        }
+
+        for (int y = 0; y < ySize; y++)
+        {
+            newMap[0, y] = new MapNode(false, TileType.Wall);
+            newMap[xSize - 1, y] = new MapNode(false, TileType.Wall);
+        }
     }
 
     void InitializeMap(MapNode[,] map, int xSize, int ySize)
