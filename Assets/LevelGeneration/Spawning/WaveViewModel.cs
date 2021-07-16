@@ -51,7 +51,7 @@ public class WaveViewModel : MonoBehaviour
     {
         if (!CurrentLevelManager.OnLastWave())
         {
-            RunTimer = true;
+            //RunTimer = true;
             CurrentLevelManager.SpawnNextWave();
             timer = 0f;
             UpdateNextWaveUI(CurrentLevelManager.GetNextWave());

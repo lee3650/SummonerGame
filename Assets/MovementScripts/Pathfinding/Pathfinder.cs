@@ -21,6 +21,7 @@ public class Pathfinder : MonoBehaviour
         SearchNode openHead = GetStartNode(start);
         
         Dictionary<string, SearchNode> closedList = new Dictionary<string, SearchNode>(); //this way we get random access with the closed list. 
+        //the downside is we have to construct a bunch of strings, so. 
         
         int counter = 0; 
         
