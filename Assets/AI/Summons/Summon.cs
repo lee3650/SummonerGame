@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class Summon : MonoBehaviour
 {
     [SerializeField] HealthManager HealthManager;
     [SerializeField] SummonType SummonType;
+
+    public event Action SummonerSet = delegate { };
 
     IDamager IDamager; 
 
@@ -26,10 +29,46 @@ public class Summon : MonoBehaviour
         }
     }
 
+    public void Destroy()
+    {
+        if (HealthManager != null)
+        {
+            HealthManager.SubtractHealth(10000);
+        }
+        else
+        {
+            SummonEnds();
+            gameObject.SetActive(false); //let's try this instead of destroying, idk 
+        }
+    }
+
+    public Summoner GetSummoner()
+    {
+        return MySummoner;
+    }
+
+    public void TryHealSummon(float amt)
+    {
+        if (HealthManager != null)
+        {
+            HealthManager.SubtractHealth(-amt);
+        }
+    }
+
+    public bool GetIsDamaged()
+    {
+        if (HealthManager != null)
+        {
+            return HealthManager.GetMaxHealth() == HealthManager.GetCurrent(); 
+        }
+        return false; 
+    }
+
     public void SetSummoner(Summoner summoner)
     {
         MySummoner = summoner;
         MySummoner.AddSummonToParty(this);
+        SummonerSet();
     }
 
     public Vector2 GetSummonerPosition()

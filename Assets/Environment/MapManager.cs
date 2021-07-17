@@ -24,7 +24,42 @@ public class MapManager
     {
         return IsPointTraversable(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y));
     }
-    
+        
+    public static MapNode ReadPoint(int x, int y)
+    {
+        return Map[x, y];
+    }
+
+    public static Vector2 GetClosestValidTile(Vector2 start)
+    {
+        start = VectorRounder.RoundVector(start);
+
+        float minDistance = Mathf.Infinity;
+        Vector2 result = start; 
+
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                if (IsPointTraversable(x, y))
+                {
+                    if (Vector2.Distance(new Vector2(x, y), start) < minDistance)
+                    {
+                        minDistance = Vector2.Distance(new Vector2(x, y), start);
+                        result = new Vector2(x, y);
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static int GetTraversalCost(int x, int y)
+    {
+        return Map[x, y].TraversalCost;
+    }
+
     public static void PrintMap()
     {
         string result = "";

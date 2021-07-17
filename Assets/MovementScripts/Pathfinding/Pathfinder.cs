@@ -78,7 +78,7 @@ public class Pathfinder : MonoBehaviour
 
     static void SetNodeGHF(SearchNode successor, Vector2 end)
     {
-        successor.g = successor.ParentNode.g + 1f;
+        successor.g = successor.ParentNode.g + MapManager.GetTraversalCost(successor.x, successor.y);
         successor.h = Mathf.Abs(end.x - successor.x) + Mathf.Abs(end.y - successor.y);
         successor.f = successor.g + successor.h;
     }

@@ -9,6 +9,7 @@ public class WaveViewModel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI NextWaveText;
     [SerializeField] TextMeshProUGUI CurrentWaveText;
+    [SerializeField] TextMeshProUGUI LevelNum; 
 
     [SerializeField] Summoner PlayerSummoner;
 
@@ -35,6 +36,7 @@ public class WaveViewModel : MonoBehaviour
             StopSpawningWaves();
             UpdateCurrentWaveUI();
             UpdateNextWaveUI(CurrentLevelManager.GetNextWave());
+            LevelNum.text = "Level: " + CurrentLevelManager.GetLevelNum();
         }
         else
         {

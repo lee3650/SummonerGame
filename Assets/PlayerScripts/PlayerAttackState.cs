@@ -29,6 +29,8 @@ public class PlayerAttackState : MonoBehaviour, IState
 
             if (ManaManager.TryDecreaseMana(attackDecrement) == false)
             {
+                attackDecrement -= ManaManager.GetCurrent();
+                ManaManager.DecreaseMana(ManaManager.GetCurrent());
                 HealthManager.SubtractHealth(attackDecrement);
             }
 
@@ -50,16 +52,19 @@ public class PlayerAttackState : MonoBehaviour, IState
     {
         //so, what conditions do we have here? 
         //if the selected item is a summon weapon
-        //if we have enough mana 
+        //if we have enough mana
         SummonWeapon weapon = ItemSelection.SelectedItem as SummonWeapon;
 
         if (weapon != null)
         {
             if (!InventorySlotManager.Active)
             {
-                if (HealthManager.IsHealthGreaterThan(weapon.GetManaDrain()) || ManaManager.IsManaMoreThanOrEqual(weapon.GetManaDrain()))
+                if (HealthManager.GetCurrent() + ManaManager.GetCurrent() > weapon.GetManaDrain())
                 {
-                    return true;
+                    if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition()))
+                    {
+                        return true;
+                    }
                 }
             }
         }

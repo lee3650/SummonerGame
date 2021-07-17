@@ -8,6 +8,17 @@ public class PitFeature : LakeFeature
     {
         return TileType.Valley;
     }
+
+    protected override float GetMaxRadiusModifier()
+    {
+        return 0.1f;
+    }
+
+    protected override float GetMinRadiusModifier()
+    {
+        return 0.05f;
+    }
+
     protected override bool IsTraversable()
     {
         return false; 

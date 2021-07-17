@@ -10,6 +10,7 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
     [SerializeField] Collider2D col;
     [SerializeField] PlayerDeathState PlayerDeathState;
     [SerializeField] CoatingManager CoatingManager;
+    [SerializeField] PlayerFallState FallState;
 
     StateController StateController;
 
@@ -92,6 +93,12 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
             case EventType.Physical:
                 HealthManager.SubtractHealth(e.Magnitude);
                 break;
+            case EventType.Fall:
+                if (!(StateController.GetCurrentState() is PlayerFallState))
+                {
+                    StateController.TransitionToState(FallState);
+                }
+                break; 
         }
     }
 }

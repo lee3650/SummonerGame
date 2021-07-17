@@ -25,6 +25,11 @@ public class Summoner : MonoBehaviour
         }
     }
 
+    public List<Summon> GetSummons()
+    {
+        return Summons; 
+    }
+
     void TryAddCharmToSummon(Summon s, Charm charm)
     {
         if (charm.ApplyToType(s.GetSummonType()) && charm.HasAttackModifier())
@@ -77,8 +82,8 @@ public class Summoner : MonoBehaviour
         {
             if (s.CanRefundMana())
             {
-                ManaManager.IncreaseMaxMana(10f);
-                ManaManager.IncreaseMana(10f);
+                //ManaManager.IncreaseMaxMana(10f);
+                //ManaManager.IncreaseMana(10f);
             }
             if (s != null)
             {

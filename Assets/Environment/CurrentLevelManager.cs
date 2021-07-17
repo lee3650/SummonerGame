@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
@@ -9,12 +10,13 @@ public class CurrentLevelManager : MonoBehaviour
     [SerializeField] LevelGenerator LevelGenerator;
     [SerializeField] WaveViewModel WaveViewModel;
     [SerializeField] WaveSpawner WaveSpawner;
+    [SerializeField] Transform Player; 
 
     private int levelNum = 0;
     private int highestWave = 0; //so, this is actually super scuffed - if we change this it's going to break NextWaveFunctionMonitor. So, idk, watch out. 
     private int currentWave = 0; 
 
-    private int baseEnemies = 2; 
+    private int baseEnemies = 3; 
 
     List<List<GameObject>> LevelWaves = new List<List<GameObject>>();
 
@@ -32,6 +34,10 @@ public class CurrentLevelManager : MonoBehaviour
         {
             LevelWaves.Add(WaveGenerator.GenerateNextWave(Mathf.RoundToInt(baseEnemies * GetWaveModifier(i/(highestWave - 1)))));
         }
+
+        baseEnemies = LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
+
+        Player.position = MapManager.GetClosestValidTile(Player.position);
 
         levelNum++;
     }
@@ -60,6 +66,11 @@ public class CurrentLevelManager : MonoBehaviour
     public int GetCurrentWave()
     {
         return currentWave;
+    }
+    
+    public int GetLevelNum()
+    {
+        return levelNum;
     }
 
     float GetWaveModifier(float wavePercentage)

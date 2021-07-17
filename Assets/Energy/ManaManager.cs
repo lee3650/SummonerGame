@@ -66,7 +66,7 @@ public class ManaManager : MonoBehaviour, IEnergyManager
         {
             return true;
         }
-        return false; 
+        return false;
     }
 
     public bool TryDecreaseMana(float amt)

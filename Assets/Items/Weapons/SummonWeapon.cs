@@ -11,10 +11,14 @@ public class SummonWeapon : Weapon
     [SerializeField] float rotationOffset; 
     
     public bool ReduceMaxMana;
-        
+
+    public bool ZeroRotation = false; 
+
     public override void UseWeapon(Vector2 mousePos)
     {
-        GameObject summoned = Instantiate(Summon, mousePos, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset)));
+        Quaternion rotation = ZeroRotation ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset)); 
+
+        GameObject summoned = Instantiate(Summon, mousePos, rotation);
        
         summoned.GetComponent<Summon>().SetSummoner(Wielder.GetComponent<Summoner>());
 

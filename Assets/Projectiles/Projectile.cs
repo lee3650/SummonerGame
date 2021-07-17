@@ -57,7 +57,10 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
         {
             col.enabled = false;
             transform.parent = collision.transform;
-            StartCoroutine(Destroy());
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(Destroy());
+            } 
         } 
         else
         {

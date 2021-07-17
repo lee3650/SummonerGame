@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour
 {
-    [SerializeField] List<GameObject> Enemies; 
+    [SerializeField] List<SpawnToProbability> Enemies; 
 
     public List<GameObject> GenerateNextWave(int num)
     {
@@ -12,9 +12,25 @@ public class WaveGenerator : MonoBehaviour
 
         for (int i = 0; i < num; i++)
         {
-            NextWave.Add(Enemies[Random.Range(0, Enemies.Count)]);
+            GameObject enemy = ChooseRandomEnemy(); 
+
+            NextWave.Add(enemy);
         }
 
         return NextWave;
+    }
+
+    GameObject ChooseRandomEnemy()
+    {
+        float random = Random.Range(0, 100f);
+
+        foreach (SpawnToProbability s in Enemies)
+        {
+            if (random <= s.Likelihood)
+            {
+                return s.Spawn;
+            }
+        }
+        throw new System.Exception("Could not select random enemy!");
     }
 }

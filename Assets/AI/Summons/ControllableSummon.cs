@@ -17,7 +17,10 @@ public class ControllableSummon : Summon
 
     public virtual void SetTarget(ITargetable target)
     {
-        TargetSearcher.AssignTarget(target);
+        if (TargetSearcher != null)
+        {
+            TargetSearcher.AssignTarget(target);
+        }
     }
 
     public override bool CanRefundMana()

@@ -11,6 +11,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     [SerializeField] AIDeathState AIDeathState;
     [SerializeField] StateController StateController;
     [SerializeField] CoatingManager CoatingManager;
+    [SerializeField] AIFallState AIFallState;
 
     private void Awake()
     {
@@ -61,9 +62,15 @@ public class AIEntity : MonoBehaviour, ILivingEntity
             case EventType.Physical:
                 HealthManager.SubtractHealth(e.Magnitude);
                 break;
+            case EventType.Fall:
+                if (!(StateController.GetCurrentState() is AIFallState) && !(StateController.GetCurrentState() is AIDeathState))
+                {
+                    StateController.TransitionToState(AIFallState);
+                }
+                break; 
         }
     }
-
+    
     public void OnDestroy()
     {
         TargetableEntitiesManager.RemoveTargetable(this);

@@ -7,4 +7,5 @@ public enum EventType
     Fire,
     Magic,
     Physical,
+    Fall, 
 }

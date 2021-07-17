@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 1090552370236627244}
   - component: {fileID: -2438023061778923436}
   - component: {fileID: 7593343942011515222}
+  - component: {fileID: 9076879527427683830}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -271,7 +272,8 @@ MonoBehaviour:
   HealthManager: {fileID: 1090552370236627251}
   AIDeathState: {fileID: 1090552370236627261}
   StateController: {fileID: 1090552370236627245}
-  CoatingManager: {fileID: 0}
+  CoatingManager: {fileID: -2438023061778923436}
+  AIFallState: {fileID: 9076879527427683830}
 --- !u!114 &1090552370236627248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +396,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.03}
   serializedVersion: 2
   m_Radius: 0.41
+--- !u!114 &9076879527427683830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064366a5ad0b34c40b24640520a34973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 1090552370236627251}
+  sr: {fileID: 1090552370236627252}
+  StateController: {fileID: 1090552370236627245}
+  AIDeathState: {fileID: 1090552370236627261}

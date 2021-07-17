@@ -54,14 +54,11 @@ public class LevelGenerator : MonoBehaviour
     //so, this isn't deterministic, which I guess is good. 
     Vector2 GetMapSize(int levelNum)
     {
-        int startHeight = Random.Range(10, 20);
-        int startWidth = Random.Range(2, 5) * startHeight; 
+        int startHeight = Random.Range(10, 25);
 
-        Vector2 start = new Vector2(startWidth, startHeight);
-        Vector2 end = new Vector2(startWidth * Random.Range(.8f, 1.2f), startWidth * Random.Range(.8f, 1.2f));
+        float widthMultiplier = Mathf.Lerp(Random.Range(1.5f, 2.5f), Random.Range(0.9f, 1.2f), LevelPercentage(levelNum));
 
-        Vector2 result = Vector2.Lerp(start, end, LevelPercentage(levelNum));
-        return result; 
+        return new Vector2(startHeight * widthMultiplier, startHeight); 
     }
 
     List<Vector2> GenerateSpawnRegion(Vector2 mapSize, int levelNum)
