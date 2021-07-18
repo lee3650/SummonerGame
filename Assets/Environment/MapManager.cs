@@ -20,11 +20,11 @@ public class MapManager
         Map = newMap;
     }
 
-    public static bool IsPointTraversable(Vector2 point)
+    public static bool IsPointTraversable(Vector2 point, bool CanGoThroughWalls)
     {
-        return IsPointTraversable(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y));
+        return IsPointTraversable(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y), CanGoThroughWalls);
     }
-        
+
     public static MapNode ReadPoint(int x, int y)
     {
         return Map[x, y];
@@ -41,7 +41,7 @@ public class MapManager
         {
             for (int y = 0; y < ySize; y++)
             {
-                if (IsPointTraversable(x, y))
+                if (IsPointTraversable(x, y, false))
                 {
                     if (Vector2.Distance(new Vector2(x, y), start) < minDistance)
                     {
@@ -68,7 +68,7 @@ public class MapManager
         {
             for (int x = 0; x < xSize; x++)
             {
-                if (IsPointTraversable(x, y))
+                if (IsPointTraversable(x, y, false))
                 {
                     result += "0";
                 } else
@@ -82,14 +82,14 @@ public class MapManager
         MonoBehaviour.print(result);
     }
 
-    public static bool IsPointTraversable(int x, int y)
+    public static bool IsPointTraversable(int x, int y, bool CanGoThroughWalls)
     {
         if (x > xSize || y > ySize || x < 0 || y < 0)
         {
             return false;
         }
 
-        return Map[x, y].Traversable;
+        return Map[x, y].IsTraversable(CanGoThroughWalls);
     }
 
     public static void WritePoint(int x, int y, MapNode newNode)

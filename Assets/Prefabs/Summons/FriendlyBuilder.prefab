@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 8828184880604118208}
   - component: {fileID: 3737676946948845468}
   - component: {fileID: 5470023481148401197}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: FriendlyBuilder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   rb: {fileID: 5470023481148401366}
   MoveSpeed: 8
   Sensitivity: 12.5
+  CanGoThroughWalls: 1
 --- !u!114 &5331654618686014612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   StateController: {fileID: 5470023481148401361}
   TargetSearcher: {fileID: 0}
   HoldPointState: {fileID: 335781169884346582}
+  PursuitState: {fileID: 8816194949574917912}
 --- !u!114 &4846828309707756510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +346,7 @@ MonoBehaviour:
   MovementController: {fileID: 5470023481148401365}
   AIAttackManager: {fileID: 5470023481148401373}
   HoldPointState: {fileID: 335781169884346582}
-  IgnoreHeldPoint: 1
+  IgnoreHeldPoint: 0
 --- !u!114 &1217040391308569588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +410,7 @@ MonoBehaviour:
   StateController: {fileID: 5470023481148401361}
   CoatingManager: {fileID: 1217040391308569588}
   AIFallState: {fileID: 3737676946948845468}
+  Targetable: 1
   summon: {fileID: 916552113717063042}
 --- !u!114 &3737676946948845468
 MonoBehaviour:
@@ -456,7 +459,7 @@ GameObject:
   - component: {fileID: 5600977189999033053}
   - component: {fileID: 5600977189999033026}
   - component: {fileID: 5600977189999033027}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

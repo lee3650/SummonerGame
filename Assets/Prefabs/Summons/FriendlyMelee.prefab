@@ -282,6 +282,7 @@ MonoBehaviour:
   rb: {fileID: 9194925930672925234}
   MoveSpeed: 8
   Sensitivity: 12.5
+  CanGoThroughWalls: 0
 --- !u!114 &9047250708347553904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   StateController: {fileID: 9194925930672925237}
   TargetSearcher: {fileID: 9194925930672925239}
   HoldPointState: {fileID: 3520532898615948338}
+  PursuitState: {fileID: 5632586608850875388}
 --- !u!114 &8588638947005751098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +507,7 @@ MonoBehaviour:
   MovementController: {fileID: 9194925930672925233}
   AIAttackManager: {fileID: 9194925930672925241}
   HoldPointState: {fileID: 3520532898615948338}
-  IgnoreHeldPoint: 1
+  IgnoreHeldPoint: 0
 --- !u!114 &-6588670612194777328
 MonoBehaviour:
   m_ObjectHideFlags: 0

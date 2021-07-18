@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -360141125053813988}
   - component: {fileID: -5157839651516772810}
   - component: {fileID: 2042207029774516379}
-  - component: {fileID: 1950809062597975305}
+  - component: {fileID: 3941265906476139161}
   m_Layer: 15
   m_Name: PlayerWall
   m_TagString: Untraversable
@@ -129,7 +129,7 @@ MonoBehaviour:
   sr: {fileID: 17723146810303836}
   MySummon: {fileID: -360141125053813988}
   TileType: 5
---- !u!61 &1950809062597975305
+--- !u!61 &3941265906476139161
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

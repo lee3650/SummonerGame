@@ -41,6 +41,15 @@ public class PlayerSummonController : MonoBehaviour
             }
         }
 
+        if (ShouldTellSummonToToggleGuardMode())
+        {
+            if (SelectedSummon != null)
+            {
+                SelectedSummon.ToggleGuardMode();
+                DeselectSummon();
+            }
+        }
+
         if (ShouldTellSummonToHoldPoint())
         {
             if (SelectedSummon != null)
@@ -49,6 +58,11 @@ public class PlayerSummonController : MonoBehaviour
                 DeselectSummon();
             }
         }
+    }
+
+    bool ShouldTellSummonToToggleGuardMode() 
+    {
+        return Input.GetKeyDown(KeyCode.G) && UsingController();
     }
 
     bool ShouldTellSummonToHoldPoint()

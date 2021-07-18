@@ -61,7 +61,7 @@ public class PlayerAttackState : MonoBehaviour, IState
             {
                 if (HealthManager.GetCurrent() + ManaManager.GetCurrent() > weapon.GetManaDrain())
                 {
-                    if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition()))
+                    if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true))
                     {
                         return true;
                     }

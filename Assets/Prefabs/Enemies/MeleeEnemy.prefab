@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 5175556300910716848}
   - component: {fileID: 4792795634857391296}
   - component: {fileID: -3560668332434331697}
+  - component: {fileID: 5286100465103995708}
   m_Layer: 12
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -135,6 +136,7 @@ MonoBehaviour:
   rb: {fileID: 5487195000452624889}
   MoveSpeed: 8
   Sensitivity: 12.5
+  CanGoThroughWalls: 1
 --- !u!114 &5487195000452624839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +383,20 @@ MonoBehaviour:
   sr: {fileID: 5487195000452624891}
   StateController: {fileID: 5487195000452624836}
   AIDeathState: {fileID: 5175556300910716848}
+--- !u!114 &5286100465103995708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817c96c8ed6f6cc40b89732a22b80615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 5487195000452624838}
+  TargetSearcher: {fileID: 5487195000452624832}
 --- !u!1 &5487195001173321385
 GameObject:
   m_ObjectHideFlags: 0

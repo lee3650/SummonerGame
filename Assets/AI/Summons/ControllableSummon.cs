@@ -8,6 +8,7 @@ public class ControllableSummon : Summon
     [SerializeField] StateController StateController;
     [SerializeField] TargetSearcher TargetSearcher;
     [SerializeField] HoldPointState HoldPointState;
+    [SerializeField] SummonPursuitState PursuitState;
 
     public virtual void GoToPoint(Vector2 point)
     {
@@ -21,6 +22,11 @@ public class ControllableSummon : Summon
         {
             TargetSearcher.AssignTarget(target);
         }
+    }
+
+    public void ToggleGuardMode()
+    {
+        PursuitState.ToggleHoldingPoint();
     }
 
     public override bool CanRefundMana()

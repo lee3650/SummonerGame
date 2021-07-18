@@ -13,9 +13,14 @@ public class AIEntity : MonoBehaviour, ILivingEntity
     [SerializeField] CoatingManager CoatingManager;
     [SerializeField] AIFallState AIFallState;
 
+    [SerializeField] bool Targetable = true; 
+
     private void Awake()
     {
-        TargetableEntitiesManager.AddTargetable(this);
+        if (Targetable)
+        {
+            TargetableEntitiesManager.AddTargetable(this);
+        }
         if (CoatingManager == null)
         {
             CoatingManager = GetComponent<CoatingManager>();

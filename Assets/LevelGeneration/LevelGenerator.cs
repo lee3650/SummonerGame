@@ -44,7 +44,7 @@ public class LevelGenerator : MonoBehaviour
     {
         for (int i = spawnRegion.Count - 1; i >= 0; i--)
         {
-            if (map[(int)spawnRegion[i].x, (int)spawnRegion[i].y].Traversable == false)
+            if (map[(int)spawnRegion[i].x, (int)spawnRegion[i].y].IsTraversable(true) == false)
             {
                 spawnRegion.RemoveAt(i);
             } 

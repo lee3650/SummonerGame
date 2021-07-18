@@ -7,12 +7,12 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
     //so, we're going to want to pass the end in as the start, in general, because that way it'll return our position as the first node, and we can just follow 'next' till we get to our target. 
-    public static SearchNode GetPathFromPointToPoint(Vector2 start, Vector2 end)
+    public static SearchNode GetPathFromPointToPoint(Vector2 start, Vector2 end, bool CanGoThroughWalls)
     {
         start = RoundVectorToInt(start);
         end = RoundVectorToInt(end);
 
-        if (IsStartAndEndInvalid(start, end))
+        if (IsStartAndEndInvalid(start, end, CanGoThroughWalls))
         {
             print("The start or end was not valid!");
             return null; 
@@ -35,7 +35,7 @@ public class Pathfinder : MonoBehaviour
             {
                 for (int y = -1; y < 2; y++)
                 {
-                    if (ShouldProcessPoint(q, x, y))
+                    if (ShouldProcessPoint(q, x, y, CanGoThroughWalls))
                     {
                         SearchNode successor = new SearchNode(q.x + x, q.y + y, q);
 
@@ -62,9 +62,9 @@ public class Pathfinder : MonoBehaviour
         return null; 
     }
 
-    static bool IsStartAndEndInvalid(Vector2 start, Vector2 end)
+    static bool IsStartAndEndInvalid(Vector2 start, Vector2 end, bool CanGoThroughWalls)
     {
-        return MapManager.IsPointTraversable(start) == false || MapManager.IsPointTraversable(end) == false;
+        return MapManager.IsPointTraversable(start, CanGoThroughWalls) == false || MapManager.IsPointTraversable(end, CanGoThroughWalls) == false;
     }
 
     static SearchNode GetStartNode(Vector2 start)
@@ -93,9 +93,9 @@ public class Pathfinder : MonoBehaviour
         return node.x == (int)goal.x && node.y == (int)goal.y;
     }
 
-    static bool ShouldProcessPoint(SearchNode q, int x, int y)
+    static bool ShouldProcessPoint(SearchNode q, int x, int y, bool CanGoThroughWalls)
     {
-        return (x != 0 || y != 0) && CanGoFromPointToPoint(q.x, q.y, q.x + x, q.y + y);
+        return (x != 0 || y != 0) && CanGoFromPointToPoint(q.x, q.y, q.x + x, q.y + y, CanGoThroughWalls);
     }
 
     public static Vector2 RoundVectorToInt(Vector2 vector)
@@ -150,9 +150,9 @@ public class Pathfinder : MonoBehaviour
         return true; 
     }
 
-    static bool CanGoFromPointToPoint(int startX, int startY, int endX, int endY)
+    static bool CanGoFromPointToPoint(int startX, int startY, int endX, int endY, bool CanGoThroughWalls)
     {
-        if (!MapManager.IsPointTraversable(endX, endY))
+        if (!MapManager.IsPointTraversable(endX, endY, CanGoThroughWalls))
         {
             return false; 
         }
@@ -160,7 +160,7 @@ public class Pathfinder : MonoBehaviour
         if (startX - endX != 0 && startY - endY != 0)
         {
             //so, a diagonal move. 
-            return MapManager.IsPointTraversable(startX, endY) && MapManager.IsPointTraversable(endX, startY);
+            return MapManager.IsPointTraversable(startX, endY, CanGoThroughWalls) && MapManager.IsPointTraversable(endX, startY, CanGoThroughWalls);
         }
 
         return true; //so, we know the point is traversable already, so we're done. 

@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: -2438023061778923436}
   - component: {fileID: 7593343942011515222}
   - component: {fileID: 9076879527427683830}
+  - component: {fileID: -7025940775605090969}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -165,6 +166,7 @@ MonoBehaviour:
   rb: {fileID: 1090552370236627258}
   MoveSpeed: 8
   Sensitivity: 12.5
+  CanGoThroughWalls: 1
 --- !u!114 &1090552370236627262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,3 +414,17 @@ MonoBehaviour:
   sr: {fileID: 1090552370236627252}
   StateController: {fileID: 1090552370236627245}
   AIDeathState: {fileID: 1090552370236627261}
+--- !u!114 &-7025940775605090969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817c96c8ed6f6cc40b89732a22b80615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 1090552370236627257}
+  TargetSearcher: {fileID: 1090552370236627263}

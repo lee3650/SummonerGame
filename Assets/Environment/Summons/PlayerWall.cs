@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerWall : MonoBehaviour, ITargetable, IEntity
@@ -17,7 +18,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
         
         HealthManager.OnDeath += OnDeath;
         HealthManager.OnDamageTaken += OnDamageTaken;
-
+        
         transform.position = VectorRounder.RoundVector(transform.position);
 
         prevNode = MapManager.ReadPoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
@@ -48,22 +49,6 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
     public MapNode GetUnderneathNode()
     {
         return prevNode;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        ILivingEntity livingEntity;
-        TargetSearcher targetSearcher;
-        if (collision.gameObject.TryGetComponent<ILivingEntity>(out livingEntity))
-        {
-            if (livingEntity.GetFaction() == Factions.Nonplayer)
-            {
-                if (collision.gameObject.TryGetComponent<TargetSearcher>(out targetSearcher))
-                {
-                    targetSearcher.AssignTarget(this);
-                }
-            }
-        }
     }
 
     private void OnDamageTaken()

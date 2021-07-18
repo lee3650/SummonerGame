@@ -5,8 +5,9 @@ using UnityEngine;
 public class MapNode 
 {
     public TileType TileType;
-    public bool Traversable;
+    private bool Traversable;
     public int TraversalCost = 1; 
+    
     public MapNode(bool traversable)
     {
         Traversable = traversable;
@@ -28,14 +29,23 @@ public class MapNode
             case TileType.Land:
                 return 1; 
             case TileType.BreakableWall:
-                return 20;
+                return 30;
             case TileType.Gate:
-                return 3; 
+                return 10;
             case TileType.Wall:
                 return 100; 
         }
         throw new System.Exception("Could not get traversal cost for tile type " + TileType);
-    }    
+    }
+
+    public bool IsTraversable(bool CanGoThroughWalls)
+    {
+        if (TileType == TileType.BreakableWall)
+        {
+            return CanGoThroughWalls; 
+        }
+        return Traversable;
+    }
 }
 
 public enum TileType

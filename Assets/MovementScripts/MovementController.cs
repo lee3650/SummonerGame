@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
@@ -6,12 +7,23 @@ public class MovementController : MonoBehaviour
     [SerializeField] float MoveSpeed;
     [SerializeField] float Sensitivity;
 
-    Vector2 pathfindGoal;
+    [SerializeField] bool CanGoThroughWalls = true;
+
+    Vector2 pathfindGoal = new Vector2();
     SearchNode pathfindPath = null; 
 
     void Start()
     {
         
+    }
+
+    public Vector2 GetNextPathfindPosition()
+    {
+        if (pathfindPath == null)
+        {
+            return pathfindGoal; 
+        }
+        return new Vector2(pathfindPath.x, pathfindPath.y);
     }
 
     public void MoveTowardPoint(Vector2 worldPoint)
@@ -83,7 +95,7 @@ public class MovementController : MonoBehaviour
             pathfindPath = new SearchNode((int)goal.x, (int)goal.y);
         } else
         {
-            pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position);
+            pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position, CanGoThroughWalls);
         }
     }
 
