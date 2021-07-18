@@ -101,6 +101,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
         return Precedence;
     }
 
+    public bool IsDamaged()
+    {
+        return HealthManager.GetCurrent() < HealthManager.GetMax();
+    }
+
     public Vector2 GetPosition()
     {
         return transform.position;

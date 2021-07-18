@@ -43,6 +43,11 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     }
 
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
     public void OnHit(IEntity hit)
     {
 
@@ -51,6 +56,11 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
     public bool CanBeTargeted()
     {
         return true; 
+    }
+
+    public bool IsDamaged()
+    {
+        return HealthManager.GetCurrent() < HealthManager.GetMax();
     }
 
     public bool CanChangeSelectedItem()

@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 8709340639070952995}
   - component: {fileID: 5690190742799855652}
   - component: {fileID: 553230633407718264}
+  - component: {fileID: -6982371465322758994}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -571,6 +572,7 @@ MonoBehaviour:
   StateController: {fileID: 9194925930672925237}
   CoatingManager: {fileID: -6588670612194777328}
   AIFallState: {fileID: 553230633407718264}
+  Targetable: 1
   summon: {fileID: 4092543355812176230}
 --- !u!114 &553230633407718264
 MonoBehaviour:
@@ -588,3 +590,15 @@ MonoBehaviour:
   sr: {fileID: 9194925930672925244}
   StateController: {fileID: 9194925930672925237}
   AIDeathState: {fileID: -1732080778231695159}
+--- !u!114 &-6982371465322758994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d558deeb4588a479dc18a6b9a42774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

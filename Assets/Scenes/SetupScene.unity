@@ -3125,7 +3125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - Likelihood: 67
+  - Likelihood: 0
     Spawn: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34, type: 3}
   - Likelihood: 100
     Spawn: {fileID: 1090552370236627394, guid: 3d436db8065c44844a162d33f9da7a50, type: 3}

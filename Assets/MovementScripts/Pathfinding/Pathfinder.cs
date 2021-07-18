@@ -160,7 +160,8 @@ public class Pathfinder : MonoBehaviour
         if (startX - endX != 0 && startY - endY != 0)
         {
             //so, a diagonal move. 
-            return MapManager.IsPointTraversable(startX, endY, CanGoThroughWalls) && MapManager.IsPointTraversable(endX, startY, CanGoThroughWalls);
+            //We can't move diagonally through walls because it returns the wrong movement value. 
+            return MapManager.IsPointTraversable(startX, endY, false) && MapManager.IsPointTraversable(endX, startY, false);
         }
 
         return true; //so, we know the point is traversable already, so we're done. 

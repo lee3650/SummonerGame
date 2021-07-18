@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: -2251521059408016390}
   - component: {fileID: 6384751669862364838}
   - component: {fileID: -7109009508745348198}
+  - component: {fileID: 1416074324957118578}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -436,6 +437,7 @@ MonoBehaviour:
   StateController: {fileID: 1740066754483794912}
   CoatingManager: {fileID: 7656610161056084375}
   AIFallState: {fileID: -7109009508745348198}
+  Targetable: 1
   summon: {fileID: 6878306609116838067}
 --- !u!114 &6384751669862364838
 MonoBehaviour:
@@ -475,3 +477,15 @@ MonoBehaviour:
   sr: {fileID: 1740066754483794921}
   StateController: {fileID: 1740066754483794912}
   AIDeathState: {fileID: 2373476659259646865}
+--- !u!114 &1416074324957118578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d558deeb4588a479dc18a6b9a42774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

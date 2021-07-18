@@ -51,6 +51,11 @@ public class PlayerBuilder : MonoBehaviour
         float minDist = Mathf.Infinity;
         Summon closestSummon = null; 
 
+        if (Walls.Count == 0)
+        {
+            print("No walls were found!");
+        }
+
         foreach (Summon s in Walls)
         {
             if (s.GetIsDamaged())

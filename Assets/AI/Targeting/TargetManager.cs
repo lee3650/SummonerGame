@@ -9,6 +9,8 @@ public class TargetManager : MonoBehaviour
 
     private ITargetable target;
 
+    int targetFrame = -1;
+
     public bool HasLivingTarget()
     {
         if (Target != null)
@@ -16,6 +18,11 @@ public class TargetManager : MonoBehaviour
             return Target.IsAlive();
         }
         return false; 
+    }
+
+    public bool TargetChangedThisFrame()
+    {
+        return targetFrame == Time.frameCount; 
     }
 
     public void MoveAtTarget()
@@ -62,6 +69,7 @@ public class TargetManager : MonoBehaviour
         }
         set
         {
+            targetFrame = Time.frameCount;
             target = value;
         }
     }

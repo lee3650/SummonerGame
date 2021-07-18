@@ -59,7 +59,7 @@ public class Summon : MonoBehaviour
     {
         if (HealthManager != null)
         {
-            return HealthManager.GetMaxHealth() == HealthManager.GetCurrent(); 
+            return HealthManager.GetCurrent() < HealthManager.GetMaxHealth(); 
         }
         return false; 
     }

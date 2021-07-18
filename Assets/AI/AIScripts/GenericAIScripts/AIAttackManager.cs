@@ -18,9 +18,14 @@ public class AIAttackManager : MonoBehaviour
 
     public virtual void TryAttack(ITargetable CurrentTarget)
     {
-        if (IsTargetInRange(CurrentTarget))
+        if (CanAttack(CurrentTarget))
         {
             AIStateMachine.TransitionToState(AttackState);
         }
+    }
+
+    protected virtual bool CanAttack(ITargetable CurrentTarget)
+    {
+        return IsTargetInRange(CurrentTarget);
     }
 }

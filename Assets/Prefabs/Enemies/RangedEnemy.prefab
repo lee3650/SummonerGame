@@ -44,13 +44,11 @@ GameObject:
   - component: {fileID: 1090552370236627257}
   - component: {fileID: 1090552370236627262}
   - component: {fileID: 1090552370236627245}
-  - component: {fileID: 1090552370236627260}
   - component: {fileID: 1090552370236627259}
   - component: {fileID: 1090552370236627256}
   - component: {fileID: 1090552370236627263}
   - component: {fileID: 1090552370236627254}
   - component: {fileID: 1090552370236627248}
-  - component: {fileID: 1090552370236627249}
   - component: {fileID: 1090552370236627251}
   - component: {fileID: 1090552370236627250}
   - component: {fileID: 1090552370236627261}
@@ -59,6 +57,9 @@ GameObject:
   - component: {fileID: 7593343942011515222}
   - component: {fileID: 9076879527427683830}
   - component: {fileID: -7025940775605090969}
+  - component: {fileID: -5861504520014042726}
+  - component: {fileID: 87831727195077226}
+  - component: {fileID: -5376926671011951225}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -194,23 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingState: {fileID: 1090552370236627256}
---- !u!114 &1090552370236627260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090552370236627394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fe6168976572840a7b2f812f7c2934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetManager: {fileID: 1090552370236627259}
-  AIStateMachine: {fileID: 1090552370236627245}
-  ExitToState: {fileID: 1090552370236627256}
-  MovementController: {fileID: 1090552370236627257}
-  AIAttackManager: {fileID: 1090552370236627249}
 --- !u!114 &1090552370236627259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetManager: {fileID: 1090552370236627259}
   StateController: {fileID: 1090552370236627245}
-  PursuitState: {fileID: 1090552370236627260}
+  PursuitState: {fileID: 87831727195077226}
 --- !u!114 &1090552370236627263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +260,7 @@ MonoBehaviour:
   StateController: {fileID: 1090552370236627245}
   CoatingManager: {fileID: -2438023061778923436}
   AIFallState: {fileID: 9076879527427683830}
+  Targetable: 1
 --- !u!114 &1090552370236627248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,25 +278,11 @@ MonoBehaviour:
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1090552370236627245}
-  PursuitState: {fileID: 1090552370236627260}
+  PursuitState: {fileID: 87831727195077226}
   TargetManager: {fileID: 1090552370236627259}
   Projectile: {fileID: 919925079335150363, guid: 75df5a1faf357f04792e0d24a67b95cc,
     type: 3}
   firingPosition: {fileID: 1090552369479101690}
---- !u!114 &1090552370236627249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090552370236627394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75ff04094cfc8a4798223e1ed8cfadd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackState: {fileID: 1090552370236627248}
-  AIStateMachine: {fileID: 1090552370236627245}
 --- !u!114 &1090552370236627251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,3 +399,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1090552370236627257}
   TargetSearcher: {fileID: 1090552370236627263}
+--- !u!114 &-5861504520014042726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d558deeb4588a479dc18a6b9a42774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &87831727195077226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafa5c1c68ffe774f81d80f916e4bb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetManager: {fileID: 1090552370236627259}
+  AIStateMachine: {fileID: 1090552370236627245}
+  ExitToState: {fileID: 1090552370236627256}
+  MovementController: {fileID: 1090552370236627257}
+  AIAttackManager: {fileID: -5376926671011951225}
+  SightChecker: {fileID: -5861504520014042726}
+--- !u!114 &-5376926671011951225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c2edca53a0f8844996058a535b97cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackState: {fileID: 1090552370236627248}
+  AIStateMachine: {fileID: 1090552370236627245}
+  SightChecker: {fileID: -5861504520014042726}

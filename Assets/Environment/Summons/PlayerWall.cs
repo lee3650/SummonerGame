@@ -93,4 +93,8 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
         return HealthManager.IsAlive();
     }
 
+    public bool IsDamaged()
+    {
+        return HealthManager.GetCurrent() < HealthManager.GetMax();
+    }
 }

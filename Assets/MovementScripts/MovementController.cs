@@ -10,11 +10,13 @@ public class MovementController : MonoBehaviour
     [SerializeField] bool CanGoThroughWalls = true;
 
     Vector2 pathfindGoal = new Vector2();
-    SearchNode pathfindPath = null; 
+    SearchNode pathfindPath = null;
 
-    void Start()
+    SightChecker SightChecker;
+
+    private void Awake()
     {
-        
+        SightChecker = GetComponent<SightChecker>();
     }
 
     public Vector2 GetNextPathfindPosition()
@@ -40,7 +42,7 @@ public class MovementController : MonoBehaviour
             return; 
         }
 
-        if ((pathfindPath.x != (int)pathfindGoal.x && pathfindPath.y != (int)pathfindGoal.y) && CanSeePathfindTarget())
+        if ((pathfindPath.x != (int)pathfindGoal.x && pathfindPath.y != (int)pathfindGoal.y) && SightChecker.CanSeePathToTarget(pathfindGoal))
         {
             pathfindPath = new SearchNode((int)pathfindGoal.x, (int)pathfindGoal.y);
         }
@@ -58,39 +60,10 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    bool CanSeePathfindTarget()
-    {
-        //can't we use a matrix for that? 
-        //okay did it - it's (-y, x)
-        
-        Vector2 normal = (pathfindGoal - (Vector2)transform.position).normalized;
-        normal = new Vector2(-normal.y, normal.x);
-        
-        RaycastHit2D[] upperHits = Physics2D.RaycastAll(((Vector2)transform.position + (0.4f * normal)), (pathfindGoal - (Vector2)transform.position), Vector2.Distance(pathfindGoal, transform.position));
-        RaycastHit2D[] lowerHits = Physics2D.RaycastAll((Vector2)transform.position + (-0.4f * normal), (pathfindGoal - (Vector2)transform.position), Vector2.Distance(pathfindGoal, transform.position));
-
-        foreach (RaycastHit2D hit in upperHits)
-        {
-            if (hit.transform.CompareTag("Untraversable"))
-            {
-                return false; 
-            }
-        }
-        foreach (RaycastHit2D hit in lowerHits)
-        {
-            if (hit.transform.CompareTag("Untraversable"))
-            {
-                return false;
-            }
-        }
-
-        return true; 
-    }
-
     public void SetPathfindGoal(Vector2 goal)
     {
         pathfindGoal = goal;
-        if (CanSeePathfindTarget())
+        if (SightChecker.CanSeePathToTarget(pathfindGoal))
         {
             pathfindPath = new SearchNode((int)goal.x, (int)goal.y);
         } else

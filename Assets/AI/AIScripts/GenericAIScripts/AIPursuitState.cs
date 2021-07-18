@@ -25,34 +25,43 @@ public class AIPursuitState : MonoBehaviour, IState
         {
             throw new System.Exception("No target?");
         }
-        
+
         MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
         oldTargetPos = TargetManager.Target.GetPosition();
     }
 
     public void UpdateState()
     {
-        if (TargetManager.Target.IsAlive())
+        if (ShouldKeepPursuingTarget())
         {
             if (ShouldMoveAtTarget())
             {
                 TargetManager.MoveAtTarget();
                 RotationController.FaceForward();
-                
-                if (Vector2.Distance(oldTargetPos, TargetManager.Target.GetPosition()) > 3) 
+
+                if (ShouldRecalculatePathfinding())
                 {
                     oldTargetPos = TargetManager.Target.GetPosition();
                     MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
                 }
             }
-            
-            //TargetManager.LookAtTarget();
+
             AIAttackManager.TryAttack(TargetManager.Target);
         }
         else
         {
             AIStateMachine.TransitionToState(ExitToState as IState);
         }
+    }
+
+    protected virtual bool ShouldKeepPursuingTarget()
+    {
+        return TargetManager.Target.IsAlive();
+    }
+
+    public virtual bool ShouldRecalculatePathfinding()
+    {
+        return (Vector2.Distance(oldTargetPos, TargetManager.Target.GetPosition()) > 3) || TargetManager.TargetChangedThisFrame();
     }
 
     public virtual bool ShouldMoveAtTarget()
@@ -67,5 +76,6 @@ public class AIPursuitState : MonoBehaviour, IState
 
     public void ExitState()
     {
+
     }
 }

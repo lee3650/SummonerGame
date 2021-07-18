@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 4792795634857391296}
   - component: {fileID: -3560668332434331697}
   - component: {fileID: 5286100465103995708}
+  - component: {fileID: 5943352569538661701}
   m_Layer: 12
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -246,6 +247,7 @@ MonoBehaviour:
   StateController: {fileID: 5487195000452624836}
   CoatingManager: {fileID: 4876094762447304020}
   AIFallState: {fileID: -3560668332434331697}
+  Targetable: 1
 --- !u!114 &5487195000452624847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +399,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 5487195000452624838}
   TargetSearcher: {fileID: 5487195000452624832}
+--- !u!114 &5943352569538661701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d558deeb4588a479dc18a6b9a42774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5487195001173321385
 GameObject:
   m_ObjectHideFlags: 0
