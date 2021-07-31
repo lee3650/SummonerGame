@@ -27,7 +27,7 @@ public class LevelGenerator : MonoBehaviour
         //we need to generate a list of features based on the level number 
         MapNode[,] newMap = MapGenerator.GenerateLevel((int)mapSize.x, (int)mapSize.y, features);
 
-        List<Vector2> spawnRegion = GenerateSpawnRegion(mapSize, levelNum); //this will have to depend on the terrain - we don't want to spawn entities on an invalid tile. 
+        List<Vector2> spawnRegion = GenerateSpawnRegion(mapSize, levelNum);
 
         RemoveInvalidTiles(spawnRegion, newMap); 
 
