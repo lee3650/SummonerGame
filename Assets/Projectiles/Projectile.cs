@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     [SerializeField] MovementController MovementController;
     [SerializeField] Collider2D col;
 
+    bool alreadyHit = false; 
+
     List<Event> EventsToApply = new List<Event>();
 
     private void Awake()
@@ -38,7 +40,13 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     {
         //so, if it's an entity, we apply event
         //no matter what, we parent if StickToTarget is true. 
-
+        if (alreadyHit)
+        {
+            return; 
+        } else
+        {
+            alreadyHit = true;
+        }
 
         MovementController.SetVelocity(Vector2.zero, 0f);
         MovementController.DisableRigidbody();

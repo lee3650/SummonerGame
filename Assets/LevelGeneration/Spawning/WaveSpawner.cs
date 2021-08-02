@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Transform BottomLeft, TopRight;
     [SerializeField] bool UseTransforms; 
 
-    List<Vector2> SpawnRegion;
+    List<Vector2> SpawnRegion = new List<Vector2>();
 
     List<AIEntity> CurrentWave = new List<AIEntity>();
 
@@ -24,9 +24,9 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public void SetSpawnRegion(List<Vector2> region)
+    public void AddSpawnRegion(List<Vector2> region)
     {
-        SpawnRegion = region; 
+        SpawnRegion.AddRange(region);
     }
 
     public void SpawnWave(List<GameObject> wave)

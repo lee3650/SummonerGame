@@ -13,4 +13,6 @@ public interface ITargetable
     bool CanBeTargeted();
 
     bool IsDamaged();
+
+    bool RequireLineOfSight();
 }

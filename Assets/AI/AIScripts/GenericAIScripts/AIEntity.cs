@@ -50,7 +50,12 @@ public class AIEntity : MonoBehaviour, ILivingEntity
             aISleepState.WakeUp();
         }
     }
-    
+
+    public bool RequireLineOfSight()
+    {
+        return true;
+    }
+
     public virtual void OnHit(IEntity hit)
     {
 

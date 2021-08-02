@@ -9,6 +9,8 @@ public class MeleeWeapon : MonoBehaviour, IDamager
     [SerializeField] float Magnitude;
     [SerializeField] EventType EventType;
 
+    bool alreadyHit = false; 
+
     List<Event> EventsToApplyOnHit = new List<Event>();
 
     private void Awake()
@@ -23,6 +25,7 @@ public class MeleeWeapon : MonoBehaviour, IDamager
 
     public void StartAttack()
     {
+        alreadyHit = false; 
         Animator.Play(Attack.name);
     }
 
@@ -31,7 +34,11 @@ public class MeleeWeapon : MonoBehaviour, IDamager
         IEntity entity; 
         if (collision.TryGetComponent<IEntity>(out entity))
         {
-            HandleCollision(entity);
+            if (!alreadyHit)
+            {
+                alreadyHit = true; 
+                HandleCollision(entity);
+            }
         }
     }
 

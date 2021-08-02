@@ -24,18 +24,28 @@ public class WaveViewModel : MonoBehaviour
 
     float waveTime = 30f;
 
+    bool firstLevel = true; 
+
     //yeah I'm definitely making this too complicated. 
 
     public void EnterNextLevelOrSpawnWave()
     {
+        if (firstLevel)
+        {
+            firstLevel = false;
+            CurrentLevelManager.EnterFirstLevel();
+        }
+
+        //this is where we give out our new items and charms and such 
         if (NextWaveFunctionMonitor.DoesNextWaveButtonStartNextLevel())
         {
-            PlayerSummoner.RefundManaFromAllLivingSummons();
-
             CurrentLevelManager.EnterNextLevel();
+
             StopSpawningWaves();
+
             UpdateCurrentWaveUI();
             UpdateNextWaveUI(CurrentLevelManager.GetNextWave());
+
             LevelNum.text = "Level: " + CurrentLevelManager.GetLevelNum();
         }
         else

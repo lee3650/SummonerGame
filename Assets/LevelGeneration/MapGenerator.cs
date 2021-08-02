@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public const int WallWidth = 0; 
+
     //so, this should take instead a list of 'features' 
     public MapNode[,] GenerateLevel(int xSize, int ySize, List<MapFeature> features)
     {
@@ -25,14 +27,20 @@ public class MapGenerator : MonoBehaviour
     {
         for (int x = 0; x < xSize; x++)
         {
-            newMap[x, 0] = new MapNode(false, TileType.Wall);
-            newMap[x, ySize - 1] = new MapNode(false, TileType.Wall);
+            for (int i = 0; i < WallWidth; i++)
+            {
+                newMap[x, i] = new MapNode(false, TileType.Wall);
+                newMap[x, ySize - i - 1] = new MapNode(false, TileType.Wall);
+            }
         }
 
         for (int y = 0; y < ySize; y++)
         {
-            newMap[0, y] = new MapNode(false, TileType.Wall);
-            newMap[xSize - 1, y] = new MapNode(false, TileType.Wall);
+            for (int i = 0; i < WallWidth; i++)
+            {
+                newMap[i, y] = new MapNode(false, TileType.Wall);
+                newMap[xSize - 1 - i, y] = new MapNode(false, TileType.Wall);
+            }
         }
     }
 

@@ -43,6 +43,11 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     }
 
+    public bool RequireLineOfSight()
+    {
+        return true; 
+    }
+
     public Transform GetTransform()
     {
         return transform;

@@ -9,15 +9,23 @@ public class MapManager
 
     static MapNode[,] Map = new MapNode[xSize, ySize]; //I believe all these entries are automatically null. 
     
+    public static void InitMap()
+    {
+        Map = new MapNode[xSize, ySize];
+
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                Map[x, y] = new MapNode(false, TileType.Wall);
+            }
+        }
+    }
+
     public static void SetMapSize(Vector2 mapSize)
     {
         xSize = (int)mapSize.x;
         ySize = (int)mapSize.y;
-    }
-
-    public static void SetMap(MapNode[,] newMap)
-    {
-        Map = newMap;
     }
 
     public static bool IsPointTraversable(Vector2 point, bool CanGoThroughWalls)
@@ -84,7 +92,7 @@ public class MapManager
 
     public static bool IsPointTraversable(int x, int y, bool CanGoThroughWalls)
     {
-        if (x > xSize || y > ySize || x < 0 || y < 0)
+        if (x >= xSize || y >= ySize || x < 0 || y < 0)
         {
             return false;
         }
@@ -95,5 +103,10 @@ public class MapManager
     public static void WritePoint(int x, int y, MapNode newNode)
     {
         Map[x, y] = newNode;
+    }
+
+    public static MapNode[,] GetMap()
+    {
+        return Map;
     }
 }

@@ -27,7 +27,7 @@ public class LakeFeature : MapFeature
     public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
         float radius = Random.Range(GetMinRadiusModifier() * xSize, xSize * GetMaxRadiusModifier());
-        Vector2 center = new Vector2(Random.Range(0, xSize - 1), Random.Range(0, ySize - 1));
+        Vector2 center = new Vector2(Random.Range(0, xSize - MapGenerator.WallWidth), Random.Range(0, ySize - MapGenerator.WallWidth));
 
         for (int x = -Mathf.FloorToInt(radius); x <= Mathf.CeilToInt(radius); x++)
         {

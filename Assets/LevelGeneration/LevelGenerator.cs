@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
@@ -10,34 +11,100 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] MapDrawer MapDrawer;
     private int levelNum = 0;
 
+    public const int StageSize = 15; 
+
     int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 
 
-    public void GenerateNextLevel(int level)
+    //so, instead of directly setting the map in the map manager we want to copy it over. 
+    public void GenerateNextLevel(int level, LevelDirections direction)
     {
-        levelNum = level; 
+        levelNum = level;
+        DestroyWalls(direction);
 
-        MapDrawer.DestroyOldMap();
+        List<MapFeature> features = GetMapFeatures(levelNum, direction);
 
-        Vector2 mapSize = GetMapSize(levelNum);
+        MapNode[,] newMap = MapGenerator.GenerateLevel(StageSize, StageSize, features);
 
-        MapManager.SetMapSize(mapSize);
+        List<Vector2> spawnRegion = GenerateSpawnRegion(direction);
 
-        List<MapFeature> features = GetMapFeatures(levelNum);
+        CopyOverMap(newMap, direction);
 
-        //we need to generate a list of features based on the level number 
-        MapNode[,] newMap = MapGenerator.GenerateLevel((int)mapSize.x, (int)mapSize.y, features);
+        RemoveInvalidTiles(spawnRegion, MapManager.GetMap());
+        WaveSpawner.AddSpawnRegion(spawnRegion);
 
-        List<Vector2> spawnRegion = GenerateSpawnRegion(mapSize, levelNum);
+        MapDrawer.InstantiatePartOfMap(MapManager.GetMap(), GetBottomLeftOfStage(direction), GetTopRightOfStage(direction));
+    }
 
-        RemoveInvalidTiles(spawnRegion, newMap); 
+    void DestroyWalls(LevelDirections dir)
+    {
+        List<Vector2> wallTiles = GetPointsWithinBoundaries(GetBottomLeftOfStage(dir), GetTopRightOfStage(dir));
+        //so, this is only the walls within the room. We also need to add the walls between rooms and write them as land... or I guess we write to every node in a map, and then we add extra walls 
+        //around the entire thing. 
 
-        WaveSpawner.SetSpawnRegion(spawnRegion);
+        print("walls to destroy: " + wallTiles.Count);
 
-        MapManager.SetMap(newMap);
+        MapDrawer.DestroyTiles(wallTiles);
+    }
 
-        MapDrawer.InstantiateMap(newMap);
+    public void SetTotalMapSizeAndInitMap()
+    {
+        MapManager.SetMapSize(new Vector2(3 * StageSize, 3 * StageSize));
+        MapManager.InitMap();
+        MapDrawer.InstantiateMap(MapManager.GetMap());
+        MapDrawer.DrawEnclosingWalls(MapManager.xSize, MapManager.ySize);
+    }
 
-        //levelNum++; 
+    void CopyOverMap(MapNode[,] map, LevelDirections dir)
+    {
+        Vector2 bottomLeft = GetBottomLeftOfStage(dir);
+        Vector2 topRight = GetTopRightOfStage(dir);
+
+        int minX = (int)bottomLeft.x;
+        int minY = (int)bottomLeft.y;
+
+        for (int x = minX; x < topRight.x; x++)
+        {
+            for (int y = minY; y < topRight.y; y++)
+            {
+                MapManager.WritePoint(x, y, map[x - minX, y - minY]);
+            }
+        }
+    }
+
+    Vector2 GetBottomLeftOfStage(LevelDirections dir)
+    {
+        switch (dir)
+        {
+            case LevelDirections.Center:
+                return new Vector2(1, 1) * StageSize;
+            case LevelDirections.East:
+                return new Vector2(2, 1) * StageSize;
+            case LevelDirections.North:
+                return new Vector2(1, 2) * StageSize;
+            case LevelDirections.South:
+                return new Vector2(1, 0) * StageSize;
+            case LevelDirections.West:
+                return new Vector2(0, 1) * StageSize;
+        }
+        throw new System.Exception("Invalid direction " + dir);
+    }
+
+    Vector2 GetTopRightOfStage(LevelDirections dir)
+    {
+        switch (dir)
+        {
+            case LevelDirections.Center:
+                return new Vector2(2, 2) * StageSize;
+            case LevelDirections.East:
+                return new Vector2(3, 2) * StageSize;
+            case LevelDirections.North:
+                return new Vector2(2, 3) * StageSize;
+            case LevelDirections.South:
+                return new Vector2(2, 1) * StageSize;
+            case LevelDirections.West:
+                return new Vector2(1, 2) * StageSize;
+        }
+        throw new System.Exception("Invalid direction " + dir);
     }
 
     void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
@@ -51,56 +118,84 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    //so, this isn't deterministic, which I guess is good. 
-    Vector2 GetMapSize(int levelNum)
+    List<Vector2> GenerateSpawnRegion(LevelDirections roomDirection)
     {
-        int startHeight = Random.Range(10, 25);
-
-        float widthMultiplier = Mathf.Lerp(Random.Range(1.5f, 2.5f), Random.Range(0.9f, 1.2f), LevelPercentage(levelNum));
-
-        return new Vector2(startHeight * widthMultiplier, startHeight); 
-    }
-
-    List<Vector2> GenerateSpawnRegion(Vector2 mapSize, int levelNum)
-    {
-        //okay let's work up to 3. But only at the very end, I guess. 
-        int maxSpawnZones = 3;
-
-        //probably just do this procedurally. That's the easiest way. 
-
-        int spawns = Mathf.RoundToInt(Mathf.Lerp(1, maxSpawnZones, Mathf.Pow(LevelPercentage(levelNum), 4)));
-
-        List<Vector2> result = GetRightSpawn(mapSize);
-        if (spawns > 1)
+        List<Vector2> result = new List<Vector2>();
+        
+        switch (roomDirection)
         {
-            result.AddRange(GetUpperSpawn(mapSize));
+            case LevelDirections.Center:
+                break;    
+            case LevelDirections.West:
+                result = GetPointsWithinBoundaries(new Vector2(0, StageSize), new Vector2(2, StageSize * 2));
+                break;
+            case LevelDirections.East:
+                result = GetPointsWithinBoundaries(new Vector2(StageSize * 3 - 2, StageSize), new Vector2(3 * StageSize, StageSize * 2));
+                break;
+            case LevelDirections.North:
+                result = GetPointsWithinBoundaries(new Vector2(StageSize, 3 * StageSize - 2), new Vector2(2 * StageSize, StageSize * 3));
+                break;
+            case LevelDirections.South:
+                result = GetPointsWithinBoundaries(new Vector2(StageSize, 0), new Vector2(2 * StageSize, 2));
+                break; 
         }
-        if (spawns > 2)
-        {
-            result.AddRange(GetLeftSpawn(mapSize));
-        }
-
         return result; 
     }
 
-    List<MapFeature> GetMapFeatures(int levelNum)
+
+    List<MapFeature> GetMapFeatures(int levelNum, LevelDirections dir)
     {
-        //so, we want to order these from making it easier to making it harder or neutral. 
-        List<MapFeature> Features = new List<MapFeature>()
+        //so, these allow horizontal movement 
+        List<MapFeature> HorizontalFeatures = new List<MapFeature>()
+        {
+            new ValleyFeature(),
+            new BridgeValleyFeature(),
+
+        };
+
+        //these allow vertical movement 
+        List<MapFeature> VerticalFeatures = new List<MapFeature>()
+        {
+            new VerticalValleyFeature(),
+            new VerticalBridgeValleyFeature(),
+        };
+
+        //these allow any direction of movement 
+        List<MapFeature> NeutralFeatures = new List<MapFeature>()
         {
             new LakeFeature(),
             new PitFeature(),
-            new ValleyFeature(),
         };
 
-        int numOfFeatures = (int)Mathf.Lerp(Random.Range(1, 4), 1, LevelPercentage(levelNum));
-        int highestFeature = Mathf.RoundToInt(Mathf.Lerp(Features.Count, 0, Mathf.Pow(LevelPercentage(levelNum), 3)));
+        HorizontalFeatures.AddRange(NeutralFeatures);
+        VerticalFeatures.AddRange(NeutralFeatures);
+
+        int numOfFeatures = (int)Mathf.Lerp(UnityEngine.Random.Range(1, 4), 4, LevelPercentage(levelNum));
+
+        //this is disgusting 
+        List<MapFeature> featureList = null; 
+        switch (dir)
+        {
+            case LevelDirections.Center:
+                featureList = NeutralFeatures;
+                break;
+            case LevelDirections.East:
+            case LevelDirections.West:
+                featureList = HorizontalFeatures;
+                break; 
+            case LevelDirections.North:
+            case LevelDirections.South:
+                featureList = VerticalFeatures;
+                break; 
+        }
+
+        int highestFeature = Mathf.RoundToInt(Mathf.Lerp(0, featureList.Count, Mathf.Pow(LevelPercentage(levelNum), 3)));
 
         List<MapFeature> result = new List<MapFeature>();
 
         for (int i = 0; i < numOfFeatures; i++)
         {
-            result.Add(Features[Random.Range(0, highestFeature)]); //this is exclusive
+            result.Add(featureList[UnityEngine.Random.Range(0, highestFeature)]); //this is exclusive
         }
 
         foreach (MapFeature feature in result)
@@ -109,27 +204,6 @@ public class LevelGenerator : MonoBehaviour
         }
 
         return result; 
-    }
-    
-    List<Vector2> GetRightSpawn(Vector2 mapSize)
-    {
-        Vector2 bottomLeft = new Vector2(mapSize.x - 3, 1);
-        Vector2 topRight = new Vector2(mapSize.x - 1, mapSize.y - 1);
-        return GetPointsWithinBoundaries(bottomLeft, topRight);
-    }
-
-    List<Vector2> GetLeftSpawn(Vector2 mapSize)
-    {
-        Vector2 bottomLeft = new Vector2(1, 1);
-        Vector2 topRight = new Vector2(4, mapSize.y - 1);
-        return GetPointsWithinBoundaries(bottomLeft, topRight);
-    }
-
-    List<Vector2> GetUpperSpawn(Vector2 mapSize)
-    {
-        Vector2 bottomLeft = new Vector2(1, mapSize.y - 3);
-        Vector2 topRight = new Vector2(mapSize.x - 1, mapSize.y - 1);
-        return GetPointsWithinBoundaries(bottomLeft, topRight);
     }
 
     public static List<Vector2> GetPointsWithinBoundaries(Vector2 bottomLeft, Vector2 topRight)

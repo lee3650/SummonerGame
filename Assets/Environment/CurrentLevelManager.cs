@@ -20,9 +20,34 @@ public class CurrentLevelManager : MonoBehaviour
 
     List<List<GameObject>> LevelWaves = new List<List<GameObject>>();
 
+    LevelDirections[] GenerationTemplate = new LevelDirections[]
+    {
+        LevelDirections.East,
+        LevelDirections.DoNotGenerate,
+        LevelDirections.West,
+        LevelDirections.DoNotGenerate,
+        LevelDirections.North,
+        LevelDirections.DoNotGenerate,
+        LevelDirections.South,
+        LevelDirections.DoNotGenerate,
+        LevelDirections.DoNotGenerate,
+        LevelDirections.DoNotGenerate,
+        LevelDirections.DoNotGenerate,
+    };
+
+    public void EnterFirstLevel()
+    {
+        LevelGenerator.SetTotalMapSizeAndInitMap();
+        LevelGenerator.GenerateNextLevel(levelNum, LevelDirections.Center);
+        Player.position = MapManager.GetClosestValidTile(Player.position);
+    }
+
     public void EnterNextLevel()
     {
-        LevelGenerator.GenerateNextLevel(levelNum);
+        if (levelNum < GenerationTemplate.Length && GenerationTemplate[levelNum] != LevelDirections.DoNotGenerate)
+        {
+            LevelGenerator.GenerateNextLevel(levelNum, GenerationTemplate[levelNum]);
+        }
 
         highestWave = Mathf.RoundToInt(Mathf.Lerp(3, 5, LevelGenerator.LevelPercentage(levelNum)));
 
@@ -36,9 +61,7 @@ public class CurrentLevelManager : MonoBehaviour
         }
 
         baseEnemies = LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
-
-        Player.position = MapManager.GetClosestValidTile(Player.position);
-
+        
         levelNum++;
     }
 

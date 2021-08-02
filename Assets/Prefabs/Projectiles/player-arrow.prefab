@@ -117,6 +117,7 @@ MonoBehaviour:
   rb: {fileID: 7110591748230664653}
   MoveSpeed: 0
   Sensitivity: 0
+  CanGoThroughWalls: 1
 --- !u!50 &7110591748230664653
 Rigidbody2D:
   serializedVersion: 4

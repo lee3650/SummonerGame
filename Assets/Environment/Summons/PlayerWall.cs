@@ -22,7 +22,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
         transform.position = VectorRounder.RoundVector(transform.position);
 
         prevNode = MapManager.ReadPoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-        MapManager.WritePoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), new MapNode(true, TileType)); 
+        WriteMyTileToMap(); 
     }
 
     void ReplaceTileUnderneathIfThereIsOne()
@@ -41,11 +41,22 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
                         prevNode = playerWall.GetUnderneathNode();
                     }
                     s.Destroy();
+
+                    WriteMyTileToMap();
                 }
             }
         }
     }
 
+    void WriteMyTileToMap()
+    {
+        MapManager.WritePoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), new MapNode(true, TileType));
+    }
+
+    public bool RequireLineOfSight()
+    {
+        return false;
+    }
     public MapNode GetUnderneathNode()
     {
         return prevNode;
@@ -59,6 +70,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
     private void OnDeath()
     {
         //I'm not going to destroy, I'm just going to disable everything - hopefully that reduces the number of null errors here 
+        print("writing prev node: " + prevNode.TileType);
         MapManager.WritePoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), prevNode);
         gameObject.SetActive(false);
     }
