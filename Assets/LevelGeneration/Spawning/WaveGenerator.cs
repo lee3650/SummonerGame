@@ -24,13 +24,45 @@ public class WaveGenerator : MonoBehaviour
     {
         float random = Random.Range(0, 100f);
 
+        List<SpawnToProbability> enabledEnemies = new List<SpawnToProbability>();
+
+        //it's definitely more efficient to just update our calculated minimums/maximums only when the enabled enemies change 
+        float sum = 0;
         foreach (SpawnToProbability s in Enemies)
         {
-            if (random <= s.Likelihood)
+            if (s.Enabled)
+            {
+                sum += s.RelativeLikelihood;
+            }
+        }
+        
+        foreach (SpawnToProbability s in Enemies)
+        {
+            if (s.Enabled)
+            {
+                float percentChance = 100f * s.RelativeLikelihood / sum;
+                if (enabledEnemies.Count == 0)
+                {
+                    s.CalculatedMinimum = 0f;
+                    s.CalculatedMaximum = percentChance;
+                } else
+                {
+                    s.CalculatedMinimum = enabledEnemies[0].CalculatedMaximum;
+                    s.CalculatedMaximum = s.CalculatedMinimum + percentChance;
+                }
+
+                enabledEnemies.Insert(0, s);
+            }
+        }
+
+        foreach (SpawnToProbability s in enabledEnemies)
+        {
+            if (random >= s.CalculatedMinimum && random <= s.CalculatedMaximum)
             {
                 return s.Spawn;
             }
         }
+
         throw new System.Exception("Could not select random enemy!");
     }
 }

@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class SpawnToProbability 
+public class SpawnToProbability
 {
-    public float Likelihood;
-    public GameObject Spawn; 
+    public float RelativeLikelihood;
+    public GameObject Spawn;
+    public bool Enabled;
+    [HideInInspector] public float CalculatedMinimum;
+    [HideInInspector] public float CalculatedMaximum;
 }

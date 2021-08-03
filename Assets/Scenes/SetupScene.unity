@@ -3125,12 +3125,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - Likelihood: 0
+  - RelativeLikelihood: 1
     Spawn: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34, type: 3}
-  - Likelihood: 0
+    Enabled: 1
+    CalculatedMinimum: 0
+    CalculatedMaximum: 0
+  - RelativeLikelihood: 0.333
     Spawn: {fileID: 1090552370236627394, guid: 3d436db8065c44844a162d33f9da7a50, type: 3}
-  - Likelihood: 100
+    Enabled: 1
+    CalculatedMinimum: 0
+    CalculatedMaximum: 0
+  - RelativeLikelihood: 0.15
     Spawn: {fileID: 4648206095511936293, guid: 9295a991e01b8bc45adb5f4b24fbd08d, type: 3}
+    Enabled: 0
+    CalculatedMinimum: 0
+    CalculatedMaximum: 0
 --- !u!1 &872480544
 GameObject:
   m_ObjectHideFlags: 0
