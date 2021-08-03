@@ -48,6 +48,15 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
         }
     }
 
+    public bool CanBeTargetedBy(Factions faction)
+    {
+        if (faction != Factions.Player)
+        {
+            return true; 
+        }
+        return false; 
+    }
+
     void WriteMyTileToMap()
     {
         MapManager.WritePoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), new MapNode(true, TileType));

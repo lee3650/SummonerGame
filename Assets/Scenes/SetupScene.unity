@@ -3125,10 +3125,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - Likelihood: 75
+  - Likelihood: 0
     Spawn: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34, type: 3}
-  - Likelihood: 100
+  - Likelihood: 0
     Spawn: {fileID: 1090552370236627394, guid: 3d436db8065c44844a162d33f9da7a50, type: 3}
+  - Likelihood: 100
+    Spawn: {fileID: 4648206095511936293, guid: 9295a991e01b8bc45adb5f4b24fbd08d, type: 3}
 --- !u!1 &872480544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,6 +5972,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1775413159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775413160}
+  - component: {fileID: 1775413161}
+  m_Layer: 0
+  m_Name: GetMapDrawer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1775413160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775413159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.948063, y: 5.2879534, z: -75.46432}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775413161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775413159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7767a93a003df1046a5724852d936b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapDrawer: {fileID: 250621016}
 --- !u!1 &1838097375
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,8 +100,23 @@ public class MapManager
         return Map[x, y].IsTraversable(CanGoThroughWalls);
     }
 
+    public static bool IsTileType(int x, int y, TileType tileType)
+    {
+        if (x >= xSize || y >= ySize || x < 0 || y < 0)
+        {
+            return false;
+        }
+
+        return Map[x, y].TileType == tileType;
+    }
+
     public static void WritePoint(int x, int y, MapNode newNode)
     {
+        if (x >= xSize || y >= ySize || x < 0 || y < 0)
+        {
+            return;
+        }
+
         Map[x, y] = newNode;
     }
 

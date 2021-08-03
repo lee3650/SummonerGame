@@ -15,4 +15,6 @@ public interface ITargetable
     bool IsDamaged();
 
     bool RequireLineOfSight();
+
+    bool CanBeTargetedBy(Factions faction);
 }

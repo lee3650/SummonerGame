@@ -98,6 +98,15 @@ public class MovementController : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Static;
     }
 
+    public void SetMoveSpeed(float value)
+    {
+        MoveSpeed = value; 
+    }
+    public float GetMoveSpeed()
+    {
+        return MoveSpeed;
+    }
+
     public void SetVelocity(Vector2 direction, float magnitude)
     {
         rb.velocity = direction * magnitude;

@@ -38,6 +38,15 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
         StateController.TransitionToState(PlayerDeathState);
     }
 
+    public bool CanBeTargetedBy(Factions faction)
+    {
+        if (faction != Factions.Player)
+        {
+            return true; 
+        }
+        return false; 
+    }
+
     private void OnDamageTaken()
     {
 

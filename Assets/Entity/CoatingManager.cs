@@ -17,7 +17,7 @@ public class CoatingManager : MonoBehaviour
         }
     }
     
-    public void SetCoating(Coating newCoating)
+    public virtual void SetCoating(Coating newCoating)
     {
         CurrentCoating = newCoating;
     }

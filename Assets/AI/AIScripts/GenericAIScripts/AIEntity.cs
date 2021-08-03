@@ -51,6 +51,15 @@ public class AIEntity : MonoBehaviour, ILivingEntity
         }
     }
 
+    public bool CanBeTargetedBy(Factions faction)
+    {
+        if (faction != Faction)
+        {
+            return true; 
+        }
+        return false; 
+    }
+
     public bool RequireLineOfSight()
     {
         return true;

@@ -21,14 +21,9 @@ public class PlayerSummonController : MonoBehaviour
             }
             else
             {
-                ITargetable target = GetTargetUnderMouse();
-
-                if (target != null && target != (SelectedSummon as ITargetable))
-                {
-                    SelectedSummon.SetTarget(target);
-                }
-
+                SelectedSummon.HoldPoint(PlayerInput.GetWorldMousePosition());
                 DeselectSummon();
+
             }
         }
 
@@ -36,7 +31,13 @@ public class PlayerSummonController : MonoBehaviour
         {
             if (SelectedSummon != null)
             {
-                SelectedSummon.GoToPoint(PlayerInput.GetWorldMousePosition());
+                ITargetable target = GetTargetUnderMouse();
+
+                if (target != null && target != (SelectedSummon as ITargetable) && target.CanBeTargetedBy(Factions.Player))
+                {
+                    SelectedSummon.SetTarget(target);
+                }
+
                 DeselectSummon();
             }
         }
@@ -46,15 +47,6 @@ public class PlayerSummonController : MonoBehaviour
             if (SelectedSummon != null)
             {
                 SelectedSummon.ToggleGuardMode();
-                DeselectSummon();
-            }
-        }
-
-        if (ShouldTellSummonToHoldPoint())
-        {
-            if (SelectedSummon != null)
-            {
-                SelectedSummon.HoldPoint(PlayerInput.GetWorldMousePosition());
                 DeselectSummon();
             }
         }
