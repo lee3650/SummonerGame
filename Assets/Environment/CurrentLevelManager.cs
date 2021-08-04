@@ -10,10 +10,11 @@ public class CurrentLevelManager : MonoBehaviour
     [SerializeField] LevelGenerator LevelGenerator;
     [SerializeField] WaveViewModel WaveViewModel;
     [SerializeField] WaveSpawner WaveSpawner;
-    [SerializeField] Transform Player; 
+    [SerializeField] Transform Player;
+    [SerializeField] List<SpawnToOddsWrapper> AdditionalSpawns;
 
     private int levelNum = 0;
-    private int highestWave = 0; //so, this is actually super scuffed - if we change this it's going to break NextWaveFunctionMonitor. So, idk, watch out. 
+    private int highestWave = 0; //so, this is actually super messed up - if we change this it's going to break NextWaveFunctionMonitor. So, idk, watch out. 
     private int currentWave = 0; 
 
     private int baseEnemies = 3; 
@@ -44,6 +45,8 @@ public class CurrentLevelManager : MonoBehaviour
 
     public void EnterNextLevel()
     {
+        WaveGenerator.AddSpawns(AdditionalSpawns[levelNum].Spawns);
+
         if (levelNum < GenerationTemplate.Length && GenerationTemplate[levelNum] != LevelDirections.DoNotGenerate)
         {
             LevelGenerator.GenerateNextLevel(levelNum, GenerationTemplate[levelNum]);

@@ -9,6 +9,6 @@ public class SpawnToProbability
     public float RelativeLikelihood;
     public GameObject Spawn;
     public bool Enabled;
-    [HideInInspector] public float CalculatedMinimum;
-    [HideInInspector] public float CalculatedMaximum;
+    public float CalculatedMinimum;
+    public float CalculatedMaximum;
 }

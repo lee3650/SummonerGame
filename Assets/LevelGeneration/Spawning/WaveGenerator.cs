@@ -19,6 +19,11 @@ public class WaveGenerator : MonoBehaviour
 
         return NextWave;
     }
+    
+    public void AddSpawns(List<SpawnToProbability> newSpawns)
+    {
+        Enemies.AddRange(newSpawns);
+    }
 
     GameObject ChooseRandomEnemy()
     {

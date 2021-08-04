@@ -634,6 +634,32 @@ MonoBehaviour:
   WaveViewModel: {fileID: 1498837301}
   WaveSpawner: {fileID: 1388708030}
   Player: {fileID: 333112603}
+  AdditionalSpawns:
+  - Spawns:
+    - RelativeLikelihood: 1
+      Spawn: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      Enabled: 1
+      CalculatedMinimum: 0
+      CalculatedMaximum: 0
+    - RelativeLikelihood: 0.4
+      Spawn: {fileID: 1090552370236627394, guid: 3d436db8065c44844a162d33f9da7a50,
+        type: 3}
+      Enabled: 1
+      CalculatedMinimum: 0
+      CalculatedMaximum: 0
+  - Spawns:
+    - RelativeLikelihood: 0.15
+      Spawn: {fileID: 4648206095511936293, guid: 9295a991e01b8bc45adb5f4b24fbd08d,
+        type: 3}
+      Enabled: 1
+      CalculatedMinimum: 0
+      CalculatedMaximum: 0
+  - Spawns: []
+  - Spawns: []
+  - Spawns: []
+  - Spawns: []
+  - Spawns: []
 --- !u!4 &249737492
 Transform:
   m_ObjectHideFlags: 0
@@ -3124,22 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf4caa59e7b6484ebed2fca8ad481f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies:
-  - RelativeLikelihood: 1
-    Spawn: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34, type: 3}
-    Enabled: 1
-    CalculatedMinimum: 0
-    CalculatedMaximum: 0
-  - RelativeLikelihood: 0.333
-    Spawn: {fileID: 1090552370236627394, guid: 3d436db8065c44844a162d33f9da7a50, type: 3}
-    Enabled: 1
-    CalculatedMinimum: 0
-    CalculatedMaximum: 0
-  - RelativeLikelihood: 0.15
-    Spawn: {fileID: 4648206095511936293, guid: 9295a991e01b8bc45adb5f4b24fbd08d, type: 3}
-    Enabled: 0
-    CalculatedMinimum: 0
-    CalculatedMaximum: 0
+  Enemies: []
 --- !u!1 &872480544
 GameObject:
   m_ObjectHideFlags: 0
