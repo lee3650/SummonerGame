@@ -81,7 +81,6 @@ public class ItemSelection : MonoBehaviour
             return; 
         }
 
-        print("new selection: " + newSelect);
         if (SelectedItem != null)
         {
             SelectedItem.OnDeselection();

@@ -50,25 +50,25 @@ public class ValleyFeature : MapFeature
     {
         foreach (Vector2 vector2 in ValleyCenters)
         {
-            WriteDeltaPointToMap(vector2, xSize, ySize, BuildDirection(), map);
+            WriteDeltaPointToMap(vector2, xSize, ySize, BuildDirection(), map, new MapNode(IsValleyTileTraversable(), GetValleyTile()));
         }
     }
 
-    protected void WriteDeltaPointToMap(Vector2 point, int xSize, int ySize, Vector2 BuildDir, MapNode[,] map)
+    protected void WriteDeltaPointToMap(Vector2 point, int xSize, int ySize, Vector2 BuildDir, MapNode[,] map, MapNode nodeToWrite)
     {
         if (IsPointOnMap(point, xSize, ySize))
         {
-            map[(int)point.x, (int)point.y] = new MapNode(IsValleyTileTraversable(), GetValleyTile());
+            map[(int)point.x, (int)point.y] = nodeToWrite;
         }
 
         if (IsPointOnMap(point + BuildDir, xSize, ySize))
         {
-            map[(int)point.x + (int)BuildDir.x, (int)point.y + (int)BuildDir.y] = new MapNode(IsValleyTileTraversable(), GetValleyTile());
+            map[(int)point.x + (int)BuildDir.x, (int)point.y + (int)BuildDir.y] = nodeToWrite;
         }
 
         if (IsPointOnMap(point - BuildDir, xSize, ySize))
         {
-            map[(int)point.x - (int)BuildDir.x, (int)point.y - (int)BuildDir.y] = new MapNode(IsValleyTileTraversable(), GetValleyTile());
+            map[(int)point.x - (int)BuildDir.x, (int)point.y - (int)BuildDir.y] = nodeToWrite;
         }
     }
 

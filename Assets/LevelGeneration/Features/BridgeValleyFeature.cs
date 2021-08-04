@@ -19,25 +19,25 @@ public class BridgeValleyFeature : ValleyFeature
         Vector2 bridgeWidth = Vector2.Perpendicular(BuildDirection());
         bridgeWidth.Normalize();
 
+        MonoBehaviour.print("Bridge width: " + bridgeWidth);
+
         for (int x = 0; x < 3; x++)
         {
             Vector2 seed = ValleyCenters[Random.Range(0, ValleyCenters.Count)];
             Vector2 negDir = seed;
             Vector2 posDir = seed;
-            
-            while (true)
+         
+            for (int i = 0; i < 3; i++)
             {
+
                 //technically, we don't have to do it this way because the valley is always 3 wide, but better not to assume that. 
-                if (map[(int)negDir.x, (int)negDir.y].IsTraversable(true) && map[(int)posDir.x, (int)posDir.y].IsTraversable(true))
-                {
-                    break;
-                }
+                
+                WriteDeltaPointToMap(negDir, xSize, ySize, bridgeWidth, map, new MapNode(true, TileType.Bridge));
+                WriteDeltaPointToMap(posDir, xSize, ySize, bridgeWidth, map, new MapNode(true, TileType.Bridge));
 
                 negDir -= BuildDirection();
                 posDir += BuildDirection();
 
-                WriteDeltaPointToMap(negDir, xSize, ySize, bridgeWidth, map);
-                WriteDeltaPointToMap(posDir, xSize, ySize, bridgeWidth, map);
             }
         }
     }

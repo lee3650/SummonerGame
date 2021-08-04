@@ -451,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dffb4bb6490c7849868401caca3cec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackLength: 2
-  AttackRange: 10
+  AttackLength: 1.5
+  AttackRange: 25
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1740066754483794912}

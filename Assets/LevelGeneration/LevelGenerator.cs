@@ -170,7 +170,7 @@ public class LevelGenerator : MonoBehaviour
         HorizontalFeatures.AddRange(NeutralFeatures);
         VerticalFeatures.AddRange(NeutralFeatures);
 
-        int numOfFeatures = (int)Mathf.Lerp(UnityEngine.Random.Range(1, 4), 4, LevelPercentage(levelNum));
+        int numOfFeatures = (int)UnityEngine.Random.Range(1, 4);
 
         //this is disgusting 
         List<MapFeature> featureList = null; 
@@ -189,8 +189,8 @@ public class LevelGenerator : MonoBehaviour
                 break; 
         }
 
-        int highestFeature = Mathf.RoundToInt(Mathf.Lerp(0, featureList.Count, Mathf.Pow(LevelPercentage(levelNum), 3)));
-
+        int highestFeature = UnityEngine.Random.Range(0, featureList.Count) + 1;
+        
         List<MapFeature> result = new List<MapFeature>();
 
         for (int i = 0; i < numOfFeatures; i++)
