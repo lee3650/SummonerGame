@@ -18,6 +18,8 @@ public class MapGenerator : MonoBehaviour
             feature.AddFeature(xSize, ySize, newMap);
         }
 
+        new OreFeature().AddFeature(xSize, ySize, newMap);
+
         AddWalls(newMap, xSize, ySize);
 
         return newMap;

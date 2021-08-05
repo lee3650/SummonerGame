@@ -8,13 +8,17 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> Enemies;
 
-
     [SerializeField] Transform BottomLeft, TopRight;
-    [SerializeField] bool UseTransforms; 
+    [SerializeField] bool UseTransforms;
+
+    static List<IWaveNotifier> ClientsToNotify = new List<IWaveNotifier>(); 
 
     List<Vector2> SpawnRegion = new List<Vector2>();
 
     List<AIEntity> CurrentWave = new List<AIEntity>();
+
+    bool NotifiedWaveCompletion = true;
+    bool ReadyToNotify = true; 
 
     private void Awake()
     {
@@ -29,6 +33,16 @@ public class WaveSpawner : MonoBehaviour
         SpawnRegion.AddRange(region);
     }
 
+    public static void NotifyWhenWaveEnds(IWaveNotifier notifier)
+    {
+        ClientsToNotify.Add(notifier);
+    }
+
+    public static void StopNotifyingWhenWaveEnds(IWaveNotifier notifier)
+    {
+        ClientsToNotify.Remove(notifier);
+    }
+
     public void SpawnWave(List<GameObject> wave)
     {
         CurrentWave = new List<AIEntity>();
@@ -38,6 +52,26 @@ public class WaveSpawner : MonoBehaviour
             GameObject enemy = Instantiate(wave[i], GetRandomPointInSpawnZone(), Quaternion.Euler(Vector3.zero));
             enemy.GetComponent<AIEntity>().WakeUp();
             CurrentWave.Add(enemy.GetComponent<AIEntity>());
+        }
+
+        print("Spawned entities!");
+
+        NotifiedWaveCompletion = false;
+    }
+
+    private void LateUpdate()
+    {
+        if (CurrentWaveDefeated() && !NotifiedWaveCompletion)
+        {
+            print("Notifying clients!");
+
+            foreach (IWaveNotifier client in ClientsToNotify)
+            {
+                client.OnWaveEnds();
+            }
+
+
+            NotifiedWaveCompletion = true; 
         }
     }
 

@@ -8,5 +8,6 @@ public enum SummonType
     Trap,
     MeleeEntity,
     RangedEntity, 
+    Miner,
     Any,
 }

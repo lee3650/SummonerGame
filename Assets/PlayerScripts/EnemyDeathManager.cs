@@ -17,8 +17,10 @@ public class EnemyDeathManager : MonoBehaviour
 
     public void IncreasePlayerMana()
     {
+        /*
         PlayerMana.IncreaseMaxMana(ManaIncreaseFromKill);
         PlayerMana.IncreaseMana(ManaIncreaseFromKill);
+         */
     }
 
     public static void OnEnemyDeath()

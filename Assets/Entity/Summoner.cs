@@ -30,6 +30,12 @@ public class Summoner : MonoBehaviour
         return Summons; 
     }
 
+    public void AddMana(float amt)
+    {
+        ManaManager.IncreaseMaxMana(amt);
+        ManaManager.IncreaseMana(amt);
+    }
+
     void TryAddCharmToSummon(Summon s, Charm charm)
     {
         if (charm.ApplyToType(s.GetSummonType()) && charm.HasAttackModifier())

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
+using System.Xml;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
@@ -25,6 +26,8 @@ public class LevelGenerator : MonoBehaviour
 
         MapNode[,] newMap = MapGenerator.GenerateLevel(StageSize, StageSize, features);
 
+        TransformOreBasedOnDistance(newMap, StageSize, StageSize, direction);
+
         List<Vector2> spawnRegion = GenerateSpawnRegion(direction);
 
         CopyOverMap(newMap, direction);
@@ -44,6 +47,43 @@ public class LevelGenerator : MonoBehaviour
         print("walls to destroy: " + wallTiles.Count);
 
         MapDrawer.DestroyTiles(wallTiles);
+    }
+
+    void TransformOreBasedOnDistance(MapNode[,] newMap, int xSize, int ySize, LevelDirections dir)
+    {
+        Vector2 centerTile = new Vector2((float)MapManager.xSize / 2, (float)MapManager.ySize / 2);
+
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                if (newMap[x, y].TileType == TileType.Ore)
+                {
+                    float distToSafety = 0;
+                    if (dir == LevelDirections.Center)
+                    {
+                        distToSafety = Vector2.Distance(centerTile, GetTrueMapCoordinate(x, y, dir));
+                    } else if (dir == LevelDirections.East || dir == LevelDirections.West)
+                    {
+                        distToSafety = Mathf.Abs(centerTile.x - GetTrueMapCoordinate(x, y, dir).x);
+                    } else if (dir == LevelDirections.North || dir == LevelDirections.South)
+                    {
+                        distToSafety = Mathf.Abs(centerTile.y - GetTrueMapCoordinate(x, y, dir).y);
+                    }
+
+                    if (distToSafety < 7f)
+                    {
+                        newMap[x, y] = new MapNode(true, TileType.Copper);
+                    } else if (distToSafety < 12f)
+                    {
+                        newMap[x, y] = new MapNode(true, TileType.Silver);
+                    } else
+                    {
+                        newMap[x, y] = new MapNode(true, TileType.Gold);
+                    }
+                }
+            }
+        }
     }
 
     public void SetTotalMapSizeAndInitMap()
@@ -69,6 +109,11 @@ public class LevelGenerator : MonoBehaviour
                 MapManager.WritePoint(x, y, map[x - minX, y - minY]);
             }
         }
+    }
+
+    Vector2 GetTrueMapCoordinate(int x, int y, LevelDirections mapDir)
+    {
+        return new Vector2(x, y) + GetBottomLeftOfStage(mapDir);
     }
 
     Vector2 GetBottomLeftOfStage(LevelDirections dir)
@@ -141,7 +186,6 @@ public class LevelGenerator : MonoBehaviour
         }
         return result; 
     }
-
 
     List<MapFeature> GetMapFeatures(int levelNum, LevelDirections dir)
     {

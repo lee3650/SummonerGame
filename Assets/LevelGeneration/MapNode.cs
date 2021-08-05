@@ -27,7 +27,12 @@ public class MapNode
             case TileType.Valley:
             case TileType.Water:
             case TileType.Land:
-                return 1; 
+            case TileType.Gold:
+            case TileType.Copper:
+            case TileType.Silver:
+            case TileType.Ore:
+                return 1;
+            case TileType.Miner:
             case TileType.BreakableWall:
                 return 30;
             case TileType.Gate:
@@ -57,4 +62,9 @@ public enum TileType
     Wall, 
     BreakableWall, 
     Gate, 
+    Ore,
+    Copper,
+    Silver,
+    Gold,
+    Miner,
 }

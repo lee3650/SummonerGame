@@ -7,13 +7,15 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
 {
     [SerializeField] HealthManager HealthManager;
     [SerializeField] SpriteRenderer sr;
-    [SerializeField] Summon MySummon; 
+    [SerializeField] protected Summon MySummon; 
     [SerializeField] TileType TileType;
 
     private MapNode prevNode; 
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        print("Awake called parent!");
+
         MySummon.SummonerSet += ReplaceTileUnderneathIfThereIsOne;
         
         HealthManager.OnDeath += OnDeath;
@@ -48,6 +50,11 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
         }
     }
 
+    public virtual bool ShouldBeOverwritten()
+    {
+        return true; 
+    }
+
     public bool CanBeTargetedBy(Factions faction)
     {
         if (faction != Factions.Player)
@@ -76,7 +83,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, HealthManager.GetHealthPercentage());
     }
 
-    private void OnDeath()
+    protected virtual void OnDeath()
     {
         //I'm not going to destroy, I'm just going to disable everything - hopefully that reduces the number of null errors here 
         print("writing prev node: " + prevNode.TileType);
