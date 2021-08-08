@@ -60,7 +60,10 @@ public class MapDrawer : MonoBehaviour
 
     public void RewritePoint(int x, int y, MapNode mapNode)
     {
-        DrawnMap[x, y] = GetInstantiatedTile(x, y, mapNode);
+        if (x >= 0 && x < MapManager.xSize && y >= 0 && y < MapManager.ySize)
+        {
+            DrawnMap[x, y] = GetInstantiatedTile(x, y, mapNode);
+        }
     }
 
     public void InstantiatePartOfMap(MapNode[,] map, Vector2 start, Vector2 end)

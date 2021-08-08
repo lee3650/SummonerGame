@@ -239,7 +239,12 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i < numOfFeatures; i++)
         {
-            result.Add(featureList[UnityEngine.Random.Range(0, highestFeature)]); //this is exclusive
+            MapFeature feature = featureList[UnityEngine.Random.Range(0, highestFeature)];
+
+            if (feature is BridgeValleyFeature == false || FeatureListContainsBridge(result) == false)
+            {
+                result.Add(feature); //this is exclusive
+            }
         }
 
         foreach (MapFeature feature in result)
@@ -248,6 +253,18 @@ public class LevelGenerator : MonoBehaviour
         }
 
         return result; 
+    }
+
+    bool FeatureListContainsBridge(List<MapFeature> features)
+    {
+        foreach (MapFeature f in features)
+        {
+            if (f is BridgeValleyFeature)
+            {
+                return true; 
+            }
+        }
+        return false; 
     }
 
     public static List<Vector2> GetPointsWithinBoundaries(Vector2 bottomLeft, Vector2 topRight)

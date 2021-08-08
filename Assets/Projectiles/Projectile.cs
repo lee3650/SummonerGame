@@ -78,7 +78,7 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     
     IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(8f);
         Destroy(gameObject);
     }
 }

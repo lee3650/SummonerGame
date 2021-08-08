@@ -5,12 +5,7 @@ using UnityEngine;
 public class PlayerIncome : MonoBehaviour, IWaveNotifier
 {
     [SerializeField] float IncomePerWave = 10f;
-    [SerializeField] Summoner PlayerSummoner; 
-
-    private void Awake()
-    {
-        WaveSpawner.NotifyWhenWaveEnds(this); 
-    }
+    [SerializeField] Summoner PlayerSummoner;
 
     public void OnWaveEnds()
     {

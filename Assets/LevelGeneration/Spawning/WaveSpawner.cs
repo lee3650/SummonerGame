@@ -18,7 +18,6 @@ public class WaveSpawner : MonoBehaviour
     List<AIEntity> CurrentWave = new List<AIEntity>();
 
     bool NotifiedWaveCompletion = true;
-    bool ReadyToNotify = true; 
 
     private void Awake()
     {
@@ -35,7 +34,7 @@ public class WaveSpawner : MonoBehaviour
 
     public static void NotifyWhenWaveEnds(IWaveNotifier notifier)
     {
-        ClientsToNotify.Add(notifier);
+        ClientsToNotify.Insert(0, notifier);
     }
 
     public static void StopNotifyingWhenWaveEnds(IWaveNotifier notifier)
@@ -65,11 +64,10 @@ public class WaveSpawner : MonoBehaviour
         {
             print("Notifying clients!");
 
-            foreach (IWaveNotifier client in ClientsToNotify)
+            for (int i = ClientsToNotify.Count - 1; i >= 0; i--)
             {
-                client.OnWaveEnds();
+                ClientsToNotify[i].OnWaveEnds();
             }
-
 
             NotifiedWaveCompletion = true; 
         }

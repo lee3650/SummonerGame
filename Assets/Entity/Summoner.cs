@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class Summoner : MonoBehaviour
+public class Summoner : MonoBehaviour, IWaveNotifier
 {
     [SerializeField] ManaManager ManaManager;
     [SerializeField] CharmManager CharmManager;
+    [SerializeField] PlayerIncome PlayerIncome;
     ILivingEntity Entity;
 
     List<Summon> Summons = new List<Summon>();
@@ -14,6 +15,7 @@ public class Summoner : MonoBehaviour
     private void Awake()
     {
         Entity = GetComponent<ILivingEntity>();
+        WaveSpawner.NotifyWhenWaveEnds(this);
     }
 
     public void AddCharm(Charm charm)
@@ -28,6 +30,11 @@ public class Summoner : MonoBehaviour
     public List<Summon> GetSummons()
     {
         return Summons; 
+    }
+
+    public bool TryReduceMana(float amt)
+    {
+        return ManaManager.TryDecreaseMana(amt);
     }
 
     public void AddMana(float amt)
@@ -47,6 +54,18 @@ public class Summoner : MonoBehaviour
     public Event GetCharmModifiedEvent(Event e, SummonType type)
     {
         return CharmManager.GetCharmModifiedEvent(e, type);
+    }
+
+    public void OnWaveEnds()
+    {
+        //It's actually important the the player tells the summons that the wave ends and they don't get directly notified because we need to control the order in which you
+        //get paid and get, um, your income removed. 
+        PlayerIncome.OnWaveEnds();
+
+        foreach (Summon s in Summons)
+        {
+            s.OnWaveEnds();
+        }
     }
 
     public void OnHit(IEntity hit)

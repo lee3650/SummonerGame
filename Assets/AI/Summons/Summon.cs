@@ -7,6 +7,7 @@ public class Summon : MonoBehaviour
 {
     [SerializeField] HealthManager HealthManager;
     [SerializeField] SummonType SummonType;
+    [SerializeField] protected float WaveHealAmt = 10f;
 
     public event Action SummonerSet = delegate { };
 
@@ -26,6 +27,14 @@ public class Summon : MonoBehaviour
         if (IDamager == null)
         {
             IDamager = GetComponentInChildren<IDamager>();
+        }
+    }
+
+    public virtual void OnWaveEnds()
+    {
+        if (SummonType != SummonType.Wall) 
+        { 
+            TryHealSummon(WaveHealAmt);
         }
     }
 
@@ -51,7 +60,7 @@ public class Summon : MonoBehaviour
     {
         if (HealthManager != null)
         {
-            HealthManager.SubtractHealth(-amt);
+            HealthManager.Heal(amt);
         }
     }
 

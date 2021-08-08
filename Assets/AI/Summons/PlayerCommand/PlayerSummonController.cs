@@ -21,9 +21,8 @@ public class PlayerSummonController : MonoBehaviour
             }
             else
             {
-                SelectedSummon.HoldPoint(PlayerInput.GetWorldMousePosition());
+                SelectedSummon.HandleCommand(new HoldPointCommand(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition())));
                 DeselectSummon();
-
             }
         }
 
@@ -35,7 +34,7 @@ public class PlayerSummonController : MonoBehaviour
 
                 if (target != null && target != (SelectedSummon as ITargetable) && target.CanBeTargetedBy(Factions.Player))
                 {
-                    SelectedSummon.SetTarget(target);
+                    SelectedSummon.HandleCommand(new SetTargetCommand(target));
                 }
 
                 DeselectSummon();
@@ -46,7 +45,16 @@ public class PlayerSummonController : MonoBehaviour
         {
             if (SelectedSummon != null)
             {
-                SelectedSummon.ToggleGuardMode();
+                SelectedSummon.HandleCommand(new ToggleGuardModeCommand());
+                DeselectSummon();
+            }
+        }
+
+        if (ShouldTellSummonToRest())
+        {
+            if (SelectedSummon != null)
+            {
+                SelectedSummon.HandleCommand(new RestCommand());
                 DeselectSummon();
             }
         }
@@ -55,6 +63,11 @@ public class PlayerSummonController : MonoBehaviour
     bool ShouldTellSummonToToggleGuardMode() 
     {
         return Input.GetKeyDown(KeyCode.G) && UsingController();
+    }
+
+    bool ShouldTellSummonToRest()
+    {
+        return Input.GetKeyDown(KeyCode.R) && UsingController();
     }
 
     bool ShouldTellSummonToHoldPoint()
@@ -133,7 +146,13 @@ public class PlayerSummonController : MonoBehaviour
                 //so, there is a summon. 
                 if (s.GetComponent<ILivingEntity>().GetFaction() == Factions.Player)
                 {
-                    return s;
+                    if (s.CanBeSelected())
+                    {
+                        return s;
+                    } else
+                    {
+                        print("Could not select entity!");
+                    }
                 }
             }
         }

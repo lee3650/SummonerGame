@@ -45,7 +45,7 @@ public class MapNode
 
     public bool IsTraversable(bool CanGoThroughWalls)
     {
-        if (TileType == TileType.BreakableWall)
+        if (TileType == TileType.BreakableWall || TileType == TileType.Miner)
         {
             return CanGoThroughWalls; 
         }

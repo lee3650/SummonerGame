@@ -18,8 +18,10 @@ public class AIDeathState : MonoBehaviour, IState
             SpriteRenderer = GetComponent<SpriteRenderer>();
         }
         SpriteRenderer.color = new Color(SpriteRenderer.color.r, SpriteRenderer.color.g, SpriteRenderer.color.b, 0.25f);
-        SpriteRenderer.sortingOrder = -4; 
+        SpriteRenderer.sortingOrder = -4;
 
+        StartCoroutine(Destroy());
+        
         VirtualEnterState();
     }
     
@@ -36,5 +38,12 @@ public class AIDeathState : MonoBehaviour, IState
     public void ExitState()
     {
 
+    }
+
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
+        //hm... that shouldn't cause problems, right? 
     }
 }

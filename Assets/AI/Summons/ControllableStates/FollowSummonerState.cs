@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowSummonerState : MonoBehaviour, IState
+public class FollowSummonerState : MonoBehaviour, IControllableState
 {
     Summon Summon;
     [SerializeField] MovementController MovementController;
@@ -36,6 +36,11 @@ public class FollowSummonerState : MonoBehaviour, IState
         {
             StateController.TransitionToState(AIPursuitState);
         }
+    }
+
+    public void HandleCommand(PlayerCommand command)
+    {
+
     }
 
     void LookAtSummoner()

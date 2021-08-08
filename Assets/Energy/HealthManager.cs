@@ -21,6 +21,21 @@ public class HealthManager : MonoBehaviour, IEnergyManager
         return CurrentHealth > 0f;
     }
 
+    public void HealToFull()
+    {
+        CurrentHealth = MaxHealth; 
+    }
+
+    public void Heal(float amt)
+    {
+        CurrentHealth += amt; 
+        //we could consider not doing this because it does somewhat reward you for keeping entities alive... 
+        if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth; 
+        }
+    }
+
     public bool IsHealthGreaterThan(float amt)
     {
         return CurrentHealth > amt; 

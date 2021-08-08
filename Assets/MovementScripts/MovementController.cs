@@ -48,6 +48,8 @@ public class MovementController : MonoBehaviour
         }
         else
         {
+            print("moving toward point: " + new Vector2(pathfindPath.x, pathfindPath.y));
+
             MoveTowardPoint(new Vector2(pathfindPath.x, pathfindPath.y));
 
             if (Vector2.Distance(new Vector2(pathfindPath.x, pathfindPath.y), transform.position) < 0.25f)

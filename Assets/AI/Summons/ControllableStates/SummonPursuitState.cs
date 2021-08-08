@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonPursuitState : AIPursuitState
+public class SummonPursuitState : AIPursuitState, IControllableState
 {
     [SerializeField] HoldPointState HoldPointState;
     [SerializeField] bool IgnoreHeldPoint = false; 
@@ -10,6 +10,11 @@ public class SummonPursuitState : AIPursuitState
     public void ToggleHoldingPoint()
     {
         IgnoreHeldPoint = !IgnoreHeldPoint;
+    }
+
+    public void HandleCommand(PlayerCommand command)
+    {
+
     }
 
     public override bool ShouldMoveAtTarget()

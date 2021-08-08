@@ -392,7 +392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 525.9204}
+  m_AnchoredPosition: {x: -437.25012, y: 346.1632}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ManaManager: {fileID: 333112618}
   CharmManager: {fileID: 333112623}
+  PlayerIncome: {fileID: 810335379}
 --- !u!114 &333112620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,7 +1978,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 442475574}
   col: {fileID: 442475573}
   ItemType: 0
-  ManaDrain: 1.5
+  ManaDrain: 1.25
   AttackLength: 0.1
   Summon: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
   rotationOffset: 0
@@ -3220,7 +3221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952145fe4240e1340b290b0a12201221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IncomePerWave: 10
+  IncomePerWave: 15
   PlayerSummoner: {fileID: 333112619}
 --- !u!1 &847125555
 GameObject:
@@ -6763,7 +6764,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
