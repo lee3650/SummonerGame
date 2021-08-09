@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5470023481148401368}
   - component: {fileID: 5470023481148401366}
   - component: {fileID: 5470023481148401365}
-  - component: {fileID: 5331654618686014612}
   - component: {fileID: 5470023481148401362}
   - component: {fileID: 5470023481148401361}
   - component: {fileID: 5470023481148401367}
@@ -32,6 +31,8 @@ GameObject:
   - component: {fileID: 735241531784100596}
   - component: {fileID: 5033375616469320738}
   - component: {fileID: 8810878231189781938}
+  - component: {fileID: -8813707562190996660}
+  - component: {fileID: -863413770107515304}
   m_Layer: 17
   m_Name: FriendlyBuilder
   m_TagString: Untagged
@@ -140,23 +141,6 @@ MonoBehaviour:
   MoveSpeed: 8
   Sensitivity: 12.5
   CanGoThroughWalls: 1
---- !u!114 &5331654618686014612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5470023481148401198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976c84ebbd470ef4999126e179293558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementController: {fileID: 5470023481148401365}
-  RotationController: {fileID: 5470023481148401362}
-  TargetManager: {fileID: 5470023481148401367}
-  StateController: {fileID: 5470023481148401361}
-  AIPursuitState: {fileID: -1697427212333442626}
 --- !u!114 &5470023481148401362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +248,8 @@ MonoBehaviour:
   RestState: {fileID: -1576653708852143315}
   AIAttackManager: {fileID: 5470023481148401373}
   MaintenanceFee: 2
+  PointToHoldManager: {fileID: -8813707562190996660}
+  DeactivatedState: {fileID: -863413770107515304}
 --- !u!114 &4846828309707756510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +326,7 @@ MonoBehaviour:
   Faction: 0
   Precedence: 5
   HealthManager: {fileID: 5470023481148401375}
-  AIDeathState: {fileID: 0}
+  AIDeathState: {fileID: 5033375616469320738}
   StateController: {fileID: 5470023481148401361}
   CoatingManager: {fileID: 1217040391308569588}
   AIFallState: {fileID: 8810878231189781938}
@@ -381,8 +367,8 @@ MonoBehaviour:
   ExitToState: {fileID: 335781169884346582}
   MovementController: {fileID: 5470023481148401365}
   AIAttackManager: {fileID: 5470023481148401373}
-  HoldPointState: {fileID: 335781169884346582}
   IgnoreHeldPoint: 1
+  PointToHoldManager: {fileID: -8813707562190996660}
 --- !u!114 &-514414667327159713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +396,7 @@ MonoBehaviour:
   HoldPointState: {fileID: 335781169884346582}
   StateController: {fileID: 5470023481148401361}
   HealthManager: {fileID: 5470023481148401375}
+  MovementController: {fileID: 5470023481148401365}
 --- !u!114 &735241531784100596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +449,31 @@ MonoBehaviour:
   sr: {fileID: 5470023481148401368}
   StateController: {fileID: 5470023481148401361}
   AIDeathState: {fileID: 5033375616469320738}
+--- !u!114 &-8813707562190996660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470023481148401198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7866357b5435147a464e7b9641d06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-863413770107515304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470023481148401198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e485e27687375438ae4936a58debd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 5470023481148401368}
 --- !u!1 &5600977189999033025
 GameObject:
   m_ObjectHideFlags: 0

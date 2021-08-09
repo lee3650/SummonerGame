@@ -8,9 +8,4 @@ public class BuilderPursuitState : SummonPursuitState, IControllableState
     {
         return TargetManager.Target.IsDamaged();
     }
-
-    public void HandleCommand(PlayerCommand command)
-    {
-
-    }
 }

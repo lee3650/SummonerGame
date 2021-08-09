@@ -11,34 +11,49 @@ public class ControllableSummon : Summon
     [SerializeField] RestState RestState;
     [SerializeField] AIAttackManager AIAttackManager;
     [SerializeField] float MaintenanceFee;
+    [SerializeField] PointToHoldManager PointToHoldManager;
+    [SerializeField] DeactivatedState DeactivatedState;
 
     float originalHealAmount;
+
+    bool Deactivated = false; 
 
     private void Start()
     {
         originalHealAmount = WaveHealAmt;
     }
-    public void EnterRestState()
+
+    public void TransitionToRestState()
     {
         StateController.TransitionToState(RestState);
     }
 
-    public virtual void SetTarget(ITargetable target)
+    public void TransitionToDeactivatedState()
     {
-        if (TargetSearcher != null)
-        {
-            TargetSearcher.AssignTarget(target);
-        }
+        StateController.TransitionToState(DeactivatedState);
+    }
+
+    public void TransitionToHoldPointState()
+    {
+        StateController.TransitionToState(HoldPointState);
     }
 
     public void HandleCommand(PlayerCommand command)
     {
-        //so, we just need to give it to the current state, is the plan. 
-        //What I don't really like about that is I need to create a new state for every single 
-        //existing generic state. Well, there's not really anything I can do about that... I don't see any nice elegant solution. 
+        switch (command)
+        {
+            case HoldPointCommand hp:
+                HoldPoint(hp.PointToHold);
+                break;
+            case ToggleGuardModeCommand tg:
+                ToggleGuardMode();
+                break;
+            case RestCommand rc: //since this changes the current state we don't want to do anything with it 
+                break;
 
+        }
 
-
+        (StateController.GetCurrentState() as IControllableState).HandleCommand(command);
     }
 
     public override void OnWaveEnds()
@@ -46,14 +61,17 @@ public class ControllableSummon : Summon
         if (GetSummoner().TryReduceMana(MaintenanceFee))
         {
             WaveHealAmt = originalHealAmount; //this is really not a good way to do it... idk. It's obviously not relying on abstraction, right? 
-            AIAttackManager.Activated = true; 
-            //so, this really is not a good solution, but we're going to automatically set this to true every time we are paid
-            //because this boolean is only for this specific case. 
+            if (Deactivated)
+            {
+                Deactivated = false; 
+                HandleCommand(new ReactivateCommand());
+            }
         }
         else
         {
+            Deactivated = true; 
             WaveHealAmt = 0f;
-            AIAttackManager.Activated = false; 
+            HandleCommand(new DeactivateCommand());
         }
 
         base.OnWaveEnds();
@@ -73,14 +91,9 @@ public class ControllableSummon : Summon
     {
         return true;
     }
+
     public virtual void HoldPoint(Vector2 point)
     {
-        //so, basically we're not leaving the point until we die or until we get a command to move to a point 
-        //hm. 
-
-        //so, that does get a bit complex, right, because we need to assign the state to exit to, right. 
-        HoldPointState.PointToHold = VectorRounder.RoundVector(point);
-        StateController.TransitionToState(HoldPointState);
-        //I'm slowly eliminating all the advantages of state machines. 
+        PointToHoldManager.PointToHold = VectorRounder.RoundVector(point);
     }
 }

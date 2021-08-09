@@ -11,7 +11,20 @@ public class RangedSummonAttackState : RangedAttackState, IDamager, IControllabl
     }
     public void HandleCommand(PlayerCommand command)
     {
-
+        switch (command)
+        {
+            case HoldPointCommand hp:
+                GetComponent<ControllableSummon>().TransitionToHoldPointState();
+                break;
+            case ToggleGuardModeCommand tg:
+                break;
+            case RestCommand rc:
+                GetComponent<ControllableSummon>().TransitionToRestState();
+                break;
+            case DeactivateCommand dc:
+                GetComponent<ControllableSummon>().TransitionToDeactivatedState();
+                break;
+        }
     }
 
     protected override void ActivateProjectile(Projectile p)

@@ -10,28 +10,29 @@ public class HoldPointState : MonoBehaviour, IControllableState
     [SerializeField] TargetManager TargetManager;
     [SerializeField] StateController StateController;
 
-    Vector2 pointToHold; 
+    PointToHoldManager PointToHoldManager;
+
+    void Awake()
+    {
+        PointToHoldManager = GetComponent<PointToHoldManager>();
+    }
 
     public void EnterState()
     {
         PursuitState.SetExitState(this);
-        MovementController.SetPathfindGoal(PointToHold);
+        MovementController.SetPathfindGoal(PointToHoldManager.PointToHold);
     }
 
     public void UpdateState()
     {
-        if (Vector2.Distance(transform.position, PointToHold) > 0.5f)
-        {
-            print("moving toward point to hold: " + PointToHold);
-            MovementController.MonitorGoalAndFollowPath();
-            RotationController.FaceForward();
-        }
+        MovementController.MoveTowardPointWithRotation(PointToHoldManager.PointToHold);
 
-        if (TargetManager.HasLivingTarget() && Vector2.Distance(transform.position, PointToHold) < 2.5f)
+        if (TargetManager.HasLivingTarget() && Vector2.Distance(transform.position, PointToHoldManager.PointToHold) < 2.5f)
         {
             StateController.TransitionToState(PursuitState);
         }
     }
+
     public void ExitState()
     {
 
@@ -39,18 +40,19 @@ public class HoldPointState : MonoBehaviour, IControllableState
 
     public void HandleCommand(PlayerCommand command)
     {
-
-    }
-
-    public Vector2 PointToHold
-    {
-        get
+        switch (command)
         {
-            return pointToHold; 
-        }
-        set
-        {
-            pointToHold = value;
+            case HoldPointCommand hp:
+                MovementController.SetPathfindGoal(hp.PointToHold);
+                break;
+            case ToggleGuardModeCommand tg:
+                break;
+            case RestCommand rc:
+                GetComponent<ControllableSummon>().TransitionToRestState();
+                break;
+            case DeactivateCommand dc:
+                GetComponent<ControllableSummon>().TransitionToDeactivatedState();
+                break;
         }
     }
 }

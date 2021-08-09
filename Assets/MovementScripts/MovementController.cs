@@ -13,9 +13,11 @@ public class MovementController : MonoBehaviour
     SearchNode pathfindPath = null;
 
     SightChecker SightChecker;
+    RotationController rc;
 
     private void Awake()
     {
+        rc = GetComponent<RotationController>();
         SightChecker = GetComponent<SightChecker>();
     }
 
@@ -23,9 +25,18 @@ public class MovementController : MonoBehaviour
     {
         if (pathfindPath == null)
         {
-            return pathfindGoal; 
+            return pathfindGoal;
         }
         return new Vector2(pathfindPath.x, pathfindPath.y);
+    }
+
+    public void MoveTowardPointWithRotation(Vector2 pointToHold)
+    {
+        if (Vector2.Distance(transform.position, pointToHold) > 0.5f)
+        {
+            MonitorGoalAndFollowPath();
+            rc.FaceForward();
+        }
     }
 
     public void MoveTowardPoint(Vector2 worldPoint)

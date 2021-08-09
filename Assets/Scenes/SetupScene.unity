@@ -2196,7 +2196,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 529203587}
   col: {fileID: 529203586}
   ItemType: 0
-  ManaDrain: 10
+  ManaDrain: 7.5
   AttackLength: 0.1
   Summon: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}
   rotationOffset: 0
