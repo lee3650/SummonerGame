@@ -1,18 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerSummonController : MonoBehaviour
 {
     [SerializeField] PlayerInput PlayerInput;
     [SerializeField] ItemSelection ItemSelection; //so, we just need to make sure the current item is the summon controller. 
+    [SerializeField] SelectedSummonUI SelectedSummonUI;
+    [SerializeField] ManaManager ManaManager;
 
     private ControllableSummon SelectedSummon = null;
 
+    public void UpgradeSummon(UpgradePath path)
+    {
+        print("upgrade button pressed!");
+
+        if (SelectedSummon != null)
+        {
+            if (ManaManager.TryDecreaseMana(path.GetUpgradeCost()))
+            {
+                SelectedSummon.HandleCommand(new UpgradeCommand(path));
+                DeselectSummon();
+            }
+        }
+    }
+
     private void Update()
     {
-        if (MousePressedUsingController(0))
+        if (MousePressedUsingController(0) && !MouseOverUIComponent())
         {
             if (SelectedSummon == null)
             {
@@ -60,6 +77,11 @@ public class PlayerSummonController : MonoBehaviour
         }
     }
 
+    bool MouseOverUIComponent()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
+
     bool ShouldTellSummonToToggleGuardMode() 
     {
         return Input.GetKeyDown(KeyCode.G) && UsingController();
@@ -85,10 +107,13 @@ public class PlayerSummonController : MonoBehaviour
         return ItemSelection.HasItem() && (ItemSelection.SelectedItem.GetItemType() == ItemType.SummonController);
     }
 
+    //I don't like this but we're going to have this access the UI. 
     void SelectSummon(ControllableSummon s)
     {
         if (s != null)
         {
+            SelectedSummonUI.SelectSummon(s);
+
             SelectedSummon = s;
 
             SelectableComponent sc;
@@ -103,10 +128,12 @@ public class PlayerSummonController : MonoBehaviour
         }
     }
 
-    void DeselectSummon()
+    public void DeselectSummon()
     {
+        SelectedSummonUI.DeselectSummon();
+
         SelectableComponent sc;
-        if (SelectedSummon.TryGetComponent<SelectableComponent>(out sc))
+        if (SelectedSummon != null && SelectedSummon.TryGetComponent<SelectableComponent>(out sc))
         {
             sc.Deselect();
         }

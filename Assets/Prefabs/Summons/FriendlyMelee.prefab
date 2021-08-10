@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 7699678110255344992}
   - component: {fileID: -6420320303085296378}
   - component: {fileID: 5448426088680229287}
+  - component: {fileID: 335773881890910927}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -411,6 +412,12 @@ MonoBehaviour:
   MaintenanceFee: 0.75
   PointToHoldManager: {fileID: -6420320303085296378}
   DeactivatedState: {fileID: 5448426088680229287}
+  UpgradePath: {fileID: 335773881890910927}
+  StatString:
+  - 'Range: 1.5'
+  - 'Damage: 4'
+  - 'Health: 35'
+  - 'Maintenance Fee: 0.75'
 --- !u!114 &8588638947005751098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,3 +624,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 9194925930672925244}
+--- !u!114 &335773881890910927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 5287930270531925739, guid: 53fdc2210c18fa44983a49e92018ff80,
+    type: 3}
+  UpgradeCost: 8
+  useable: 1

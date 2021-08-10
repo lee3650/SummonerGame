@@ -16,17 +16,9 @@ public class SummonWeapon : Weapon
 
     public override void UseWeapon(Vector2 mousePos)
     {
-        Quaternion rotation = ZeroRotation ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset)); 
+        Quaternion rotation = ZeroRotation ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset));
 
-        GameObject summoned = Instantiate(Summon, mousePos, rotation);
-       
-        summoned.GetComponent<Summon>().SetSummoner(Wielder.GetComponent<Summoner>());
-
-        ControllableSummon cs;
-        if (summoned.TryGetComponent<ControllableSummon>(out cs))
-        {
-            cs.HoldPoint(mousePos);
-        }
+        GameObject summoned = SpawnSummon(Summon, mousePos, Wielder.GetComponent<Summoner>(), rotation);
 
         if (ReduceMaxMana)
         {
@@ -37,5 +29,20 @@ public class SummonWeapon : Weapon
     public override WeaponType GetWeaponType()
     {
         return WeaponType.Summon;
+    }
+
+    public static GameObject SpawnSummon(GameObject summon, Vector2 pos, Summoner summoner, Quaternion rotation)
+    {
+        GameObject summoned = Instantiate(summon, pos, rotation);
+
+        summoned.GetComponent<Summon>().SetSummoner(summoner);
+
+        ControllableSummon cs;
+        if (summoned.TryGetComponent<ControllableSummon>(out cs))
+        {
+            cs.HoldPoint(pos);
+        }
+
+        return summoned;
     }
 }

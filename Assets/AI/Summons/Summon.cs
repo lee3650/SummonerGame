@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Summon : MonoBehaviour
 {
-    [SerializeField] HealthManager HealthManager;
+    [SerializeField] protected HealthManager HealthManager;
     [SerializeField] SummonType SummonType;
     [SerializeField] protected float WaveHealAmt = 10f;
 
