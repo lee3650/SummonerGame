@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : Item 
+public abstract class Weapon : Item 
 {
     //for now let's assume only the player can use items. 
     [SerializeField] private float ManaDrain; //we'll also assume you can only use mana 
@@ -18,9 +18,7 @@ public class Weapon : Item
         return AttackLength;
     }
 
-    public virtual void UseWeapon(Vector2 mousePos)
-    {
-    }
+    public abstract void UseWeapon(Vector2 mousePos);
 
     public virtual WeaponType GetWeaponType()
     {

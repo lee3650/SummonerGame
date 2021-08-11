@@ -27,9 +27,9 @@ public class RangedSummonAttackState : RangedAttackState, IDamager, IControllabl
         }
     }
 
-    protected override void ActivateProjectile(Projectile p)
+    protected override void ActivateProjectile(Projectile p, IWielder wielder)
     {
-        base.ActivateProjectile(p);
+        base.ActivateProjectile(p, wielder);
         foreach (Event e in EventModifiers)
         {
             p.AddAttackModifier(e);

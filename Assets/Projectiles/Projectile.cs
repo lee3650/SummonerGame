@@ -21,8 +21,9 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
         EventsToApply.Add(new Event(EventType, Damage));
     }
 
-    public void Fire()
+    public void Fire(IWielder wielder)
     {
+        EventsToApply = wielder.ModifyEventList(EventsToApply);
         MovementController.SetVelocity(transform.up, Velocity);
     }
 

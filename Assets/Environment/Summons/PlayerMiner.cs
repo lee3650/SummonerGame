@@ -20,6 +20,11 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier
         return false; 
     }
 
+    public List<Event> ModifyEventList(List<Event> umodifiedList)
+    {
+        return umodifiedList;
+    }
+
     public void OnWaveEnds()
     {
         print("Got wave ends notification!");

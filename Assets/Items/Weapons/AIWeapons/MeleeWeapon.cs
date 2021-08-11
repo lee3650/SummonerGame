@@ -8,23 +8,29 @@ public class MeleeWeapon : MonoBehaviour, IDamager
     [SerializeField] AnimationClip Attack;
     [SerializeField] float Magnitude;
     [SerializeField] EventType EventType;
+    [SerializeField] GameObject WielderObject;
+
+    IWielder Wielder; 
 
     bool alreadyHit = false; 
 
-    List<Event> EventsToApplyOnHit = new List<Event>();
+    List<Event> UnmodifiedEventsToApplyOnHit = new List<Event>();
+    List<Event> ModifiedEventsToApplyOnHit = new List<Event>();
 
     private void Awake()
     {
-        EventsToApplyOnHit.Add(new Event(EventType, Magnitude));
+        UnmodifiedEventsToApplyOnHit.Add(new Event(EventType, Magnitude));
+        Wielder = WielderObject.GetComponent<IWielder>();
     }
 
     public void AddAttackModifier(Event e)
     {
-        EventsToApplyOnHit.Add(e);
+        UnmodifiedEventsToApplyOnHit.Add(e); //so, we actually want this to be in the unmodified list because that means it will be constant and consistent 
     }
 
     public void StartAttack()
     {
+        ModifiedEventsToApplyOnHit = Wielder.ModifyEventList(UnmodifiedEventsToApplyOnHit); //this is a little messed up, because it is going to be passed in by reference, so we actually could modify the original, which we don't want to do. 
         alreadyHit = false; 
         Animator.Play(Attack.name);
     }
@@ -44,7 +50,7 @@ public class MeleeWeapon : MonoBehaviour, IDamager
 
     protected virtual void HandleCollision(IEntity entity)
     {
-        foreach (Event e in EventsToApplyOnHit)
+        foreach (Event e in ModifiedEventsToApplyOnHit)
         {
             entity.HandleEvent(e);
         }

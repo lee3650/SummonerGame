@@ -250,6 +250,8 @@ MonoBehaviour:
   MaintenanceFee: 2
   PointToHoldManager: {fileID: -8813707562190996660}
   DeactivatedState: {fileID: -863413770107515304}
+  UpgradePath: {fileID: 0}
+  StatString: []
 --- !u!114 &4846828309707756510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,3 +620,4 @@ MonoBehaviour:
   Attack: {fileID: 7400000, guid: ed9838a76592ed34caacc3a5abaf4388, type: 2}
   Magnitude: 0
   EventType: 2
+  WielderObject: {fileID: 5470023481148401198}

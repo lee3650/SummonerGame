@@ -47,6 +47,11 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
         return false; 
     }
 
+    public List<Event> ModifyEventList(List<Event> umodifiedList)
+    {
+        return umodifiedList;
+    }
+
     private void OnDamageTaken()
     {
 

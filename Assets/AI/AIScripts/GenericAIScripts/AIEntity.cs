@@ -70,6 +70,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
 
     }
 
+    public virtual List<Event> ModifyEventList(List<Event> umodifiedList)
+    {
+        return umodifiedList;
+    }
+
     public virtual void HandleEvent(Event e)
     {
         e = CoatingManager.ModifyEvent(e);
