@@ -20,8 +20,8 @@ public class UpgradePath : MonoBehaviour
 
     public string GetNextSummonStats()
     {
-        ControllableSummon s;
-        if (NextSummon.TryGetComponent<ControllableSummon>(out s))
+        IControllableSummon s;
+        if (NextSummon.TryGetComponent<IControllableSummon>(out s))
         {
             return s.GetStatString() + "\nUpgrade Cost: " + UpgradeCost;
         }

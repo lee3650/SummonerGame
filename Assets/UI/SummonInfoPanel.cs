@@ -8,7 +8,7 @@ public class SummonInfoPanel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text; 
 
-    public void DisplaySummonInfo(ControllableSummon summon)
+    public void DisplaySummonInfo(IControllableSummon summon)
     {
         text.text = summon.GetStatString();
     }

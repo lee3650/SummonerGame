@@ -35,6 +35,7 @@ public class MapNode
             case TileType.Stone:
             case TileType.Marsh:
                 return 1;
+            case TileType.Barracks:
             case TileType.Miner:
             case TileType.BreakableWall:
                 return 30;
@@ -72,5 +73,6 @@ public enum TileType
     Miner,
     Marsh,
     Stone,
-    Hills
+    Hills,
+    Barracks,
 }

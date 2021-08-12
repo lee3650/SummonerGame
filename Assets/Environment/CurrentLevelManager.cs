@@ -63,6 +63,8 @@ public class CurrentLevelManager : MonoBehaviour
             LevelWaves.Add(WaveGenerator.GenerateNextWave(Mathf.RoundToInt(baseEnemies * GetWaveModifier(i/(highestWave - 1)))));
         }
 
+        HealPlayer();
+
         baseEnemies = LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
         
         levelNum++;
@@ -73,6 +75,13 @@ public class CurrentLevelManager : MonoBehaviour
         print("Spawned wave: " + currentWave);
         WaveSpawner.SpawnWave(GetNextWave());
         currentWave++;
+    }
+
+    public void HealPlayer()
+    {
+        int healAmt = Random.Range(10, 20);
+
+        Player.GetComponent<HealthManager>().Heal(healAmt); //this is sketchy at best 
     }
 
     public List<GameObject> GetNextWave()

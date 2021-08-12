@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &17723146810303837
+--- !u!1 &5052993147076501497
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 17723146810303839}
-  - component: {fileID: 17723146810303836}
-  - component: {fileID: -360141125053813988}
-  - component: {fileID: -5157839651516772810}
-  - component: {fileID: 2042207029774516379}
-  - component: {fileID: 3941265906476139161}
+  - component: {fileID: 5052993147076501499}
+  - component: {fileID: 5052993147076501496}
+  - component: {fileID: 4404983241618756024}
+  - component: {fileID: 9100241369393230994}
+  - component: {fileID: 8111846117241141309}
+  - component: {fileID: 5052993147076501498}
+  - component: {fileID: 4557513604400156999}
+  - component: {fileID: 614927881629380883}
   m_Layer: 15
-  m_Name: PlayerWall
+  m_Name: Barrack
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &17723146810303839
+--- !u!4 &5052993147076501499
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17723146810303837}
+  m_GameObject: {fileID: 5052993147076501497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.502, y: 1.502, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
@@ -35,13 +37,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &17723146810303836
+--- !u!212 &5052993147076501496
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17723146810303837}
+  m_GameObject: {fileID: 5052993147076501497}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: a7de8c1a5c07180418fb4e0f8de46fc1, type: 3}
-  m_Color: {r: 0.3882353, g: 0.25519595, b: 0.1882353, a: 1}
+  m_Color: {r: 0.36285594, g: 0.18431371, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,59 +86,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-360141125053813988
+--- !u!114 &4404983241618756024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17723146810303837}
+  m_GameObject: {fileID: 5052993147076501497}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2ff6fba98ac294191bfb714743f1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthManager: {fileID: -5157839651516772810}
-  SummonType: 0
+  HealthManager: {fileID: 9100241369393230994}
+  SummonType: 4
   WaveHealAmt: 10
   ManaRefundAmount: 0
---- !u!114 &-5157839651516772810
+--- !u!114 &9100241369393230994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17723146810303837}
+  m_GameObject: {fileID: 5052993147076501497}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 15
+  MaxHealth: 20
   CurrentHealth: 0
---- !u!114 &2042207029774516379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17723146810303837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5386cd7273cc945a183eeddf05eca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthManager: {fileID: -5157839651516772810}
-  sr: {fileID: 17723146810303836}
-  MySummon: {fileID: -360141125053813988}
-  TileType: 5
---- !u!61 &3941265906476139161
+--- !u!61 &8111846117241141309
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17723146810303837}
+  m_GameObject: {fileID: 5052993147076501497}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -156,3 +142,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &5052993147076501498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052993147076501497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91197abb44cf434478149946559b38aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 9100241369393230994}
+  sr: {fileID: 5052993147076501496}
+  MySummon: {fileID: 4404983241618756024}
+  TileType: 15
+  Summon: {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
+  PointToHoldManager: {fileID: 4557513604400156999}
+  StatString: 'Produces a melee unit at the end of each wave, if its last melee unit
+    is not alive. '
+--- !u!114 &4557513604400156999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052993147076501497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7866357b5435147a464e7b9641d06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &614927881629380883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052993147076501497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99340feb68423f14ab31d54560e5daaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 5052993147076501496}
+  SelectedMaterial: {fileID: 2100000, guid: 06cf8cb215df9d54c9bbc9b2bcb30582, type: 2}
+  SelectGraphic: {fileID: 3926530807043809730, guid: 1fd5b16d0661f8b489d2746828a6b8ea,
+    type: 3}

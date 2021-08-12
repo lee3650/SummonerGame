@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllableSummon : Summon
+public class ControllableSummon : Summon, IControllableSummon
 {
     [SerializeField] StateController StateController;
     [SerializeField] TargetSearcher TargetSearcher;
@@ -42,6 +42,11 @@ public class ControllableSummon : Summon
         StateController.TransitionToState(RestState);
     }
 
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
     public void TransitionToDeactivatedState()
     {
         StateController.TransitionToState(DeactivatedState);
@@ -52,7 +57,7 @@ public class ControllableSummon : Summon
         StateController.TransitionToState(HoldPointState);
     }
 
-    public void HandleCommand(PlayerCommand command)
+    public virtual void HandleCommand(PlayerCommand command)
     {
         switch (command)
         {

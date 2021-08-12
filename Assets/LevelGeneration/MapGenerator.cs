@@ -80,15 +80,13 @@ public class MapGenerator : MonoBehaviour
 
         float val = Mathf.PerlinNoise(adjustedX, adjustedY);
 
-        if (val <= 0.25f)
-        {
-            return TileType.Marsh;
-        }
-        if (val < 0.75f)
+        //so, we're not going to return TileType.Marsh for now
+
+        if (val < 0.70f)
         {
             return TileType.Land;
         }
-        if (val < 0.88f)
+        if (val < 0.85f)
         {
             return TileType.Stone;
         }

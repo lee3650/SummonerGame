@@ -12,9 +12,9 @@ public class SelectedSummonUI : MonoBehaviour
 
     List<GameObject> DisplayedPanels = new List<GameObject>();
 
-    public void SelectSummon(ControllableSummon s)
+    public void SelectSummon(IControllableSummon s)
     {
-        UpgradePath[] upgrades = s.GetComponents<UpgradePath>();
+        UpgradePath[] upgrades = s.GetTransform().GetComponents<UpgradePath>();
         if (upgrades != null)
         {
             foreach (UpgradePath p in upgrades)

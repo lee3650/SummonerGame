@@ -11,7 +11,7 @@ public class PlayerSummonController : MonoBehaviour
     [SerializeField] SelectedSummonUI SelectedSummonUI;
     [SerializeField] ManaManager ManaManager;
 
-    private ControllableSummon SelectedSummon = null;
+    private IControllableSummon SelectedSummon = null;
 
     public void UpgradeSummon(UpgradePath path)
     {
@@ -33,7 +33,7 @@ public class PlayerSummonController : MonoBehaviour
         {
             if (SelectedSummon == null)
             {
-                ControllableSummon s = GetSummonUnderMouse();
+                IControllableSummon s = GetSummonUnderMouse();
                 SelectSummon(s);
             }
             else
@@ -108,7 +108,7 @@ public class PlayerSummonController : MonoBehaviour
     }
 
     //I don't like this but we're going to have this access the UI. 
-    void SelectSummon(ControllableSummon s)
+    void SelectSummon(IControllableSummon s)
     {
         if (s != null)
         {
@@ -117,7 +117,7 @@ public class PlayerSummonController : MonoBehaviour
             SelectedSummon = s;
 
             SelectableComponent sc;
-            if (SelectedSummon.TryGetComponent<SelectableComponent>(out sc))
+            if (SelectedSummon.GetTransform().TryGetComponent<SelectableComponent>(out sc))
             {
                 print("selectable component should show graphic!");
                 sc.Select();
@@ -133,7 +133,7 @@ public class PlayerSummonController : MonoBehaviour
         SelectedSummonUI.DeselectSummon();
 
         SelectableComponent sc;
-        if (SelectedSummon != null && SelectedSummon.TryGetComponent<SelectableComponent>(out sc))
+        if (SelectedSummon != null && SelectedSummon.GetTransform().TryGetComponent<SelectableComponent>(out sc))
         {
             sc.Deselect();
         }
@@ -160,18 +160,18 @@ public class PlayerSummonController : MonoBehaviour
         return null;
     }
 
-    ControllableSummon GetSummonUnderMouse()
+    IControllableSummon GetSummonUnderMouse()
     {
         Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 0.5f);
         print("colliders found: " + cols.Length);
         foreach (Collider2D col in cols)
         {
-            ControllableSummon s;
-            if (col.TryGetComponent<ControllableSummon>(out s))
+            IControllableSummon s;
+            if (col.TryGetComponent<IControllableSummon>(out s))
             {
                 print("There was a summon!");
                 //so, there is a summon. 
-                if (s.GetComponent<ILivingEntity>().GetFaction() == Factions.Player)
+                if (s.GetTransform().GetComponent<ILivingEntity>().GetFaction() == Factions.Player)
                 {
                     if (s.CanBeSelected())
                     {

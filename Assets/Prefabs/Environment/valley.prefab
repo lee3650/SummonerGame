@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7939173541511920639}
   - component: {fileID: 7939173541511920636}
   - component: {fileID: 2765347943162183875}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: valley
   m_TagString: Untraversable
   m_Icon: {fileID: 0}

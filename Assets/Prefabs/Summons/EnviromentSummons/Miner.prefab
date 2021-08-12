@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 6305876023889047352}
   SummonType: 4
+  WaveHealAmt: 10
   ManaRefundAmount: 0
 --- !u!114 &6305876023889047352
 MonoBehaviour:
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 12
+  MaxHealth: 20
   CurrentHealth: 0
 --- !u!61 &6438850639139857303
 BoxCollider2D:
