@@ -392,7 +392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 345.73196}
+  m_AnchoredPosition: {x: -437.25012, y: 345.7319}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -857,6 +857,15 @@ MonoBehaviour:
   - TileType: 10
     GameObject: {fileID: 8565047179991635313, guid: 2973d0e8cd1b17743afca7af13c1eae2,
       type: 3}
+  - TileType: 12
+    GameObject: {fileID: 8736320266349055197, guid: 0c84dccd3445f62479dfa0c1310fc727,
+      type: 3}
+  - TileType: 13
+    GameObject: {fileID: 313791189871114068, guid: 17b2becd7a6a62e44b5e0a7a6099be39,
+      type: 3}
+  - TileType: 14
+    GameObject: {fileID: 4575102493453994984, guid: a7d3c73566c15d64daabad439bedffa3,
+      type: 3}
 --- !u!4 &250621017
 Transform:
   m_ObjectHideFlags: 0
@@ -1304,7 +1313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 333112605}
-  MoveSpeed: 10
+  BaseMoveSpeed: 12.5
   Sensitivity: 12.5
   CanGoThroughWalls: 1
 --- !u!114 &333112610

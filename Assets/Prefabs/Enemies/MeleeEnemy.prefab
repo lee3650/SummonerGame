@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5487195000452624889}
-  MoveSpeed: 8
+  BaseMoveSpeed: 10
   Sensitivity: 12.5
   CanGoThroughWalls: 1
 --- !u!114 &5487195000452624839

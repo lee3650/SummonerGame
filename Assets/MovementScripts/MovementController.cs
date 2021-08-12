@@ -4,10 +4,12 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] float MoveSpeed;
+    [SerializeField] float BaseMoveSpeed;
     [SerializeField] float Sensitivity;
 
     [SerializeField] bool CanGoThroughWalls = true;
+
+    float MoveSpeed; 
 
     Vector2 pathfindGoal = new Vector2();
     SearchNode pathfindPath = null;
@@ -15,10 +17,22 @@ public class MovementController : MonoBehaviour
     SightChecker SightChecker;
     RotationController rc;
 
+    ISpeedSupplier SpeedSupplier; 
+
     private void Awake()
     {
         rc = GetComponent<RotationController>();
         SightChecker = GetComponent<SightChecker>();
+        MoveSpeed = BaseMoveSpeed;
+        SpeedSupplier = GetComponent<ISpeedSupplier>();
+    }
+
+    private void Update()
+    {
+        if (SpeedSupplier != null)
+        {
+            MoveSpeed = BaseMoveSpeed * SpeedSupplier.GetMoveSpeedAdjustment();
+        }
     }
 
     public Vector2 GetNextPathfindPosition()

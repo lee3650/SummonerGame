@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1740066754483794919}
-  MoveSpeed: 8
+  BaseMoveSpeed: 10
   Sensitivity: 12.5
   CanGoThroughWalls: 0
 --- !u!114 &1740066754483794915
@@ -298,7 +298,7 @@ MonoBehaviour:
   MaintenanceFee: 0.75
   PointToHoldManager: {fileID: 8145606651001300045}
   DeactivatedState: {fileID: -5222781713398794678}
-  UpgradePath: {fileID: 0}
+  UpgradePath: {fileID: -1627560426590638616}
   StatString:
   - 'Range: 10'
   - 'Damage: 6'

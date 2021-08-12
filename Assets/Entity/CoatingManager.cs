@@ -16,7 +16,25 @@ public class CoatingManager : MonoBehaviour
             return input; 
         }
     }
-    
+
+    public float GetMoveSpeedAdjustment() 
+    {
+        if (CurrentCoating == null)
+        {
+            return 1f; 
+        }
+        return CurrentCoating.GetMoveSpeedAdjustment();
+    }
+
+    public List<Event> ModifyAttackEvents(List<Event> unmodifiedList)
+    {
+        if (CurrentCoating == null)
+        {
+            return unmodifiedList;
+        }
+        return CurrentCoating.ModifyAttackEvents(unmodifiedList);
+    }
+
     public virtual void SetCoating(Coating newCoating)
     {
         CurrentCoating = newCoating;

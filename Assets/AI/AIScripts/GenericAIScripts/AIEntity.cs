@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIEntity : MonoBehaviour, ILivingEntity
+public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier
 {
     [SerializeField] Factions Faction;
     [SerializeField] int Precedence;
@@ -60,6 +60,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity
         return false; 
     }
 
+    public float GetMoveSpeedAdjustment()
+    {
+        return CoatingManager.GetMoveSpeedAdjustment();
+    }
+
     public bool RequireLineOfSight()
     {
         return true;
@@ -70,9 +75,9 @@ public class AIEntity : MonoBehaviour, ILivingEntity
 
     }
 
-    public virtual List<Event> ModifyEventList(List<Event> umodifiedList)
+    public virtual List<Event> ModifyEventList(List<Event> unmodifiedList)
     {
-        return umodifiedList;
+        return CoatingManager.ModifyAttackEvents(unmodifiedList);
     }
 
     public virtual void HandleEvent(Event e)
