@@ -51,14 +51,41 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.Count; i++)
         {
             GameObject enemy = Instantiate(wave[i], GetRandomPointInSpawnZone(), Quaternion.Euler(Vector3.zero));
-            enemy.GetComponent<AIEntity>().WakeUp();
+            //enemy.GetComponent<AIEntity>().WakeUp();
             CurrentWave.Add(enemy.GetComponent<AIEntity>());
         }
+
+        StartCoroutine(EnableEnemies());
 
         print("Spawned entities!");
 
         NotifiedWaveCompletion = false;
         IsCurrentWaveDefeated = false; 
+    }
+
+    private IEnumerator EnableEnemies()
+    {
+        int curIndex = 0;
+
+        bool loop = true; 
+
+        while (loop)
+        {
+            for (int i = curIndex; i < curIndex + 3; i++)
+            {
+                if (i < CurrentWave.Count)
+                {
+                    CurrentWave[i].WakeUp();
+                } else
+                {
+                    loop = false;
+                }
+            }
+            
+            curIndex += 3; 
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     private void LateUpdate()

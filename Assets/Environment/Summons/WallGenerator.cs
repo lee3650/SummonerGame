@@ -71,6 +71,8 @@ public class WallGenerator : PlayerWall, ILivingEntity
                     HealthManager hm = summoned.GetComponent<HealthManager>();
                     SummonedEntities.Add(hm);
                     hm.OnDeath += PruneSummonedEntitiesList; //okay that's a little better. 
+
+                    break; 
                 }
             }
         }

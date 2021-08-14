@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a924acb6055e5a140981e7fa040dcb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingState: {fileID: 4648206095511936302}
+  StartingState: {fileID: 4648206095511936294}
 --- !u!114 &4648206095511936296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateController: {fileID: 4648206095511936297}
   AIIdleState: {fileID: 4648206095511936302}
+  RenderersToEnable:
+  - {fileID: 4648206095511936278}
+  - {fileID: 4648206096231582278}
 --- !u!114 &4648206095511936291
 MonoBehaviour:
   m_ObjectHideFlags: 0
