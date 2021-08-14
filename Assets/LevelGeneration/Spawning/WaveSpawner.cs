@@ -19,6 +19,8 @@ public class WaveSpawner : MonoBehaviour
 
     bool NotifiedWaveCompletion = true;
 
+    public static bool IsCurrentWaveDefeated = true; 
+
     private void Awake()
     {
         if (UseTransforms)
@@ -56,6 +58,7 @@ public class WaveSpawner : MonoBehaviour
         print("Spawned entities!");
 
         NotifiedWaveCompletion = false;
+        IsCurrentWaveDefeated = false; 
     }
 
     private void LateUpdate()
@@ -69,6 +72,7 @@ public class WaveSpawner : MonoBehaviour
                 ClientsToNotify[i].OnWaveEnds();
             }
 
+            IsCurrentWaveDefeated = true; 
             NotifiedWaveCompletion = true; 
         }
     }

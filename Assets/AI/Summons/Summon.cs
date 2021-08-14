@@ -10,6 +10,7 @@ public class Summon : MonoBehaviour
     [SerializeField] protected float WaveHealAmt = 10f;
 
     public event Action SummonerSet = delegate { };
+    public event Action SummonWaveEnds = delegate { };
 
     IDamager IDamager; 
 
@@ -36,6 +37,7 @@ public class Summon : MonoBehaviour
         { 
             TryHealSummon(WaveHealAmt);
         }
+        SummonWaveEnds();
     }
 
     public void Destroy()

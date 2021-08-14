@@ -62,9 +62,9 @@ public class Summoner : MonoBehaviour, IWaveNotifier
         //get paid and get, um, your income removed. 
         PlayerIncome.OnWaveEnds();
 
-        foreach (Summon s in Summons)
+        for (int i = Summons.Count - 1; i >= 0; i--)
         {
-            s.OnWaveEnds();
+            Summons[i].OnWaveEnds();
         }
     }
 

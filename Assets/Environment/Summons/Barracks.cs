@@ -7,12 +7,10 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
     [SerializeField] GameObject Summon;
     [SerializeField] PointToHoldManager PointToHoldManager;
 
-    [SerializeField] string StatString; 
+    [SerializeField] List<string> StatString; 
 
     ILivingEntity lastSummon; 
     
-    //maybe each barracks can hold two guys? We'll have to see. That might be a charm thing too, if we're doing that. 
-
     protected override void Awake()
     {
         print("Awake called!");
@@ -56,7 +54,13 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
 
     public string GetStatString()
     {
-        return StatString;
+        string result = "";
+
+        foreach (string s in StatString)
+        {
+            result += s + "\n";
+        }
+        return result;
     }
 
     public bool CanBeSelected()

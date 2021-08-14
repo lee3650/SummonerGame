@@ -7,7 +7,7 @@ public class StateController : MonoBehaviour
     [SerializeField] Component StartingState;
     private IState CurrentState = null;
 
-    void Start()
+    void Awake() //okay this could be bad lol 
     {
         TransitionToState(StartingState as IState);
     }

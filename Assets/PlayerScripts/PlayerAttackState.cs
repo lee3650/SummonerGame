@@ -24,7 +24,7 @@ public class PlayerAttackState : MonoBehaviour, IState
 
         if (AttackConditionsMet())
         {
-            SummonWeapon weapon = ItemSelection.SelectedItem as SummonWeapon;
+            Weapon weapon = ItemSelection.SelectedItem as Weapon;
             float attackDecrement = weapon.GetManaDrain();
 
             if (ManaManager.TryDecreaseMana(attackDecrement) == false)
@@ -32,11 +32,6 @@ public class PlayerAttackState : MonoBehaviour, IState
                 attackDecrement -= ManaManager.GetCurrent();
                 ManaManager.DecreaseMana(ManaManager.GetCurrent());
                 HealthManager.SubtractHealth(attackDecrement);
-            }
-
-            if (weapon.ReduceMaxMana)
-            {
-                ManaManager.DecreaseMaxMana(attackDecrement);
             }
 
             weapon.UseWeapon(PlayerInput.GetWorldMousePosition());
@@ -53,7 +48,7 @@ public class PlayerAttackState : MonoBehaviour, IState
         //so, what conditions do we have here? 
         //if the selected item is a summon weapon
         //if we have enough mana
-        SummonWeapon weapon = ItemSelection.SelectedItem as SummonWeapon;
+        Weapon weapon = ItemSelection.SelectedItem as Weapon;
 
         if (weapon != null)
         {
@@ -79,7 +74,7 @@ public class PlayerAttackState : MonoBehaviour, IState
 
         timer += Time.deltaTime;
 
-        if (timer >= (ItemSelection.SelectedItem as SummonWeapon).GetAttackLength())
+        if (timer >= (ItemSelection.SelectedItem as Weapon).GetAttackLength())
         {
             StateController.TransitionToState(PlayerMoveState);
         }

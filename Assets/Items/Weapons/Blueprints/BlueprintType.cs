@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WeaponType 
+public enum BlueprintType 
 {
-    Summon,
-    Blueprint,
+    Wall, 
+    Gate,
+    Melee,
 }

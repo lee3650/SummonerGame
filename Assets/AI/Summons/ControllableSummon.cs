@@ -72,7 +72,6 @@ public class ControllableSummon : Summon, IControllableSummon
             case UpgradeCommand uc:
                 UpgradeSummon(uc);
                 break; 
-
         }
 
         (StateController.GetCurrentState() as IControllableState).HandleCommand(command);

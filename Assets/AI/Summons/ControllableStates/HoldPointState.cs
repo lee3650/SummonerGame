@@ -20,6 +20,10 @@ public class HoldPointState : MonoBehaviour, IControllableState
     public void EnterState()
     {
         PursuitState.SetExitState(this);
+        if (PointToHoldManager == null)
+        {
+            PointToHoldManager = GetComponent<PointToHoldManager>();
+        }
         MovementController.SetPathfindGoal(PointToHoldManager.PointToHold);
     }
 
