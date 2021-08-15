@@ -16,6 +16,8 @@ public class PlayerAttackState : MonoBehaviour, IState
     [SerializeField] PlayerMoveState PlayerMoveState;
     [SerializeField] StateController StateController;
 
+    [SerializeField] PlayerSummonController PlayerSummonController;
+
     float timer = 0f;
 
     public void EnterState()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6305876023889047352}
   - component: {fileID: 6438850639139857303}
   - component: {fileID: 6209397066443110183}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Miner
   m_TagString: Untraversable
   m_Icon: {fileID: 0}

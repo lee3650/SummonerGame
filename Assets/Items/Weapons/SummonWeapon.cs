@@ -26,6 +26,18 @@ public class SummonWeapon : Weapon
         }
     }
 
+    public override float GetRecurringCost()
+    {
+        IRecurringCost purchasable;
+        
+        if (Summon.TryGetComponent<IRecurringCost>(out purchasable))
+        {
+            return purchasable.GetRecurringCost();
+        }
+
+        return base.GetRecurringCost();
+    }
+
     public override WeaponType GetWeaponType()
     {
         return WeaponType.Summon;

@@ -4,15 +4,20 @@ using UnityEditorInternal;
 using UnityEngine;
 
 //I named everything wall related but technically this could apply to any summon 
-public class WallGenerator : PlayerWall, ILivingEntity
+public class WallGenerator : PlayerWall, ILivingEntity, IRecurringCost
 {
     [SerializeField] float Range = 25;
     [SerializeField] int MaxNumSummons = 6;
 
     [SerializeField] List<BlueprintType> Types; 
     [SerializeField] List<GameObject> Prefabs;
+    [SerializeField] SpriteRenderer SpriteRenderer;
 
-    List<HealthManager> SummonedEntities = new List<HealthManager>();
+    [SerializeField] float MaintenanceFee = 5f; 
+
+    private bool activated = true;
+
+    List<BlueprintSummon> SummonedEntities = new List<BlueprintSummon>();
 
     protected override void Awake()
     {
@@ -24,7 +29,20 @@ public class WallGenerator : PlayerWall, ILivingEntity
 
     private void WaveEnds()
     {
+        SetActivated();
+
         PlaceSummonsWhereAble();
+    }
+
+    void SetActivated()
+    {
+        if (MySummon.GetSummoner().TryReduceMana(MaintenanceFee))
+        {
+            Activated = true; 
+        } else
+        {
+            Activated = false; 
+        }
     }
 
     private void SummonerSet()
@@ -34,20 +52,47 @@ public class WallGenerator : PlayerWall, ILivingEntity
         MySummon.SummonerSet -= SummonerSet;
     }
 
+    public float GetRecurringCost()
+    {
+        return MaintenanceFee;
+    }
+
     private void BlueprintsChanged()
     {
         if (WaveSpawner.IsCurrentWaveDefeated)
         {
+            KillUnneededSummons();
             PlaceSummonsWhereAble();
+        }
+    }
+
+    private void KillUnneededSummons()
+    {
+        foreach (BlueprintSummon bs in SummonedEntities)
+        {
+            if (BlueprintManager.ShouldRemoveSummon(bs.Point, bs.BlueprintType))
+            {
+                //that could get sketchy if we have weird death effects but whatever 
+                
+                bs.HealthManager.OnDeath -= PruneSummonedEntitiesList;
+                //it's about to prune anyway, so this should be fine.
+             
+                bs.HealthManager.SubtractHealth(100000f);
+
+                //we don't want to return here because technically more than one summon could be needed to be removed
+            }
         }
     }
 
     private void PlaceSummonsWhereAble()
     {
-        PruneSummonedEntitiesList();
+        if (Activated)
+        {
+            PruneSummonedEntitiesList();
 
-        int wallsToPlace = MaxNumSummons - SummonedEntities.Count;
-        PlaceSummons(Types, Prefabs, wallsToPlace);
+            int wallsToPlace = MaxNumSummons - SummonedEntities.Count;
+            PlaceSummons(Types, Prefabs, wallsToPlace);
+        }
     }
 
     private void PlaceSummons(List<BlueprintType> types, List<GameObject> prefabs, int numWalls)
@@ -69,7 +114,7 @@ public class WallGenerator : PlayerWall, ILivingEntity
                     GameObject summoned = SummonEntity(prefabs[index], p.Point); 
 
                     HealthManager hm = summoned.GetComponent<HealthManager>();
-                    SummonedEntities.Add(hm);
+                    SummonedEntities.Add(new BlueprintSummon(hm, p));
                     hm.OnDeath += PruneSummonedEntitiesList; //okay that's a little better. 
 
                     break; 
@@ -91,15 +136,15 @@ public class WallGenerator : PlayerWall, ILivingEntity
             {
                 //I also need to reset satisfied. Hm. 
                 SetSatisfied(SummonedEntities[i], false);
-                SummonedEntities[i].OnDeath -= PruneSummonedEntitiesList;
+                SummonedEntities[i].HealthManager.OnDeath -= PruneSummonedEntitiesList;
                 SummonedEntities.RemoveAt(i);
             }
         }
     }
 
-    protected virtual void SetSatisfied(HealthManager entity, bool val)
+    protected virtual void SetSatisfied(BlueprintSummon entity, bool val)
     {
-        BlueprintManager.SetSatisfied(entity.transform.position, val);
+        BlueprintManager.SetSatisfied(entity.Point, val);
     }
 
     protected override void OnDeath()
@@ -108,6 +153,20 @@ public class WallGenerator : PlayerWall, ILivingEntity
         BlueprintManager.BlueprintsChanged -= BlueprintsChanged;
         MySummon.SummonWaveEnds -= WaveEnds;
         base.OnDeath();
+    }
+
+    public bool Activated
+    {
+        get
+        {
+            return activated;
+        }
+        set
+        {
+            activated = value;
+            float a = activated ? 1f : 0.5f; 
+            SpriteRenderer.color = new Color(SpriteRenderer.color.r, SpriteRenderer.color.g, SpriteRenderer.color.b, a);
+        }
     }
 
     public Factions GetFaction()

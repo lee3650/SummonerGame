@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7715499841672435744}
   - component: {fileID: 7335073404376224911}
   - component: {fileID: 6000955293405737800}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: WallGenerator
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -162,3 +162,5 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
   - {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
+  SpriteRenderer: {fileID: 6000955293405737802}
+  MaintenanceFee: 2.5

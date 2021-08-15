@@ -71,7 +71,7 @@ public class WaveSpawner : MonoBehaviour
 
         while (loop)
         {
-            for (int i = curIndex; i < curIndex + 3; i++)
+            for (int i = curIndex; i < curIndex + 1; i++)
             {
                 if (i < CurrentWave.Count)
                 {
@@ -82,9 +82,9 @@ public class WaveSpawner : MonoBehaviour
                 }
             }
             
-            curIndex += 3; 
+            curIndex += 1; 
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.75f);
         }
     }
 

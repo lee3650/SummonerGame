@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SummonInfoPanel : MonoBehaviour
+public class StringDisplayPanel : UIPanel
 {
     [SerializeField] TextMeshProUGUI text; 
 
-    public void DisplaySummonInfo(IControllableSummon summon)
+    public override void Show(object summon)
     {
-        text.text = summon.GetStatString();
+        text.text = (summon as string);
     }
 }

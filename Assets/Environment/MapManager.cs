@@ -90,6 +90,11 @@ public class MapManager
         MonoBehaviour.print(result);
     }
 
+    public static TileType GetTileType(Vector2 point)
+    {
+        return Map[(int)point.x, (int)point.y].TileType;
+    }
+
     public static bool IsPointTraversable(int x, int y, bool CanGoThroughWalls)
     {
         if (x >= xSize || y >= ySize || x < 0 || y < 0)
@@ -108,6 +113,15 @@ public class MapManager
         }
 
         return Map[x, y].TileType == tileType;
+    }
+
+    public static bool IsPointInBounds(int x, int y)
+    {
+        if (x >= xSize || y >= ySize || x < 0 || y < 0 || Map[0,0] == null)
+        {
+            return false;
+        }
+        return true; 
     }
 
     public static void WritePoint(int x, int y, MapNode newNode)

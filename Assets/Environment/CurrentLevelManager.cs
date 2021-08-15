@@ -17,7 +17,7 @@ public class CurrentLevelManager : MonoBehaviour
     private int highestWave = 0; //so, this is actually super messed up - if we change this it's going to break NextWaveFunctionMonitor. So, idk, watch out. 
     private int currentWave = 0; 
 
-    private int baseEnemies = 6; 
+    private int baseEnemies = 3; 
 
     List<List<GameObject>> LevelWaves = new List<List<GameObject>>();
 

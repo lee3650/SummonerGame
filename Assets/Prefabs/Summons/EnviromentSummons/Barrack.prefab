@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9100241369393230994}
   - component: {fileID: 8111846117241141309}
   - component: {fileID: 1559716552411547915}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Barrack
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -161,4 +161,5 @@ MonoBehaviour:
   Types: 02000000
   Prefabs:
   - {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
-  SpawnHereAndHoldPoint: 0
+  SpriteRenderer: {fileID: 5052993147076501496}
+  MaintenanceFee: 5

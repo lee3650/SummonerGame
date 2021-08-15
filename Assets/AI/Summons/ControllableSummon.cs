@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllableSummon : Summon, IControllableSummon
+public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 {
     [SerializeField] StateController StateController;
     [SerializeField] TargetSearcher TargetSearcher;
@@ -122,6 +122,11 @@ public class ControllableSummon : Summon, IControllableSummon
     public override bool CanRefundMana()
     {
         return true;
+    }
+
+    public float GetRecurringCost()
+    {
+        return MaintenanceFee;
     }
 
     public virtual void HoldPoint(Vector2 point)

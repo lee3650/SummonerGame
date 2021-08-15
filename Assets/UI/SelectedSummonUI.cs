@@ -5,15 +5,46 @@ using UnityEngine;
 public class SelectedSummonUI : MonoBehaviour
 {
     [SerializeField] DisplayUpgrade UpgradePanelPrefab;
-    [SerializeField] SummonInfoPanel SummonInfoPrefab;
-    [SerializeField] RectTransform UpgradePanelParent;
+    [SerializeField] StringDisplayPanel StringDisplayPanelPrefab;
 
     [SerializeField] PlayerSummonController PlayerSummonController;
 
-    List<GameObject> DisplayedPanels = new List<GameObject>();
+    [SerializeField] PanelDisplayer PanelDisplayer;
+    [SerializeField] RectTransform UpgradePanelParent;
+
+    [SerializeField] PlayerInput PlayerInput;
+
+    bool SummonSelected = false;
+    TileType lastTile = TileType.Barracks; 
+
+    private void Update()
+    {
+        if (!SummonSelected)
+        {
+            Vector2 mousePos = VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition());
+            if (MapManager.IsPointInBounds((int)mousePos.x, (int)mousePos.y))
+            {
+                TileType mousedTile = MapManager.GetTileType(mousePos);
+                if (mousedTile != lastTile)
+                {
+                    PanelDisplayer.HideAllPanels();
+                    lastTile = mousedTile;
+                    PanelDisplayer.ShowPanel(StringDisplayPanelPrefab, TileDescription.GetTileDescription(mousedTile));
+                }
+
+            } else
+            {
+                PanelDisplayer.HideAllPanels();
+            }
+        }
+    }
 
     public void SelectSummon(IControllableSummon s)
     {
+        SummonSelected = true; 
+
+        PanelDisplayer.HideAllPanels();
+
         UpgradePath[] upgrades = s.GetTransform().GetComponents<UpgradePath>();
         if (upgrades != null)
         {
@@ -21,25 +52,17 @@ public class SelectedSummonUI : MonoBehaviour
             {
                 if (p.Useable)
                 {
-                    DisplayUpgrade d = Instantiate(UpgradePanelPrefab, UpgradePanelParent);
-                    d.ShowUpgrade(p, PlayerSummonController);
-                    DisplayedPanels.Add(d.gameObject);
+                    PanelDisplayer.ShowPanel(UpgradePanelPrefab, (p, PlayerSummonController));
                 }
             }
         }
 
-        SummonInfoPanel info = Instantiate(SummonInfoPrefab, UpgradePanelParent);
-        info.DisplaySummonInfo(s);
-        DisplayedPanels.Add(info.gameObject);
+        PanelDisplayer.ShowPanel(StringDisplayPanelPrefab, s.GetStatString());
     }
 
     public void DeselectSummon()
     {
-        foreach (GameObject g in DisplayedPanels)
-        {
-            Destroy(g);
-        }
-
-        DisplayedPanels = new List<GameObject>();
+        PanelDisplayer.HideAllPanels();
+        SummonSelected = false; 
     }
 }

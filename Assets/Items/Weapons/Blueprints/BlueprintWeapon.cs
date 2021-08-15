@@ -6,12 +6,33 @@ using UnityEngine;
 public class BlueprintWeapon : Weapon
 {
     [SerializeField] BlueprintType BlueprintType;
-    [SerializeField] GameObject BlueprintImage; 
+    [SerializeField] GameObject BlueprintImage;
+
+    List<GameObject> blueprintImages = new List<GameObject>();
+
+    private void Awake()
+    {
+        BlueprintManager.BlueprintsChanged += BlueprintsChanged;
+    }
+
+    private void BlueprintsChanged()
+    {
+        for (int i = blueprintImages.Count - 1; i >= 0; i--)
+        {
+            if (BlueprintManager.ShouldRemoveSummon(blueprintImages[i].transform.position, BlueprintType))
+            {
+                GameObject g = blueprintImages[i];
+                blueprintImages[i] = null;
+                blueprintImages.RemoveAt(i);
+                Destroy(g);
+            }
+        }
+    }
 
     public override void UseWeapon(Vector2 mousePos)
     {
         BlueprintManager.AddBlueprint(VectorRounder.RoundVector(mousePos), BlueprintType);
-        Instantiate(BlueprintImage, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero));
+        blueprintImages.Add(Instantiate(BlueprintImage, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero)));
     }
 
     public override WeaponType GetWeaponType()

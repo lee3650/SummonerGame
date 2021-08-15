@@ -37,6 +37,20 @@ public class BlueprintManager : MonoBehaviour
         }
     }
 
+    public static bool ShouldRemoveSummon(Vector2 point, BlueprintType type)
+    {
+        Blueprint print = GetBlueprint(point);
+        if (print == null)
+        {
+            return true; 
+        }
+        if (print.BlueprintType != type)
+        {
+            return true; 
+        }
+        return false; 
+    }
+
     public static void RemoveBlueprint(Vector2 point)
     {
         for (int i = Blueprints.Count - 1; i >= 0; i--)
@@ -48,6 +62,21 @@ public class BlueprintManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public static Blueprint GetBlueprint(Vector2 point)
+    {
+        //you know, we could do a dictionary instead of a list for this.
+        //hm. 
+        foreach (Blueprint bp in Blueprints)
+        {
+            if (bp.Point == point)
+            {
+                return bp; 
+            }
+        }
+
+        return null; 
     }
 
     public static List<Blueprint> GetBlueprintsOfTypes(List<BlueprintType> types)

@@ -12,9 +12,4 @@ public class BlueprintBarracks : WallGenerator
 
         return summon; 
     }
-
-    protected override void SetSatisfied(HealthManager entity, bool val)
-    {
-        BlueprintManager.SetSatisfied(entity.GetComponent<PointToHoldManager>().PointToHold, val);
-    }
 }
