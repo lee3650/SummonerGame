@@ -20,12 +20,16 @@ public class PlayerAttackState : MonoBehaviour, IState
 
     float timer = 0f;
 
+    int attackFrame = -1; 
+
     public void EnterState()
     {
         timer = 0f;
 
         if (AttackConditionsMet())
         {
+            attackFrame = Time.frameCount;
+
             Weapon weapon = ItemSelection.SelectedItem as Weapon;
             float attackDecrement = weapon.GetManaDrain();
 
@@ -60,13 +64,27 @@ public class PlayerAttackState : MonoBehaviour, IState
                 {
                     if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true))
                     {
-                        return true;
+                        //what is this? 
+                        if (PlayerSummonController.IsMouseOverControllableSummon() == false)
+                        {
+                            if (PlayerSummonController.MouseOverUIComponent() == false)
+                            {
+                                if (PlayerSummonController.HadSelectionThisFrame() == false)
+                                {
+                                    return true;
+                                } 
+                            }
+                        }
                     }
                 }
             }
         }
-
         return false; 
+    }
+
+    public bool AttackedThisFrame()
+    {
+        return attackFrame == Time.frameCount; 
     }
 
     public void UpdateState()

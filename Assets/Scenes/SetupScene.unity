@@ -394,7 +394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 346.11328}
+  m_AnchoredPosition: {x: -437.25012, y: 525.9204}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1680,6 +1680,7 @@ MonoBehaviour:
   HealthManager: {fileID: 333112615}
   PlayerMoveState: {fileID: 333112610}
   StateController: {fileID: 333112607}
+  PlayerSummonController: {fileID: 333112620}
 --- !u!114 &333112618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1727,6 +1728,7 @@ MonoBehaviour:
   ItemSelection: {fileID: 1680095495}
   SelectedSummonUI: {fileID: 270309711}
   ManaManager: {fileID: 333112618}
+  PlayerAttackState: {fileID: 333112617}
 --- !u!114 &333112621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7535,7 +7537,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

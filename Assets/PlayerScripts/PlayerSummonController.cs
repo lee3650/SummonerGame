@@ -10,8 +10,11 @@ public class PlayerSummonController : MonoBehaviour
     [SerializeField] ItemSelection ItemSelection; //so, we just need to make sure the current item is the summon controller. 
     [SerializeField] SelectedSummonUI SelectedSummonUI;
     [SerializeField] ManaManager ManaManager;
+    [SerializeField] PlayerAttackState PlayerAttackState;
 
     private IControllableSummon SelectedSummon = null;
+
+    int frameOfDeselection = -1;
 
     public void UpgradeSummon(UpgradePath path)
     {
@@ -29,51 +32,10 @@ public class PlayerSummonController : MonoBehaviour
 
     private void Update()
     {
-        if (MousePressedUsingController(0) && !MouseOverUIComponent())
+        if (Input.GetMouseButtonDown(0) && !MouseOverUIComponent() && !PlayerAttackState.AttackedThisFrame())
         {
-            if (SelectedSummon == null)
-            {
-                IControllableSummon s = GetSummonUnderMouse();
-                SelectSummon(s);
-            }
-            else
-            {
-                SelectedSummon.HandleCommand(new HoldPointCommand(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition())));
-                DeselectSummon();
-            }
-        }
-
-        if (MousePressedUsingController(1))
-        {
-            if (SelectedSummon != null)
-            {
-                ITargetable target = GetTargetUnderMouse();
-
-                if (target != null && target != (SelectedSummon as ITargetable) && target.CanBeTargetedBy(Factions.Player))
-                {
-                    SelectedSummon.HandleCommand(new SetTargetCommand(target));
-                }
-
-                DeselectSummon();
-            }
-        }
-
-        if (ShouldTellSummonToToggleGuardMode())
-        {
-            if (SelectedSummon != null)
-            {
-                SelectedSummon.HandleCommand(new ToggleGuardModeCommand());
-                DeselectSummon();
-            }
-        }
-
-        if (ShouldTellSummonToRest())
-        {
-            if (SelectedSummon != null)
-            {
-                SelectedSummon.HandleCommand(new RestCommand());
-                DeselectSummon();
-            }
+            IControllableSummon s = GetSummonUnderMouse();
+            SelectSummon(s);
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -81,46 +43,40 @@ public class PlayerSummonController : MonoBehaviour
             //so, right click, we'll get rid of the blueprint
             //and then basically we'll check in wall generator if one of 'our' summons has been moved, or our satisfied blueprints, and then 
             //we'll deal with that there. 
-
             BlueprintManager.RemoveBlueprint(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition()));
         }
     }
 
-    bool MouseOverUIComponent()
+    public bool IsMouseOverControllableSummon()
+    {
+        return GetSummonUnderMouse() != null; 
+    }
+
+    public bool MouseOverUIComponent()
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
 
-    bool ShouldTellSummonToToggleGuardMode() 
+    public bool HadSelectionThisFrame()
     {
-        return Input.GetKeyDown(KeyCode.G) && UsingController();
-    }
-
-    bool ShouldTellSummonToRest()
-    {
-        return Input.GetKeyDown(KeyCode.R) && UsingController();
-    }
-
-    bool ShouldTellSummonToHoldPoint()
-    {
-        return Input.GetKeyDown(KeyCode.E) && UsingController();
-    }
-
-    bool MousePressedUsingController(int mouseKey)
-    {
-        return Input.GetMouseButtonDown(mouseKey) && UsingController();
-    }
-
-    bool UsingController()
-    {
-        return ItemSelection.HasItem() && (ItemSelection.SelectedItem.GetItemType() == ItemType.SummonController);
+        return frameOfDeselection == Time.frameCount || SelectedSummon != null; 
+        //so, either we have a summon right now, or we deselected it this frame. 
     }
 
     //I don't like this but we're going to have this access the UI. 
+    //this is getting a little branch-y
+
+    //so, the problem with this is that they're both eating up input, so it's not really clear which one will go first...
+    //so we just need to see if we had a summon this frame, right. 
     void SelectSummon(IControllableSummon s)
     {
         if (s != null)
         {
+            if (SelectedSummon != null)
+            {
+                DeselectSummon();
+            }
+
             SelectedSummonUI.SelectSummon(s);
 
             SelectedSummon = s;
@@ -134,12 +90,21 @@ public class PlayerSummonController : MonoBehaviour
 
             Time.timeScale = 0.1f;
             Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
+        } 
+        else
+        {
+            if (SelectedSummon != null)
+            {
+                DeselectSummon();
+            }
         }
     }
 
     public void DeselectSummon()
     {
         SelectedSummonUI.DeselectSummon();
+
+        frameOfDeselection = Time.frameCount;
 
         SelectableComponent sc;
         if (SelectedSummon != null && SelectedSummon.GetTransform().TryGetComponent<SelectableComponent>(out sc))
@@ -151,22 +116,6 @@ public class PlayerSummonController : MonoBehaviour
 
         Time.fixedDeltaTime = 1f/50f;
         Time.timeScale = 1f;
-    }
-
-    ITargetable GetTargetUnderMouse()
-    {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 0.5f);
-        
-        foreach (Collider2D col in cols)
-        {
-            ITargetable targetable;
-            if (col.TryGetComponent<ITargetable>(out targetable))
-            {
-                return targetable;
-            }
-        }
-        
-        return null;
     }
 
     IControllableSummon GetSummonUnderMouse()
