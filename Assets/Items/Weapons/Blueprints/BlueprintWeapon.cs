@@ -12,6 +12,7 @@ public class BlueprintWeapon : Weapon
 
     private void Awake()
     {
+        blueprintImages = new List<GameObject>();
         BlueprintManager.BlueprintsChanged += BlueprintsChanged;
     }
 

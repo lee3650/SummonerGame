@@ -25,7 +25,8 @@ public class InventorySlotManager : MonoBehaviour
 
     [SerializeField] private List<ItemSlot> HotbarSlots;
 
-    private void Start()
+    //really we need this to get setup by a 3rd party, kind of... 
+    private void Awake()
     {
         //I guess on start? Sure, I guess. 
         Inventory.ItemDropped += Inventory_ItemDropped;

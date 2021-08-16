@@ -13,6 +13,8 @@ public class PlayerAttackState : MonoBehaviour, IState
 
     [SerializeField] HealthManager HealthManager;
 
+    [SerializeField] WaveSpawner WaveSpawner; //okay now this is sus 
+
     [SerializeField] PlayerMoveState PlayerMoveState;
     [SerializeField] StateController StateController;
 
@@ -56,6 +58,7 @@ public class PlayerAttackState : MonoBehaviour, IState
         //if we have enough mana
         Weapon weapon = ItemSelection.SelectedItem as Weapon;
 
+        //okay this is getting seriously seriously disgusting 
         if (weapon != null)
         {
             if (!InventorySlotManager.Active)
@@ -64,15 +67,21 @@ public class PlayerAttackState : MonoBehaviour, IState
                 {
                     if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true))
                     {
-                        //what is this? 
-                        if (PlayerSummonController.IsMouseOverControllableSummon() == false)
+                        //We should make this more abstract - just do PlayerSummonController.AllowSummon or something
+                        if (!WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition())))
                         {
-                            if (PlayerSummonController.MouseOverUIComponent() == false)
+                            if (weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition()))
                             {
-                                if (PlayerSummonController.HadSelectionThisFrame() == false)
+                                if (PlayerSummonController.IsMouseOverControllableSummon() == false)
                                 {
-                                    return true;
-                                } 
+                                    if (PlayerSummonController.MouseOverUIComponent() == false)
+                                    {
+                                        if (PlayerSummonController.HadSelectionThisFrame() == false)
+                                        {
+                                            return true;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

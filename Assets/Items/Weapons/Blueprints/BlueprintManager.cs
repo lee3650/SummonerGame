@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueprintManager : MonoBehaviour
+public class BlueprintManager : MonoBehaviour, IResettable
 {
     public static event Action BlueprintsChanged = delegate { };
     static List<Blueprint> Blueprints = new List<Blueprint>();
@@ -92,5 +92,12 @@ public class BlueprintManager : MonoBehaviour
         }
 
         return result; 
+    }
+
+    public void ResetState()
+    {
+        BlueprintsChanged = null;
+        BlueprintsChanged = delegate { };
+        Blueprints = new List<Blueprint>();
     }
 }

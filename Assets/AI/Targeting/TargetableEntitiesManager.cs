@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetableEntitiesManager : MonoBehaviour
+public class TargetableEntitiesManager : MonoBehaviour, IResettable
 {
     private static List<ILivingEntity> AllTargetables = new List<ILivingEntity>();
     
@@ -19,5 +19,10 @@ public class TargetableEntitiesManager : MonoBehaviour
     public static List<ILivingEntity> GetTargetables()
     {
         return AllTargetables;
+    }
+
+    public void ResetState()
+    {
+        AllTargetables = new List<ILivingEntity>();
     }
 }

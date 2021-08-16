@@ -29,6 +29,11 @@ public abstract class Weapon : Item, IPurchasable
         return ManaDrain;
     }
 
+    public virtual bool CanUseWeapon(Vector2 mousePos)
+    {
+        return true; 
+    }
+
     public float GetAttackLength()
     {
         return AttackLength;

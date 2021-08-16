@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerSummonController : MonoBehaviour
 {
     [SerializeField] PlayerInput PlayerInput;
-    [SerializeField] ItemSelection ItemSelection; //so, we just need to make sure the current item is the summon controller. 
+    [SerializeField] ItemSelection ItemSelection; //so, when we change selection we want to deselect the current summon. 
     [SerializeField] SelectedSummonUI SelectedSummonUI;
     [SerializeField] ManaManager ManaManager;
     [SerializeField] PlayerAttackState PlayerAttackState;
@@ -15,6 +15,19 @@ public class PlayerSummonController : MonoBehaviour
     private IControllableSummon SelectedSummon = null;
 
     int frameOfDeselection = -1;
+
+    private void Awake()
+    {
+        ItemSelection.SelectedItemChanged += SelectedItemChanged;
+    }
+
+    private void SelectedItemChanged()
+    {
+        if (SelectedSummon != null)
+        {
+            DeselectSummon();
+        }
+    }
 
     public void UpgradeSummon(UpgradePath path)
     {
@@ -36,6 +49,14 @@ public class PlayerSummonController : MonoBehaviour
         {
             IControllableSummon s = GetSummonUnderMouse();
             SelectSummon(s);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SelectedSummon != null)
+            {
+                DeselectSummon();
+            }
         }
 
         if (Input.GetMouseButtonDown(1))

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9100241369393230994}
   - component: {fileID: 8111846117241141309}
   - component: {fileID: 1559716552411547915}
+  - component: {fileID: -9203610554919119060}
   m_Layer: 11
   m_Name: Barrack
   m_TagString: Untraversable
@@ -163,3 +164,19 @@ MonoBehaviour:
   - {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
   SpriteRenderer: {fileID: 5052993147076501496}
   MaintenanceFee: 5
+--- !u!114 &-9203610554919119060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052993147076501497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99340feb68423f14ab31d54560e5daaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 5052993147076501496}
+  SelectedMaterial: {fileID: 2100000, guid: 06cf8cb215df9d54c9bbc9b2bcb30582, type: 2}
+  SelectGraphic: {fileID: 3926530807043809730, guid: 1fd5b16d0661f8b489d2746828a6b8ea,
+    type: 3}

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : MonoBehaviour, IResettable
 {
     [SerializeField] List<GameObject> Enemies;
 
@@ -21,12 +21,23 @@ public class WaveSpawner : MonoBehaviour
 
     public static bool IsCurrentWaveDefeated = true; 
 
+    public void ResetState()
+    {
+        ClientsToNotify = new List<IWaveNotifier>();
+        IsCurrentWaveDefeated = true; 
+    }
+
     private void Awake()
     {
         if (UseTransforms)
         {
             SpawnRegion = LevelGenerator.GetPointsWithinBoundaries(BottomLeft.position, TopRight.position);
         }
+    }
+
+    public bool IsPointInSpawnRegion(Vector2 point)
+    {
+        return SpawnRegion.Contains(point);
     }
 
     public void AddSpawnRegion(List<Vector2> region)
@@ -36,7 +47,7 @@ public class WaveSpawner : MonoBehaviour
 
     public static void NotifyWhenWaveEnds(IWaveNotifier notifier)
     {
-        ClientsToNotify.Insert(0, notifier);
+        ClientsToNotify.Add(notifier); //we're looping backwards, so, the first thing added is called last. 
     }
 
     public static void StopNotifyingWhenWaveEnds(IWaveNotifier notifier)

@@ -25,7 +25,7 @@ public class ItemSelection : MonoBehaviour
 
     int selectedIndex = -1;
 
-    private void Start()
+    private void Awake()
     {
         ItemSlotsLength = ItemSlots.Length;
     }

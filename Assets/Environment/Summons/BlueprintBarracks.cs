@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//really need to rename WallGenerator 
-public class BlueprintBarracks : WallGenerator
+public class BlueprintBarracks : BlueprintSatisfier
 {
     protected override GameObject SummonEntity(GameObject entity, Vector2 endPoint)
     {

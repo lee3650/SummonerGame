@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-//I named everything wall related but technically this could apply to any summon 
-public class WallGenerator : PlayerWall, ILivingEntity, IRecurringCost
+public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, IControllableSummon
 {
     [SerializeField] float Range = 25;
     [SerializeField] int MaxNumSummons = 6;
@@ -21,6 +20,7 @@ public class WallGenerator : PlayerWall, ILivingEntity, IRecurringCost
 
     protected override void Awake()
     {
+        SummonedEntities = new List<BlueprintSummon>();
         TargetableEntitiesManager.AddTargetable(this);
         MySummon.SummonerSet += SummonerSet;
         MySummon.SummonWaveEnds += WaveEnds;
@@ -66,6 +66,16 @@ public class WallGenerator : PlayerWall, ILivingEntity, IRecurringCost
         }
     }
 
+    public void HandleCommand(PlayerCommand command)
+    {
+
+    }
+
+    public Transform GetTransform()
+    {
+        return transform; 
+    }
+
     private void KillUnneededSummons()
     {
         foreach (BlueprintSummon bs in SummonedEntities)
@@ -82,6 +92,17 @@ public class WallGenerator : PlayerWall, ILivingEntity, IRecurringCost
                 //we don't want to return here because technically more than one summon could be needed to be removed
             }
         }
+    }
+
+    public string GetStatString()
+    {
+        string stats = string.Format("Range: {0}\nMax Summons: {1}\nMaintenance Fee: {2}\nActivated: {3}", Range, MaxNumSummons, MaintenanceFee, activated);
+        return stats; 
+    }
+
+    public bool CanBeSelected()
+    {
+        return true; 
     }
 
     private void PlaceSummonsWhereAble()
