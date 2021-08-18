@@ -12,6 +12,11 @@ public class PlayerIncome : MonoBehaviour, IWaveNotifier
         PlayerSummoner.AddMana(IncomePerWave);
     }
 
+    public float GetIncome()
+    {
+        return IncomePerWave;
+    }
+
     public void AddIncome(float extra)
     {
         IncomePerWave += extra; 

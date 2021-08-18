@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingState: {fileID: 1090552370236627244}
+  InitOnAwake: 0
 --- !u!114 &1090552370236627259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +279,7 @@ MonoBehaviour:
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1090552370236627245}
-  PursuitState: {fileID: 87831727195077226}
+  StateToExitTo: {fileID: 87831727195077226}
   TargetManager: {fileID: 1090552370236627259}
   Projectile: {fileID: 919925079335150363, guid: 75df5a1faf357f04792e0d24a67b95cc,
     type: 3}

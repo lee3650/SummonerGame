@@ -52,7 +52,6 @@ GameObject:
   - component: {fileID: 6878306609116838067}
   - component: {fileID: 1193450098595219183}
   - component: {fileID: 6726932860956113883}
-  - component: {fileID: -1836844598834230740}
   - component: {fileID: 7656610161056084375}
   - component: {fileID: 7390820102105440794}
   - component: {fileID: -2251521059408016390}
@@ -201,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingState: {fileID: 6726932860956113883}
+  InitOnAwake: 0
 --- !u!114 &1740066754483794918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
   StateController: {fileID: 1740066754483794912}
   TargetSearcher: {fileID: 1740066754483794914}
   HoldPointState: {fileID: 6726932860956113883}
-  PursuitState: {fileID: -1836844598834230740}
+  PursuitState: {fileID: 0}
   RestState: {fileID: -626044709997288220}
   AIAttackManager: {fileID: 1740066754483794924}
   MaintenanceFee: 2
@@ -334,30 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db598acab1301a49928751995e02673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PursuitState: {fileID: -1836844598834230740}
   MovementController: {fileID: 1740066754483794916}
   RotationController: {fileID: 1740066754483794915}
   TargetManager: {fileID: 1740066754483794918}
   StateController: {fileID: 1740066754483794912}
---- !u!114 &-1836844598834230740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2a1bdfadf9321b4685c517392bdc330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetManager: {fileID: 1740066754483794918}
-  AIStateMachine: {fileID: 1740066754483794912}
-  ExitToState: {fileID: 6726932860956113883}
-  MovementController: {fileID: 1740066754483794916}
   AIAttackManager: {fileID: 1740066754483794924}
-  IgnoreHeldPoint: 0
-  PointToHoldManager: {fileID: 8145606651001300045}
 --- !u!114 &7656610161056084375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +405,7 @@ MonoBehaviour:
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1740066754483794912}
-  PursuitState: {fileID: -1836844598834230740}
+  StateToExitTo: {fileID: 6726932860956113883}
   TargetManager: {fileID: 1740066754483794918}
   Projectile: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
     type: 3}

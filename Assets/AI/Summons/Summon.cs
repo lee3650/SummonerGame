@@ -31,6 +31,29 @@ public class Summon : MonoBehaviour
         }
     }
     
+    public float GetIncome()
+    {
+        IEarner earner;
+        if (TryGetComponent<IEarner>(out earner))
+        {
+            return earner.GetIncome();
+        }
+        return 0f; 
+    }
+
+    public float GetMaintenanceFee()
+    {
+        IRecurringCost rc;
+        if (TryGetComponent<IRecurringCost>(out rc))
+        {
+            return rc.GetRecurringCost(); 
+            //so, this is fine, I guess, but the problem is it isn't enforced
+            //something can draw a recurring fee without implementing that interface. It'd be better if the only way you could 
+            //have a maintenance fee would be to implement that interface, right. 
+        }
+        return 0f; 
+    }
+
     public void InitializeScripts()
     {
         IInitialize[] inits = GetComponents<IInitialize>();

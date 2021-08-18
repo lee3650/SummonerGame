@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HoldPointState : MonoBehaviour, IControllableState
 {
-    [SerializeField] AIPursuitState PursuitState;
     [SerializeField] MovementController MovementController;
     [SerializeField] RotationController RotationController;
     [SerializeField] TargetManager TargetManager;
     [SerializeField] StateController StateController;
+    [SerializeField] AIAttackManager AIAttackManager;
 
     PointToHoldManager PointToHoldManager;
 
@@ -19,7 +19,6 @@ public class HoldPointState : MonoBehaviour, IControllableState
 
     public void EnterState()
     {
-        PursuitState.SetExitState(this);
         if (PointToHoldManager == null)
         {
             PointToHoldManager = GetComponent<PointToHoldManager>();
@@ -33,7 +32,7 @@ public class HoldPointState : MonoBehaviour, IControllableState
 
         if (TargetManager.HasLivingTarget() && Vector2.Distance(transform.position, PointToHoldManager.PointToHold) < 2.5f)
         {
-            StateController.TransitionToState(PursuitState);
+            AIAttackManager.TryAttack(TargetManager.Target);
         }
     }
 

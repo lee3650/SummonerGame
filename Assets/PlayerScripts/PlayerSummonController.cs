@@ -78,6 +78,14 @@ public class PlayerSummonController : MonoBehaviour
             //we'll deal with that there. 
             BlueprintManager.RemoveBlueprint(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition()));
         }
+
+        if (SelectedSummon != null)
+        {
+            if (SelectedSummon.CanBeSelected() == false)
+            {
+                DeselectSummon();
+            }
+        }
     }
 
     public bool IsMouseOverControllableSummon()
@@ -165,7 +173,7 @@ public class PlayerSummonController : MonoBehaviour
 
     IControllableSummon GetSummonUnderMouse()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 0.5f);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 0.25f);
         print("colliders found: " + cols.Length);
         foreach (Collider2D col in cols)
         {

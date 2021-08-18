@@ -111,7 +111,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public bool CanBeSelected()
     {
-        return true; 
+        return HealthManager.IsAlive(); 
     }
 
     private void PlaceSummonsWhereAble()
@@ -135,7 +135,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         {
             foreach (Blueprint p in prints)
             {
-                if (!p.Satisfied)
+                if (!p.Satisfied && IsBlueprintInRange(p))
                 {
                     int index = types.IndexOf(p.BlueprintType);
 
@@ -151,6 +151,11 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
                 }
             }
         }
+    }
+
+    private bool IsBlueprintInRange(Blueprint p)
+    {
+        return Vector2.Distance(transform.position, p.Point) <= Range;
     }
 
     protected virtual GameObject SummonEntity(GameObject entity, Vector2 endPoint)

@@ -65,7 +65,7 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
 
     public bool CanBeSelected()
     {
-        return true; 
+        return HealthManager.IsAlive();
     }
 
     void CreateSummon()

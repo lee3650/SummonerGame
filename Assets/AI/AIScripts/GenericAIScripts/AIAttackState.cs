@@ -10,7 +10,7 @@ public class AIAttackState : MonoBehaviour, IState, IRanged
     [SerializeField] bool MoveWhileAttacking = false;
 
     [SerializeField] AIStateMachine AIStateMachine;
-    [SerializeField] AIPursuitState PursuitState;
+    [SerializeField] Component StateToExitTo;
 
     [SerializeField] TargetManager TargetManager;
 
@@ -46,7 +46,7 @@ public class AIAttackState : MonoBehaviour, IState, IRanged
 
         if (AttackTimer > AttackLength)
         {
-            AIStateMachine.TransitionToState(PursuitState);
+            AIStateMachine.TransitionToState(StateToExitTo as IState);
         }
     }
 

@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
+using System;
 
 public class Summoner : MonoBehaviour, IWaveNotifier
 {
     [SerializeField] ManaManager ManaManager;
     [SerializeField] CharmManager CharmManager;
     [SerializeField] PlayerIncome PlayerIncome;
-    ILivingEntity Entity;
 
+    public event Action SummonsChanged = delegate { };
+    
+    ILivingEntity Entity;
     List<Summon> Summons = new List<Summon>();
 
     private void Awake()
@@ -86,11 +88,14 @@ public class Summoner : MonoBehaviour, IWaveNotifier
         {
             TryAddCharmToSummon(s, c);
         }
+
+        SummonsChanged();
     }
 
     public void RemoveSummonFromParty(Summon s)
     {
         Summons.Remove(s);
+        SummonsChanged();
     }
 
     public void MoveSummonsToSummoner()

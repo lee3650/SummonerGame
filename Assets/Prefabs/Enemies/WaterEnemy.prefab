@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingState: {fileID: 4648206095511936294}
+  InitOnAwake: 0
 --- !u!114 &4648206095511936296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +327,7 @@ MonoBehaviour:
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 4648206095511936297}
-  PursuitState: {fileID: 4648206095511936296}
+  StateToExitTo: {fileID: 4648206095511936296}
   TargetManager: {fileID: 4648206095511936303}
   MeleeWeapon: {fileID: 4648206096231582272}
 --- !u!58 &5630834523097520173

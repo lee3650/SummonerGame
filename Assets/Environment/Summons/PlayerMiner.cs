@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllableSummon
+public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllableSummon, IEarner
 {
     [SerializeField] float MoneyPerWave = 5f; 
 
@@ -66,6 +66,11 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         return multiplier;
     }
 
+    public float GetIncome()
+    {
+        return GetMoneyMultipler() * MoneyPerWave;
+    }
+
     public Factions GetFaction()
     {
         return Factions.Player;
@@ -85,7 +90,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
     public bool CanBeSelected()
     {
-        return true; 
+        return HealthManager.IsAlive(); 
     }
 
     public string GetStatString()

@@ -122,7 +122,7 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 
     public bool CanBeSelected()
     {
-        return true;
+        return HealthManager.IsAlive();
     }
 
     public void ToggleGuardMode()

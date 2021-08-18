@@ -30,8 +30,18 @@ public class SummonPursuitState : AIPursuitState, IControllableState
         }
     }
 
+    protected override bool ShouldKeepPursuingTarget()
+    {
+        return base.ShouldKeepPursuingTarget() && InRange(); 
+    }
+
     public override bool ShouldMoveAtTarget()
     {
-        return base.ShouldMoveAtTarget() && (TargetManager.DistanceFromTargetToPoint(PointToHoldManager.PointToHold) < 1.5f || IgnoreHeldPoint); 
+        return base.ShouldMoveAtTarget() && InRange();
+    }
+
+    bool InRange()
+    {
+        return (TargetManager.DistanceFromTargetToPoint(PointToHoldManager.PointToHold) < 1.5f || IgnoreHeldPoint);
     }
 }
