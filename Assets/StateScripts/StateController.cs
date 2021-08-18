@@ -5,9 +5,10 @@ using UnityEngine;
 public class StateController : MonoBehaviour
 {
     [SerializeField] Component StartingState;
+    [SerializeField] bool InitOnAwake = false; 
     private IState CurrentState = null;
 
-    void Awake() //okay this could be bad lol 
+    private void Awake() //okay this could be bad lol 
     {
         TransitionToState(StartingState as IState);
     }

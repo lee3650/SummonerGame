@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerWall : MonoBehaviour, ITargetable, IEntity
+public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
 {
-    [SerializeField] HealthManager HealthManager;
+    [SerializeField] protected HealthManager HealthManager;
     [SerializeField] SpriteRenderer sr;
     [SerializeField] protected Summon MySummon; 
     [SerializeField] TileType TileType;
 
     private MapNode prevNode; 
 
-    protected virtual void Awake()
+    public virtual void Init()
     {
         print("Awake called parent!");
 

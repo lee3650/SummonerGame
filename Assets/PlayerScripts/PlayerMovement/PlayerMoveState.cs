@@ -9,6 +9,10 @@ public class PlayerMoveState : MonoBehaviour, IState
     [SerializeField] RotationController RotationController;
     [SerializeField] PlayerInput PlayerInput;
 
+    [SerializeField] WaveSpawner WaveSpawner; 
+
+    [SerializeField] ItemSelection ItemSelection;
+
     [SerializeField] PlayerDodgeState PlayerDodgeState;
     [SerializeField] PlayerAttackState PlayerAttackState;
 
@@ -26,7 +30,7 @@ public class PlayerMoveState : MonoBehaviour, IState
         MovementController.MoveInDirection(unitMoveDir);
 
         RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
-        
+
         /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -34,12 +38,48 @@ public class PlayerMoveState : MonoBehaviour, IState
         }
          */
 
+        if (ItemSelection.HasItem())
+        {
+            SummonWeapon sw = ItemSelection.SelectedItem as SummonWeapon;
+
+            if (sw != null)
+            {
+                sw.UpdatePreview(SimplifiedAttackConditionsMet(sw), PlayerInput.GetWorldMousePosition());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //um... well, we need to know if something is selected here. 
+            //we only want to do one of those things, right. 
+            //eh, actually who cares. 
+
+            ItemSelection.DeselectItem();
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             PlayerStateController.TransitionToState(PlayerAttackState);
         }
     }
-    
+
+    bool SimplifiedAttackConditionsMet(SummonWeapon weapon)
+    {
+        if (MapManager.IsMapInitialized())
+        {
+            if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true))
+            {
+                if (!WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition())))
+                {
+                    if (weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition()))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false; 
+    }
     public void ExitState()
     {
         //should we zero out our velocity? Probably not. 

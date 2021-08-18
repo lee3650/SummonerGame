@@ -12,6 +12,8 @@ public class SelectedSummonUI : MonoBehaviour
     [SerializeField] PanelDisplayer PanelDisplayer;
     [SerializeField] RectTransform UpgradePanelParent;
 
+    [SerializeField] SellPanel SellPanel; 
+
     [SerializeField] PlayerInput PlayerInput;
 
     bool SummonSelected = false;
@@ -55,6 +57,13 @@ public class SelectedSummonUI : MonoBehaviour
                     PanelDisplayer.ShowPanel(UpgradePanelPrefab, (p, PlayerSummonController));
                 }
             }
+        }
+
+        Sellable sellable;
+        if (s.GetTransform().TryGetComponent<Sellable>(out sellable))
+        {
+            PanelDisplayer.ShowPanel(SellPanel, (sellable, PlayerSummonController)); 
+            //so, yeah that's sketchy because if the object it's asking for changes, we won't know until we get a runtime error 
         }
 
         PanelDisplayer.ShowPanel(StringDisplayPanelPrefab, s.GetStatString());

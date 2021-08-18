@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7715499841672435744}
   - component: {fileID: 7335073404376224911}
   - component: {fileID: 6000955293405737800}
+  - component: {fileID: -1678411296291060380}
+  - component: {fileID: -7697342277831129212}
+  - component: {fileID: -3526696554732424335}
   m_Layer: 11
   m_Name: WallGenerator
   m_TagString: Untraversable
@@ -30,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6000955293405737803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.502, y: 1.502, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a7de8c1a5c07180418fb4e0f8de46fc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49d1f42ebd757f6499b1dfca27e25fef, type: 3}
   m_Color: {r: 0.7465076, g: 0.6745283, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +94,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6000955293405737803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2ff6fba98ac294191bfb714743f1d5, type: 3}
   m_Name: 
@@ -131,14 +134,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6000955293405737800
 MonoBehaviour:
@@ -147,7 +150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6000955293405737803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd8c71cb37b52144b8545e44f74b0c0a, type: 3}
   m_Name: 
@@ -156,7 +159,7 @@ MonoBehaviour:
   sr: {fileID: 6000955293405737802}
   MySummon: {fileID: 2916608103962426634}
   TileType: 15
-  Range: 25
+  Range: 12.5
   MaxNumSummons: 6
   Types: 0000000001000000
   Prefabs:
@@ -164,3 +167,46 @@ MonoBehaviour:
   - {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
   SpriteRenderer: {fileID: 6000955293405737802}
   MaintenanceFee: 2.5
+--- !u!114 &-1678411296291060380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000955293405737803}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99340feb68423f14ab31d54560e5daaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 6000955293405737802}
+  SelectedMaterial: {fileID: 2100000, guid: 06cf8cb215df9d54c9bbc9b2bcb30582, type: 2}
+  SelectGraphic: {fileID: 3926530807043809730, guid: 1fd5b16d0661f8b489d2746828a6b8ea,
+    type: 3}
+--- !u!114 &-7697342277831129212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000955293405737803}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4c84deaaf2ff84696a8201423e2809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SellPrice: 0
+--- !u!114 &-3526696554732424335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000955293405737803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ea1c63db06653409f81ccc2acb08d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
+    type: 3}

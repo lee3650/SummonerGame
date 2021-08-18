@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier
+public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitialize
 {
     [SerializeField] Factions Faction;
     [SerializeField] int Precedence;
@@ -15,7 +15,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier
 
     [SerializeField] bool Targetable = true; 
 
-    private void Awake()
+    public void Init()
     {
         if (Targetable)
         {
@@ -47,7 +47,17 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier
         AISleepState aISleepState;
         if (TryGetComponent<AISleepState>(out aISleepState))
         {
+            InitializeScripts();
             aISleepState.WakeUp();
+        }
+    }
+
+    void InitializeScripts()
+    {
+        IInitialize[] initializes = GetComponents<IInitialize>();
+        foreach (IInitialize i in initializes)
+        {
+            i.Init();
         }
     }
 

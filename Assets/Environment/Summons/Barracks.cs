@@ -11,14 +11,14 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
 
     ILivingEntity lastSummon; 
     
-    protected override void Awake()
+    public override void Init()
     {
         print("Awake called!");
         TargetableEntitiesManager.AddTargetable(this);
         WaveSpawner.NotifyWhenWaveEnds(this);
         PointToHoldManager.PointToHold = new Vector2(transform.position.x, transform.position.y) + new Vector2(1, 0);
         MySummon.SummonerSet += SummonerSet;
-        base.Awake();
+        base.Init();
     }
 
     private void SummonerSet()

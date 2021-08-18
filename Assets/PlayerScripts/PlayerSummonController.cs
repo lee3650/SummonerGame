@@ -29,6 +29,18 @@ public class PlayerSummonController : MonoBehaviour
         }
     }
 
+    public void SellSummon(Sellable sellable)
+    {
+        if (SelectedSummon != null)
+        {
+            ManaManager.IncreaseMaxMana(sellable.SellPrice);
+            ManaManager.IncreaseMana(sellable.SellPrice);
+            IControllableSummon s = SelectedSummon;
+            DeselectSummon();
+            s.HandleCommand(new SellCommand());
+        }
+    }
+
     public void UpgradeSummon(UpgradePath path)
     {
         print("upgrade button pressed!");
@@ -109,6 +121,12 @@ public class PlayerSummonController : MonoBehaviour
                 sc.Select();
             }
 
+            RangeVisualizer rv;
+            if (SelectedSummon.GetTransform().TryGetComponent<RangeVisualizer>(out rv))
+            {
+                rv.Show();
+            }
+
             Time.timeScale = 0.1f;
             Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
         } 
@@ -131,6 +149,12 @@ public class PlayerSummonController : MonoBehaviour
         if (SelectedSummon != null && SelectedSummon.GetTransform().TryGetComponent<SelectableComponent>(out sc))
         {
             sc.Deselect();
+        }
+
+        RangeVisualizer rv; //hm. Is this okay? I mean, it's procedular, but not a bad way, right? 
+        if (SelectedSummon.GetTransform().TryGetComponent<RangeVisualizer>(out rv))
+        {
+            rv.Hide(); 
         }
 
         SelectedSummon = null;

@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueprintWeapon : Weapon
+public class BlueprintWeapon : SummonWeapon
 {
     [SerializeField] BlueprintType BlueprintType;
-    [SerializeField] GameObject BlueprintImage;
-
     List<GameObject> blueprintImages = new List<GameObject>();
 
     private void Awake()
@@ -33,7 +31,7 @@ public class BlueprintWeapon : Weapon
     public override void UseWeapon(Vector2 mousePos)
     {
         BlueprintManager.AddBlueprint(VectorRounder.RoundVector(mousePos), BlueprintType);
-        blueprintImages.Add(Instantiate(BlueprintImage, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero)));
+        blueprintImages.Add(Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero)));
     }
 
     public override WeaponType GetWeaponType()

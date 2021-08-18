@@ -71,10 +71,21 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
                 break;
             case UpgradeCommand uc:
                 UpgradeSummon(uc);
+                break;
+            case SellCommand sc:
+                //we basically just kill ourselves here. 
+                SellSummon();
                 break; 
         }
 
         (StateController.GetCurrentState() as IControllableState).HandleCommand(command);
+    }
+
+    void SellSummon()
+    {
+        HealthManager.SubtractHealth(100000);
+        gameObject.SetActive(false); //I need to stop doing this lol. 
+        print("Todo - remove these inactive gameobjects. ");
     }
 
     void UpgradeSummon(UpgradeCommand uc)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectableComponent : MonoBehaviour
+public class SelectableComponent : MonoBehaviour, IInitialize
 {
     [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] Material SelectedMaterial;
@@ -10,7 +10,7 @@ public class SelectableComponent : MonoBehaviour
 
     GameObject actualSelectGraphic;
 
-    private void Awake()
+    public void Init()
     {
         actualSelectGraphic = Instantiate<GameObject>(SelectGraphic, transform);
         actualSelectGraphic.transform.localScale *= 1.25f;

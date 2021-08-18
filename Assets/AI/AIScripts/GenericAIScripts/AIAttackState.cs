@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIAttackState : MonoBehaviour, IState
+public class AIAttackState : MonoBehaviour, IState, IRanged
 {
     [SerializeField] float AttackLength;
     [SerializeField] float AttackRange;
@@ -59,7 +59,6 @@ public class AIAttackState : MonoBehaviour, IState
     {
 
     }
-
     public virtual void StartAttack()
     {
         //so, this would be, either spawn projectile, or 
@@ -69,7 +68,7 @@ public class AIAttackState : MonoBehaviour, IState
 
     }
 
-    public float GetAttackRange()
+    public float GetRange()
     {
         return AttackRange;
     }

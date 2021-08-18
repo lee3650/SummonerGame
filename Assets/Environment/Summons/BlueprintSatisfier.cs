@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, IControllableSummon
+//I'm starting to think I'm doing something wrong with all these interfaces lol 
+public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, IControllableSummon, IRanged 
 {
     [SerializeField] float Range = 25;
     [SerializeField] int MaxNumSummons = 6;
@@ -18,13 +19,14 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     List<BlueprintSummon> SummonedEntities = new List<BlueprintSummon>();
 
-    protected override void Awake()
+    public override void Init()
     {
+        print("Init was called on blueprint satisfier!");
         SummonedEntities = new List<BlueprintSummon>();
         TargetableEntitiesManager.AddTargetable(this);
         MySummon.SummonerSet += SummonerSet;
         MySummon.SummonWaveEnds += WaveEnds;
-        base.Awake();
+        base.Init();
     }
 
     private void WaveEnds()
@@ -68,7 +70,14 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public void HandleCommand(PlayerCommand command)
     {
-
+        switch (command)
+        {
+            case SellCommand sc:
+                HealthManager.SubtractHealth(10000);
+                gameObject.SetActive(false);
+                print("todo: remove these inactive gameobjects");
+                break;
+        }
     }
 
     public Transform GetTransform()
@@ -136,7 +145,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
                     HealthManager hm = summoned.GetComponent<HealthManager>();
                     SummonedEntities.Add(new BlueprintSummon(hm, p));
-                    hm.OnDeath += PruneSummonedEntitiesList; //okay that's a little better. 
+                    hm.OnDeath += PruneSummonedEntitiesList;
 
                     break; 
                 }
@@ -193,6 +202,11 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     public Factions GetFaction()
     {
         return Factions.Player;
+    }
+
+    public float GetRange()
+    {
+        return Range;
     }
 
     public void OnHit(IEntity hit)

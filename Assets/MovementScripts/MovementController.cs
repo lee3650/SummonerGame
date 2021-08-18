@@ -90,9 +90,11 @@ public class MovementController : MonoBehaviour
         pathfindGoal = goal;
         if (SightChecker.CanSeePathToTarget(pathfindGoal))
         {
+            print("Can see goal to target! Skipping pathfinding!");
             pathfindPath = new SearchNode((int)goal.x, (int)goal.y);
         } else
         {
+            print("Could not see goal to target! Pathfinding! Goal: " + goal);
             pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position, CanGoThroughWalls);
         }
     }

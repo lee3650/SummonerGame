@@ -7,7 +7,8 @@ public abstract class Weapon : Item, IPurchasable
     //for now let's assume only the player can use items. 
     [SerializeField] private float ManaDrain; //we'll also assume you can only use mana 
     [SerializeField] private float AttackLength;
-    [SerializeField] string WeaponDescription; 
+    [SerializeField] string WeaponDescription;
+    [SerializeField] bool DeselectAfterAttacking = true; 
 
     public virtual float GetCost()
     {
@@ -40,6 +41,11 @@ public abstract class Weapon : Item, IPurchasable
     }
 
     public abstract void UseWeapon(Vector2 mousePos);
+
+    public bool ShouldDeselectAfterAttacking()
+    {
+        return DeselectAfterAttacking;
+    }
 
     public virtual WeaponType GetWeaponType()
     {

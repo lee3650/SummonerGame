@@ -22,6 +22,8 @@ public class PlayerAttackState : MonoBehaviour, IState
 
     float timer = 0f;
 
+    bool deselectAfter; 
+
     int attackFrame = -1; 
 
     public void EnterState()
@@ -43,7 +45,9 @@ public class PlayerAttackState : MonoBehaviour, IState
             }
 
             weapon.UseWeapon(PlayerInput.GetWorldMousePosition());
-            
+
+            deselectAfter = weapon.ShouldDeselectAfterAttacking();
+
             //play an animation, a sound, stuff like that
         } else
         {
@@ -51,11 +55,8 @@ public class PlayerAttackState : MonoBehaviour, IState
         }
     }
 
-    private bool AttackConditionsMet()
+    public bool AttackConditionsMet()
     {
-        //so, what conditions do we have here? 
-        //if the selected item is a summon weapon
-        //if we have enough mana
         Weapon weapon = ItemSelection.SelectedItem as Weapon;
 
         //okay this is getting seriously seriously disgusting 
@@ -67,7 +68,6 @@ public class PlayerAttackState : MonoBehaviour, IState
                 {
                     if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true))
                     {
-                        //We should make this more abstract - just do PlayerSummonController.AllowSummon or something
                         if (!WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition())))
                         {
                             if (weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition()))
@@ -106,6 +106,11 @@ public class PlayerAttackState : MonoBehaviour, IState
         if (timer >= (ItemSelection.SelectedItem as Weapon).GetAttackLength())
         {
             StateController.TransitionToState(PlayerMoveState);
+            if (deselectAfter)
+            {
+                ItemSelection.DeselectItem();
+            }
+            //this is kind of interesting - this runs after the current state has changed. 
         }
     }
 

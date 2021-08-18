@@ -27,6 +27,7 @@ public class PlayerBuilder : MonoBehaviour
                 HealNearbyWalls();
             }
         }
+        print("updating!");
     }
 
     void HealNearbyWalls()

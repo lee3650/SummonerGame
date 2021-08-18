@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIHealthBar : MonoBehaviour
+public class AIHealthBar : MonoBehaviour, IInitialize
 {
     const float NormalHealth = 25f;
 
@@ -13,7 +13,7 @@ public class AIHealthBar : MonoBehaviour
     Transform healthGraphic;
     float defaultScale;
 
-    private void Awake()
+    public void Init()
     {
         healthGraphic = Instantiate<Transform>(Resources.Load<Transform>("healthGraphic"));
         defaultScale = healthGraphic.localScale.x * (HealthManager.GetMaxHealth() / NormalHealth);
@@ -30,7 +30,7 @@ public class AIHealthBar : MonoBehaviour
 
     private void Update()
     {
-        if (HealthManager.IsAlive())
+        if (HealthManager.IsAlive() && healthGraphic != null)
         {
             healthGraphic.position = (Vector2)transform.position + new Vector2(WidthAdjustment, Height);
             healthGraphic.localScale = new Vector3(Mathf.Clamp(defaultScale * HealthManager.GetHealthPercentage(), 0, Mathf.Infinity), healthGraphic.localScale.y);

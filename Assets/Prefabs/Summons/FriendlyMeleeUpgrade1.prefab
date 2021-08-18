@@ -264,7 +264,7 @@ MonoBehaviour:
   PursuitState: {fileID: 8706169838045966301}
   RestState: {fileID: 4729422780525096340}
   AIAttackManager: {fileID: 5287930270531925528}
-  MaintenanceFee: 1.5
+  MaintenanceFee: 0
   PointToHoldManager: {fileID: 1161366071391942951}
   DeactivatedState: {fileID: 9035560416651974022}
   UpgradePath: {fileID: 0}
@@ -272,7 +272,6 @@ MonoBehaviour:
   - 'Range: 1.5'
   - 'Damage: 6'
   - 'Health: 50'
-  - 'Maintenance Fee: 1.5'
 --- !u!114 &4740189672838415131
 MonoBehaviour:
   m_ObjectHideFlags: 0

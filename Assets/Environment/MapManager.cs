@@ -90,6 +90,11 @@ public class MapManager
         MonoBehaviour.print(result);
     }
 
+    public static bool IsMapInitialized()
+    {
+        return Map != null && Map[0, 0] != null;
+    }
+
     public static TileType GetTileType(Vector2 point)
     {
         return Map[(int)point.x, (int)point.y].TileType;

@@ -19,6 +19,7 @@ public class SightChecker : MonoBehaviour
                 return false;
             }
         }
+
         foreach (RaycastHit2D hit in lowerHits)
         {
             if (hit.transform.CompareTag("Untraversable"))

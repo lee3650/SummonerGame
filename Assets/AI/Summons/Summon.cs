@@ -30,6 +30,15 @@ public class Summon : MonoBehaviour
             IDamager = GetComponentInChildren<IDamager>();
         }
     }
+    
+    public void InitializeScripts()
+    {
+        IInitialize[] inits = GetComponents<IInitialize>();
+        foreach (IInitialize i in inits)
+        {
+            i.Init();
+        }
+    }
 
     public virtual void OnWaveEnds()
     {
@@ -45,6 +54,7 @@ public class Summon : MonoBehaviour
         if (HealthManager != null)
         {
             HealthManager.SubtractHealth(10000);
+            gameObject.SetActive(false);
         }
         else
         {

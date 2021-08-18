@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 27557984}
   - component: {fileID: 27557983}
   - component: {fileID: 27557982}
-  - component: {fileID: 27557981}
+  - component: {fileID: 27557985}
   m_Layer: 8
   m_Name: Miner Summon
   m_TagString: Untagged
@@ -248,29 +248,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &27557981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27557980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8911bfbffc8ff9541aae0eee096617d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRenderer: {fileID: 27557983}
-  col: {fileID: 27557982}
-  ItemType: 0
-  ManaDrain: 15
-  AttackLength: 0.1
-  WeaponDescription: 'Summons a miner. Miners generate money based on how many ore
-    tiles they are adjacent to. '
-  Summon: {fileID: 8059090261315814483, guid: 87ba03f399c694745b8cc03722422acb, type: 3}
-  rotationOffset: 0
-  ReduceMaxMana: 0
-  ZeroRotation: 1
 --- !u!61 &27557982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -360,6 +337,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &27557985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27557980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf3a3701301d0f4489058592d624c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 27557983}
+  col: {fileID: 27557982}
+  ItemType: 0
+  ManaDrain: 15
+  AttackLength: 0.1
+  WeaponDescription: Summons a miner. Miners generate money based on how many ore
+    tiles they are adjacent to. They can only be placed adjacent to an ore tile.
+  DeselectAfterAttacking: 1
+  Summon: {fileID: 8059090261315814483, guid: 87ba03f399c694745b8cc03722422acb, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
+  RequiredTileTypes: 080000000a00000009000000
 --- !u!1 &36066061
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +475,7 @@ MonoBehaviour:
   ManaDrain: 3
   AttackLength: 0.1
   WeaponDescription: 
+  DeselectAfterAttacking: 1
   Summon: {fileID: 5154709158764781008, guid: b0c7de29f8adb1d48876e4ff92307974, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -784,9 +787,12 @@ MonoBehaviour:
   WeaponDescription: Places a gate blueprint. A wall generator will place a gate on
     a gate blueprint if it still has generating capacity. Gates have less health than
     walls but entities friendly to the player can pass through them.
+  DeselectAfterAttacking: 0
+  Summon: {fileID: 4562105208068300990, guid: 25439b22922a27b45b8ed464ae6bdc39, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
   BlueprintType: 1
-  BlueprintImage: {fileID: 7555862398476564625, guid: 686e46e85e8510443996dcffa748b95c,
-    type: 3}
 --- !u!61 &144089482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1194,6 +1200,8 @@ MonoBehaviour:
   PlayerSummonController: {fileID: 333112620}
   PanelDisplayer: {fileID: 99698719}
   UpgradePanelParent: {fileID: 432860644}
+  SellPanel: {fileID: -2495869970801869472, guid: a0037ee4e491b23428fa05fe11fecb3d,
+    type: 3}
   PlayerInput: {fileID: 333112611}
 --- !u!4 &270309712
 Transform:
@@ -1227,7 +1235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &280271735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,6 +1528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingState: {fileID: 333112610}
+  InitOnAwake: 1
 --- !u!114 &333112608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,6 +1575,8 @@ MonoBehaviour:
   PlayerStateController: {fileID: 333112607}
   RotationController: {fileID: 333112608}
   PlayerInput: {fileID: 333112611}
+  WaveSpawner: {fileID: 1388708030}
+  ItemSelection: {fileID: 1680095495}
   PlayerDodgeState: {fileID: 333112612}
   PlayerAttackState: {fileID: 333112617}
 --- !u!114 &333112611
@@ -1623,7 +1634,6 @@ MonoBehaviour:
   - {fileID: 27557980}
   - {fileID: 2117846941}
   - {fileID: 710260376}
-  - {fileID: 280271734}
 --- !u!114 &333112614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2440,6 +2450,7 @@ MonoBehaviour:
   ManaDrain: 1.25
   AttackLength: 0.1
   WeaponDescription: 
+  DeselectAfterAttacking: 1
   Summon: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -2659,6 +2670,7 @@ MonoBehaviour:
   ManaDrain: 7.5
   AttackLength: 0.1
   WeaponDescription: Summons an archer
+  DeselectAfterAttacking: 1
   Summon: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -3471,6 +3483,7 @@ MonoBehaviour:
   ManaDrain: 6
   AttackLength: 0.1
   WeaponDescription: 'Summons a builder. A build repairs damaged but not broken walls. '
+  DeselectAfterAttacking: 1
   Summon: {fileID: 5470023481148401198, guid: bee1ae85a3b48944097279dda1c2ab1a, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -4392,6 +4405,7 @@ MonoBehaviour:
   ManaDrain: 1
   AttackLength: 0.1
   WeaponDescription: 
+  DeselectAfterAttacking: 1
   Summon: {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -4609,6 +4623,7 @@ MonoBehaviour:
   ManaDrain: 6
   AttackLength: 0.1
   WeaponDescription: 
+  DeselectAfterAttacking: 1
   Summon: {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -7206,6 +7221,7 @@ MonoBehaviour:
   ManaDrain: 3
   AttackLength: 0.1
   WeaponDescription: 
+  DeselectAfterAttacking: 1
   Summon: {fileID: 258440875104758320, guid: 07465f95b160a3d488881269cadc31a1, type: 3}
   rotationOffset: 90
   ReduceMaxMana: 0
@@ -7412,6 +7428,7 @@ MonoBehaviour:
   WeaponDescription: Places a wall generator. A wall generator will place up to 6
     walls or gates based on where wall and gate blueprints are placed. At the end
     of each wave any walls that were destroyed during the wave will be regenerated.
+  DeselectAfterAttacking: 1
   Summon: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0
@@ -7631,9 +7648,12 @@ MonoBehaviour:
   AttackLength: 0.1
   WeaponDescription: Places a melee blueprint. A melee blueprint tells the barracks
     where to send its troops.
+  DeselectAfterAttacking: 0
+  Summon: {fileID: 3948711407154339661, guid: 11c15ffe86833674ea07f0001b70f13f, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
   BlueprintType: 2
-  BlueprintImage: {fileID: 3948711407154339661, guid: 11c15ffe86833674ea07f0001b70f13f,
-    type: 3}
 --- !u!61 &1951856972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8046,9 +8066,12 @@ MonoBehaviour:
   AttackLength: 0.1
   WeaponDescription: Places a wall blueprint. A wall generator will place its walls
     based on where the wall blueprints are.
+  DeselectAfterAttacking: 0
+  Summon: {fileID: 7555862398476564625, guid: 686e46e85e8510443996dcffa748b95c, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
   BlueprintType: 0
-  BlueprintImage: {fileID: 7555862398476564625, guid: 686e46e85e8510443996dcffa748b95c,
-    type: 3}
 --- !u!61 &2017302982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8336,6 +8359,7 @@ MonoBehaviour:
   AttackLength: 0.1
   WeaponDescription: 'Summons a barrack. A barrack creates two melee units at the
     end of each wave, up to a max of two. '
+  DeselectAfterAttacking: 1
   Summon: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}
   rotationOffset: 0
   ReduceMaxMana: 0

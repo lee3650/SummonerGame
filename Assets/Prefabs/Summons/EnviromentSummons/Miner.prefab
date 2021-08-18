@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6305876023889047352}
   - component: {fileID: 6438850639139857303}
   - component: {fileID: 6209397066443110183}
+  - component: {fileID: 7165228759015065265}
+  - component: {fileID: -3973196150619937828}
   m_Layer: 11
   m_Name: Miner
   m_TagString: Untraversable
@@ -30,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8059090261315814483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.502, y: 1.502, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a7de8c1a5c07180418fb4e0f8de46fc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49d1f42ebd757f6499b1dfca27e25fef, type: 3}
   m_Color: {r: 1, g: 0.2643778, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +93,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8059090261315814483}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2ff6fba98ac294191bfb714743f1d5, type: 3}
   m_Name: 
@@ -131,14 +133,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6209397066443110183
 MonoBehaviour:
@@ -147,7 +149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8059090261315814483}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f1965e2ddc70394d86741eb3f2774f2, type: 3}
   m_Name: 
@@ -157,3 +159,32 @@ MonoBehaviour:
   MySummon: {fileID: 1506965835460921874}
   TileType: 11
   MoneyPerWave: 5
+--- !u!114 &7165228759015065265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059090261315814483}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99340feb68423f14ab31d54560e5daaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 8059090261315814482}
+  SelectedMaterial: {fileID: 2100000, guid: 06cf8cb215df9d54c9bbc9b2bcb30582, type: 2}
+  SelectGraphic: {fileID: 3926530807043809730, guid: 1fd5b16d0661f8b489d2746828a6b8ea,
+    type: 3}
+--- !u!114 &-3973196150619937828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059090261315814483}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4c84deaaf2ff84696a8201423e2809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SellPrice: 0

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetSearcher : MonoBehaviour
+public class TargetSearcher : MonoBehaviour, IInitialize
 {
     [SerializeField] float SightRange; 
     [SerializeField] bool UsePrecedence;
@@ -15,12 +15,12 @@ public class TargetSearcher : MonoBehaviour
     private bool ShouldSearchForTarget = true;
 
     private SearchStates searchState = SearchStates.SearchForTarget;
-
-    void Start()
+    
+    public void Init()
     {
         StartCoroutine(SearchForTarget());
     }
-    
+
     IEnumerator SearchForTarget()
     {
         //so, we'll use the closest enemy
@@ -145,5 +145,10 @@ public class TargetSearcher : MonoBehaviour
     {
         SearchForTarget,
         AssignedTarget,
+    }
+
+    public void SetShouldSearchForTarget(bool val)
+    {
+        ShouldSearchForTarget = val; 
     }
 }

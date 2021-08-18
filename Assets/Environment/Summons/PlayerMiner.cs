@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier
+public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllableSummon
 {
     [SerializeField] float MoneyPerWave = 5f; 
 
-    protected override void Awake()
+    public override void Init()
     {
         print("Awake called!");
         TargetableEntitiesManager.AddTargetable(this);
         WaveSpawner.NotifyWhenWaveEnds(this);
-        base.Awake();
+        base.Init();
     }
 
     public override bool ShouldBeOverwritten()
@@ -29,6 +29,12 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier
     {
         print("Got wave ends notification!");
 
+        float multiplier = GetMoneyMultipler();
+        MySummon.GetSummoner().AddMana(multiplier * MoneyPerWave);
+    }
+
+    float GetMoneyMultipler()
+    {
         float multiplier = 0f;
 
         Vector2[] dirs = new Vector2[]
@@ -49,7 +55,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier
             }
             else if (MapManager.IsTileType((int)pos.x, (int)pos.y, TileType.Silver))
             {
-                multiplier += 1.5f; 
+                multiplier += 1.5f;
             }
             else if (MapManager.IsTileType((int)pos.x, (int)pos.y, TileType.Copper))
             {
@@ -57,12 +63,39 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier
             }
         }
 
-        MySummon.GetSummoner().AddMana(multiplier * MoneyPerWave);
+        return multiplier;
     }
 
     public Factions GetFaction()
     {
         return Factions.Player;
+    }
+
+    public void HandleCommand(PlayerCommand command)
+    {
+        switch (command)
+        {
+            case SellCommand sc:
+                HealthManager.SubtractHealth(10000);
+                gameObject.SetActive(false);
+                print("todo: remove these inactive gameobjects");
+                break; 
+        }
+    }
+
+    public bool CanBeSelected()
+    {
+        return true; 
+    }
+
+    public string GetStatString()
+    {
+        return string.Format("Money per wave: {0}", GetMoneyMultipler() * MoneyPerWave);
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 
     public void OnHit(IEntity hit)

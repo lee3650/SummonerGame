@@ -74,10 +74,37 @@ public class ItemSelection : MonoBehaviour
         }
     }
 
+    public void DeselectItem()
+    {
+        if (!PlayerEntity.CanChangeSelectedItem())
+        {
+            return;
+        }
+
+        if (SelectedItem != null)
+        {
+            SelectedItem.OnDeselection();
+        }
+
+        SelectionImage.gameObject.SetActive(false);
+
+        selectedIndex = -1;
+
+        SelectedItem = null; 
+    
+        SelectedItemChanged();
+    }
+
     private void ChangeSelection(int newSelect)
     {
         if (!PlayerEntity.CanChangeSelectedItem())
         {
+            return; 
+        }
+
+        if (newSelect == selectedIndex)
+        {
+            DeselectItem();
             return; 
         }
 

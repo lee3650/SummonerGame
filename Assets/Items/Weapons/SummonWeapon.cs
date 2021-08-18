@@ -7,22 +7,71 @@ public class SummonWeapon : Weapon
     //so, we just override UseWeapon. 
     //What exactly is the point of the Weapon class? 
 
-    [SerializeField] GameObject Summon;
+    public const float RefundPercent = 0.67f;
+
+    [SerializeField] protected GameObject Summon;
     [SerializeField] float rotationOffset; 
     
     public bool ReduceMaxMana;
 
-    public bool ZeroRotation = false; 
+    public bool ZeroRotation = false;
+
+    private GameObject SummonPreview; 
+
+    public void UpdatePreview(bool visible, Vector2 mousePos)
+    {
+        if (visible)
+        {
+            SummonPreview.SetActive(true);
+            SummonPreview.transform.position = VectorRounder.RoundVector(mousePos);
+        } else
+        {
+            SummonPreview.SetActive(false);
+        }
+    }
+
+    public override void OnSelection()
+    {
+        if (SummonPreview == null)
+        {
+            SummonPreview = Instantiate(Summon);
+            SummonPreview.layer = LayerMask.NameToLayer("SummonPreview");
+            Collider[] cols = SummonPreview.GetComponents<Collider>();
+            foreach (Collider c in cols)
+            {
+                c.enabled = false; 
+            }
+
+            Behaviour[] bs = SummonPreview.GetComponents<Behaviour>();
+            foreach (Behaviour b in bs)
+            {
+                b.enabled = false; 
+            }
+        }
+        base.OnSelection();
+    }
+
+    public override void OnDeselection()
+    {
+        SummonPreview.SetActive(false);
+        base.OnDeselection();
+    }
 
     public override void UseWeapon(Vector2 mousePos)
     {
         Quaternion rotation = ZeroRotation ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset));
 
-        GameObject summoned = SpawnSummon(Summon, mousePos, Wielder.GetComponent<Summoner>(), rotation);
+        GameObject summoned = SpawnSummon(Summon, VectorRounder.RoundVector(mousePos), Wielder.GetComponent<Summoner>(), rotation);
 
         if (ReduceMaxMana)
         {
             summoned.GetComponent<Summon>().ManaRefundAmount = GetManaDrain();
+        }
+        
+        Sellable sellable;
+        if (summoned.TryGetComponent<Sellable>(out sellable))
+        {
+            sellable.SellPrice = Mathf.RoundToInt(GetManaDrain() * RefundPercent);
         }
     }
 
@@ -47,7 +96,10 @@ public class SummonWeapon : Weapon
     {
         GameObject summoned = Instantiate(summon, pos, rotation);
 
-        summoned.GetComponent<Summon>().SetSummoner(summoner);
+        Summon summonComponent = summoned.GetComponent<Summon>();
+
+        summonComponent.InitializeScripts();
+        summonComponent.SetSummoner(summoner);
 
         ControllableSummon cs;
         if (summoned.TryGetComponent<ControllableSummon>(out cs))

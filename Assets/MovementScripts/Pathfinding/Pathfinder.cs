@@ -15,6 +15,7 @@ public class Pathfinder : MonoBehaviour
         if (IsStartAndEndInvalid(start, end, CanGoThroughWalls))
         {
             print("The start or end was not valid!");
+            print("Start: " + start + ", end: " + end);
             return null; 
         }
 
