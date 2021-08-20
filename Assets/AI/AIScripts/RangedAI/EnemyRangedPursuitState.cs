@@ -8,7 +8,7 @@ public class EnemyRangedPursuitState : AIPursuitState
 
     public override bool ShouldMoveAtTarget()
     {
-        bool result = base.ShouldMoveAtTarget() || (!SightChecker.CanSeePathToTarget(TargetManager.Target.GetPosition()));
+        bool result = base.ShouldMoveAtTarget() || (!SightChecker.NoUnbreakableWallsInWay(TargetManager.Target.GetPosition()));
         
         return result;
     }

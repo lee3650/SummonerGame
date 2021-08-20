@@ -12,6 +12,8 @@ public class PlayerSummonController : MonoBehaviour
     [SerializeField] ManaManager ManaManager;
     [SerializeField] PlayerAttackState PlayerAttackState;
 
+    const float SelectionRadius = 0.1f;
+
     private IControllableSummon SelectedSummon = null;
 
     int frameOfDeselection = -1;
@@ -173,7 +175,7 @@ public class PlayerSummonController : MonoBehaviour
 
     IControllableSummon GetSummonUnderMouse()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), 0.25f);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), SelectionRadius);
         print("colliders found: " + cols.Length);
         foreach (Collider2D col in cols)
         {
