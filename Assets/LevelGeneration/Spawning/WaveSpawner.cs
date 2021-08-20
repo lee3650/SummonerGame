@@ -99,6 +99,11 @@ public class WaveSpawner : MonoBehaviour, IResettable
         }
     }
 
+    public void ResetSpawnRegion()
+    {
+        SpawnRegion = new List<Vector2>();
+    }
+
     private void LateUpdate()
     {
         if (CurrentWaveDefeated() && !NotifiedWaveCompletion)

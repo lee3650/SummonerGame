@@ -39,9 +39,7 @@ public class PlayerAttackState : MonoBehaviour, IState
 
             if (ManaManager.TryDecreaseMana(attackDecrement) == false)
             {
-                attackDecrement -= ManaManager.GetCurrent();
-                ManaManager.DecreaseMana(ManaManager.GetCurrent());
-                HealthManager.SubtractHealth(attackDecrement);
+                SubtractManaAndHealth(attackDecrement);
             }
 
             weapon.UseWeapon(PlayerInput.GetWorldMousePosition());
@@ -55,40 +53,90 @@ public class PlayerAttackState : MonoBehaviour, IState
         }
     }
 
+    void SubtractManaAndHealth(float attackDecrement)
+    {
+        attackDecrement -= ManaManager.GetCurrent();
+        ManaManager.DecreaseMana(ManaManager.GetCurrent());
+        HealthManager.SubtractHealth(attackDecrement);
+    }
+
     public bool AttackConditionsMet()
     {
         Weapon weapon = ItemSelection.SelectedItem as Weapon;
 
-        //okay this is getting seriously seriously disgusting 
-        if (weapon != null)
+        if (!InventoryIsValid(weapon))
         {
-            if (!InventorySlotManager.Active)
-            {
-                if (HealthManager.GetCurrent() + ManaManager.GetCurrent() > weapon.GetManaDrain())
-                {
-                    if (MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true))
-                    {
-                        if (!WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition())))
-                        {
-                            if (weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition()))
-                            {
-                                if (PlayerSummonController.IsMouseOverControllableSummon() == false)
-                                {
-                                    if (PlayerSummonController.MouseOverUIComponent() == false)
-                                    {
-                                        if (PlayerSummonController.HadSelectionThisFrame() == false)
-                                        {
-                                            return true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            return false; 
         }
-        return false; 
+
+        if (!SufficientEnergy(weapon))
+        {
+            return false;
+        }
+
+        if (!IsPositionSpawnable())
+        {
+            return false;
+        }
+
+        if (PlayerIsSelecting())
+        {
+            return false;
+        }
+
+        if (!IsWeaponUseable(weapon))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    bool InventoryIsValid(Weapon weapon)
+    {
+        if (weapon == null)
+        {
+            return false;
+        }
+
+        if (InventorySlotManager.Active)
+        {
+            return false;
+        }
+
+        return true; 
+    }
+
+    bool IsWeaponUseable(Weapon weapon)
+    {
+        return weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition());
+    }
+
+    bool SufficientEnergy(Weapon weapon)
+    {
+        return HealthManager.GetCurrent() + ManaManager.GetCurrent() > weapon.GetManaDrain();
+    }
+
+    bool IsPositionSpawnable()
+    {
+        return MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true) && !WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition()));
+    }
+
+    bool PlayerIsSelecting()
+    {
+        if (PlayerSummonController.IsMouseOverControllableSummon())
+        {
+            return true;
+        }
+        if (PlayerSummonController.HadSelectionThisFrame())
+        {
+            return true;
+        }
+        if (PlayerSummonController.MouseOverUIComponent())
+        {
+            return true;
+        }
+        return false;
     }
 
     public bool AttackedThisFrame()

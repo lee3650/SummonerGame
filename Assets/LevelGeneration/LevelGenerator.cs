@@ -12,35 +12,80 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] MapDrawer MapDrawer;
     private int levelNum = 0;
 
-    public const int StageSize = 15; 
+    public const int StageSize = 15;
+
+    public const int MapStagesWidth = 3;
+    public const int MapStagesHeight = 3;
 
     int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 
 
     //so, instead of directly setting the map in the map manager we want to copy it over. 
-    public void GenerateNextLevel(int level, LevelDirections direction)
+    public void GenerateNextLevel(int level, Vector2 pos, Vector2 delta)
     {
         levelNum = level;
-        DestroyWalls(direction);
+        DestroyWalls(pos);
 
-        List<MapFeature> features = GetMapFeatures(levelNum, direction);
+        List<MapFeature> features = GetMapFeatures(levelNum, delta);
 
         MapNode[,] newMap = MapGenerator.GenerateLevel(StageSize, StageSize, features);
 
-        TransformOreBasedOnDistance(newMap, StageSize, StageSize, direction);
+        TransformOreBasedOnDistance(newMap, StageSize, StageSize, pos);
 
-        List<Vector2> spawnRegion = GenerateSpawnRegion(direction);
+        CopyOverMap(newMap, pos);
 
-        CopyOverMap(newMap, direction);
-
-        RemoveInvalidTiles(spawnRegion, MapManager.GetMap());
-        WaveSpawner.AddSpawnRegion(spawnRegion);
-
-        MapDrawer.InstantiatePartOfMap(MapManager.GetMap(), GetBottomLeftOfStage(direction), GetTopRightOfStage(direction));
+        MapDrawer.InstantiatePartOfMap(MapManager.GetMap(), GetBottomLeftOfStage(pos), GetTopRightOfStage(pos));
     }
 
-    void DestroyWalls(LevelDirections dir)
+    public void RecalculateSpawnRegion(List<StageNode> endNodes)
     {
-        List<Vector2> wallTiles = GetPointsWithinBoundaries(GetBottomLeftOfStage(dir), GetTopRightOfStage(dir));
+        WaveSpawner.ResetSpawnRegion();
+
+        foreach (StageNode n in endNodes)
+        {
+            List<Vector2> spawnRegion = GenerateSpawnRegion(n.Position, n.Delta); //we'll come back to this. We're probably going to do it in the WaveSpawner. 
+            RemoveInvalidTiles(spawnRegion, MapManager.GetMap());
+            WaveSpawner.AddSpawnRegion(spawnRegion);
+        }
+    }
+
+    List<Vector2> GenerateSpawnRegion(Vector2 sPos, Vector2 delta)
+    {
+        //so, the position doesn't actually matter, basically. 
+        //only the delta, then we just have to adjust it based on the position. 
+        //okay. 
+
+        Vector2 bottomLeft;
+        Vector2 topRight; 
+
+        if (delta == new Vector2(1, 0))
+        {
+            bottomLeft = new Vector2(StageSize - 2, 0);
+            topRight = new Vector2(StageSize, StageSize);
+        }
+        else if (delta == new Vector2(0, 1))
+        {
+            bottomLeft = new Vector2(0, StageSize - 2);
+            topRight = new Vector2(StageSize, StageSize);
+        }
+        else if (delta == new Vector2(0, -1))
+        {
+            bottomLeft = new Vector2(0, 0);
+            topRight = new Vector2(StageSize, 2);
+        }
+        else
+        {
+            throw new Exception("Did not expect delta " + delta);
+        }
+
+        topRight = GetTrueMapCoordinate((int)topRight.x, (int)topRight.y, sPos);
+        bottomLeft = GetTrueMapCoordinate((int)bottomLeft.x, (int)bottomLeft.y, sPos);
+
+        return GetPointsWithinBoundaries(bottomLeft, topRight);
+    }
+
+    void DestroyWalls(Vector2 position)
+    {
+        List<Vector2> wallTiles = GetPointsWithinBoundaries(GetBottomLeftOfStage(position), GetTopRightOfStage(position));
         //so, this is only the walls within the room. We also need to add the walls between rooms and write them as land... or I guess we write to every node in a map, and then we add extra walls 
         //around the entire thing. 
 
@@ -49,9 +94,9 @@ public class LevelGenerator : MonoBehaviour
         MapDrawer.DestroyTiles(wallTiles);
     }
 
-    void TransformOreBasedOnDistance(MapNode[,] newMap, int xSize, int ySize, LevelDirections dir)
+    void TransformOreBasedOnDistance(MapNode[,] newMap, int xSize, int ySize, Vector2 pos)
     {
-        Vector2 centerTile = new Vector2((float)MapManager.xSize / 2, (float)MapManager.ySize / 2);
+        Vector2 centerTile = new Vector2(0f, (float)MapManager.ySize / 2);
 
         for (int x = 0; x < xSize; x++)
         {
@@ -59,25 +104,15 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (newMap[x, y].TileType == TileType.Ore)
                 {
-                    float distToSafety = 0;
-                    if (dir == LevelDirections.Center)
-                    {
-                        distToSafety = Vector2.Distance(centerTile, GetTrueMapCoordinate(x, y, dir));
-                    } else if (dir == LevelDirections.East || dir == LevelDirections.West)
-                    {
-                        distToSafety = Mathf.Abs(centerTile.x - GetTrueMapCoordinate(x, y, dir).x);
-                    } else if (dir == LevelDirections.North || dir == LevelDirections.South)
-                    {
-                        distToSafety = Mathf.Abs(centerTile.y - GetTrueMapCoordinate(x, y, dir).y);
-                    }
+                    float distToSafety = Vector2.Distance(centerTile, GetTrueMapCoordinate(x, y, pos));
 
-                    if (distToSafety < 7f)
+                    if (distToSafety < 10f)
                     {
                         newMap[x, y] = new MapNode(true, TileType.Copper);
-                    } else if (distToSafety < 12f)
+                    } else if (distToSafety < 20f)
                     {
                         newMap[x, y] = new MapNode(true, TileType.Silver);
-                    } else
+                    } else //so, we are going to have to change this when we add more ore types 
                     {
                         newMap[x, y] = new MapNode(true, TileType.Gold);
                     }
@@ -88,16 +123,16 @@ public class LevelGenerator : MonoBehaviour
 
     public void SetTotalMapSizeAndInitMap()
     {
-        MapManager.SetMapSize(new Vector2(3 * StageSize, 3 * StageSize));
+        MapManager.SetMapSize(new Vector2(MapStagesWidth * StageSize, MapStagesHeight * StageSize));
         MapManager.InitMap();
         MapDrawer.InstantiateMap(MapManager.GetMap());
         MapDrawer.DrawEnclosingWalls(MapManager.xSize, MapManager.ySize);
     }
 
-    void CopyOverMap(MapNode[,] map, LevelDirections dir)
+    void CopyOverMap(MapNode[,] map, Vector2 pos)
     {
-        Vector2 bottomLeft = GetBottomLeftOfStage(dir);
-        Vector2 topRight = GetTopRightOfStage(dir);
+        Vector2 bottomLeft = GetBottomLeftOfStage(pos);
+        Vector2 topRight = GetTopRightOfStage(pos);
 
         int minX = (int)bottomLeft.x;
         int minY = (int)bottomLeft.y;
@@ -111,45 +146,19 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    Vector2 GetTrueMapCoordinate(int x, int y, LevelDirections mapDir)
+    Vector2 GetTrueMapCoordinate(int x, int y, Vector2 pos)
     {
-        return new Vector2(x, y) + GetBottomLeftOfStage(mapDir);
+        return new Vector2(x, y) + GetBottomLeftOfStage(pos);
     }
 
-    Vector2 GetBottomLeftOfStage(LevelDirections dir)
+    Vector2 GetBottomLeftOfStage(Vector2 pos)
     {
-        switch (dir)
-        {
-            case LevelDirections.Center:
-                return new Vector2(1, 1) * StageSize;
-            case LevelDirections.East:
-                return new Vector2(2, 1) * StageSize;
-            case LevelDirections.North:
-                return new Vector2(1, 2) * StageSize;
-            case LevelDirections.South:
-                return new Vector2(1, 0) * StageSize;
-            case LevelDirections.West:
-                return new Vector2(0, 1) * StageSize;
-        }
-        throw new System.Exception("Invalid direction " + dir);
+        return pos * StageSize;
     }
 
-    Vector2 GetTopRightOfStage(LevelDirections dir)
+    Vector2 GetTopRightOfStage(Vector2 pos)
     {
-        switch (dir)
-        {
-            case LevelDirections.Center:
-                return new Vector2(2, 2) * StageSize;
-            case LevelDirections.East:
-                return new Vector2(3, 2) * StageSize;
-            case LevelDirections.North:
-                return new Vector2(2, 3) * StageSize;
-            case LevelDirections.South:
-                return new Vector2(2, 1) * StageSize;
-            case LevelDirections.West:
-                return new Vector2(1, 2) * StageSize;
-        }
-        throw new System.Exception("Invalid direction " + dir);
+        return (pos + new Vector2(1, 1)) * StageSize;
     }
 
     void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
@@ -163,31 +172,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    List<Vector2> GenerateSpawnRegion(LevelDirections roomDirection)
-    {
-        List<Vector2> result = new List<Vector2>();
-        
-        switch (roomDirection)
-        {
-            case LevelDirections.Center:
-                break;    
-            case LevelDirections.West:
-                result = GetPointsWithinBoundaries(new Vector2(0, StageSize), new Vector2(2, StageSize * 2));
-                break;
-            case LevelDirections.East:
-                result = GetPointsWithinBoundaries(new Vector2(StageSize * 3 - 2, StageSize), new Vector2(3 * StageSize, StageSize * 2));
-                break;
-            case LevelDirections.North:
-                result = GetPointsWithinBoundaries(new Vector2(StageSize, 3 * StageSize - 2), new Vector2(2 * StageSize, StageSize * 3));
-                break;
-            case LevelDirections.South:
-                result = GetPointsWithinBoundaries(new Vector2(StageSize, 0), new Vector2(2 * StageSize, 2));
-                break; 
-        }
-        return result; 
-    }
-
-    List<MapFeature> GetMapFeatures(int levelNum, LevelDirections dir)
+    List<MapFeature> GetMapFeatures(int levelNum, Vector2 delta)
     {
         //so, these allow horizontal movement 
         List<MapFeature> HorizontalFeatures = new List<MapFeature>()
@@ -218,23 +203,23 @@ public class LevelGenerator : MonoBehaviour
 
         //this is disgusting 
         List<MapFeature> featureList = null; 
-        switch (dir)
+
+        if (Mathf.Abs(delta.x) > 0)
         {
-            case LevelDirections.Center:
-                featureList = NeutralFeatures;
-                break;
-            case LevelDirections.East:
-            case LevelDirections.West:
-                featureList = HorizontalFeatures;
-                break; 
-            case LevelDirections.North:
-            case LevelDirections.South:
-                featureList = VerticalFeatures;
-                break; 
+            featureList = HorizontalFeatures;
+        }
+        else if (Mathf.Abs(delta.y) > 0)
+        {
+            featureList = VerticalFeatures;
+        }
+        else
+        {
+            throw new Exception("Delta did not have x or y!");
+            featureList = NeutralFeatures;
         }
 
         int highestFeature = UnityEngine.Random.Range(0, featureList.Count) + 1;
-        
+
         List<MapFeature> result = new List<MapFeature>();
 
         for (int i = 0; i < numOfFeatures; i++)
@@ -243,7 +228,7 @@ public class LevelGenerator : MonoBehaviour
 
             if (feature is BridgeValleyFeature == false || FeatureListContainsBridge(result) == false)
             {
-                result.Add(feature); //this is exclusive
+                result.Add(feature);
             }
         }
 
