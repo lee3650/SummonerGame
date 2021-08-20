@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AISleepState : MonoBehaviour, IState
 {
+    [SerializeField] Collider2D collider; 
     [SerializeField] StateController StateController;
     [SerializeField] AIIdleState AIIdleState;
     [SerializeField] List<SpriteRenderer> RenderersToEnable = new List<SpriteRenderer>();
@@ -38,6 +39,7 @@ public class AISleepState : MonoBehaviour, IState
 
     public void ExitState()
     {
+        collider.enabled = true; 
         SetRenderersEnabled(true);
     }
 }

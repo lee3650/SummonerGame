@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bde4f924ac13a84ea2b848ed967816a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 4792795634857391296}
   StateController: {fileID: 5487195000452624836}
   AIIdleState: {fileID: 5487195000452624835}
   RenderersToEnable:
@@ -364,7 +365,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5487195000452624840}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
