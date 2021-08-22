@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This is actually pretty clean other than the observer pattern 
+
 public class WaveSpawner : MonoBehaviour, IResettable
 {
     [SerializeField] List<GameObject> Enemies;
@@ -11,7 +13,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
     [SerializeField] Transform BottomLeft, TopRight;
     [SerializeField] bool UseTransforms;
 
-    static List<IWaveNotifier> ClientsToNotify = new List<IWaveNotifier>(); 
+    static List<IWaveNotifier> ClientsToNotify = new List<IWaveNotifier>();
 
     List<Vector2> SpawnRegion = new List<Vector2>();
 
@@ -104,7 +106,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
         SpawnRegion = new List<Vector2>();
     }
 
-    private void LateUpdate()
+    private void LateUpdate() //Why is this in late update? 
     {
         if (CurrentWaveDefeated() && !NotifiedWaveCompletion)
         {
