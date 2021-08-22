@@ -26,7 +26,7 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
     private void Start()
     {
         HealthManager.OnDeath += OnDeath;
-        HealthManager.OnDamageTaken += OnDamageTaken;
+        HealthManager.OnHealthChanged += OnHealthChanged;
         StateController = GetComponent<StateController>();
     }
 
@@ -52,7 +52,7 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
         return umodifiedList;
     }
 
-    private void OnDamageTaken()
+    private void OnHealthChanged()
     {
 
     }

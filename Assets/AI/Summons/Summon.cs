@@ -7,6 +7,7 @@ public class Summon : MonoBehaviour
 {
     [SerializeField] protected HealthManager HealthManager;
     [SerializeField] SummonType SummonType;
+    [SerializeField] bool HealToFull = false; 
     [SerializeField] protected float WaveHealAmt = 10f;
 
     public event Action SummonerSet = delegate { };
@@ -65,10 +66,8 @@ public class Summon : MonoBehaviour
 
     public virtual void OnWaveEnds()
     {
-        if (SummonType != SummonType.Wall) 
-        { 
-            TryHealSummon(WaveHealAmt);
-        }
+        TryHealSummon(WaveHealAmt);
+        
         SummonWaveEnds();
     }
 
@@ -95,7 +94,13 @@ public class Summon : MonoBehaviour
     {
         if (HealthManager != null)
         {
-            HealthManager.Heal(amt);
+            if (HealToFull)
+            {
+                HealthManager.HealToFull();
+            } else
+            {
+                HealthManager.Heal(amt);
+            }
         }
     }
 

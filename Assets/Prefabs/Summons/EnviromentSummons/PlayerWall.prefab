@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: -5157839651516772810}
   SummonType: 0
+  HealToFull: 1
   WaveHealAmt: 10
   ManaRefundAmount: 0
 --- !u!114 &-5157839651516772810

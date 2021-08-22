@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour, IEnergyManager
     [SerializeField] float CurrentHealth;
 
     public event Action OnDeath = delegate { };
-    public event Action OnDamageTaken = delegate { };
+    public event Action OnHealthChanged = delegate { };
 
     private void Start()
     {
@@ -23,7 +23,8 @@ public class HealthManager : MonoBehaviour, IEnergyManager
 
     public void HealToFull()
     {
-        CurrentHealth = MaxHealth; 
+        CurrentHealth = MaxHealth;
+        OnHealthChanged();
     }
 
     public void Heal(float amt)
@@ -34,6 +35,7 @@ public class HealthManager : MonoBehaviour, IEnergyManager
         {
             CurrentHealth = MaxHealth; 
         }
+        OnHealthChanged();
     }
 
     public bool IsHealthGreaterThan(float amt)
@@ -54,7 +56,7 @@ public class HealthManager : MonoBehaviour, IEnergyManager
     public void SubtractHealth(float damage)
     {
         CurrentHealth -= damage;
-        OnDamageTaken();
+        OnHealthChanged();
         if (CurrentHealth <= 0f)
         {
             OnDeath();

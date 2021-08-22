@@ -7,7 +7,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
 {
     [SerializeField] protected HealthManager HealthManager;
     [SerializeField] SpriteRenderer sr;
-    [SerializeField] protected Summon MySummon; 
+    [SerializeField] protected Summon MySummon;
     [SerializeField] TileType TileType;
 
     private MapNode prevNode; 
@@ -16,15 +16,21 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
     {
         print("Awake called parent!");
 
-        MySummon.SummonerSet += ReplaceTileUnderneathIfThereIsOne;
-        
+        MySummon.SummonerSet += SummonerSet;
+
         HealthManager.OnDeath += OnDeath;
-        HealthManager.OnDamageTaken += OnDamageTaken;
+        HealthManager.OnHealthChanged += OnHealthChanged;
         
         transform.position = VectorRounder.RoundVector(transform.position);
 
         prevNode = MapManager.ReadPoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         WriteMyTileToMap(); 
+    }
+
+    void SummonerSet()
+    {
+        ReplaceTileUnderneathIfThereIsOne();
+        MySummon.SummonerSet -= SummonerSet; 
     }
 
     void ReplaceTileUnderneathIfThereIsOne()
@@ -37,7 +43,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
                 if (s.transform.position == transform.position && s != MySummon)
                 {
                     print("Destroying summon!");
-                    PlayerWall playerWall; 
+                    PlayerWall playerWall;
                     if (s.TryGetComponent<PlayerWall>(out playerWall))
                     {
                         prevNode = playerWall.GetUnderneathNode();
@@ -78,7 +84,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         return prevNode;
     }
 
-    private void OnDamageTaken()
+    private void OnHealthChanged()
     {
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, HealthManager.GetHealthPercentage());
     }
@@ -88,6 +94,8 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         //I'm not going to destroy, I'm just going to disable everything - hopefully that reduces the number of null errors here 
         print("writing prev node: " + prevNode.TileType);
         MapManager.WritePoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), prevNode);
+        HealthManager.OnDeath -= OnDeath;
+        HealthManager.OnHealthChanged -= OnHealthChanged;
         gameObject.SetActive(false);
     }
 
