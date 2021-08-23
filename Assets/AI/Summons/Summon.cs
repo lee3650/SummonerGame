@@ -9,6 +9,8 @@ public class Summon : MonoBehaviour
     [SerializeField] SummonType SummonType;
     [SerializeField] bool HealToFull = false; 
     [SerializeField] protected float WaveHealAmt = 10f;
+    [SerializeField] bool upgradable = true;
+    [SerializeField] int summonTier = 0; 
 
     public event Action SummonerSet = delegate { };
     public event Action SummonWaveEnds = delegate { };
@@ -146,6 +148,22 @@ public class Summon : MonoBehaviour
     public virtual void TryToMoveToSummoner()
     {
         transform.position = 2 * UnityEngine.Random.insideUnitCircle + MySummoner.GetPosition(); 
+    }
+
+    public int SummonTier
+    {
+        get
+        {
+            return summonTier;
+        }
+    }
+
+    public bool Upgradable
+    {
+        get
+        {
+            return upgradable;
+        }
     }
 
     public virtual bool CanRefundMana()
