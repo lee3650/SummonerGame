@@ -35,7 +35,6 @@ public class PlayerSummonController : MonoBehaviour
     {
         if (SelectedSummon != null)
         {
-            ManaManager.IncreaseMaxMana(sellable.SellPrice);
             ManaManager.IncreaseMana(sellable.SellPrice);
             IControllableSummon s = SelectedSummon;
             DeselectSummon();

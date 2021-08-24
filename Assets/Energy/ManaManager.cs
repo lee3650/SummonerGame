@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ManaManager : MonoBehaviour, IEnergyManager
+public class ManaManager : MonoBehaviour
 {
-    [SerializeField] float MaxMana;
     [SerializeField] float CurrentMana;
     [SerializeField] float ManaIncrement;
     [SerializeField] float ManaRegenTickRate;
 
     float timer = 0f;
-
-    public void Start()
-    {
-        CurrentMana = MaxMana;
-    }
 
     void Update()
     {
@@ -31,33 +25,11 @@ public class ManaManager : MonoBehaviour, IEnergyManager
     public void IncreaseMana(float amt)
     {
         CurrentMana += amt;
-        if (CurrentMana > MaxMana)
-        {
-            CurrentMana = MaxMana;
-        }
     }
     
     public void DecreaseMana(float amt)
     {
         CurrentMana -= amt;
-        if (CurrentMana < 0)
-        {
-            throw new System.Exception("Mana was overdrained!");
-        }
-    }
-
-    public void DecreaseMaxMana(float amt)
-    {
-        MaxMana -= amt; 
-        if (CurrentMana > MaxMana)
-        {
-            CurrentMana = MaxMana;
-        }
-    }
-
-    public void IncreaseMaxMana(float amt)
-    {
-        MaxMana += amt;
     }
 
     public bool IsManaMoreThanOrEqual(float amt)
@@ -78,15 +50,7 @@ public class ManaManager : MonoBehaviour, IEnergyManager
         }
         return false;
     }
-
-    public float GetMax()
-    {
-        return MaxMana;
-    }
-    public float GetRemainingPercentage()
-    {
-        return CurrentMana/MaxMana;
-    }
+    
     public float GetCurrent()
     {
         return CurrentMana;

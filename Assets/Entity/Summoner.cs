@@ -41,7 +41,6 @@ public class Summoner : MonoBehaviour, IWaveNotifier
 
     public void AddMana(float amt)
     {
-        ManaManager.IncreaseMaxMana(amt);
         ManaManager.IncreaseMana(amt);
     }
 
@@ -77,7 +76,6 @@ public class Summoner : MonoBehaviour, IWaveNotifier
 
     public void OnSummonDeath(float manaCost)
     {
-        ManaManager.IncreaseMaxMana(manaCost);
     }
     
     public void AddSummonToParty(Summon s)
