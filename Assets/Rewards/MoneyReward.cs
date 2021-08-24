@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyReward : MonoBehaviour
+public class MoneyReward : Reward
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] ManaManager PlayerManaManager;
+    [SerializeField] float min, max;
+
+    float rewardAmt; 
+
+    public override void ApplyReward()
     {
-        
+        rewardAmt = Random.Range(min, max);
+        PlayerManaManager.IncreaseMaxMana(rewardAmt);
+        PlayerManaManager.IncreaseMana(rewardAmt);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override string Description
     {
-        
+        get
+        {
+            return rewardAmt + " mana";
+        }
     }
 }

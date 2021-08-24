@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncomeReward : MonoBehaviour
+public class IncomeReward : Reward
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] PlayerIncome PlayerIncome;
+    [SerializeField] float MinIncrease, MaxIncrease;
+
+    float incomeAmt;
+
+    public override void ApplyReward()
     {
-        
+        incomeAmt = Random.Range(MinIncrease, MaxIncrease);
+        PlayerIncome.AddIncome(incomeAmt);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override string Description
     {
-        
+        get
+        {
+            return "Income increased by " + incomeAmt;
+        }
     }
 }

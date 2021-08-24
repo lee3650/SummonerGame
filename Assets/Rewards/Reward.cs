@@ -37,7 +37,7 @@ public abstract class Reward : MonoBehaviour
         }
     }
 
-    public string Description
+    public virtual string Description
     {
         get
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class PlayerIncome : MonoBehaviour, IWaveNotifier
 {
     [SerializeField] float IncomePerWave = 10f;
     [SerializeField] Summoner PlayerSummoner;
+
+    public event Action IncomeChanged = delegate { };
 
     public void OnWaveEnds()
     {
@@ -19,6 +22,7 @@ public class PlayerIncome : MonoBehaviour, IWaveNotifier
 
     public void AddIncome(float extra)
     {
-        IncomePerWave += extra; 
+        IncomePerWave += extra;
+        IncomeChanged();
     }
 }

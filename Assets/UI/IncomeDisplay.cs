@@ -20,12 +20,19 @@ public class IncomeDisplay : MonoBehaviour
     private void Awake()
     {
         PlayerSummoner.SummonsChanged += SummonsChanged;
+        PlayerIncome.IncomeChanged += IncomeChanged;
         SummonsChanged();
     }
 
     private void SummonsChanged()
     {
         RecalculateFinancials();
+        UpdateText();
+    }
+
+    private void IncomeChanged()
+    {
+        Income = PlayerIncome.GetIncome();
         UpdateText();
     }
 

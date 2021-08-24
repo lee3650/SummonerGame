@@ -3,53 +3,33 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 
-public class RewardManager : MonoBehaviour, IWaveNotifier
+public class RewardManager : MonoBehaviour
 {
     [SerializeField] List<Reward> AllRewards;
-    [SerializeField] CurrentLevelManager CurrentLevelManager;
-    [SerializeField] float WaveEndsRewardChance = 15f;
     [SerializeField] float LevelEndRewardThreshold = 5.5f;
-    
+
     //okay so lower quality is better now. So, I guess our threshold should be like, 5 or 6. 
+    //5 is kind of a high threshold lol. 5x more likely? 
 
-    void Start()
-    {
-        WaveSpawner.NotifyWhenWaveEnds(this);
-    }
-
-    public void OnWaveEnds()
-    {
-        if (ShouldApplyReward())
-        {
-            ChooseAndApplyReward();
-        }
-    }
-
-    private bool ShouldApplyReward()
-    {
-        return CurrentLevelManager.OnLastWave() || Random.Range(0, 100) < WaveEndsRewardChance; 
-    }
-
-    private void ChooseAndApplyReward()
-    {
-        Reward r = ChooseRandomRewardOnWaveEnd();
-        ApplyReward(r);
-        RemoveRewardIfNecessary(r);
-        AddFollowingRewards(r);
-    }
-
-    private Reward ChooseRandomRewardOnWaveEnd()
+    public Reward ChooseRandomRewardOnWaveEnd(bool excludeWorseRewards)
     {
         List<Reward> rewards = AllRewards;
 
-        if (CurrentLevelManager.OnLastWave())
+        if (excludeWorseRewards)
         {
             //this means the level just ended 
-            rewards = GetRewardsWithBetterQuality(LevelEndRewardThreshold); 
+            rewards = GetRewardsWithBetterQuality(LevelEndRewardThreshold);
         }
 
         AdjustRewardOdds(rewards);
         return ChooseRewardBasedOnCumulativeProbability(rewards);
+    }
+
+    public void ApplyAndProcessReward(Reward r)
+    {
+        ApplyReward(r);
+        RemoveRewardIfNecessary(r);
+        AddFollowingRewards(r);
     }
 
     private Reward ChooseRewardBasedOnCumulativeProbability(List<Reward> rewards)
@@ -90,12 +70,12 @@ public class RewardManager : MonoBehaviour, IWaveNotifier
         }
 
         rewards[0].MinScore = 0f;
-        rewards[0].MaxScore = rewards[0].MaxScore / sum;
+        rewards[0].MaxScore = 100f * (rewards[0].Quality / sum);
 
         for (int i = 1; i < rewards.Count; i++)
         {
             rewards[i].MinScore = rewards[i - 1].MaxScore;
-            rewards[i].MaxScore = (rewards[i].Quality / sum) + rewards[i].MinScore;
+            rewards[i].MaxScore = (100f * (rewards[i].Quality / sum)) + rewards[i].MinScore;
         }
     }
 
