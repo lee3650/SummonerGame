@@ -13,18 +13,7 @@ public class PlayerInventory : Inventory
     {
         foreach (GameObject g in StartingItems)
         {
-            Item item;
-            if (g.TryGetComponent<Item>(out item))
-            {
-                if (item.CanBePickedUp())
-                {
-                    PickUpItem(item);
-                    if (item.GetItemType() == ItemType.Charm)
-                    {
-                        MySummoner.AddCharm(item.GetComponent<Charm>());
-                    }
-                }
-            }
+            TryToPickUpGameobject(g);   
         }
     }
 
@@ -36,6 +25,27 @@ public class PlayerInventory : Inventory
         }
     }
     
+    public void TryToPickUpGameobject(GameObject g)
+    {
+        Item item;
+        if (g.TryGetComponent<Item>(out item))
+        {
+            if (item.CanBePickedUp())
+            {
+                PickUpItemAndTryToApplyCharm(item);
+            }
+        }
+    }
+
+    public void PickUpItemAndTryToApplyCharm(Item item)
+    {
+        PickUpItem(item);
+        if (item.GetItemType() == ItemType.Charm)
+        {
+            MySummoner.AddCharm(item.GetComponent<Charm>());
+        }
+    }
+
     private void PickUpNearbyItems()
     {
         Collider2D[] items = Physics2D.OverlapCircleAll(transform.position, ReachRadius);
@@ -44,18 +54,7 @@ public class PlayerInventory : Inventory
 
         foreach (Collider2D col in items)
         {
-            Item item;
-            if (col.TryGetComponent<Item>(out item))
-            {
-                if (item.CanBePickedUp())
-                {
-                    PickUpItem(item);
-                    if (item.GetItemType() == ItemType.Charm)
-                    {
-                        MySummoner.AddCharm(item.GetComponent<Charm>());
-                    }
-                }
-            }
+            TryToPickUpGameobject(col.gameObject);
         }
     }
 }

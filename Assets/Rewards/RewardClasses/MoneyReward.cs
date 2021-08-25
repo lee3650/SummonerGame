@@ -12,6 +12,7 @@ public class MoneyReward : Reward
     public override void ApplyReward()
     {
         rewardAmt = Random.Range(min, max);
+        rewardAmt = Mathf.Round(rewardAmt);
         PlayerManaManager.IncreaseMana(rewardAmt);
     }
 

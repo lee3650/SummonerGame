@@ -39,15 +39,30 @@ public class RewardViewModel : MonoBehaviour, IWaveNotifier
     public void OnWaveEnds()
     {
         UpdateCurChance();
-        RewardPanel.Show(curChance);
+        if (ShouldShowReward())
+        {
+            RewardPanel.Show(curChance);
+        }
+    }
+
+    bool ShouldShowReward()
+    {
+        if (Random.Range(0, 100f) < curChance)
+        {
+            return true; 
+        }
+        return false; 
     }
 
     void UpdateCurChance()
     {
         if (CurrentLevelManager.OnLastWave())
         {
+
             curChance = LevelEndsRewardChance;
+        } else
+        {
+            curChance = WaveEndsRewardChance;
         }
-        curChance = WaveEndsRewardChance;
     }
 }

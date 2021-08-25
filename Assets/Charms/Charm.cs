@@ -1,10 +1,8 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
-public abstract class Charm : MonoBehaviour
+//doesn't this need to be an item? 
+public abstract class Charm : Item
 {
     [SerializeField] bool AttackModifier;
     [SerializeField] SummonType[] ApplyToTypes;
@@ -14,6 +12,7 @@ public abstract class Charm : MonoBehaviour
     {
         return e; 
     }
+
     public abstract Event GetAttackModifier();
 
     public bool ApplyToType(SummonType type)

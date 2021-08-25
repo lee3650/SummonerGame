@@ -12,6 +12,7 @@ public class IncomeReward : Reward
     public override void ApplyReward()
     {
         incomeAmt = Random.Range(MinIncrease, MaxIncrease);
+        incomeAmt = Mathf.Round(incomeAmt);
         PlayerIncome.AddIncome(incomeAmt);
     }
 

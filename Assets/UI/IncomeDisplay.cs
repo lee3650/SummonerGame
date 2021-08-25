@@ -32,20 +32,19 @@ public class IncomeDisplay : MonoBehaviour
 
     private void IncomeChanged()
     {
-        Income = PlayerIncome.GetIncome();
+        RecalculateFinancials();
         UpdateText();
     }
 
     void RecalculateFinancials()
     {
-        Income = PlayerIncome.GetIncome(); //this is an example of the problem - this is weird and patchwork 
+        Income = PlayerIncome.GetIncome(); 
         Expenses = 0f;
 
         List<Summon> summons = PlayerSummoner.GetSummons();
 
         foreach (Summon s in summons)
         {
-            //I guess we should do this abstractly. At least it's top down.
             Income += s.GetIncome();
             Expenses += s.GetMaintenanceFee();
         }

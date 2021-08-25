@@ -6,8 +6,7 @@ using TMPro;
 
 public class RewardPanel : MonoBehaviour
 {
-    [SerializeField] GameObject RollButton; 
-    [SerializeField] TextMeshProUGUI RollText; 
+    [SerializeField] GameObject OpenButton; 
     [SerializeField] TextMeshProUGUI RollDescriptionText;
 
     [SerializeField] TextMeshProUGUI QualityText;
@@ -15,66 +14,30 @@ public class RewardPanel : MonoBehaviour
     [SerializeField] TextMeshProUGUI RewardDescriptionText;
     [SerializeField] GameObject CloseButton;
     [SerializeField] RewardViewModel RewardViewModel; //I'm definitely not doing this right 
+    [SerializeField] TextMeshProUGUI ChestChanceInfo;
 
-    float SpinThreshold;
-
-    public void Show(float spinThreshold)
+    public void Show(float odds)
     {
-        SpinThreshold = spinThreshold;
-        UpdateRollDescriptionText();
-        RollButton.SetActive(true);
-        RollText.gameObject.SetActive(true);
-        RollText.text = "";
+        OpenButton.SetActive(true);
 
         RewardDescriptionText.gameObject.SetActive(false);
         QualityText.gameObject.SetActive(false);
         OddsText.gameObject.SetActive(false);
         CloseButton.SetActive(false);
 
+        ChestChanceInfo.text = string.Format("({0}% chance)", odds);
+
         gameObject.SetActive(true);
     }
 
-    public void RollButtonPressed()
+    public void OpenButtonPressed()
     {
-        RollButton.gameObject.SetActive(false);
-        StartCoroutine(Spin());
-    }
-
-    IEnumerator Spin()
-    {
-        //we do this so it displays instantly, right. 
-        float random = Random.Range(0, 100f);
-        RollText.text = string.Format("{0}", random);
-        for (int i = 0; i < 8; i++)
-        {
-            yield return new WaitForSeconds(0.05f * (i + 1)); //maybe we slow it down, eh? 
-            random = Random.Range(0, 100f);
-            RollText.text = string.Format("{0}", random);
-        }
-
-        if (random <= SpinThreshold)
-        {
-            Won();
-        } 
-        else
-        {
-            Lost();
-        }
-
-        CloseButton.SetActive(true);
-    }
-
-    void Won()
-    {
+        OpenButton.gameObject.SetActive(false);
         RewardViewModel.WonSpin();
+        CloseButton.gameObject.SetActive(true);
     }
 
-    void Lost()
-    {
-        RewardDescriptionText.gameObject.SetActive(true);
-        RewardDescriptionText.text = "You got: Nothing. Better luck next time.";
-    }
-
+    //this is weird now because it kind of comes out of nowhere. This should really just be one script with the viewmodel and this 
     public void WonReward(Reward reward)
     {
         RewardDescriptionText.text = "You got: " + reward.Description;
@@ -98,15 +61,5 @@ public class RewardPanel : MonoBehaviour
     public void Close()
     {
         gameObject.SetActive(false);
-    }
-
-    void UpdateRollDescriptionText()
-    {
-        SetRollDescriptionText(SpinThreshold);
-    }
-
-    void SetRollDescriptionText(float necessaryValue)
-    {
-        RollDescriptionText.text = "Must be less than " + necessaryValue;
     }
 }

@@ -9,5 +9,6 @@ public enum SummonType
     MeleeEntity,
     RangedEntity, 
     Miner,
+    Barracks,
     Any,
 }
