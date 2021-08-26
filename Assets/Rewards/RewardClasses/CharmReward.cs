@@ -10,8 +10,8 @@ public class CharmReward : Reward
 
     public override void ApplyReward()
     {
-        Charm charm = Instantiate(MyCharm); //huh. Hm. 
-        charm.OnDrop();
-        PlayerInventory.PickUpItemAndTryToApplyCharm(charm);
+        Charm charm = Instantiate(MyCharm); 
+        charm.GetComponent<Item>().OnDrop();
+        PlayerInventory.PickUpItemAndTryToApplyCharm(charm.GetComponent<Item>());
     }
 }

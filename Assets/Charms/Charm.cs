@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-//doesn't this need to be an item? 
-public abstract class Charm : Item
+public abstract class Charm : MonoBehaviour
 {
     [SerializeField] bool AttackModifier;
     [SerializeField] SummonType[] ApplyToTypes;

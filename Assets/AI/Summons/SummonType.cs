@@ -10,5 +10,8 @@ public enum SummonType
     RangedEntity, 
     Miner,
     Barracks,
+    WallGenerator, 
+    WizardTower,
+    Bombard,
     Any,
 }
