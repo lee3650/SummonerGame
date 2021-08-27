@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeReward : MonoBehaviour
+public class UpgradeReward : Reward
 {
-    [SerializeField] UpgradeID UnlockedUpgrade;
-    [SerializeField] Summoner PlayerSummoner; 
+    [SerializeField] UpgradePath UnlockedUpgrade;
+    [SerializeField] UnlockedUpgradeManager UnlockedUpgradeManager;
 
-
-
+    public override void ApplyReward()
+    {
+        UnlockedUpgradeManager.UnlockUpgrade(UnlockedUpgrade);
+    }
 }

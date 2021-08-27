@@ -404,6 +404,8 @@ MonoBehaviour:
   SummonType: 2
   HealToFull: 1
   WaveHealAmt: 10
+  upgradable: 1
+  summonTier: 0
   ManaRefundAmount: 0
   StateController: {fileID: 9194925930672925237}
   TargetSearcher: {fileID: 9194925930672925239}

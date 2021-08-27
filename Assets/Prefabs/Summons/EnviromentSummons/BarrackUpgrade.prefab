@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6826052278935171626
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7391364107822342331, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: NextSummon
+      value: 
+      objectReference: {fileID: 1775777384710499795}
+    - target: {fileID: 1559716552411547915, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: Prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7685695250925242369, guid: 53fdc2210c18fa44983a49e92018ff80,
+        type: 3}
+    - target: {fileID: 1559716552411547915, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: MaintenanceFee
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404983241618756024, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: summonTier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501496, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2981856
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501496, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21026169
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501496, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_Name
+      value: BarrackUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052993147076501499, guid: 82b14bc9e568fb44b9040f8c98709e67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}
+--- !u!1 &1775777384710499795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 6826052278935171626}
+  m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8770142083987159011
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499793, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499794, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.12931538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499794, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.06448024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499794, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775777384710499795, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: m_Name
+      value: BarrackUpgrade2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412829297862032161, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: MaxNumSummons
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412829297862032161, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: MaintenanceFee
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177232071395451794, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: upgradable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177232071395451794, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+        type: 3}
+      propertyPath: summonTier
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f7642a5dcc26bd418b3c20b6dea335f, type: 3}

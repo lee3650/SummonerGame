@@ -66,6 +66,19 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         return multiplier;
     }
 
+    public int SummonTier
+    {
+        get
+        {
+            return MySummon.SummonTier;
+        }
+    }
+
+    public SummonType GetSummonType()
+    {
+        return MySummon.GetSummonType();
+    }
+
     public float GetIncome()
     {
         return GetMoneyMultipler() * MoneyPerWave;
@@ -81,9 +94,11 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         switch (command)
         {
             case SellCommand sc:
-                HealthManager.SubtractHealth(10000);
-                gameObject.SetActive(false);
-                print("todo: remove these inactive gameobjects");
+                RemoveSummon();
+                break;
+            case UpgradeCommand uc:
+                RemoveSummon();
+                SummonWeapon.UpgradeSummon(uc.UpgradePath, transform.position, MySummon.GetSummoner(), GetComponent<Sellable>());
                 break; 
         }
     }

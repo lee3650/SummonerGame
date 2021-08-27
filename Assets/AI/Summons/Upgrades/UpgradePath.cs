@@ -6,12 +6,12 @@ public class UpgradePath : MonoBehaviour
 {
     [SerializeField] GameObject NextSummon;
     [SerializeField] float UpgradeCost;
-
-    [SerializeField] private bool useable = false;
+    [SerializeField] SummonType summonType;
+    [SerializeField] int tier;
 
     public GameObject GetNextSummon()
     {
-        return NextSummon; 
+        return NextSummon;
     }
     public float GetUpgradeCost()
     {
@@ -28,15 +28,19 @@ public class UpgradePath : MonoBehaviour
         return "";
     }
 
-    public bool Useable
+    public int Tier
     {
         get
         {
-            return useable; 
-        } 
-        set
+            return tier;
+        }
+    }
+
+    public SummonType SummonType
+    {
+        get
         {
-            useable = value; 
+            return summonType;
         }
     }
 }

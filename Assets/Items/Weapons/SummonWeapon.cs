@@ -109,4 +109,15 @@ public class SummonWeapon : Weapon
 
         return summoned;
     }
+
+    public static void UpgradeSummon(UpgradePath uc, Vector2 position, Summoner summoner, Sellable sellable)
+    {
+        GameObject next = SummonWeapon.SpawnSummon(uc.GetNextSummon(), position, summoner, Quaternion.Euler(Vector2.zero));
+
+        Sellable s;
+        if (next.TryGetComponent<Sellable>(out s))
+        {
+            s.SellPrice = sellable.SellPrice + Mathf.RoundToInt(uc.GetUpgradeCost() * RefundPercent);
+        }
+    }
 }

@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2245285179254376001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2916608103962426634, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: summonTier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: Prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3329140622715673842, guid: 1f29aa237b5de5a42b1768a25733fbf6,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: Prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6255829094382937497, guid: f6d3e6e7800f6ca4788d0edac4bd95b1,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: MaintenanceFee
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: Range
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737802, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737802, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3803904
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737802, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.36645603
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: m_Name
+      value: WallGenerator1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}

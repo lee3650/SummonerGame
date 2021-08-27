@@ -148,10 +148,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1581065121}
-  - {fileID: 770666377}
-  - {fileID: 1100966064}
-  - {fileID: 587206241}
-  - {fileID: 1303712620}
+  - {fileID: 512440607}
+  - {fileID: 1181608945}
   m_Father: {fileID: 513537719}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,7 +612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 346.1632}
+  m_AnchoredPosition: {x: -437.25012, y: 525.92035}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -786,6 +784,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &85803273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 85803275}
+  - component: {fileID: 85803274}
+  m_Layer: 0
+  m_Name: UnlockedUpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &85803274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85803273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e55fe0e231ab344d9c512644d52d6fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockedUpgrades: []
+--- !u!4 &85803275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85803273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.072708, y: 8.939632, z: -40.39072}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &99698717
 GameObject:
@@ -966,6 +1008,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131340660}
   m_CullTransparentMesh: 0
+--- !u!1 &141503883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141503884}
+  - component: {fileID: 141503885}
+  m_Layer: 0
+  m_Name: ArchersUpgrade0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141503884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141503883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 738891421}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141503885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141503883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 8755474026892675143, guid: e68127a3b5523d845b3048f72b76ef97,
+    type: 3}
+  UpgradeCost: 8
+  summonType: 3
+  tier: 0
 --- !u!1 &144089480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1506,7 @@ MonoBehaviour:
   StringDisplayPanelPrefab: {fileID: 3477606442292434267, guid: 4cc9178af012c484daa95a31f9ffacc3,
     type: 3}
   PlayerSummonController: {fileID: 333112620}
+  UnlockedUpgradeManager: {fileID: 85803274}
   PanelDisplayer: {fileID: 99698719}
   UpgradePanelParent: {fileID: 432860644}
   SellPanel: {fileID: -2495869970801869472, guid: a0037ee4e491b23428fa05fe11fecb3d,
@@ -2409,6 +2500,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371609433}
   m_CullTransparentMesh: 0
+--- !u!1 &415620906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415620907}
+  - component: {fileID: 415620908}
+  m_Layer: 0
+  m_Name: MinerUpgrade1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415620907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415620906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801525327}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &415620908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415620906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 4209696708590055538, guid: a392925be8149c44194d2c6e8e1d62d0,
+    type: 3}
+  UpgradeCost: 17.5
+  summonType: 4
+  tier: 1
 --- !u!1 &421241908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +3100,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496482827}
   m_CullTransparentMesh: 0
+--- !u!1 &512440606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512440607}
+  m_Layer: 0
+  m_Name: Charms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512440607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512440606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 770666377}
+  - {fileID: 1100966064}
+  - {fileID: 587206241}
+  - {fileID: 1303712620}
+  m_Father: {fileID: 10701942}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513537717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,7 +3164,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllRewards:
+  - {fileID: 1925111384}
+  - {fileID: 1581065122}
   - {fileID: 770666378}
+  - {fileID: 1100966065}
+  - {fileID: 587206242}
+  - {fileID: 1303712621}
+  - {fileID: 1989150297}
+  - {fileID: 738891422}
+  - {fileID: 1522356100}
+  - {fileID: 830656281}
   LevelEndRewardThreshold: 5.5
 --- !u!4 &513537719
 Transform:
@@ -3269,6 +3451,54 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 0
+--- !u!1 &584755806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584755807}
+  - component: {fileID: 584755808}
+  m_Layer: 0
+  m_Name: WallGenUpgrade0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &584755807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584755806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 830656280}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &584755808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584755806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 5507752754734101770, guid: 0a721ac28a4707343aac3d12756737ea,
+    type: 3}
+  UpgradeCost: 9
+  summonType: 6
+  tier: 0
 --- !u!1 &587206240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,12 +3523,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587206240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 10701942}
-  m_RootOrder: 3
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &587206242
 MonoBehaviour:
@@ -3792,6 +4022,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 646977859}
   Sensitivity: -1
+--- !u!1 &656620486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656620487}
+  - component: {fileID: 656620488}
+  m_Layer: 0
+  m_Name: BarracksUpgrade1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656620487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656620486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 715970728}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &656620488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656620486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 6994400134034709040, guid: 0d53373877b101941bc8e7df432e87c4,
+    type: 3}
+  UpgradeCost: 10
+  summonType: 5
+  tier: 1
 --- !u!1 &657935417
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,6 +4501,107 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &715970727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715970728}
+  - component: {fileID: 715970729}
+  m_Layer: 0
+  m_Name: BarracksUpgradeTier1Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715970728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715970727}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 656620487}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715970729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715970727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3
+  reusable: 0
+  description: Unlocked upgrade to barracks - increases summon capacity by 1
+  followingRewards: []
+  UnlockedUpgrade: {fileID: 656620488}
+  UnlockedUpgradeManager: {fileID: 85803274}
+--- !u!1 &738891420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738891421}
+  - component: {fileID: 738891422}
+  m_Layer: 0
+  m_Name: ArcherUpgradeTier0Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &738891421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738891420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 141503884}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &738891422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738891420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4
+  reusable: 0
+  description: Unlocked upgrade to archers
+  followingRewards:
+  - {fileID: 1775540604}
+  UnlockedUpgrade: {fileID: 141503885}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &741026232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4484,12 +4863,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770666376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 10701942}
-  m_RootOrder: 1
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &770666378
 MonoBehaviour:
@@ -4509,6 +4888,56 @@ MonoBehaviour:
   followingRewards: []
   MyCharm: {fileID: 906419907503373317, guid: fcc3bb5afad844146941893bc90d0fed, type: 3}
   PlayerInventory: {fileID: 333112613}
+--- !u!1 &801525326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801525327}
+  - component: {fileID: 801525328}
+  m_Layer: 0
+  m_Name: MinerUpgradeTier1Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &801525327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801525326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 415620907}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801525328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801525326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3
+  reusable: 0
+  description: Unlocked upgrade to miner - +33% money per wave and more health
+  followingRewards: []
+  UnlockedUpgrade: {fileID: 415620908}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &810335377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4554,6 +4983,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncomePerWave: 15
   PlayerSummoner: {fileID: 333112619}
+--- !u!1 &830656279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830656280}
+  - component: {fileID: 830656281}
+  m_Layer: 0
+  m_Name: WallGeneratorUpgradeTier0Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &830656280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830656279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 584755807}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &830656281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830656279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4
+  reusable: 0
+  description: 'Upgrade to wall generator: stronger walls'
+  followingRewards:
+  - {fileID: 1317403867}
+  UnlockedUpgrade: {fileID: 584755808}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &847125555
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5476,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949533618}
   m_CullTransparentMesh: 0
+--- !u!1 &951480103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 951480104}
+  - component: {fileID: 951480105}
+  m_Layer: 0
+  m_Name: BarracksUpgrade0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &951480104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951480103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1989150296}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951480105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951480103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 1775777384710499795, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
+    type: 3}
+  UpgradeCost: 7
+  summonType: 5
+  tier: 0
 --- !u!1 &954296777
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,12 +5671,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100966063}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 10701942}
-  m_RootOrder: 2
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1100966065
 MonoBehaviour:
@@ -5343,7 +5871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RewardManager: {fileID: 513537718}
-  WaveEndsRewardChance: 100
+  WaveEndsRewardChance: 15
   LevelEndsRewardChance: 98
   CurrentLevelManager: {fileID: 249737491}
   RewardPanel: {fileID: 35126506}
@@ -5564,6 +6092,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1181608944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181608945}
+  m_Layer: 0
+  m_Name: Upgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181608945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181608944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1989150296}
+  - {fileID: 715970728}
+  - {fileID: 738891421}
+  - {fileID: 1775540603}
+  - {fileID: 1522356099}
+  - {fileID: 801525327}
+  - {fileID: 830656280}
+  - {fileID: 1317403866}
+  m_Father: {fileID: 10701942}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206229991
 GameObject:
@@ -6339,12 +6905,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303712619}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 10701942}
-  m_RootOrder: 4
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1303712621
 MonoBehaviour:
@@ -6573,6 +7139,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310312966}
   m_CullTransparentMesh: 0
+--- !u!1 &1317403865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1317403866}
+  - component: {fileID: 1317403867}
+  m_Layer: 0
+  m_Name: WallGeneratorUpgradeTier1Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1317403866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317403865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1975842662}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1317403867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317403865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3
+  reusable: 0
+  description: Unlocked upgrade to miner + 25% money per wave
+  followingRewards: []
+  UnlockedUpgrade: {fileID: 1975842663}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1322694780
 GameObject:
   m_ObjectHideFlags: 0
@@ -7694,6 +8310,57 @@ Transform:
   m_Father: {fileID: 1031502134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1522356098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1522356099}
+  - component: {fileID: 1522356100}
+  m_Layer: 0
+  m_Name: MinerUpgradeTier0Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1522356099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522356098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1867223820}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522356100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522356098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4
+  reusable: 0
+  description: Unlocked upgrade to miner + 25% money per wave
+  followingRewards:
+  - {fileID: 801525328}
+  UnlockedUpgrade: {fileID: 1867223821}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1581065120
 GameObject:
   m_ObjectHideFlags: 0
@@ -8563,6 +9230,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650392710}
   m_CullTransparentMesh: 0
+--- !u!1 &1669743302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669743303}
+  - component: {fileID: 1669743304}
+  m_Layer: 0
+  m_Name: ArchersUpgrade1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1669743303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669743302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1775540603}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1669743304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669743302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 3539984282568144646, guid: 2357f67e91b86c242af2c183bcd61c67,
+    type: 3}
+  UpgradeCost: 10
+  summonType: 3
+  tier: 1
 --- !u!1 &1680095493
 GameObject:
   m_ObjectHideFlags: 0
@@ -9073,6 +9788,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapDrawer: {fileID: 250621016}
+--- !u!1 &1775540602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775540603}
+  - component: {fileID: 1775540604}
+  m_Layer: 0
+  m_Name: ArcherUpgradeTier1Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1775540603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775540602}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1669743303}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775540604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775540602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3
+  reusable: 0
+  description: Unlocked tier 2 upgrade to archers
+  followingRewards: []
+  UnlockedUpgrade: {fileID: 1669743304}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1838097375
 GameObject:
   m_ObjectHideFlags: 0
@@ -9103,6 +9868,54 @@ Transform:
   m_Father: {fileID: 333112603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1867223819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867223820}
+  - component: {fileID: 1867223821}
+  m_Layer: 0
+  m_Name: MinerUpgrade0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867223820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867223819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1522356099}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867223821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867223819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 4373412279247627261, guid: c901d36192ff38a409160167928ed170,
+    type: 3}
+  UpgradeCost: 15
+  summonType: 4
+  tier: 0
 --- !u!1 &1901423833
 GameObject:
   m_ObjectHideFlags: 0
@@ -9580,6 +10393,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959920339}
   m_CullTransparentMesh: 0
+--- !u!1 &1975842661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975842662}
+  - component: {fileID: 1975842663}
+  m_Layer: 0
+  m_Name: WallGenUpgrade1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1975842662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975842661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1317403866}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975842663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975842661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 8485753192745286385, guid: c02295627f9ae264ca56cd4d864242d9,
+    type: 3}
+  UpgradeCost: 10
+  summonType: 6
+  tier: 1
 --- !u!1 &1976621160
 GameObject:
   m_ObjectHideFlags: 0
@@ -9669,6 +10530,57 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1989150295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989150296}
+  - component: {fileID: 1989150297}
+  m_Layer: 0
+  m_Name: BarracksUpgradeTier0Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989150296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989150295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 951480104}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989150297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989150295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4
+  reusable: 0
+  description: Unlocked upgrade to barracks
+  followingRewards:
+  - {fileID: 715970729}
+  UnlockedUpgrade: {fileID: 951480105}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &2000764577
 GameObject:
   m_ObjectHideFlags: 0
@@ -9750,7 +10662,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

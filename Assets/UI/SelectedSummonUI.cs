@@ -9,6 +9,8 @@ public class SelectedSummonUI : MonoBehaviour
 
     [SerializeField] PlayerSummonController PlayerSummonController;
 
+    [SerializeField] UnlockedUpgradeManager UnlockedUpgradeManager;  
+
     [SerializeField] PanelDisplayer PanelDisplayer;
     [SerializeField] RectTransform UpgradePanelParent;
 
@@ -47,15 +49,13 @@ public class SelectedSummonUI : MonoBehaviour
 
         PanelDisplayer.HideAllPanels();
 
-        UpgradePath[] upgrades = s.GetTransform().GetComponents<UpgradePath>();
+        List<UpgradePath> upgrades = UnlockedUpgradeManager.GetUnlockedUpgrades(s.GetSummonType(), s.SummonTier);
+
         if (upgrades != null)
         {
             foreach (UpgradePath p in upgrades)
             {
-                if (p.Useable)
-                {
-                    PanelDisplayer.ShowPanel(UpgradePanelPrefab, (p, PlayerSummonController));
-                }
+                PanelDisplayer.ShowPanel(UpgradePanelPrefab, (p, PlayerSummonController));
             }
         }
 
@@ -68,7 +68,7 @@ public class SelectedSummonUI : MonoBehaviour
 
         PanelDisplayer.ShowPanel(StringDisplayPanelPrefab, s.GetStatString());
     }
-
+    
     public void DeselectSummon()
     {
         PanelDisplayer.HideAllPanels();

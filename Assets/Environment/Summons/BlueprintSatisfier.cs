@@ -72,10 +72,12 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         switch (command)
         {
             case SellCommand sc:
-                HealthManager.SubtractHealth(10000);
-                gameObject.SetActive(false);
-                print("todo: remove these inactive gameobjects");
+                RemoveSummon();
                 break;
+            case UpgradeCommand uc:
+                RemoveSummon();
+                SummonWeapon.SpawnSummon(uc.UpgradePath.GetNextSummon(), transform.position, MySummon.GetSummoner(), transform.rotation);
+                break; 
         }
     }
 
@@ -100,6 +102,19 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
                 //we don't want to return here because technically more than one summon could be needed to be removed
             }
         }
+    }
+
+    public int SummonTier
+    {
+        get
+        {
+            return MySummon.SummonTier;
+        }
+    }
+
+    public SummonType GetSummonType()
+    {
+        return MySummon.GetSummonType();
     }
 
     public string GetStatString()
@@ -181,11 +196,23 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         BlueprintManager.SetSatisfied(entity.Point, val);
     }
 
+    protected void RemoveAllSummons()
+    {
+        foreach (BlueprintSummon bs in SummonedEntities)
+        {
+            bs.HealthManager.OnDeath -= PruneSummonedEntitiesList;
+            bs.HealthManager.SubtractHealth(100000);
+        }
+
+        PruneSummonedEntitiesList();
+    }
+
     protected override void OnDeath()
     {
         TargetableEntitiesManager.RemoveTargetable(this);
         BlueprintManager.BlueprintsChanged -= BlueprintsChanged;
         MySummon.SummonWaveEnds -= WaveEnds;
+        RemoveAllSummons();
         base.OnDeath();
     }
 

@@ -62,7 +62,6 @@ GameObject:
   - component: {fileID: -4200002053765668536}
   - component: {fileID: 8145606651001300045}
   - component: {fileID: -5222781713398794678}
-  - component: {fileID: -1627560426590638616}
   - component: {fileID: -3931680443760502500}
   - component: {fileID: 519861522697496829}
   m_Layer: 11
@@ -289,7 +288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 1740066754483794926}
   SummonType: 3
+  HealToFull: 0
   WaveHealAmt: 10
+  upgradable: 1
+  summonTier: 0
   ManaRefundAmount: 0
   StateController: {fileID: 1740066754483794912}
   TargetSearcher: {fileID: 1740066754483794914}
@@ -300,7 +302,7 @@ MonoBehaviour:
   MaintenanceFee: 2
   PointToHoldManager: {fileID: 8145606651001300045}
   DeactivatedState: {fileID: -5222781713398794678}
-  UpgradePath: {fileID: -1627560426590638616}
+  UpgradePath: {fileID: 0}
   StatString:
   - 'Range: 10'
   - 'Damage: 6'
@@ -494,22 +496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 1740066754483794921}
---- !u!114 &-1627560426590638616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 7724308836108989661, guid: 22ba82551686d924fb9fb97956147abd,
-    type: 3}
-  UpgradeCost: 10
-  useable: 1
 --- !u!114 &-3931680443760502500
 MonoBehaviour:
   m_ObjectHideFlags: 0

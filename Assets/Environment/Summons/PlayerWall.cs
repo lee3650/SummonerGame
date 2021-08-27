@@ -84,6 +84,12 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         return prevNode;
     }
 
+    public void RemoveSummon()
+    {
+        HealthManager.SubtractHealth(10000);
+        gameObject.SetActive(false);
+    }
+
     private void OnHealthChanged()
     {
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, HealthManager.GetHealthPercentage());

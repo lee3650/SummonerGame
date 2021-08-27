@@ -13,7 +13,6 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
     [SerializeField] float MaintenanceFee;
     [SerializeField] PointToHoldManager PointToHoldManager;
     [SerializeField] DeactivatedState DeactivatedState;
-    [SerializeField] UpgradePath UpgradePath;
 
     [SerializeField] List<string> StatString; 
 
@@ -90,13 +89,9 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 
     void UpgradeSummon(UpgradeCommand uc)
     {
-        if (UpgradePath != null)
-        {
-            HealthManager.SubtractHealth(100000f);
-            gameObject.SetActive(false);
-            SummonWeapon.SpawnSummon(uc.UpgradePath.GetNextSummon(), transform.position, GetSummoner(), transform.rotation);
-            //Destroy(gameObject);
-        }
+        HealthManager.SubtractHealth(100000f);
+        gameObject.SetActive(false);
+        SummonWeapon.UpgradeSummon(uc.UpgradePath, transform.position, GetSummoner(), GetComponent<Sellable>());
     }
 
     public override void OnWaveEnds()

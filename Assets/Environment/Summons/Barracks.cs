@@ -52,6 +52,20 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
         return transform;
     }
 
+    //This is kind of sketchy - it's a lot of exactly duplicated, copy-paste code 
+    public int SummonTier
+    {
+        get
+        {
+            return MySummon.SummonTier;
+        }
+    }
+
+    public SummonType GetSummonType()
+    {
+        return MySummon.GetSummonType();
+    }
+
     public string GetStatString()
     {
         string result = "";
