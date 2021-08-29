@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7035823574013311832
+--- !u!1001 &1302251496405672465
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,22 +10,22 @@ PrefabInstance:
     - target: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
       propertyPath: m_Name
-      value: RangedFriendlyUpgrade1
+      value: Bombard
       objectReference: {fileID: 0}
     - target: {fileID: 1740066754483794921, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.3301887
       objectReference: {fileID: 0}
     - target: {fileID: 1740066754483794921, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.6063764
+      value: 0.21032767
       objectReference: {fileID: 0}
     - target: {fileID: 1740066754483794921, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.6698113
+      value: 0.16042188
       objectReference: {fileID: 0}
     - target: {fileID: 1740066754483794922, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
@@ -82,37 +82,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1740066754483794926, guid: 2e7e4455a7b786e41b07da56bcce5c29,
-        type: 3}
-      propertyPath: MaxHealth
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384751669862364838, guid: 2e7e4455a7b786e41b07da56bcce5c29,
-        type: 3}
-      propertyPath: AttackLength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6384751669862364838, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
       propertyPath: AttackRange
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6384751669862364838, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
       propertyPath: Projectile
       value: 
-      objectReference: {fileID: 4309368314495571043, guid: 4bb68645cf2308041b8815bd7c45db1a,
+      objectReference: {fileID: 2531969368775007932, guid: f787134f917ae1647a4158817b43ff0b,
         type: 3}
     - target: {fileID: 6878306609116838067, guid: 2e7e4455a7b786e41b07da56bcce5c29,
         type: 3}
-      propertyPath: UpgradePath
-      value: 
+      propertyPath: SummonType
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 6878306609116838067, guid: 2e7e4455a7b786e41b07da56bcce5c29,
-        type: 3}
-      propertyPath: summonTier
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1627560426590638616, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}

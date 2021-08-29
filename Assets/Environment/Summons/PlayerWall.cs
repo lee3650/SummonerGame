@@ -88,6 +88,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
     {
         HealthManager.SubtractHealth(10000);
         gameObject.SetActive(false);
+        print("Todo: remove these inactive gameobjects!");
     }
 
     private void OnHealthChanged()

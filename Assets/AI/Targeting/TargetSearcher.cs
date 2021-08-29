@@ -11,6 +11,8 @@ public class TargetSearcher : MonoBehaviour, IInitialize
     [SerializeField] AIEntity MyEntity;
     [SerializeField] TargetManager TargetManager;
     [SerializeField] float SearchSpeed = 1f;
+    [Tooltip("Only used if MyEntity is null")]
+    [SerializeField] Factions MyFaction; 
 
     private bool ShouldSearchForTarget = true;
 
@@ -18,6 +20,11 @@ public class TargetSearcher : MonoBehaviour, IInitialize
     
     public void Init()
     {
+        if (MyEntity != null)
+        {
+            MyFaction = MyEntity.GetFaction();
+        }
+
         StartCoroutine(SearchForTarget());
     }
 
@@ -57,8 +64,6 @@ public class TargetSearcher : MonoBehaviour, IInitialize
 
         List<ILivingEntity> candidates = GetPossibleTargets(livingEntities);
 
-        //print("Number of candidates: " + candidates.Count + " from faction " + MyEntity.GetFaction());
-
         ILivingEntity target = ChooseTargetFromColliders(candidates);
 
         if (target != null && searchState == SearchStates.SearchForTarget)
@@ -67,13 +72,14 @@ public class TargetSearcher : MonoBehaviour, IInitialize
         }
     }
 
+    //shouldn't this go on TargetableEntitiesManager? 
     List<ILivingEntity> GetPossibleTargets(List<ILivingEntity> livingEntities)
     {
         List<ILivingEntity> candidates = new List<ILivingEntity>();
 
         foreach (ILivingEntity e in livingEntities)
         {
-            if (e.CanBeTargeted() && e.GetFaction() != MyEntity.GetFaction())
+            if (e.CanBeTargeted() && e.GetFaction() != MyFaction)
             {
                 candidates.Add(e);
             }

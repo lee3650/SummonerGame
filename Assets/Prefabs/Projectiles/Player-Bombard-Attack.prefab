@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2531969368775007932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267101014568880973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c21b42495711104892076c1f3f3084f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  EventType: 2
+  Velocity: 8
+  StickToTarget: 0
+  MovementController: {fileID: 6267101014568880970}
+  col: {fileID: 6502368655442963882}
+  SplashRadius: 4
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+--- !u!1001 &3770870435210762884
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7110591748230664649, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_Name
+      value: Player-Bombard-Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664650, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8d4e0e529cecaf245a9c687c244b7b8f,
+        type: 3}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664651, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: EventType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: Damage
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: StickToTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: Velocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956135930774779694, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.049334407
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956135930774779694, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7008164
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956135930774779694, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.121664286
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956135930774779694, guid: 212c03f6198756949aae4e13f6423fa9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.457847
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 212c03f6198756949aae4e13f6423fa9, type: 3}
+--- !u!1 &6267101014568880973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7110591748230664649, guid: 212c03f6198756949aae4e13f6423fa9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3770870435210762884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6267101014568880970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7110591748230664654, guid: 212c03f6198756949aae4e13f6423fa9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3770870435210762884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267101014568880973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c964960cbc875479e8ff43f6969163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &6502368655442963882 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7956135930774779694, guid: 212c03f6198756949aae4e13f6423fa9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3770870435210762884}
+  m_PrefabAsset: {fileID: 0}

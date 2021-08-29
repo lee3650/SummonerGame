@@ -14,14 +14,14 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
 
     bool alreadyHit = false; 
 
-    List<Event> EventsToApply = new List<Event>();
+    protected List<Event> EventsToApply = new List<Event>();
 
     private void Awake()
     {
         EventsToApply.Add(new Event(EventType, Damage));
     }
 
-    public void Fire(IWielder wielder)
+    public virtual void Fire(IWielder wielder)
     {
         EventsToApply = wielder.ModifyEventList(EventsToApply);
         MovementController.SetVelocity(transform.up, Velocity);
@@ -62,6 +62,8 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
             }
         }
 
+        OnHit();
+
         if (StickToTarget)
         {
             col.enabled = false;
@@ -77,6 +79,11 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
         }
     }
     
+    protected virtual void OnHit()
+    {
+
+    }
+
     IEnumerator Destroy()
     {
         yield return new WaitForSeconds(8f);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITargetable
+public interface ITargetable : IEntity
 {
     int GetPrecedence();
 

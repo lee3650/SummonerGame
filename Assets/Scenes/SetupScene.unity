@@ -150,6 +150,7 @@ Transform:
   - {fileID: 1581065121}
   - {fileID: 512440607}
   - {fileID: 1181608945}
+  - {fileID: 353489393}
   m_Father: {fileID: 513537719}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -612,7 +613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 525.92035}
+  m_AnchoredPosition: {x: -437.25012, y: 346.1595}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -785,6 +786,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &81363030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81363031}
+  - component: {fileID: 81363032}
+  m_Layer: 0
+  m_Name: WizardUpgrade0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81363031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81363030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 752394673}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &81363032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81363030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 4738709006131037782, guid: f1c25635976a9bc458f36431123e03b9,
+    type: 3}
+  UpgradeCost: 15
+  summonType: 7
+  tier: 0
 --- !u!1 &85803273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1275,56 @@ RectTransform:
   m_AnchoredPosition: {x: 2.4999995, y: 0}
   m_SizeDelta: {x: -4.9999, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &237911643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237911644}
+  - component: {fileID: 237911645}
+  m_Layer: 0
+  m_Name: BombardUpgradeTier0Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &237911644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237911643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1885388613}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237911645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237911643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 5
+  reusable: 0
+  description: Unlocked upgrade to bombard
+  followingRewards: []
+  UnlockedUpgrade: {fileID: 1885388614}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &249737490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,6 +2440,38 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!1 &353489392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353489393}
+  m_Layer: 0
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353489393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353489392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1443258493}
+  - {fileID: 1320625725}
+  m_Father: {fileID: 10701942}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370589625
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,6 +3262,7 @@ Transform:
   - {fileID: 1100966064}
   - {fileID: 587206241}
   - {fileID: 1303712620}
+  - {fileID: 787163886}
   m_Father: {fileID: 10701942}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3174,6 +3306,8 @@ MonoBehaviour:
   - {fileID: 738891422}
   - {fileID: 1522356100}
   - {fileID: 830656281}
+  - {fileID: 1443258494}
+  - {fileID: 1320625726}
   LevelEndRewardThreshold: 5.5
 --- !u!4 &513537719
 Transform:
@@ -4689,6 +4823,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741026232}
   m_CullTransparentMesh: 0
+--- !u!1 &752394672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752394673}
+  - component: {fileID: 752394674}
+  m_Layer: 0
+  m_Name: WizardUpgradeTier0Reward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752394673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752394672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 81363031}
+  m_Father: {fileID: 1181608945}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752394674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752394672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 2.5
+  reusable: 0
+  description: Unlocked upgrade to Mage Tower - powerful ray attack
+  followingRewards: []
+  UnlockedUpgrade: {fileID: 81363032}
+  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &770016122
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,6 +5072,56 @@ MonoBehaviour:
   followingRewards: []
   MyCharm: {fileID: 906419907503373317, guid: fcc3bb5afad844146941893bc90d0fed, type: 3}
   PlayerInventory: {fileID: 333112613}
+--- !u!1 &787163885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787163886}
+  - component: {fileID: 787163887}
+  m_Layer: 0
+  m_Name: CharmOfMagicDamageReward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787163886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787163885}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787163887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787163885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 1.5
+  reusable: 0
+  description: Charm of Magic Damage. Increases all magic units damage
+  followingRewards: []
+  MyCharm: {fileID: -1595350434836025127, guid: 15ab8c63b500a2e42abb621fccec1823,
+    type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &801525326
 GameObject:
   m_ObjectHideFlags: 0
@@ -4932,7 +5166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quality: 3
+  quality: 1.5
   reusable: 0
   description: Unlocked upgrade to miner - +33% money per wave and more health
   followingRewards: []
@@ -5871,7 +6105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RewardManager: {fileID: 513537718}
-  WaveEndsRewardChance: 15
+  WaveEndsRewardChance: 9
   LevelEndsRewardChance: 98
   CurrentLevelManager: {fileID: 249737491}
   RewardPanel: {fileID: 35126506}
@@ -6128,6 +6362,8 @@ Transform:
   - {fileID: 801525327}
   - {fileID: 830656280}
   - {fileID: 1317403866}
+  - {fileID: 752394673}
+  - {fileID: 237911644}
   m_Father: {fileID: 10701942}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7189,6 +7425,56 @@ MonoBehaviour:
   followingRewards: []
   UnlockedUpgrade: {fileID: 1975842663}
   UnlockedUpgradeManager: {fileID: 85803274}
+--- !u!1 &1320625724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320625725}
+  - component: {fileID: 1320625726}
+  m_Layer: 0
+  m_Name: SummonBombardReward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1320625725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320625724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 353489393}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1320625726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320625724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab3c7b096c5433469fe3547536352ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 5
+  reusable: 0
+  description: Staff of bombard summon
+  followingRewards:
+  - {fileID: 237911645}
+  PlayerInventory: {fileID: 333112613}
+  Item: {fileID: 6604838406851077853, guid: b94f9188d20504f43b9e3af17e90a58c, type: 3}
 --- !u!1 &1322694780
 GameObject:
   m_ObjectHideFlags: 0
@@ -7873,6 +8159,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433977000}
   m_CullTransparentMesh: 0
+--- !u!1 &1443258492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1443258493}
+  - component: {fileID: 1443258494}
+  m_Layer: 0
+  m_Name: SummonMageReward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1443258493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443258492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 353489393}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1443258494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443258492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab3c7b096c5433469fe3547536352ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4.5
+  reusable: 0
+  description: Staff of mage summon
+  followingRewards:
+  - {fileID: 752394674}
+  - {fileID: 787163887}
+  PlayerInventory: {fileID: 333112613}
+  Item: {fileID: 5348343722147611506, guid: 361c39c3c9e88b647b9978acca48fbcf, type: 3}
 --- !u!1 &1448302587
 GameObject:
   m_ObjectHideFlags: 0
@@ -8354,7 +8691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quality: 4
+  quality: 2.5
   reusable: 0
   description: Unlocked upgrade to miner + 25% money per wave
   followingRewards:
@@ -9915,6 +10252,54 @@ MonoBehaviour:
     type: 3}
   UpgradeCost: 15
   summonType: 4
+  tier: 0
+--- !u!1 &1885388612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885388613}
+  - component: {fileID: 1885388614}
+  m_Layer: 0
+  m_Name: BombardUpgrade0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1885388613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885388612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 237911644}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885388614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885388612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 1858803467095619594, guid: 6240cf2d02deca342bc2e21aa4cc414e,
+    type: 3}
+  UpgradeCost: 15
+  summonType: 8
   tier: 0
 --- !u!1 &1901423833
 GameObject:

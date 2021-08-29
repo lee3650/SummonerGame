@@ -17,6 +17,12 @@ PrefabInstance:
       propertyPath: AttackRange
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 4125145060102344190, guid: e68127a3b5523d845b3048f72b76ef97,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 3380114620324872098, guid: 77240dc1ceef0ac48b73ee7be91dbf21,
+        type: 3}
     - target: {fileID: 4526367387850671083, guid: e68127a3b5523d845b3048f72b76ef97,
         type: 3}
       propertyPath: summonTier
