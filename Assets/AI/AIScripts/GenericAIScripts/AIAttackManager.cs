@@ -27,7 +27,7 @@ public class AIAttackManager : MonoBehaviour
         }
     }
 
-    protected virtual bool CanAttack(ITargetable CurrentTarget)
+    public virtual bool CanAttack(ITargetable CurrentTarget)
     {
         return IsTargetInRange(CurrentTarget) && Activated;
     }

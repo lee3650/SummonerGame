@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 1740066754483794912}
   - component: {fileID: 1740066754483794918}
   - component: {fileID: 1740066754483794914}
-  - component: {fileID: 1740066754483794924}
   - component: {fileID: 1740066754483794926}
   - component: {fileID: 1740066754483794927}
   - component: {fileID: 6878306609116838067}
@@ -64,6 +63,7 @@ GameObject:
   - component: {fileID: -5222781713398794678}
   - component: {fileID: -3931680443760502500}
   - component: {fileID: 519861522697496829}
+  - component: {fileID: -4797642703810614546}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -231,20 +231,7 @@ MonoBehaviour:
   MyEntity: {fileID: -2251521059408016390}
   TargetManager: {fileID: 1740066754483794918}
   SearchSpeed: 1
---- !u!114 &1740066754483794924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75ff04094cfc8a4798223e1ed8cfadd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackState: {fileID: 6384751669862364838}
-  AIStateMachine: {fileID: 1740066754483794912}
+  MyFaction: 0
 --- !u!114 &1740066754483794926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,16 +285,15 @@ MonoBehaviour:
   HoldPointState: {fileID: 6726932860956113883}
   PursuitState: {fileID: 0}
   RestState: {fileID: -626044709997288220}
-  AIAttackManager: {fileID: 1740066754483794924}
-  MaintenanceFee: 2
+  AIAttackManager: {fileID: -4797642703810614546}
+  MaintenanceFee: 0
   PointToHoldManager: {fileID: 8145606651001300045}
   DeactivatedState: {fileID: -5222781713398794678}
-  UpgradePath: {fileID: 0}
   StatString:
   - 'Range: 10'
   - 'Damage: 6'
   - 'Health: 25'
-  - 'Maintenance Fee: 2'
+  - 'Maintenance Fee: 0'
 --- !u!114 &1193450098595219183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +326,7 @@ MonoBehaviour:
   RotationController: {fileID: 1740066754483794915}
   TargetManager: {fileID: 1740066754483794918}
   StateController: {fileID: 1740066754483794912}
-  AIAttackManager: {fileID: 1740066754483794924}
+  AIAttackManager: {fileID: -4797642703810614546}
 --- !u!114 &7656610161056084375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackLength: 1.5
-  AttackRange: 17.5
+  AttackRange: 45
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1740066754483794912}
@@ -523,3 +509,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
     type: 3}
+--- !u!114 &-4797642703810614546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb7c53de50423547a5d7e161a237594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackState: {fileID: 6384751669862364838}
+  AIStateMachine: {fileID: 1740066754483794912}
+  attackWidthDelta: 1.5

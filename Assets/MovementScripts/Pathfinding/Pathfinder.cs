@@ -23,7 +23,10 @@ public class Pathfinder : MonoBehaviour
         
         Dictionary<string, SearchNode> closedList = new Dictionary<string, SearchNode>(); //this way we get random access with the closed list. 
         //the downside is we have to construct a bunch of strings, so. 
-        
+        //yeah so it actually isn't making a copy of the whole map. So that's good. 
+        //okay we should probably somewhat decrease the cost of going through a wall, since it's impassable. 
+        //hm. Well, we should decrease the cost of going through a barracks/all those random tiles, since they're impassable. 
+
         int counter = 0; 
         
         while (openHead != null && counter < 500)
