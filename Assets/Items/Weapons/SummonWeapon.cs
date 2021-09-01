@@ -95,19 +95,23 @@ public class SummonWeapon : Weapon
     public static GameObject SpawnSummon(GameObject summon, Vector2 pos, Summoner summoner, Quaternion rotation)
     {
         GameObject summoned = Instantiate(summon, pos, rotation);
-
         Summon summonComponent = summoned.GetComponent<Summon>();
-
-        summonComponent.InitializeScripts();
-        summonComponent.SetSummoner(summoner);
-
-        ControllableSummon cs;
-        if (summoned.TryGetComponent<ControllableSummon>(out cs))
-        {
-            cs.HoldPoint(pos);
-        }
+        
+        InitializeSpawnedSummon(summonComponent, summoner);
 
         return summoned;
+    }
+
+    public static void InitializeSpawnedSummon(Summon summon, Summoner summoner)
+    {
+        summon.InitializeScripts();
+        summon.SetSummoner(summoner);
+
+        ControllableSummon cs;
+        if (summon.TryGetComponent<ControllableSummon>(out cs))
+        {
+            cs.HoldPoint(summon.transform.position);
+        }
     }
 
     public static void UpgradeSummon(UpgradePath uc, Vector2 position, Summoner summoner, Sellable sellable)

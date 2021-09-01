@@ -11,6 +11,9 @@ public class WaterDeathState : MeleeDeathState
         int roundX = Mathf.RoundToInt(transform.position.x);
         int roundY = Mathf.RoundToInt(transform.position.y);
 
+        WritePointWithWater(roundX, roundY);
+        //I'm cutting this down to just the tile that they're on. 
+        /*
         for (int x = roundX - 1; x <= roundX + 1; x++)
         {
             WritePointWithWater(x, roundY);
@@ -22,6 +25,7 @@ public class WaterDeathState : MeleeDeathState
                 WritePointWithWater(roundX, y);
             }
         }
+         */
     }
 
     void WritePointWithWater(int x, int y)
@@ -31,6 +35,7 @@ public class WaterDeathState : MeleeDeathState
         DestroyWallsOnPoint(x, y);
 
         MapManager.WritePoint(x, y, node);
+        //I guess we're doing singleton here? 
         GetMapDrawer.GetSceneMapDrawer().RewritePoint(x, y, node);
     }
 

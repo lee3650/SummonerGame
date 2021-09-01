@@ -92,7 +92,7 @@ public class PlayerAttackState : MonoBehaviour, IState
         return true;
     }
 
-    bool InventoryIsValid(Weapon weapon)
+    public bool InventoryIsValid(Weapon weapon)
     {
         if (weapon == null)
         {
@@ -107,7 +107,7 @@ public class PlayerAttackState : MonoBehaviour, IState
         return true; 
     }
 
-    bool IsWeaponUseable(Weapon weapon)
+    public bool IsWeaponUseable(Weapon weapon)
     {
         return weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition());
     }
@@ -117,7 +117,7 @@ public class PlayerAttackState : MonoBehaviour, IState
         return HealthManager.GetCurrent() + ManaManager.GetCurrent() > weapon.GetManaDrain();
     }
 
-    bool IsPositionSpawnable()
+    public bool IsPositionSpawnable()
     {
         return MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true) && !WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition()));
     }
@@ -137,6 +137,12 @@ public class PlayerAttackState : MonoBehaviour, IState
             return true;
         }
         return false;
+    }
+
+    //so, yes this is exposing a detail of operation, but it kind of makes sense. 
+    public void SetAttackFrame(int frame)
+    {
+        attackFrame = frame; 
     }
 
     public bool AttackedThisFrame()

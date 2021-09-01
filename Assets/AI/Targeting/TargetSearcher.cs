@@ -79,13 +79,18 @@ public class TargetSearcher : MonoBehaviour, IInitialize
 
         foreach (ILivingEntity e in livingEntities)
         {
-            if (e.CanBeTargeted() && e.GetFaction() != MyFaction)
+            if (ShouldAddCandidate(e))
             {
                 candidates.Add(e);
             }
         }
 
         return candidates;
+    }
+
+    protected virtual bool ShouldAddCandidate(ILivingEntity e)
+    {
+        return e.CanBeTargeted() && e.GetFaction() != MyFaction;
     }
 
     //I'd rather this take a list of ILivingEntities in case later we switch over to having a database of all entities instead of collider searching 

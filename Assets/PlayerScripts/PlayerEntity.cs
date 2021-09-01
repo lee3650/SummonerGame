@@ -16,7 +16,7 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     private void Awake()
     {
-        TargetableEntitiesManager.AddTargetable(this);
+        //TargetableEntitiesManager.AddTargetable(this);
         if (CoatingManager == null)
         {
             CoatingManager = GetComponent<CoatingManager>();

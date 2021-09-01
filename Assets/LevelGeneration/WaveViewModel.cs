@@ -9,7 +9,8 @@ public class WaveViewModel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI NextWaveText;
     [SerializeField] TextMeshProUGUI CurrentWaveText;
-    [SerializeField] TextMeshProUGUI LevelNum; 
+    [SerializeField] TextMeshProUGUI LevelNum;
+    [SerializeField] GameObject NextWaveButton; 
 
     [SerializeField] Summoner PlayerSummoner;
 
@@ -51,6 +52,7 @@ public class WaveViewModel : MonoBehaviour
         else
         {
             StartNextWave();
+            NextWaveButton.SetActive(false);
         }
     }
 

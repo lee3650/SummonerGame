@@ -89,7 +89,7 @@ public class TileDescription
             case TileType.Bridge:
                 return "Bridge Tile";
             case TileType.Hills:
-                return "Hill Tile. Increases damage by 25% when a unit is standing on it.";
+                return "Hill Tile. Increases damage dealt by 25% when a unit is standing on it.";
             case TileType.Water:
                 return "Water Tile. Increases damage taken by 100% when a unit is standing on it."; //yeah in retrospect that seems a bit OP
             case TileType.Land:

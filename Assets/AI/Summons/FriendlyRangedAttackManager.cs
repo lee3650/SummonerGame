@@ -8,7 +8,7 @@ public class FriendlyRangedAttackManager : AIAttackManager
 
     public override bool CanAttack(ITargetable CurrentTarget)
     {
-        return base.CanAttack(CurrentTarget) && EnemyRangedAttackManager.IsTargetWithinDelta(CurrentTarget, transform.position, attackWidthDelta);
+        return base.CanAttack(CurrentTarget) && EnemyRangedAttackManager.IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta);
     }
 
     public float AttackWidthDelta

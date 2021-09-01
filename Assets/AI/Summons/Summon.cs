@@ -22,6 +22,8 @@ public class Summon : MonoBehaviour
 
     public void Awake()
     {
+        //Watch out if you're changing this - the Home Tile is kind of depending on it not doing anything important 
+
         if (HealthManager != null)
         {
             HealthManager.OnDeath += SummonEnds;
@@ -148,6 +150,12 @@ public class Summon : MonoBehaviour
     public virtual void TryToMoveToSummoner()
     {
         transform.position = 2 * UnityEngine.Random.insideUnitCircle + MySummoner.GetPosition(); 
+    }
+
+    public void SetHealthManager(HealthManager hm)
+    {
+        HealthManager = hm;
+        Awake();
     }
 
     public int SummonTier
