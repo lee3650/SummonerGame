@@ -27,8 +27,9 @@ public class MapNode
         switch (TileType)
         {
             case TileType.Barracks:
-                return true;
             case TileType.BreakableWall:
+            case TileType.ArcherBarracks:
+            case TileType.WallGenerator: 
                 return true; 
         }
         return false; 
@@ -53,6 +54,8 @@ public class MapNode
             case TileType.Barracks:
             case TileType.Miner:
             case TileType.BreakableWall:
+            case TileType.WallGenerator:
+            case TileType.ArcherBarracks:
                 return 30;
             case TileType.Gate:
                 return 10;
@@ -109,8 +112,11 @@ public class TileDescription
                 return "Water Tile. Increases damage taken by 100% when a unit is standing on it."; //yeah in retrospect that seems a bit OP
             case TileType.Land:
                 return "Land Tile";
+            case TileType.ArcherBarracks:
+                return "Archer barracks. Spawns archers that are positioned based on archer blueprints.";
+            case TileType.WallGenerator:
+                return "Wall Generator. Spawns walls based on wall and gate blueprints.";
         }
-
         return type.ToString();
     }
 }
@@ -133,4 +139,6 @@ public enum TileType
     Stone,
     Hills,
     Barracks,
+    ArcherBarracks,
+    WallGenerator, 
 }

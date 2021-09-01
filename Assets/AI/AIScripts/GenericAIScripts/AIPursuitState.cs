@@ -26,7 +26,7 @@ public class AIPursuitState : MonoBehaviour, IState
             throw new System.Exception("No target?");
         }
 
-        MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
+        MovementController.SetPathfindGoal(GetPathfindGoal());
         oldTargetPos = TargetManager.Target.GetPosition();
     }
 
@@ -42,7 +42,7 @@ public class AIPursuitState : MonoBehaviour, IState
                 if (ShouldRecalculatePathfinding())
                 {
                     oldTargetPos = TargetManager.Target.GetPosition();
-                    MovementController.SetPathfindGoal(TargetManager.Target.GetPosition());
+                    MovementController.SetPathfindGoal(GetPathfindGoal());
                 }
             }
 
@@ -52,6 +52,11 @@ public class AIPursuitState : MonoBehaviour, IState
         {
             AIStateMachine.TransitionToState(ExitToState as IState);
         }
+    }
+
+    protected virtual Vector2 GetPathfindGoal()
+    {
+        return TargetManager.Target.GetPosition();
     }
 
     protected virtual bool ShouldKeepPursuingTarget()

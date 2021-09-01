@@ -8,7 +8,32 @@ public class FriendlyRangedAttackManager : AIAttackManager
 
     public override bool CanAttack(ITargetable CurrentTarget)
     {
-        return base.CanAttack(CurrentTarget) && EnemyRangedAttackManager.IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta);
+        bool baseOutput = base.CanAttack(CurrentTarget);
+        bool deltaOutput = EnemyRangedAttackManager.IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta);
+
+        if (!baseOutput)
+        {
+            print("Could not attack because of base output!");
+            return false;
+        }
+
+        if (!deltaOutput)
+        {
+            print("Could not attack because out delta output!");
+            return false;
+        }
+
+        return true; 
+    }
+
+    public override bool IsCrossShaped()
+    {
+        return true;
+    }
+
+    public override float GetCrossDelta()
+    {
+        return AttackWidthDelta;
     }
 
     public float AttackWidthDelta

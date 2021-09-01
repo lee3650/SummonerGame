@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIAttackManager : MonoBehaviour
+public class AIAttackManager : MonoBehaviour, IRanged
 {
     [SerializeField] AIAttackState AttackState;
     [SerializeField] AIStateMachine AIStateMachine;
@@ -25,6 +25,21 @@ public class AIAttackManager : MonoBehaviour
         {
             AIStateMachine.TransitionToState(AttackState);
         }
+    }
+
+    public virtual bool IsCrossShaped()
+    {
+        return false;
+    }
+
+    public virtual float GetCrossDelta()
+    {
+        return 0f;
+    }
+
+    public float GetRange()
+    {
+        return AttackState.GetRange();
     }
 
     public virtual bool CanAttack(ITargetable CurrentTarget)

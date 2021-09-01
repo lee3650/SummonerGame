@@ -30,7 +30,7 @@ public class BridgeValleyFeature : ValleyFeature
                 MakeThreeWideBridge(map, xSize, ySize, bridgeWidth, seed);
             } else
             {
-                MakeOneWideBridge(map, seed);
+                MakeOneWideBridge(map, seed, xSize, ySize);
             }
         }
     }
@@ -50,15 +50,21 @@ public class BridgeValleyFeature : ValleyFeature
         }
     }
 
-    void MakeOneWideBridge(MapNode[,] map, Vector2 seed)
+    void MakeOneWideBridge(MapNode[,] map, Vector2 seed, int xSize, int ySize)
     {
         Vector2 negDir = seed;
         Vector2 posDir = seed;
 
         for (int i = 0; i < 3; i++)
         {
-            map[(int)negDir.x, (int)negDir.y] = GetBridgeType();
-            map[(int)posDir.x, (int)posDir.y] = GetBridgeType();
+            if (IsPointOnMap(new Vector2((int)negDir.x, (int)negDir.y), xSize, ySize))
+            {
+                map[(int)negDir.x, (int)negDir.y] = GetBridgeType();
+            }
+            if (IsPointOnMap(new Vector2((int)posDir.x, (int)posDir.y), xSize, ySize))
+            {
+                map[(int)posDir.x, (int)posDir.y] = GetBridgeType();
+            }
 
             negDir -= BuildDirection();
             posDir += BuildDirection();

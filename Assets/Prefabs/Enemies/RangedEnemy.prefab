@@ -242,6 +242,7 @@ MonoBehaviour:
   MyEntity: {fileID: 1090552370236627254}
   TargetManager: {fileID: 1090552370236627259}
   SearchSpeed: 1
+  MyFaction: 0
 --- !u!114 &1090552370236627254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +434,7 @@ MonoBehaviour:
   MovementController: {fileID: 1090552370236627257}
   AIAttackManager: {fileID: -5376926671011951225}
   SightChecker: {fileID: -5861504520014042726}
+  RangeAdjustment: 2
 --- !u!114 &-5376926671011951225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,3 +450,4 @@ MonoBehaviour:
   AttackState: {fileID: 1090552370236627248}
   AIStateMachine: {fileID: 1090552370236627245}
   SightChecker: {fileID: -5861504520014042726}
+  attackWidthDelta: 1.5

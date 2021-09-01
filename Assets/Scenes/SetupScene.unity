@@ -478,6 +478,7 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 080000000a00000009000000
+  BlacklistedTileTypes: 
 --- !u!1 &35126502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,7 +2950,7 @@ GameObject:
   - component: {fileID: 434116595}
   - component: {fileID: 434116594}
   - component: {fileID: 434116593}
-  - component: {fileID: 434116592}
+  - component: {fileID: 434116596}
   m_Layer: 8
   m_Name: Archer Barrack Summon
   m_TagString: Untagged
@@ -2957,29 +2958,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &434116592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434116591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8911bfbffc8ff9541aae0eee096617d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRenderer: {fileID: 434116594}
-  col: {fileID: 434116593}
-  ItemType: 0
-  ManaDrain: 10
-  AttackLength: 0.1
-  WeaponDescription: Places an archer barrack
-  DeselectAfterAttacking: 1
-  Summon: {fileID: 7609072344873876229, guid: d4a8b6a0816f2d34184cdcb1ab31b670, type: 3}
-  rotationOffset: 0
-  ReduceMaxMana: 0
-  ZeroRotation: 1
 --- !u!61 &434116593
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3069,6 +3047,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434116596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434116591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf3a3701301d0f4489058592d624c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 434116594}
+  col: {fileID: 434116593}
+  ItemType: 0
+  ManaDrain: 10
+  AttackLength: 0.1
+  WeaponDescription: Places an archer barrack
+  DeselectAfterAttacking: 1
+  Summon: {fileID: 7609072344873876229, guid: d4a8b6a0816f2d34184cdcb1ab31b670, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
+  RequiredTileTypes: 110000000f0000000b000000
+  BlacklistedTileTypes: 10000000
 --- !u!1 &437786492
 GameObject:
   m_ObjectHideFlags: 0
@@ -10612,7 +10615,7 @@ GameObject:
   - component: {fileID: 1901423837}
   - component: {fileID: 1901423836}
   - component: {fileID: 1901423835}
-  - component: {fileID: 1901423834}
+  - component: {fileID: 1901423838}
   m_Layer: 8
   m_Name: Wall Generator Summon
   m_TagString: Untagged
@@ -10620,31 +10623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1901423834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901423833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8911bfbffc8ff9541aae0eee096617d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRenderer: {fileID: 1901423836}
-  col: {fileID: 1901423835}
-  ItemType: 0
-  ManaDrain: 7
-  AttackLength: 0.1
-  WeaponDescription: Places a wall generator. A wall generator will place up to 6
-    walls or gates based on where wall and gate blueprints are placed. At the end
-    of each wave any walls that were destroyed during the wave will be regenerated.
-  DeselectAfterAttacking: 1
-  Summon: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}
-  rotationOffset: 0
-  ReduceMaxMana: 0
-  ZeroRotation: 1
 --- !u!61 &1901423835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10734,6 +10712,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901423838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901423833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf3a3701301d0f4489058592d624c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 1901423836}
+  col: {fileID: 1901423835}
+  ItemType: 0
+  ManaDrain: 5
+  AttackLength: 0.1
+  WeaponDescription: Places a wall generator. A wall generator will place up to 6
+    walls or gates based on where wall and gate blueprints are placed. At the end
+    of each wave any walls that were destroyed during the wave will be regenerated.
+  DeselectAfterAttacking: 1
+  Summon: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
+  RequiredTileTypes: 0b000000100000000f000000
+  BlacklistedTileTypes: 11000000
 --- !u!1 &1925111382
 GameObject:
   m_ObjectHideFlags: 0
@@ -11693,7 +11698,7 @@ GameObject:
   - component: {fileID: 2117846945}
   - component: {fileID: 2117846944}
   - component: {fileID: 2117846943}
-  - component: {fileID: 2117846942}
+  - component: {fileID: 2117846946}
   m_Layer: 8
   m_Name: Barrack Summon
   m_TagString: Untagged
@@ -11701,30 +11706,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2117846942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117846941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8911bfbffc8ff9541aae0eee096617d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRenderer: {fileID: 2117846944}
-  col: {fileID: 2117846943}
-  ItemType: 0
-  ManaDrain: 10
-  AttackLength: 0.1
-  WeaponDescription: 'Summons a barrack. A barrack creates two melee units at the
-    end of each wave, up to a max of two. '
-  DeselectAfterAttacking: 1
-  Summon: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}
-  rotationOffset: 0
-  ReduceMaxMana: 0
-  ZeroRotation: 1
 --- !u!61 &2117846943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11814,6 +11795,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2117846946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117846941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf3a3701301d0f4489058592d624c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 2117846944}
+  col: {fileID: 2117846943}
+  ItemType: 0
+  ManaDrain: 10
+  AttackLength: 0.1
+  WeaponDescription: 'Summons a barrack. A barrack creates two melee units at the
+    end of each wave, up to a max of two. '
+  DeselectAfterAttacking: 1
+  Summon: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}
+  rotationOffset: 0
+  ReduceMaxMana: 0
+  ZeroRotation: 1
+  RequiredTileTypes: 0b0000001000000011000000
+  BlacklistedTileTypes: 0f000000
 --- !u!1 &2119171362
 GameObject:
   m_ObjectHideFlags: 0

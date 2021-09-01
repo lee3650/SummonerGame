@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 1740066754483794915}
   - component: {fileID: 1740066754483794912}
   - component: {fileID: 1740066754483794918}
-  - component: {fileID: 1740066754483794914}
   - component: {fileID: 1740066754483794926}
   - component: {fileID: 1740066754483794927}
   - component: {fileID: 6878306609116838067}
@@ -64,6 +63,7 @@ GameObject:
   - component: {fileID: -3931680443760502500}
   - component: {fileID: 519861522697496829}
   - component: {fileID: -4797642703810614546}
+  - component: {fileID: 6968277638864454052}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -214,24 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1740066754483794916}
   RotationController: {fileID: 1740066754483794915}
---- !u!114 &1740066754483794914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740066754483794719}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d85c930b0a2b94469b2ed347b9f2c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SightRange: 20
-  UsePrecedence: 0
-  MyEntity: {fileID: -2251521059408016390}
-  TargetManager: {fileID: 1740066754483794918}
-  SearchSpeed: 1
-  MyFaction: 0
 --- !u!114 &1740066754483794926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +263,7 @@ MonoBehaviour:
   summonTier: 0
   ManaRefundAmount: 0
   StateController: {fileID: 1740066754483794912}
-  TargetSearcher: {fileID: 1740066754483794914}
+  TargetSearcher: {fileID: 6968277638864454052}
   HoldPointState: {fileID: 6726932860956113883}
   PursuitState: {fileID: 0}
   RestState: {fileID: -626044709997288220}
@@ -509,6 +491,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
     type: 3}
+  SquareGraphicPrefab: {fileID: 313544021419493149, guid: c2215457779891c48bdf838d83892c0c,
+    type: 3}
 --- !u!114 &-4797642703810614546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,3 +508,22 @@ MonoBehaviour:
   AttackState: {fileID: 6384751669862364838}
   AIStateMachine: {fileID: 1740066754483794912}
   attackWidthDelta: 1.5
+--- !u!114 &6968277638864454052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a31bc669673dd47bf1856cd1ed1377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SightRange: 45
+  UsePrecedence: 0
+  MyEntity: {fileID: -2251521059408016390}
+  TargetManager: {fileID: 1740066754483794918}
+  SearchSpeed: 1
+  MyFaction: 0
+  FriendlyRangedAttackManager: {fileID: -4797642703810614546}

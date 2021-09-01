@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIAttackState : MonoBehaviour, IState, IRanged
+public class AIAttackState : MonoBehaviour, IState
 {
     [SerializeField] float AttackLength;
     [SerializeField] float AttackRange;

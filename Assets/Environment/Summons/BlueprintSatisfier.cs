@@ -42,7 +42,8 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             Activated = true; 
         } else
         {
-            Activated = false; 
+            Activated = false;
+            RemoveAllSummons();
         }
     }
 
@@ -238,6 +239,16 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     public float GetRange()
     {
         return Range;
+    }
+
+    public virtual bool IsCrossShaped()
+    {
+        return false;
+    }
+
+    public virtual float GetCrossDelta()
+    {
+        return 0f;
     }
 
     public void OnHit(IEntity hit)

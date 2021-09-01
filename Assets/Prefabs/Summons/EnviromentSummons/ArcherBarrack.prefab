@@ -161,7 +161,7 @@ MonoBehaviour:
   HealthManager: {fileID: 5894510192240988270}
   sr: {fileID: 7609072344873876228}
   MySummon: {fileID: 1343946729412818244}
-  TileType: 15
+  TileType: 16
   Range: 15
   MaxNumSummons: 2
   Types: 03000000

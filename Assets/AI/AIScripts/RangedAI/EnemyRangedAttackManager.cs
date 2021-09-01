@@ -30,4 +30,14 @@ public class EnemyRangedAttackManager : AIAttackManager
 
         return false;
     }
+
+    public override bool IsCrossShaped()
+    {
+        return true;
+    }
+
+    public override float GetCrossDelta()
+    {
+        return attackWidthDelta;
+    }
 }
