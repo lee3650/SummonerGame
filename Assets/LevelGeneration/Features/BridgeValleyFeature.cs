@@ -24,21 +24,49 @@ public class BridgeValleyFeature : ValleyFeature
         for (int x = 0; x < 3; x++)
         {
             Vector2 seed = ValleyCenters[Random.Range(0, ValleyCenters.Count)];
-            Vector2 negDir = seed;
-            Vector2 posDir = seed;
-         
-            for (int i = 0; i < 3; i++)
+
+            if (Random.Range(0, 100) < 50f)
             {
-
-                //technically, we don't have to do it this way because the valley is always 3 wide, but better not to assume that. 
-                
-                WriteDeltaPointToMap(negDir, xSize, ySize, bridgeWidth, map, new MapNode(true, TileType.Bridge));
-                WriteDeltaPointToMap(posDir, xSize, ySize, bridgeWidth, map, new MapNode(true, TileType.Bridge));
-
-                negDir -= BuildDirection();
-                posDir += BuildDirection();
-
+                MakeThreeWideBridge(map, xSize, ySize, bridgeWidth, seed);
+            } else
+            {
+                MakeOneWideBridge(map, seed);
             }
         }
+    }
+
+    void MakeThreeWideBridge(MapNode[,] map, int xSize, int ySize, Vector2 bridgeWidth, Vector2 seed)
+    {
+        Vector2 negDir = seed;
+        Vector2 posDir = seed;
+
+        for (int i = 0; i < 3; i++)
+        {
+            WriteDeltaPointToMap(negDir, xSize, ySize, bridgeWidth, map, GetBridgeType());
+            WriteDeltaPointToMap(posDir, xSize, ySize, bridgeWidth, map, GetBridgeType());
+
+            negDir -= BuildDirection();
+            posDir += BuildDirection();
+        }
+    }
+
+    void MakeOneWideBridge(MapNode[,] map, Vector2 seed)
+    {
+        Vector2 negDir = seed;
+        Vector2 posDir = seed;
+
+        for (int i = 0; i < 3; i++)
+        {
+            map[(int)negDir.x, (int)negDir.y] = GetBridgeType();
+            map[(int)posDir.x, (int)posDir.y] = GetBridgeType();
+
+            negDir -= BuildDirection();
+            posDir += BuildDirection();
+        }
+    }
+
+    MapNode GetBridgeType()
+    {
+        return new MapNode(true, TileType.Bridge);
     }
 }

@@ -10,24 +10,38 @@ public class PlaceHomeState : MonoBehaviour, IState
     [SerializeField] PlayerInput PlayerInput;
     [SerializeField] PlayerStateController PlayerStateController;
     [SerializeField] HealthManager health;
+    [SerializeField] MovementController MovementController;
+    [SerializeField] RotationController RotationController;
 
     private HomeTileSummon actualHomeSummon;
+
+    bool selected = false; 
 
     public void EnterState()
     {
         actualHomeSummon = Instantiate(HomeSummonPrefab);
         actualHomeSummon.Initialize(health, transform);
-        actualHomeSummon.OnSelection();
     }
 
     public void UpdateState()
     {
+        Vector2 unitMoveDir = PlayerInput.GetUnitInputDirection();
+        MovementController.MoveInDirection(unitMoveDir);
+
+        RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
+
         if (MapManager.IsMapInitialized())
         {
+            if (!selected)
+            {
+                actualHomeSummon.OnSelection();
+                selected = true; 
+            }
+            
             actualHomeSummon.UpdatePreview(AttackConditionsMet(), PlayerInput.GetWorldMousePosition());
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && MapManager.IsMapInitialized())
         {
             if (AttackConditionsMet())
             {

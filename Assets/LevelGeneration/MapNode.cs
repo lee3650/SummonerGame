@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MapNode 
 {
     public TileType TileType;
     private bool Traversable;
-    public int TraversalCost = 1; 
-    
+    public int TraversalCost = 1;
+    private bool UseCanGoThroughWalls;
+
     public MapNode(bool traversable)
     {
         Traversable = traversable;
@@ -16,7 +18,20 @@ public class MapNode
     {
         Traversable = traversable;
         TileType = tileType;
-        TraversalCost = GetTraversalCost(); 
+        TraversalCost = GetTraversalCost();
+        UseCanGoThroughWalls = ShouldUseCanGoThroughWalls();
+    }
+
+    private bool ShouldUseCanGoThroughWalls()
+    {
+        switch (TileType)
+        {
+            case TileType.Barracks:
+                return true;
+            case TileType.BreakableWall:
+                return true; 
+        }
+        return false; 
     }
 
     private int GetTraversalCost()
@@ -49,7 +64,7 @@ public class MapNode
 
     public bool IsTraversable(bool CanGoThroughWalls)
     {
-        if (TileType == TileType.BreakableWall)
+        if (UseCanGoThroughWalls)
         {
             return CanGoThroughWalls; 
         }

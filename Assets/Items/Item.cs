@@ -41,8 +41,8 @@ public class Item : MonoBehaviour //base class for every item
 
     public virtual void OnSelection()
     {
-        SpriteRenderer.enabled = true;
-        col.enabled = true; 
+        //SpriteRenderer.enabled = true;
+        //col.enabled = true; 
     }
     
     public virtual ItemType GetItemType()
