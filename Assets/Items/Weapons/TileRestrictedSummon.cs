@@ -12,6 +12,8 @@ public class TileRestrictedSummon : SummonWeapon
     {
         Vector2 point = VectorRounder.RoundVector(mousePos);
 
+        bool acceptedTiles = false;
+
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
@@ -21,22 +23,29 @@ public class TileRestrictedSummon : SummonWeapon
                 {
                     if (MapManager.IsPointInBounds((int)point.x + x, (int)point.y + y))
                     {
-                        if (IsAdjacentTileAccepted(point, x, y))
+                        if (IsAdjacentTileAccepted(point + new Vector2(x, y)))
                         {
-                            return true; 
+                            acceptedTiles = true;
+                        }
+                        if (IsAdjacentTileBlacklisted(point + new Vector2(x, y)))
+                        {
+                            return false; 
                         }
                     }
                 }
             }
         }
 
-        return false; 
+        return acceptedTiles;
     }
 
-    bool IsAdjacentTileAccepted(Vector2 point, int x, int y)
+    bool IsAdjacentTileAccepted(Vector2 point)
     {
-        Vector2 pos = new Vector2(x + point.x, y + point.y);
+        return RequiredTileTypes.Contains(MapManager.GetTileType(point)); 
+    }
 
-        return RequiredTileTypes.Contains(MapManager.GetTileType(pos)) && BlacklistedTileTypes.Contains(MapManager.GetTileType(pos)) == false; 
+    bool IsAdjacentTileBlacklisted(Vector2 point)
+    {
+        return BlacklistedTileTypes.Contains(MapManager.GetTileType(point));
     }
 }

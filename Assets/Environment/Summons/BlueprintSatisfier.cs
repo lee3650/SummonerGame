@@ -8,6 +8,9 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     [SerializeField] float Range = 25;
     [SerializeField] int MaxNumSummons = 6;
 
+    [SerializeField] TileType CapacityBuffTile = TileType.Stone;
+    const float capacityBuff = 1.5f;
+
     [SerializeField] List<BlueprintType> Types; 
     [SerializeField] List<GameObject> Prefabs;
     [SerializeField] SpriteRenderer SpriteRenderer;
@@ -120,7 +123,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public string GetStatString()
     {
-        string stats = string.Format("Range: {0}\nMax Summons: {1}\nMaintenance Fee: {2}\nActivated: {3}", Range, MaxNumSummons, MaintenanceFee, activated);
+        string stats = string.Format("Range: {0}\nMax Summons: {1}\nMaintenance Fee: {2}\nActivated: {3}", Range, CalculateMaxSummons(), MaintenanceFee, activated);
         return stats; 
     }
 
@@ -135,9 +138,20 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         {
             PruneSummonedEntitiesList();
 
-            int wallsToPlace = MaxNumSummons - SummonedEntities.Count;
+            int wallsToPlace = CalculateMaxSummons() - SummonedEntities.Count;
+
             PlaceSummons(Types, Prefabs, wallsToPlace);
         }
+    }
+
+    int CalculateMaxSummons()
+    {
+        if (prevNode.TileType == CapacityBuffTile)
+        {
+            return (int)(MaxNumSummons * capacityBuff);
+        }
+
+        return MaxNumSummons;
     }
 
     private void PlaceSummons(List<BlueprintType> types, List<GameObject> prefabs, int numWalls)

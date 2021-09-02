@@ -10,7 +10,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
     [SerializeField] protected Summon MySummon;
     [SerializeField] TileType TileType;
 
-    private MapNode prevNode; 
+    protected MapNode prevNode; 
 
     public virtual void Init()
     {
