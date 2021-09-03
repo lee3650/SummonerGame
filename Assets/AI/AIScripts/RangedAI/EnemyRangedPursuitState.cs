@@ -1,69 +1,127 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class EnemyRangedPursuitState : AIPursuitState
 {
     [SerializeField] SightChecker SightChecker;
-    [SerializeField] int RangeAdjustment = 0; 
+    [SerializeField] int RangeAdjustment = 0;
+    float distanceWeight = 1.5f;
 
     public override bool ShouldMoveAtTarget()
     {
         bool result = base.ShouldMoveAtTarget() || (!SightChecker.NoUnbreakableWallsInWay(TargetManager.Target.GetPosition())) || AIAttackManager.CanAttack(TargetManager.Target) == false;
-        
+
         return result;
     }
 
-    int GetChangeInWallScore(Vector2 direction, int dist, Vector2 targetPos)
+    Dictionary<Vector2Int, Vector2Int> FindFurthestPoints(Vector2Int targetPos, int maxDist, List<Vector2Int> dirs)
     {
-        TileType t = MapManager.GetTileType((direction * dist) + targetPos);
+        Dictionary<Vector2Int, Vector2Int> result = new Dictionary<Vector2Int, Vector2Int>();
 
-        int delta = 0;
-
-        if (t == TileType.Wall)
+        foreach (Vector2Int dir in dirs)
         {
-            delta = 1000;
-        }
-        if (t == TileType.BreakableWall || t == TileType.Gate)
-        {
-            delta++;
+            result[dir] = CalculateFurthestPoint(targetPos, maxDist, dir);
         }
 
-        return delta; 
+        return result;
+    }
+
+    Vector2Int CalculateFurthestPoint(Vector2Int targetPos, int maxDist, Vector2Int dir)
+    {
+        Vector2Int result = targetPos;
+
+        for (int i = 0; i <= maxDist; i++)
+        {
+            //it's okay to start at 0 because the initial point can't be untraversable 
+            if (MapManager.IsPointInBounds(result.x + dir.x, result.y + dir.y) == false)
+            {
+                break; 
+            }
+            if (MapManager.GetTileType(result + dir) != TileType.Wall)
+            {
+                result += dir;
+            } else
+            {
+                break;
+            }
+        }
+
+        print(string.Format("Furthest point for direction {0}: {1}", dir, result));
+
+        return result; 
+    }
+
+    Dictionary<Vector2Int, int> GetWallScores(List<Vector2Int> dirs, Dictionary<Vector2Int, Vector2Int> furthestPoints, Vector2Int startPoint)
+    {
+        Dictionary<Vector2Int, int> result = new Dictionary<Vector2Int, int>();
+
+        foreach (Vector2Int dir in dirs)
+        {
+            result[dir] = CalculateWallScore(dir, furthestPoints[dir], startPoint);
+        }
+
+        return result; 
+    }
+
+    int CalculateWallScore(Vector2Int dir, Vector2Int furthestPoint, Vector2Int startPoint)
+    {
+        Vector2Int cur = startPoint;
+        int result = 0;
+
+        while (Vector2.Distance(cur, startPoint) <= Vector2.Distance(furthestPoint, startPoint))
+        {
+            TileType t = MapManager.GetTileType(cur);
+            if (t == TileType.BreakableWall || t == TileType.Gate)
+            {
+                result += 1; 
+            }
+            if (t == TileType.Wall)
+            {
+                throw new System.Exception("There was an unbreakable wall in the way!");
+            }
+
+            cur += dir; 
+        }
+
+        return result; 
     }
 
     protected override Vector2 GetPathfindGoal()
     {
-        Vector2 targetPos = VectorRounder.RoundVector(TargetManager.Target.GetPosition());
+        Vector2Int targetPos = VectorRounder.RoundVectorToInt(TargetManager.Target.GetPosition());
 
         int maxDist = (int)AIAttackManager.GetRange() - RangeAdjustment;
 
         List<Vector2Dist> candidates = new List<Vector2Dist>();
 
-        int wallScorePlusX = 0;
-        int wallScoreMinusY = 0;
-        int wallScorePlusY = 0;
+        List<Vector2Int> dirs = new List<Vector2Int>()
+        {
+            new Vector2Int(0, 1),
+            new Vector2Int(0, -1),
+            new Vector2Int(1, 0)
+        };
 
         float distToTarget = Vector2.Distance(transform.position, targetPos);
 
-        for (int d = maxDist; d >= 0; d--)
+        Dictionary<Vector2Int, Vector2Int> furthestPoints = FindFurthestPoints(targetPos, maxDist, dirs);
+        Dictionary<Vector2Int, int> DirToWallScore = GetWallScores(dirs, furthestPoints, targetPos);
+
+        foreach (KeyValuePair<Vector2Int, int> pairs in DirToWallScore)
         {
-            wallScorePlusX += GetChangeInWallScore(new Vector2(1, 0), d, targetPos);
-            wallScorePlusY += GetChangeInWallScore(new Vector2(0, 1), d, targetPos);
-            wallScoreMinusY += GetChangeInWallScore(new Vector2(0, -1), d, targetPos);
+            print(string.Format("Direction: {0}, wall score: {1}", pairs.Key, pairs.Value));
         }
 
-        for (int i = maxDist; i >= 0; i--)
+        Vector2 candidate;
+        for (int i = 0; i <= maxDist; i++)
         {
-            Vector2 candidate = targetPos + new Vector2(i, 0);
-            TryAddCandidate(candidate, candidates, wallScorePlusX, distToTarget);
-
-            candidate = targetPos + new Vector2(0, i);
-            TryAddCandidate(candidate, candidates, wallScorePlusY, distToTarget);
-
-            candidate = targetPos + new Vector2(0, -i);
-            TryAddCandidate(candidate, candidates, wallScoreMinusY, distToTarget);
+            foreach (Vector2Int dir in dirs)
+            {
+                candidate = targetPos + dir;
+                TryAddCandidate(candidate, candidates, DirToWallScore[dir], distToTarget, furthestPoints[dir], targetPos);
+            }
         }
 
         Vector2Dist result = new Vector2Dist(targetPos, 100000f, 100000);
@@ -79,12 +137,21 @@ public class EnemyRangedPursuitState : AIPursuitState
         return result.Point;
     }
 
-    void TryAddCandidate(Vector2 candidate, List<Vector2Dist> candidates, int wallScore, float targetDist)
+    void TryAddCandidate(Vector2 candidate, List<Vector2Dist> candidates, int wallScore, float targetDist, Vector2Int furthestPoint, Vector2 target)
     {
-        if (MapManager.IsPointTraversable(candidate, true))
+        if (MapManager.IsPointTraversable(candidate, true) && WithinFurthestPoint(candidate, furthestPoint, target))
         {
-            candidates.Add(new Vector2Dist(candidate, Vector2.Distance(transform.position, candidate) / targetDist, wallScore));
+            candidates.Add(new Vector2Dist(candidate, distanceWeight * Vector2.Distance(transform.position, candidate) / targetDist, wallScore));
         }
+    }
+
+    bool WithinFurthestPoint(Vector2 candidate, Vector2Int furthestPoint, Vector2 target)
+    {
+        if (Vector2.Distance(target, furthestPoint) >= Vector2.Distance(candidate, target))
+        {
+            return true; 
+        }
+        return false; 
     }
 
     struct Vector2Dist

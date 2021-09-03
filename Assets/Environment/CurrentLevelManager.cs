@@ -28,7 +28,7 @@ public class CurrentLevelManager : MonoBehaviour
     {
         LevelGenerator.SetTotalMapSizeAndInitMap();
         
-        HeadNode = new StageNode(new Vector2(0, 1), null);
+        HeadNode = new StageNode(new Vector2(0, 0), null);
         RootNode = HeadNode;
 
         LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
@@ -95,14 +95,14 @@ public class CurrentLevelManager : MonoBehaviour
 
         if (levelNum == 0)
         {
-            return new StageNode(new Vector2(1, 1), node);
+            return new StageNode(new Vector2(1, 0), node);
         }
 
         Vector2[] dirs = new Vector2[]
         {
             new Vector2(1, 0),
-            new Vector2(0, 1),
-            new Vector2(0, -1),
+            //new Vector2(0, 1), //uncomment if you want the world to go up and down. 
+            //new Vector2(0, -1),
         };
 
         dirs = (Vector2[])ListRandomSort<Vector2>.SortListRandomly(dirs);

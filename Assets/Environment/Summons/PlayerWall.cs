@@ -24,6 +24,10 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         transform.position = VectorRounder.RoundVector(transform.position);
 
         prevNode = MapManager.ReadPoint(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        if (prevNode == null)
+        {
+            throw new System.Exception("Prev node was set to null!");
+        }
         WriteMyTileToMap(); 
     }
 
@@ -47,6 +51,10 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
                     if (s.TryGetComponent<PlayerWall>(out playerWall))
                     {
                         prevNode = playerWall.GetUnderneathNode();
+                        if (prevNode == null)
+                        {
+                            throw new System.Exception("Prev node was null!");
+                        }
                     }
                     s.Destroy();
 

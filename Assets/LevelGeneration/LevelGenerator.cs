@@ -14,8 +14,8 @@ public class LevelGenerator : MonoBehaviour
 
     public const int StageSize = 15;
 
-    public const int MapStagesWidth = 3;
-    public const int MapStagesHeight = 3;
+    public const int MapStagesWidth = 5;
+    public const int MapStagesHeight = 1;
 
     int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 
 
@@ -178,7 +178,7 @@ public class LevelGenerator : MonoBehaviour
         List<MapFeature> HorizontalFeatures = new List<MapFeature>()
         {
             new ValleyFeature(),
-            new BridgeValleyFeature(),
+            //new BridgeValleyFeature(),
 
         };
 
@@ -186,7 +186,7 @@ public class LevelGenerator : MonoBehaviour
         List<MapFeature> VerticalFeatures = new List<MapFeature>()
         {
             new VerticalValleyFeature(),
-            new VerticalBridgeValleyFeature(),
+            //new VerticalBridgeValleyFeature(),
         };
 
         //these allow any direction of movement 

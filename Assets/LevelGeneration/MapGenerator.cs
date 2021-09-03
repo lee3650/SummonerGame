@@ -21,6 +21,7 @@ public class MapGenerator : MonoBehaviour
         new OreFeature().AddFeature(xSize, ySize, newMap);
 
         AddWalls(newMap, xSize, ySize);
+        new DividerFeature().AddFeature(xSize, ySize, newMap);
 
         return newMap;
     }
