@@ -345,6 +345,7 @@ MonoBehaviour:
   MyEntity: {fileID: 5690190742799855652}
   TargetManager: {fileID: 9194925930672925235}
   SearchSpeed: 1
+  MyFaction: 0
 --- !u!114 &9194925930672925241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 35
+  MaxHealth: 25
   CurrentHealth: 0
 --- !u!114 &9194925930672925242
 MonoBehaviour:
@@ -416,7 +417,6 @@ MonoBehaviour:
   MaintenanceFee: 0
   PointToHoldManager: {fileID: -6420320303085296378}
   DeactivatedState: {fileID: 5448426088680229287}
-  UpgradePath: {fileID: 0}
   StatString:
   - 'Range: 1.5'
   - 'Damage: 4'
@@ -622,3 +622,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
     type: 3}
+  SquareGraphicPrefab: {fileID: 0}
+  CreateOnAwake: 1

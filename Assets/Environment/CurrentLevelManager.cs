@@ -13,16 +13,19 @@ public class CurrentLevelManager : MonoBehaviour
     [SerializeField] Transform Player;
     [SerializeField] List<SpawnToOddsWrapper> AdditionalSpawns;
 
+    private const int maxLevel = 7;
     private int levelNum = 0;
     private int highestWave = 0; //so, this is actually super messed up - if we change this it's going to break NextWaveFunctionMonitor. So, idk, watch out. 
     private int currentWave = 0;
-
+    private float enemySpawnTime = 0.75f; 
     private int baseEnemies = 3;
 
     List<List<GameObject>> LevelWaves = new List<List<GameObject>>();
     
     StageNode HeadNode;
     StageNode RootNode; 
+
+
 
     public void EnterFirstLevel()
     {
@@ -61,7 +64,15 @@ public class CurrentLevelManager : MonoBehaviour
 
         baseEnemies = LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
 
+        SetSpawnTime();
+
         levelNum++;
+    }
+
+    void SetSpawnTime()
+    {
+        enemySpawnTime = Mathf.Lerp(0.75f, 0.075f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 1));
+        print("Spawn time: " + enemySpawnTime);
     }
 
     List<StageNode> FindEndNodes(StageNode root)
@@ -165,7 +176,7 @@ public class CurrentLevelManager : MonoBehaviour
     public void SpawnNextWave()
     {
         print("Spawned wave: " + currentWave);
-        WaveSpawner.SpawnWave(GetNextWave());
+        WaveSpawner.SpawnWave(GetNextWave(), enemySpawnTime);
         currentWave++;
     }
 

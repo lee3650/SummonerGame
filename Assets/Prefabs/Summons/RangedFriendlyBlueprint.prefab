@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 895104399634733042}
   - component: {fileID: 895104399634733041}
+  - component: {fileID: 7588477037582416679}
+  - component: {fileID: -3065019654653325439}
   m_Layer: 11
   m_Name: RangedFriendlyBlueprint
   m_TagString: Untagged
@@ -80,3 +82,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7588477037582416679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895104399634732807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ea1c63db06653409f81ccc2acb08d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
+    type: 3}
+  SquareGraphicPrefab: {fileID: 313544021419493149, guid: c2215457779891c48bdf838d83892c0c,
+    type: 3}
+  CreateOnAwake: 0
+--- !u!114 &-3065019654653325439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895104399634732807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2704a3e3ce7a8054cbe814abecd4f72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeSupplier: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29,
+    type: 3}
+  RangeVisualizer: {fileID: 7588477037582416679}

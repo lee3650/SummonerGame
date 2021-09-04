@@ -31,7 +31,13 @@ public class BlueprintWeapon : SummonWeapon
     public override void UseWeapon(Vector2 mousePos)
     {
         BlueprintManager.AddBlueprint(VectorRounder.RoundVector(mousePos), BlueprintType);
-        blueprintImages.Add(Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero)));
+        GameObject b = Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero));
+        blueprintImages.Add(b);
+        RangeVisualizer rv; 
+        if (b.TryGetComponent<RangeVisualizer>(out rv))
+        {
+            rv.Hide();
+        }
     }
 
     public override WeaponType GetWeaponType()

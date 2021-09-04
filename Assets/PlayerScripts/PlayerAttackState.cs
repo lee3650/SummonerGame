@@ -37,6 +37,7 @@ public class PlayerAttackState : MonoBehaviour, IState
             Weapon weapon = ItemSelection.SelectedItem as Weapon;
             float attackDecrement = weapon.GetManaDrain();
 
+            //so, this method should never get called in theory 
             if (ManaManager.TryDecreaseMana(attackDecrement) == false)
             {
                 SubtractManaAndHealth(attackDecrement);
@@ -114,7 +115,7 @@ public class PlayerAttackState : MonoBehaviour, IState
 
     bool SufficientEnergy(Weapon weapon)
     {
-        return HealthManager.GetCurrent() + ManaManager.GetCurrent() > weapon.GetManaDrain();
+        return ManaManager.GetCurrent() >= weapon.GetManaDrain(); //HealthManager.GetCurrent() + 
     }
 
     public bool IsPositionSpawnable()

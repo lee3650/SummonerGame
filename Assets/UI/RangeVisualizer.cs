@@ -5,13 +5,27 @@ using UnityEngine;
 public class RangeVisualizer : MonoBehaviour, IInitialize
 {
     [SerializeField] GameObject RangeGraphicPrefab;
-    [SerializeField] GameObject SquareGraphicPrefab; 
+    [SerializeField] GameObject SquareGraphicPrefab;
+    [SerializeField] bool CreateOnAwake = true; 
 
     GameObject MyRangeGraphic; 
 
     IRanged myRanged; 
 
     void Awake()
+    {
+        if (CreateOnAwake)
+        {
+            CreateAndShowGraphic();
+        }
+    }
+
+    public void Init()
+    {
+        Hide(); //this could be interesting lol. This could get nasty. 
+    }
+
+    public void CreateAndShowGraphic()
     {
         if (TryGetComponent<IRanged>(out myRanged))
         {
@@ -21,7 +35,8 @@ public class RangeVisualizer : MonoBehaviour, IInitialize
                 MyRangeGraphic.transform.localPosition = Vector3.zero;
                 MyRangeGraphic.transform.localScale = new Vector2(myRanged.GetRange() * 2, myRanged.GetRange() * 2); //so, just hopefully everything is 1x1 lol
                 Show();
-            } else
+            }
+            else
             {
                 //obviously this is kind of gross
                 MyRangeGraphic = Instantiate(RangeGraphicPrefab, transform);
@@ -35,11 +50,6 @@ public class RangeVisualizer : MonoBehaviour, IInitialize
                 Show();
             }
         }
-    }
-
-    public void Init()
-    {
-        Hide(); //this could be interesting lol. This could get nasty. 
     }
 
     public void Show()

@@ -162,8 +162,9 @@ MonoBehaviour:
   sr: {fileID: 6000955293405737802}
   MySummon: {fileID: 2916608103962426634}
   TileType: 17
-  Range: 12.5
+  Range: 17.5
   MaxNumSummons: 6
+  CapacityBuffTile: 13
   Types: 0000000001000000
   Prefabs:
   - {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
@@ -213,3 +214,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
     type: 3}
+  SquareGraphicPrefab: {fileID: 0}
+  CreateOnAwake: 1

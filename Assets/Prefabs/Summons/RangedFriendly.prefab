@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackLength: 1.5
-  AttackRange: 45
+  AttackRange: 25
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1740066754483794912}

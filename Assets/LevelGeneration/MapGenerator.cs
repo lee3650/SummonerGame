@@ -34,7 +34,6 @@ public class MapGenerator : MonoBehaviour
             new DividerFeature(),
             new LineDividerFeature(),
             new DoubleLineFeature(),
-            new InvertedMazeFeature(),
         };
 
         MapFeature divider = dividers[Random.Range(0, dividers.Count)];
@@ -105,6 +104,6 @@ public class MapGenerator : MonoBehaviour
         {
             return TileType.Stone;
         }
-        return TileType.Hills;
+        return TileType.Land;
     }
 }

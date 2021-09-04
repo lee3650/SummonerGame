@@ -229,6 +229,7 @@ MonoBehaviour:
   MyEntity: {fileID: 5487195000452624833}
   TargetManager: {fileID: 5487195000452624834}
   SearchSpeed: 1
+  MyFaction: 0
 --- !u!114 &5487195000452624833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 25
+  MaxHealth: 35
   CurrentHealth: 0
 --- !u!114 &5487195000452624845
 MonoBehaviour:
@@ -558,6 +559,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 5487195001173321388}
   Attack: {fileID: 7400000, guid: ed9838a76592ed34caacc3a5abaf4388, type: 2}
-  Magnitude: 4
+  Magnitude: 6
   EventType: 2
   WielderObject: {fileID: 5487195000452624840}

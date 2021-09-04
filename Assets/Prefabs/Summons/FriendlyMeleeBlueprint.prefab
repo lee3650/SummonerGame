@@ -90,6 +90,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3948711407154339768}
   - component: {fileID: 3948711407154339771}
+  - component: {fileID: -4759480266611487452}
+  - component: {fileID: -8649868255030482021}
   m_Layer: 11
   m_Name: FriendlyMeleeBlueprint
   m_TagString: Untagged
@@ -161,3 +163,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4759480266611487452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948711407154339661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2704a3e3ce7a8054cbe814abecd4f72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeSupplier: {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab,
+    type: 3}
+  RangeVisualizer: {fileID: -8649868255030482021}
+--- !u!114 &-8649868255030482021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948711407154339661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ea1c63db06653409f81ccc2acb08d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
+    type: 3}
+  SquareGraphicPrefab: {fileID: 0}
+  CreateOnAwake: 0

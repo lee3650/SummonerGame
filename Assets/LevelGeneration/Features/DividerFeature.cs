@@ -7,14 +7,14 @@ public class DividerFeature : MapFeature
     //oh, so this takes x and y size... is it possible we planned for that to change? 
     public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
-        AddLines(false, xSize, ySize, map);
+        AddLines(Random.Range(0, 100) <= 50, xSize, ySize, map);
     }
 
     protected void AddLines(bool startAtTop, int xSize, int ySize, MapNode[,] map)
     {
         bool top = startAtTop;
 
-        for (int x = 3; x < xSize; x += 4)
+        for (int x = 5; x < xSize; x += 5)
         {
             for (int y = 0; y < ySize - 4; y++)
             {

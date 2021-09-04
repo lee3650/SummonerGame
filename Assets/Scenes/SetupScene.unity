@@ -2124,7 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb46b4138aede141b40a24d75f77310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMana: 25
+  CurrentMana: 30
   ManaIncrement: 0
   ManaRegenTickRate: 0
 --- !u!114 &333112619

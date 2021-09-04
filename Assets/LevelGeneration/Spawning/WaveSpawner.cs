@@ -57,7 +57,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
         ClientsToNotify.Remove(notifier);
     }
 
-    public void SpawnWave(List<GameObject> wave)
+    public void SpawnWave(List<GameObject> wave, float spawnTime)
     {
         CurrentWave = new List<AIEntity>();
 
@@ -68,7 +68,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
             CurrentWave.Add(enemy.GetComponent<AIEntity>());
         }
 
-        StartCoroutine(EnableEnemies());
+        StartCoroutine(EnableEnemies(spawnTime));
 
         print("Spawned entities!");
 
@@ -76,7 +76,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
         IsCurrentWaveDefeated = false; 
     }
 
-    private IEnumerator EnableEnemies()
+    private IEnumerator EnableEnemies(float spawnTime)
     {
         int curIndex = 0;
 
@@ -97,7 +97,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
             
             curIndex += 1; 
 
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(spawnTime);
         }
     }
 
