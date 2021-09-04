@@ -50,15 +50,15 @@ public class MapNode
             case TileType.Hills:
             case TileType.Stone:
             case TileType.Marsh:
-                return 1;
             case TileType.Barracks:
             case TileType.Miner:
-            case TileType.BreakableWall:
             case TileType.WallGenerator:
             case TileType.ArcherBarracks:
-                return 30;
+                return 1;
+            case TileType.BreakableWall:
+                return 15;
             case TileType.Gate:
-                return 10;
+                return 8;
             case TileType.Wall:
                 return 100; 
         }
@@ -95,7 +95,7 @@ public class TileDescription
             case TileType.Silver:
                 return "Silver Tile. Earns an income of 7.5 mana per turn if a miner is placed adjacent.";
             case TileType.Stone:
-                return "Stone Tile. Reduces damage taken when a unit is standing on it by 25%."; //I actually don't know the value
+                return "Stone Tile. Increases generator capacity by 50% when a generator is placed on it."; //I actually don't know the value
             case TileType.Valley:
                 return "Valley Tile";
             case TileType.Wall:

@@ -49,8 +49,6 @@ public class EnemyRangedPursuitState : AIPursuitState
             }
         }
 
-        print(string.Format("Furthest point for direction {0}: {1}", dir, result));
-
         return result; 
     }
 

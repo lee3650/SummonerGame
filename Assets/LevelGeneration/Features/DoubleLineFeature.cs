@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleLineFeature : MonoBehaviour
+public class DoubleLineFeature : LineDividerFeature
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AddLine(ySize / 3, xSize, map);
+        AddLine(2 * ySize / 3, xSize, map);
     }
 }

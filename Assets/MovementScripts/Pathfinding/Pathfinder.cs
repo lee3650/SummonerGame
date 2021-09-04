@@ -29,7 +29,7 @@ public class Pathfinder : MonoBehaviour
 
         int counter = 0; 
         
-        while (openHead != null && counter < 500)
+        while (openHead != null && counter < 1000)
         {
             SearchNode q = openHead;
 

@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvertedMazeFeature : MonoBehaviour
+public class InvertedMazeFeature : DividerFeature
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AddLines(true, xSize, ySize, map);
     }
 }

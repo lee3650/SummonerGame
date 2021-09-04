@@ -20,10 +20,26 @@ public class MapGenerator : MonoBehaviour
 
         new OreFeature().AddFeature(xSize, ySize, newMap);
 
+        AddDivider(xSize, ySize, newMap);
+
         AddWalls(newMap, xSize, ySize);
-        new DividerFeature().AddFeature(xSize, ySize, newMap);
 
         return newMap;
+    }
+
+    void AddDivider(int xSize, int ySize, MapNode[,] newMap)
+    {
+        List<MapFeature> dividers = new List<MapFeature>()
+        {
+            new DividerFeature(),
+            new LineDividerFeature(),
+            new DoubleLineFeature(),
+            new InvertedMazeFeature(),
+        };
+
+        MapFeature divider = dividers[Random.Range(0, dividers.Count)];
+
+        divider.AddFeature(xSize, ySize, newMap);
     }
 
     void AddWalls(MapNode[,] newMap, int xSize, int ySize)
