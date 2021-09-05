@@ -80,6 +80,11 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
         (StateController.GetCurrentState() as IControllableState).HandleCommand(command);
     }
 
+    public bool CanBeSold()
+    {
+        return true; 
+    }
+
     void SellSummon()
     {
         HealthManager.SubtractHealth(100000);

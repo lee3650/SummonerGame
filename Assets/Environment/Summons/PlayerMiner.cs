@@ -123,6 +123,11 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         throw new System.Exception("The miner got a hit?");
     }
 
+    public bool CanBeSold()
+    {
+        return AdjacentConnections.DoAdjacentTilesConnectToMiner(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+    }
+
     protected override void OnDeath()
     {
         WaveSpawner.StopNotifyingWhenWaveEnds(this);

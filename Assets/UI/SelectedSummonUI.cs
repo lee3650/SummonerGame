@@ -60,7 +60,7 @@ public class SelectedSummonUI : MonoBehaviour
         }
 
         Sellable sellable;
-        if (s.GetTransform().TryGetComponent<Sellable>(out sellable))
+        if (s.CanBeSold() && s.GetTransform().TryGetComponent<Sellable>(out sellable))
         {
             PanelDisplayer.ShowPanel(SellPanel, (sellable, PlayerSummonController)); 
             //so, yeah that's sketchy because if the object it's asking for changes, we won't know until we get a runtime error 

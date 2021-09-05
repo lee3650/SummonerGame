@@ -108,6 +108,12 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
 
     }
 
+    public bool CanBeSold()
+    {
+        return AdjacentConnections.DoAdjacentTilesConnectToMiner(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+    }
+
+
     protected override void OnDeath()
     {
         TargetableEntitiesManager.RemoveTargetable(this);

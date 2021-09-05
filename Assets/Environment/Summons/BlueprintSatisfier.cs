@@ -245,6 +245,11 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         }
     }
 
+    public bool CanBeSold()
+    {
+        return AdjacentConnections.DoAdjacentTilesConnectToMiner(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+    }
+
     public Factions GetFaction()
     {
         return Factions.Player;

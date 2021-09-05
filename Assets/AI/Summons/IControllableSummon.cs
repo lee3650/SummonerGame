@@ -17,5 +17,7 @@ public interface IControllableSummon
         get;
     }
 
+    bool CanBeSold();
+
     Transform GetTransform();
 }
