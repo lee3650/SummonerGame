@@ -9,6 +9,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
     [SerializeField] SpriteRenderer sr;
     [SerializeField] protected Summon MySummon;
     [SerializeField] TileType TileType;
+    [SerializeField] int Precedence;
 
     protected MapNode prevNode; 
 
@@ -133,7 +134,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
 
     public int GetPrecedence()
     {
-        return 1000; 
+        return Precedence;
     }
     public Vector2 GetPosition()
     {

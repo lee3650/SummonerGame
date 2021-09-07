@@ -9,6 +9,8 @@ public class AIPursuitState : MonoBehaviour, IState
     [SerializeField] MonoBehaviour ExitToState;
     [SerializeField] protected MovementController MovementController;
     [SerializeField] protected AIAttackManager AIAttackManager;
+    [SerializeField] TargetSearcher TargetSearcher;
+    [SerializeField] bool RecalculatePathIfTargetInWay = false;
 
     RotationController RotationController;
 
@@ -26,8 +28,44 @@ public class AIPursuitState : MonoBehaviour, IState
             throw new System.Exception("No target?");
         }
 
+        TryToSetTargetToAdjacent();
+
         MovementController.SetPathfindGoal(GetPathfindGoal());
+        bool reset = TryToSetTargetToTargetInWay();
+
+        if (reset && RecalculatePathIfTargetInWay)
+        {
+            MovementController.SetPathfindGoal(GetPathfindGoal());
+        }
         oldTargetPos = TargetManager.Target.GetPosition();
+    }
+
+    protected void TryToSetTargetToAdjacent()
+    {
+        ITargetable newTarget = TargetableEntitiesManager.GetTargetableAdjacentTo(VectorRounder.RoundVectorToInt(transform.position));
+        if (newTarget != null)
+        {
+            TargetSearcher.AssignTarget(newTarget); //hm. This might be a bit messed up for going through walls, but whatever for now 
+        }
+    }
+
+    //this is going to have to change slightly for ranged pursuit state, so 
+    protected bool TryToSetTargetToTargetInWay()
+    {
+        SearchNode node = MovementController.GetPathfindPath();
+        
+        while (node.ParentNode != null)
+        {
+            ITargetable newTarget = TargetableEntitiesManager.GetTargetableAdjacentTo(new Vector2Int(node.x, node.y));
+            if (newTarget != null)
+            {
+                TargetSearcher.AssignTarget(newTarget);
+                return true; 
+            }
+            node = node.ParentNode;
+        }
+
+        return false; 
     }
 
     public void UpdateState()

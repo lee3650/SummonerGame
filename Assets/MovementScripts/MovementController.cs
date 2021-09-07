@@ -85,6 +85,11 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    public SearchNode GetPathfindPath()
+    {
+        return pathfindPath; //so, this is kind of bad, because now we can't really have the pathfinding be on another thread. 
+    }
+
     public void SetPathfindGoal(Vector2 goal)
     {
         pathfindGoal = goal;

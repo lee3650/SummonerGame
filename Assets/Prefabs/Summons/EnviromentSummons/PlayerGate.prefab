@@ -100,6 +100,8 @@ MonoBehaviour:
   SummonType: 0
   HealToFull: 1
   WaveHealAmt: 10
+  upgradable: 1
+  summonTier: 0
   ManaRefundAmount: 0
 --- !u!114 &3600352979565121685
 MonoBehaviour:
@@ -131,6 +133,7 @@ MonoBehaviour:
   sr: {fileID: 694221489078713343}
   MySummon: {fileID: 8258524545279653311}
   TileType: 6
+  Precedence: 1000
 --- !u!61 &1337009842691720106
 BoxCollider2D:
   m_ObjectHideFlags: 0

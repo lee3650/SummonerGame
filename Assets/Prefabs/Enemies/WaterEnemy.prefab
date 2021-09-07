@@ -184,6 +184,8 @@ MonoBehaviour:
   ExitToState: {fileID: 4648206095511936302}
   MovementController: {fileID: 4648206095511936299}
   AIAttackManager: {fileID: 4648206095511936290}
+  TargetSearcher: {fileID: 4648206095511936301}
+  RecalculatePathIfTargetInWay: 0
 --- !u!114 &4648206095511936303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SightRange: 20
-  UsePrecedence: 0
+  UsePrecedence: 1
   MyEntity: {fileID: 4648206095511936300}
   TargetManager: {fileID: 4648206095511936303}
   SearchSpeed: 1

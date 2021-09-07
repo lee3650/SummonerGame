@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SummonEntity : AIEntity
 {
-    [SerializeField] Summon summon; 
+    [SerializeField] Summon summon;
+    [SerializeField] PointToHoldManager PointToHoldManager;
 
     public override void HandleEvent(Event e)
     {

@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SightRange: 20
-  UsePrecedence: 0
+  UsePrecedence: 1
   MyEntity: {fileID: 1090552370236627254}
   TargetManager: {fileID: 1090552370236627259}
   SearchSpeed: 1
@@ -433,6 +433,8 @@ MonoBehaviour:
   ExitToState: {fileID: 1090552370236627256}
   MovementController: {fileID: 1090552370236627257}
   AIAttackManager: {fileID: -5376926671011951225}
+  TargetSearcher: {fileID: 1090552370236627263}
+  RecalculatePathIfTargetInWay: 1
   SightChecker: {fileID: -5861504520014042726}
   RangeAdjustment: 2
 --- !u!114 &-5376926671011951225

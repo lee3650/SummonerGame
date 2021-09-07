@@ -503,6 +503,7 @@ MonoBehaviour:
   AIFallState: {fileID: 7699678110255344992}
   Targetable: 1
   summon: {fileID: 4092543355812176230}
+  PointToHoldManager: {fileID: -6420320303085296378}
 --- !u!114 &-6982371465322758994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +568,7 @@ MonoBehaviour:
   col: {fileID: 8709340639070952995}
   SpriteRenderer: {fileID: 9194925930672925244}
   MeleeWeapon: {fileID: 8775604864804320805}
+  PointToHoldManager: {fileID: -6420320303085296378}
 --- !u!114 &7699678110255344992
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -358,6 +358,7 @@ MonoBehaviour:
   AIFallState: {fileID: -4200002053765668536}
   Targetable: 1
   summon: {fileID: 6878306609116838067}
+  PointToHoldManager: {fileID: 8145606651001300045}
 --- !u!114 &6384751669862364838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +424,7 @@ MonoBehaviour:
   MovementController: {fileID: 1740066754483794916}
   col: {fileID: 7390820102105440794}
   SpriteRenderer: {fileID: 1740066754483794921}
+  PointToHoldManager: {fileID: 8145606651001300045}
 --- !u!114 &-4200002053765668536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +495,7 @@ MonoBehaviour:
     type: 3}
   SquareGraphicPrefab: {fileID: 313544021419493149, guid: c2215457779891c48bdf838d83892c0c,
     type: 3}
+  CreateOnAwake: 1
 --- !u!114 &-4797642703810614546
 MonoBehaviour:
   m_ObjectHideFlags: 0

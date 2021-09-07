@@ -18,7 +18,7 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 
     float originalHealAmount;
 
-    bool Deactivated = false; 
+    bool Deactivated = false;
 
     private void Start()
     {
