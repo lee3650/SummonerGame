@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: -5861504520014042726}
   - component: {fileID: 87831727195077226}
   - component: {fileID: -5376926671011951225}
+  - component: {fileID: 5811157012089966205}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -434,7 +435,6 @@ MonoBehaviour:
   MovementController: {fileID: 1090552370236627257}
   AIAttackManager: {fileID: -5376926671011951225}
   TargetSearcher: {fileID: 1090552370236627263}
-  RecalculatePathIfTargetInWay: 1
   SightChecker: {fileID: -5861504520014042726}
   RangeAdjustment: 2
 --- !u!114 &-5376926671011951225
@@ -453,3 +453,19 @@ MonoBehaviour:
   AIStateMachine: {fileID: 1090552370236627245}
   SightChecker: {fileID: -5861504520014042726}
   attackWidthDelta: 1.5
+--- !u!114 &5811157012089966205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d3b73a5fb40994a989ed2b2e53157f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SearchRange: 1.75
+  SearchFrequency: 0.25
+  TargetSearcher: {fileID: 1090552370236627263}
+  TargetFaction: 0

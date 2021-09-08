@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 4648206095511936295}
   - component: {fileID: 4648206095511936277}
   - component: {fileID: 3612669858900733009}
+  - component: {fileID: 6934713143476588037}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -185,7 +186,6 @@ MonoBehaviour:
   MovementController: {fileID: 4648206095511936299}
   AIAttackManager: {fileID: 4648206095511936290}
   TargetSearcher: {fileID: 4648206095511936301}
-  RecalculatePathIfTargetInWay: 0
 --- !u!114 &4648206095511936303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +434,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8424a4a1b3855384d973ac4307f719bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6934713143476588037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d3b73a5fb40994a989ed2b2e53157f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SearchRange: 1.75
+  SearchFrequency: 0.25
+  TargetSearcher: {fileID: 4648206095511936301}
+  TargetFaction: 0
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0

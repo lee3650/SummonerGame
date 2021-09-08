@@ -7,7 +7,7 @@ public class AIMeleeAttackState : AIAttackState
     [SerializeField] MeleeWeapon MeleeWeapon;
     public override void StartAttack()
     {
-        print("attacking!");
+
         MeleeWeapon.StartAttack();
     }
 }
