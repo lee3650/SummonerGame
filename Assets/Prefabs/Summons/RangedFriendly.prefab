@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: -3931680443760502500}
   - component: {fileID: 519861522697496829}
   - component: {fileID: -4797642703810614546}
-  - component: {fileID: 6968277638864454052}
+  - component: {fileID: -8574627119691709154}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -263,7 +263,7 @@ MonoBehaviour:
   summonTier: 0
   ManaRefundAmount: 0
   StateController: {fileID: 1740066754483794912}
-  TargetSearcher: {fileID: 6968277638864454052}
+  TargetSearcher: {fileID: -8574627119691709154}
   HoldPointState: {fileID: 6726932860956113883}
   PursuitState: {fileID: 0}
   RestState: {fileID: -626044709997288220}
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackLength: 1.5
-  AttackRange: 25
+  AttackRange: 10
   RotateWhileAttacking: 1
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1740066754483794912}
@@ -510,8 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackState: {fileID: 6384751669862364838}
   AIStateMachine: {fileID: 1740066754483794912}
-  attackWidthDelta: 1.5
---- !u!114 &6968277638864454052
+--- !u!114 &-8574627119691709154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -520,13 +519,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1740066754483794719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a31bc669673dd47bf1856cd1ed1377, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d85c930b0a2b94469b2ed347b9f2c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SightRange: 45
+  SightRange: 30
   UsePrecedence: 0
   MyEntity: {fileID: -2251521059408016390}
   TargetManager: {fileID: 1740066754483794918}
   SearchSpeed: 1
   MyFaction: 0
-  FriendlyRangedAttackManager: {fileID: -4797642703810614546}

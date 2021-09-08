@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d3b73a5fb40994a989ed2b2e53157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SearchRange: 1.75
+  SearchRange: 2
   SearchFrequency: 0.25
   TargetSearcher: {fileID: 5487195000452624832}
   TargetFaction: 0

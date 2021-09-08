@@ -83,7 +83,7 @@ public class SecondaryTargetSearcher : MonoBehaviour, IInitialize
         {
             if (!previousTarget.IsAlive())
             {
-                RecalculateSecondaryTargetNow(previousTarget.GetPosition());
+                RecalculateSecondaryTargetNow(transform.position); //
             }
         }
     }

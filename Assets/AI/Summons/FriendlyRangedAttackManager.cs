@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class FriendlyRangedAttackManager : AIAttackManager
 {
-    [SerializeField] float attackWidthDelta = 1.5f; 
+    //[SerializeField] float attackWidthDelta = 1.5f; 
 
     public override bool CanAttack(ITargetable CurrentTarget)
     {
         bool baseOutput = base.CanAttack(CurrentTarget);
-        bool deltaOutput = EnemyRangedAttackManager.IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta);
+        //bool deltaOutput = EnemyRangedAttackManager.IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta);
 
         if (!baseOutput)
         {
-            print("Could not attack because of base output!");
-            return false;
-        }
-
-        if (!deltaOutput)
-        {
-            print("Could not attack because out delta output!");
             return false;
         }
 
@@ -28,19 +21,11 @@ public class FriendlyRangedAttackManager : AIAttackManager
 
     public override bool IsCrossShaped()
     {
-        return true;
+        return false;
     }
 
     public override float GetCrossDelta()
     {
-        return AttackWidthDelta;
-    }
-
-    public float AttackWidthDelta
-    {
-        get
-        {
-            return attackWidthDelta;
-        }
+        return 0f;
     }
 }

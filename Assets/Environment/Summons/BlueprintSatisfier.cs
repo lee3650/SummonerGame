@@ -21,6 +21,8 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     List<BlueprintSummon> SummonedEntities = new List<BlueprintSummon>();
 
+    [SerializeField] private float CalculatedMaintenanceFee; 
+
     public override void Init()
     {
         print("Init was called on blueprint satisfier!");
@@ -34,13 +36,12 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     private void WaveEnds()
     {
         SetActivated();
-
         PlaceSummonsWhereAble();
     }
 
     void SetActivated()
     {
-        if (MySummon.GetSummoner().TryReduceMana(MaintenanceFee))
+        if (MySummon.GetSummoner().TryReduceMana(CalculatedMaintenanceFee))
         {
             Activated = true; 
         } else
@@ -48,6 +49,12 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             Activated = false;
             RemoveAllSummons();
         }
+    }
+
+    private void CalculateMaintenanceFee(int totalSummons)
+    {
+        //this does require that all the summons we can place, have been placed, so. 
+        CalculatedMaintenanceFee = MaintenanceFee * (float)totalSummons / (float)CalculateMaxSummons();
     }
 
     private void SummonerSet()
@@ -59,7 +66,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public float GetRecurringCost()
     {
-        return MaintenanceFee;
+        return CalculatedMaintenanceFee;
     }
 
     private void BlueprintsChanged()
@@ -138,13 +145,23 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         {
             PruneSummonedEntitiesList();
 
-            int wallsToPlace = CalculateMaxSummons() - SummonedEntities.Count;
+            int maxSummonsToPlace = CalculateMaxSummons() - SummonedEntities.Count;
+            print(string.Format("Calculaed max summons: {0}, summoned entities.count: {1}", CalculateMaxSummons(), SummonedEntities.Count));
+            print("Max summons: " + maxSummonsToPlace);
+            List<Blueprint> validPrints = GetValidBlueprints(Types);
+            print("Num of valid prints: " + validPrints.Count);
+            int actualSummonsToPlace = Mathf.Min(maxSummonsToPlace, validPrints.Count);
+            print("Actual summons to place: " + actualSummonsToPlace);
+            print("-------------------");
+            int summonsAfterPlacement = actualSummonsToPlace + SummonedEntities.Count;
 
-            PlaceSummons(Types, Prefabs, wallsToPlace);
+            CalculateMaintenanceFee(summonsAfterPlacement);
+
+            PlaceSummons(validPrints, Types, Prefabs, actualSummonsToPlace);
         }
     }
 
-    int CalculateMaxSummons()
+    int CalculateMaxSummons() //don't we really just need to calculate that once? The tile underneath can't change? 
     {
         if (prevNode.TileType == CapacityBuffTile)
         {
@@ -154,32 +171,40 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         return MaxNumSummons;
     }
 
-    private void PlaceSummons(List<BlueprintType> types, List<GameObject> prefabs, int numWalls)
+    private void PlaceSummons(List<Blueprint> validPrints, List<BlueprintType> types, List<GameObject> prefabs, int actualSummons)
+    {
+        for (int i = 0; i < actualSummons; i++)
+        {
+            Blueprint p = validPrints[i];
+
+            int index = types.IndexOf(p.BlueprintType);
+
+            p.Satisfied = true;
+
+            GameObject summoned = SummonEntity(prefabs[index], p.Point);
+
+            HealthManager hm = summoned.GetComponent<HealthManager>();
+            SummonedEntities.Add(new BlueprintSummon(hm, p));
+            hm.OnDeath += PruneSummonedEntitiesList;
+
+            break;
+        }
+    }
+
+    List<Blueprint> GetValidBlueprints(List<BlueprintType> types)
     {
         List<Blueprint> prints = BlueprintManager.GetBlueprintsOfTypes(types);
+        List<Blueprint> result = new List<Blueprint>();
 
-        //I feel like this knows a bit too much - it could rely better on abstraction 
-
-        for (int i = 0; i < numWalls; i++)
+        foreach (Blueprint p in prints)
         {
-            foreach (Blueprint p in prints)
+            if (!p.Satisfied && IsBlueprintInRange(p))
             {
-                if (!p.Satisfied && IsBlueprintInRange(p))
-                {
-                    int index = types.IndexOf(p.BlueprintType);
-
-                    p.Satisfied = true;
-
-                    GameObject summoned = SummonEntity(prefabs[index], p.Point); 
-
-                    HealthManager hm = summoned.GetComponent<HealthManager>();
-                    SummonedEntities.Add(new BlueprintSummon(hm, p));
-                    hm.OnDeath += PruneSummonedEntitiesList;
-
-                    break; 
-                }
+                result.Add(p);
             }
         }
+
+        return result; 
     }
 
     private bool IsBlueprintInRange(Blueprint p)
