@@ -161,13 +161,8 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             PruneSummonedEntitiesList();
 
             int maxSummonsToPlace = CalculateMaxSummons() - SummonedEntities.Count;
-            print(string.Format("Calculaed max summons: {0}, summoned entities.count: {1}", CalculateMaxSummons(), SummonedEntities.Count));
-            print("Max summons: " + maxSummonsToPlace);
             List<Blueprint> validPrints = GetValidBlueprints(Types);
-            print("Num of valid prints: " + validPrints.Count);
             int actualSummonsToPlace = Mathf.Min(maxSummonsToPlace, validPrints.Count);
-            print("Actual summons to place: " + actualSummonsToPlace);
-            print("-------------------");
             int summonsAfterPlacement = actualSummonsToPlace + SummonedEntities.Count;
 
             CalculateMaintenanceFee(summonsAfterPlacement);

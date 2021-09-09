@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 50
+  MaxHealth: 40
   CurrentHealth: 0
 --- !u!114 &4648206095511936288
 MonoBehaviour:
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SearchRange: 2
-  SearchFrequency: 0.25
+  SearchFrequency: 0.2
   TargetSearcher: {fileID: 4648206095511936301}
   TargetFaction: 0
 --- !u!1 &4648206096231582276

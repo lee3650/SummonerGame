@@ -29,7 +29,8 @@ public class MapNode
             case TileType.Barracks:
             case TileType.BreakableWall:
             case TileType.ArcherBarracks:
-            case TileType.WallGenerator: 
+            case TileType.WallGenerator:
+            case TileType.Miner: 
                 return true; 
         }
         return false; 
