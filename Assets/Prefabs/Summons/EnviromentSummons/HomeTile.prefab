@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6604907241908217411}
   - component: {fileID: 7026245684619887461}
   - component: {fileID: -5021402466455287429}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: HomeTile
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -161,4 +161,5 @@ MonoBehaviour:
   sr: {fileID: 7864867464807989638}
   MySummon: {fileID: 1593128438270398406}
   TileType: 11
+  Precedence: 0
   MoneyPerWave: 7.5

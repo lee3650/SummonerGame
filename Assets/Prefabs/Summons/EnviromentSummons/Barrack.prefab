@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1143240986551401663}
   - component: {fileID: -931844429646801206}
   - component: {fileID: -4140789016396085564}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Barrack
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   sr: {fileID: 5052993147076501496}
   MySummon: {fileID: 4404983241618756024}
   TileType: 15
+  Precedence: 0
   Range: 15
   MaxNumSummons: 2
   CapacityBuffTile: 13
@@ -171,6 +172,7 @@ MonoBehaviour:
   - {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
   SpriteRenderer: {fileID: 5052993147076501496}
   MaintenanceFee: 4.5
+  CalculatedMaintenanceFee: 0
   SpawnOffset: {x: 1, y: 0}
 --- !u!114 &-9203610554919119060
 MonoBehaviour:

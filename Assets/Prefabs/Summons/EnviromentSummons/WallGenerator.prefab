@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1678411296291060380}
   - component: {fileID: -7697342277831129212}
   - component: {fileID: -3526696554732424335}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: WallGenerator
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   sr: {fileID: 6000955293405737802}
   MySummon: {fileID: 2916608103962426634}
   TileType: 17
+  Precedence: 0
   Range: 17.5
   MaxNumSummons: 6
   CapacityBuffTile: 13
@@ -171,6 +172,7 @@ MonoBehaviour:
   - {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
   SpriteRenderer: {fileID: 6000955293405737802}
   MaintenanceFee: 2.5
+  CalculatedMaintenanceFee: 0
 --- !u!114 &-1678411296291060380
 MonoBehaviour:
   m_ObjectHideFlags: 0

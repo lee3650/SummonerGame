@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6892030134738560957}
   - component: {fileID: 6671626450991788598}
   - component: {fileID: -6970883149118319029}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: ArcherBarrack
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   sr: {fileID: 7609072344873876228}
   MySummon: {fileID: 1343946729412818244}
   TileType: 16
+  Precedence: 0
   Range: 15
   MaxNumSummons: 2
   CapacityBuffTile: 13
@@ -171,6 +172,7 @@ MonoBehaviour:
   - {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}
   SpriteRenderer: {fileID: 7609072344873876228}
   MaintenanceFee: 5
+  CalculatedMaintenanceFee: 0
   SpawnOffset: {x: 0, y: 1}
 --- !u!114 &3441093660795237328
 MonoBehaviour:

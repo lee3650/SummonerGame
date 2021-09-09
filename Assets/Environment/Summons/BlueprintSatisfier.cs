@@ -99,20 +99,35 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     private void KillUnneededSummons()
     {
+        List<BlueprintSummon> summons = FindSummonsToRemove();
+        CalculateMaintenanceFee(SummonedEntities.Count - summons.Count);
+
+        foreach (BlueprintSummon bs in summons)
+        {
+            //that could get sketchy if we have weird death effects but whatever 
+
+            bs.HealthManager.OnDeath -= PruneSummonedEntitiesList;
+            //it's about to prune anyway, so this should be fine.
+
+            bs.HealthManager.SubtractHealth(100000f);
+        }
+
+    }
+    
+    List<BlueprintSummon> FindSummonsToRemove()
+    {
+        List<BlueprintSummon> summons = new List<BlueprintSummon>();
+
         foreach (BlueprintSummon bs in SummonedEntities)
         {
             if (BlueprintManager.ShouldRemoveSummon(bs.Point, bs.BlueprintType))
             {
-                //that could get sketchy if we have weird death effects but whatever 
-                
-                bs.HealthManager.OnDeath -= PruneSummonedEntitiesList;
-                //it's about to prune anyway, so this should be fine.
-             
-                bs.HealthManager.SubtractHealth(100000f);
 
-                //we don't want to return here because technically more than one summon could be needed to be removed
+                summons.Add(bs);
             }
         }
+
+        return summons; 
     }
 
     public int SummonTier
@@ -186,8 +201,6 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             HealthManager hm = summoned.GetComponent<HealthManager>();
             SummonedEntities.Add(new BlueprintSummon(hm, p));
             hm.OnDeath += PruneSummonedEntitiesList;
-
-            break;
         }
     }
 

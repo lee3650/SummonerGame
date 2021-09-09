@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6209397066443110183}
   - component: {fileID: 7165228759015065265}
   - component: {fileID: -3973196150619937828}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Miner
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -100,7 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 6305876023889047352}
   SummonType: 4
+  HealToFull: 0
   WaveHealAmt: 10
+  upgradable: 1
+  summonTier: 0
   ManaRefundAmount: 0
 --- !u!114 &6305876023889047352
 MonoBehaviour:
@@ -158,6 +161,7 @@ MonoBehaviour:
   sr: {fileID: 8059090261315814482}
   MySummon: {fileID: 1506965835460921874}
   TileType: 11
+  Precedence: 0
   MoneyPerWave: 5
 --- !u!114 &7165228759015065265
 MonoBehaviour:
