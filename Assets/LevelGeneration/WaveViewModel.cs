@@ -35,6 +35,7 @@ public class WaveViewModel : MonoBehaviour
         {
             firstLevel = false;
             CurrentLevelManager.EnterFirstLevel();
+            NextWaveButton.SetActive(false);
         }
 
         //this is where we give out our new items and charms and such 

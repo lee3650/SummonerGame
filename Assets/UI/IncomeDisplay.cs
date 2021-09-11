@@ -12,7 +12,7 @@ public class IncomeDisplay : MonoBehaviour
     [SerializeField] PlayerIncome PlayerIncome; 
     [SerializeField] TextMeshProUGUI IncomeText;
     [SerializeField] TextMeshProUGUI ExpensesText;
-
+    [SerializeField] TextMeshProUGUI NetIncomeText; 
 
     float Income = 0f;
     float Expenses = 0f; 
@@ -54,5 +54,6 @@ public class IncomeDisplay : MonoBehaviour
     {
         IncomeText.text = "Income: " + Income;
         ExpensesText.text = "Expenses: " + Expenses;
+        NetIncomeText.text = "Net Income: " + (Income - Expenses);
     }
 }

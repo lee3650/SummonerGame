@@ -26,4 +26,9 @@ public class SearchNode
         this.y = y;
         ParentNode = parent; 
     }
+
+    public SearchNode(float f)
+    {
+        this.f = f;
+    }
 }

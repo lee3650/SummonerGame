@@ -164,7 +164,7 @@ MonoBehaviour:
   TileType: 17
   Precedence: 0
   Range: 17.5
-  MaxNumSummons: 6
+  MaxNumSummons: 8
   CapacityBuffTile: 13
   Types: 0000000001000000
   Prefabs:

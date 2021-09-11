@@ -56,4 +56,25 @@ public abstract class Reward : MonoBehaviour
         get;
         set;
     }
+
+    public static char GetExternalQuality(float internalQuality)
+    {
+        if (internalQuality < 2)
+        {
+            return 'S';
+        }
+        if (internalQuality < 3)
+        {
+            return 'A';
+        }
+        if (internalQuality < 4)
+        {
+            return 'B';
+        }
+        if (internalQuality < 5)
+        {
+            return 'C';
+        }
+        return 'D';
+    }
 }

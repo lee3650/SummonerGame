@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InventoryToggler : MonoBehaviour
 {
-    [SerializeField] InventorySlotManager InventorySlotManager;
+    [SerializeField] List<InventorySlotManager> InventorySlotManagers;
+    [SerializeField] List<GameObject> ParallelToggleUI; 
 
     private void Update()
     {
@@ -16,13 +17,19 @@ public class InventoryToggler : MonoBehaviour
 
     public void ToggleInventory()
     {
-        if (InventorySlotManager.Active)
+        for (int i = 0; i < InventorySlotManagers.Count; i++)
         {
-            InventorySlotManager.Hide();
-        } 
-        else
-        {
-            InventorySlotManager.Show();
+            InventorySlotManager m = InventorySlotManagers[i];
+            if (m.Active)
+            {
+                m.Hide();
+                ParallelToggleUI[i].SetActive(false);
+            }
+            else
+            {
+                m.Show();
+                ParallelToggleUI[i].SetActive(true);
+            }
         }
     }
 }

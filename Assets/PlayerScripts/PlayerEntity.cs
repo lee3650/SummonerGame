@@ -84,7 +84,7 @@ public class PlayerEntity : MonoBehaviour, ILivingEntity
 
     public bool CanChangeSelectedItem()
     {
-        if (StateController.GetCurrentState() is PlayerAttackState)
+        if (StateController.GetCurrentState() is PlayerAttackState || StateController.GetCurrentState() is PlaceHomeState)
         {
             return false;
         }

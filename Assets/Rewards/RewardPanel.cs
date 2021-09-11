@@ -43,7 +43,7 @@ public class RewardPanel : MonoBehaviour
         RewardDescriptionText.gameObject.SetActive(true);
 
         QualityText.gameObject.SetActive(true);
-        QualityText.text = string.Format("Quality (lower is better): {0}", reward.Quality);
+        QualityText.text = string.Format("Quality : {0}", Reward.GetExternalQuality(reward.Quality));
 
         OddsText.gameObject.SetActive(true);
         OddsText.text = string.Format("Odds: {0}%", reward.MaxScore - reward.MinScore);

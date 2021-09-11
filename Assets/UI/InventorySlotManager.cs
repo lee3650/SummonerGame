@@ -16,6 +16,9 @@ public class InventorySlotManager : MonoBehaviour
     [SerializeField] int ItemsPerRow = 6; //can I make it const? 
     [SerializeField] int TotalRows = 0; //start with 0 rows. 
 
+    [SerializeField] List<ItemType> InventoryItemTypes;
+    [SerializeField] bool ControlHotbar = false;  
+
     private List<InventorySlot> InventorySlots = new List<InventorySlot>();
     private List<InventoryRow> InventoryRows = new List<InventoryRow>();
 
@@ -47,12 +50,15 @@ public class InventorySlotManager : MonoBehaviour
 
     private void Inventory_ItemPickedUp(Item obj)
     {
-        InventorySlot newSlot = Instantiate<InventorySlot>(InventorySlotPrefab);
-        newSlot.SetItem(obj);
-        newSlot.SetManager(this);
-        InventorySlots.Add(newSlot);
+        if (obj != null && InventoryItemTypes.Contains(obj.GetItemType()))
+        {
+            InventorySlot newSlot = Instantiate<InventorySlot>(InventorySlotPrefab);
+            newSlot.SetItem(obj);
+            newSlot.SetManager(this);
+            InventorySlots.Add(newSlot);
 
-        DisplayInventorySlots();
+            DisplayInventorySlots();
+        }
     }
 
     private void Inventory_ItemDropped(Item obj)
@@ -106,6 +112,11 @@ public class InventorySlotManager : MonoBehaviour
     
     void UpdateHotbar()
     {
+        if (!ControlHotbar)
+        {
+            return;
+        }
+
         for (int i = 0; i < HotbarSlots.Count; i++)
         {
             if (i < InventorySlots.Count)
