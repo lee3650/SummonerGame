@@ -62,6 +62,21 @@ public class SearchNodeHeap
         }
     }
 
+    public bool IsNodeLowestOfPosition(SearchNode node)
+    {
+        //the issue with this is that you are guaranteed to go through every single point.
+        //we should really use a dictionary 
+
+        foreach (SearchNode n in Data)
+        {
+            if (n.x == node.x && n.y == node.y && n.f < node.f)
+            {
+                return false; 
+            }
+        }
+        return true;
+    }
+
     public SearchNode GetMin()
     {
         //we're going to assume this is non-empty 
@@ -127,14 +142,15 @@ public class SearchNodeHeap
         {
             if (LeftChildExists(i))
             {
-                if (n.f > Data[GetLeftChild(i)].f)
+                if (n.f >= Data[GetLeftChild(i)].f)
                 {
                     return true; 
                 }
             } 
+
             if (RightChildExists(i))
             {
-                if (n.f > Data[GetRightChild(i)].f)
+                if (n.f >= Data[GetRightChild(i)].f)
                 {
                     return true;
                 }
