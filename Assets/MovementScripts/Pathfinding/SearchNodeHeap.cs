@@ -97,7 +97,7 @@ public class SearchNodeHeap
         }
     }
 
-    private int GetLowestChild(int i) //we have to assume of them exists, right. 
+    private int GetLowestChild(int i) //we have to assume one of them exists, right. 
     {
         if (!RightChildExists(i))
         {
@@ -108,7 +108,7 @@ public class SearchNodeHeap
             throw new System.Exception("Tree was not complete!");
         }
 
-        if (Data[GetLeftChild(i)].f < Data[GetRightChild(i)].f)
+        if (Data[GetLeftChild(i)].f <= Data[GetRightChild(i)].f)
         {
             return GetLeftChild(i);
         }
