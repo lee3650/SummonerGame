@@ -52,6 +52,22 @@ public class Summoner : MonoBehaviour, IWaveNotifier
         }
     }
 
+    public bool IsPointInSummonRange(Vector2 point)
+    {
+        foreach (Summon s in Summons)
+        {
+            if (s.GetSummonType() == SummonType.Miner)
+            {
+                if (Vector2.Distance(s.transform.position, point) < s.GetComponent<IRanged>().GetRange())
+                {
+                    return true; 
+                }
+            }
+        }
+
+        return false; 
+    }
+
     public Event GetCharmModifiedEvent(Event e, SummonType type)
     {
         return CharmManager.GetCharmModifiedEvent(e, type);
@@ -93,6 +109,7 @@ public class Summoner : MonoBehaviour, IWaveNotifier
     public void RemoveSummonFromParty(Summon s)
     {
         Summons.Remove(s);
+        print("Summons changed!");
         SummonsChanged();
     }
 

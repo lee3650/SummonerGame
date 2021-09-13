@@ -5,13 +5,14 @@ using UnityEngine;
 public class BlueprintSummon
 {
     public BlueprintType BlueprintType;
-    public Vector2 Point;
+    public Vector2Int Point;
     public HealthManager HealthManager;
 
     public bool IsAlive()
     {
         return HealthManager.IsAlive();
     }
+
 
     public BlueprintSummon(HealthManager hm, Blueprint bp)
     {

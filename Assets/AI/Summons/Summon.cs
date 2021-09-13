@@ -181,7 +181,7 @@ public class Summon : MonoBehaviour
 
     protected virtual void SummonEnds()
     {
-        MySummoner.OnSummonDeath(ManaRefundAmount);
         MySummoner.RemoveSummonFromParty(this);
+        MySummoner.OnSummonDeath(ManaRefundAmount);
     }
 }

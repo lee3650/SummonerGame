@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6604907241908217411}
   - component: {fileID: 7026245684619887461}
   - component: {fileID: -5021402466455287429}
+  - component: {fileID: 7556133506520489820}
   m_Layer: 15
   m_Name: HomeTile
   m_TagString: Untraversable
@@ -163,3 +164,20 @@ MonoBehaviour:
   TileType: 11
   Precedence: 0
   MoneyPerWave: 7.5
+  Range: 16
+--- !u!114 &7556133506520489820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864867464807989639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ea1c63db06653409f81ccc2acb08d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
+    type: 3}
+  SquareGraphicPrefab: {fileID: 0}
+  CreateOnAwake: 1

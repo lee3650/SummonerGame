@@ -77,7 +77,7 @@ public class PlayerSummonController : MonoBehaviour
             //so, right click, we'll get rid of the blueprint
             //and then basically we'll check in wall generator if one of 'our' summons has been moved, or our satisfied blueprints, and then 
             //we'll deal with that there. 
-            BlueprintManager.RemoveBlueprint(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition()));
+            BlueprintManager.RemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition()));
         }
 
         if (SelectedSummon != null)

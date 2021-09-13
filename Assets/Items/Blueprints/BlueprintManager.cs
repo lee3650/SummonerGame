@@ -1,45 +1,48 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BlueprintManager : MonoBehaviour, IResettable
 {
     public static event Action BlueprintsChanged = delegate { };
-    static List<Blueprint> Blueprints = new List<Blueprint>();
-
-    public static void AddBlueprint(Vector2 point, BlueprintType type)
+    private static List<Blueprint> Blueprints = new List<Blueprint>();
+    private static Dictionary<Vector2Int, Blueprint> BlueprintPositions = new Dictionary<Vector2Int, Blueprint>();
+    
+    public static void AddBlueprint(Vector2Int point, BlueprintType type)
     {
-        for (int i = Blueprints.Count - 1; i >= 0; i--)
-        {
-            if (Blueprints[i].Point == point)
-            {
-                Blueprints[i] = new Blueprint(point, type);
-                BlueprintsChanged();
-                return; 
-            }
-        }
+        Blueprint add = new Blueprint(point, type);
 
-        Blueprints.Add(new Blueprint(point, type));
+        BlueprintPositions[point] = add; 
+        Blueprints.Add(add);
 
         BlueprintsChanged();
     }
 
-    public static void SetSatisfied(Vector2 point, bool Satisfied)
+    public static bool IsPointTaken(Vector2Int point)
     {
-        foreach (Blueprint b in Blueprints)
+        Blueprint b;
+        BlueprintPositions.TryGetValue(point, out b);
+        if (b != null)
         {
-            if (b.Point == point)
-            {
-                b.Satisfied = Satisfied;
-                return; 
-            }
+            return true; 
+        }
+        return false; 
+    }
+
+    public static void SetSatisfied(Vector2Int point, bool Satisfied)
+    {
+        //technically these are all references to the same objects, so it should also update the list blueprints. 
+        Blueprint set;
+        if (BlueprintPositions.TryGetValue(point, out set))
+        {
+            set.Satisfied = Satisfied;
         }
     }
 
-    public static bool ShouldRemoveSummon(Vector2 point, BlueprintType type)
+    public static bool ShouldRemoveSummon(Vector2Int point, BlueprintType type)
     {
-        Blueprint print = GetBlueprint(point);
+        Blueprint print;
+        BlueprintPositions.TryGetValue(point, out print);    
         if (print == null)
         {
             return true; 
@@ -51,8 +54,13 @@ public class BlueprintManager : MonoBehaviour, IResettable
         return false; 
     }
 
-    public static void RemoveBlueprint(Vector2 point)
+    public static void RemoveBlueprint(Vector2Int point)
     {
+        if (BlueprintPositions.ContainsKey(point))
+        {
+            BlueprintPositions.Remove(point);
+        }
+
         for (int i = Blueprints.Count - 1; i >= 0; i--)
         {
             if (Blueprints[i].Point == point)
@@ -64,19 +72,35 @@ public class BlueprintManager : MonoBehaviour, IResettable
         }
     }
 
-    public static Blueprint GetBlueprint(Vector2 point)
+    public static void ForceBlueprintsChanged()
     {
-        //you know, we could do a dictionary instead of a list for this.
-        //hm. 
-        foreach (Blueprint bp in Blueprints)
+        BlueprintsChanged();
+    }
+
+    public static List<Blueprint> GetAdjacentBlueprints(Vector2Int point) 
+    {
+        Vector2Int[] dirs = new Vector2Int[]
         {
-            if (bp.Point == point)
+            new Vector2Int(1, 0),
+            new Vector2Int(0, 1),
+            new Vector2Int(-1, 0),
+            new Vector2Int(0, -1),
+        };
+
+        List<Blueprint> prints = new List<Blueprint>();
+
+        foreach (Vector2Int d in dirs)
+        {
+            Vector2Int newPoint = point + d;
+            Blueprint b;
+            BlueprintPositions.TryGetValue(newPoint, out b);
+            if (b != null)
             {
-                return bp; 
+                prints.Add(b);
             }
         }
 
-        return null; 
+        return prints; 
     }
 
     public static List<Blueprint> GetBlueprintsOfTypes(List<BlueprintType> types)

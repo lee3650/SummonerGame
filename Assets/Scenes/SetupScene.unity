@@ -614,7 +614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 212.6625}
+  m_AnchoredPosition: {x: -437.25012, y: 212.66257}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1151,6 +1151,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 1
+  HasRequiredAdjacents: 1
+  RequiredAdjacents: 0000000002000000
+  BlacklistedAdjacents: 01000000
 --- !u!61 &144089482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3841,9 +3844,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllRewards:
-  - {fileID: 770666378}
+  - {fileID: 830656281}
   - {fileID: 1925111384}
-  - {fileID: 1581065122}
+  - {fileID: 770666378}
   - {fileID: 1100966065}
   - {fileID: 587206242}
   - {fileID: 1303712621}
@@ -3851,9 +3854,6 @@ MonoBehaviour:
   - {fileID: 1989150297}
   - {fileID: 738891422}
   - {fileID: 1522356100}
-  - {fileID: 830656281}
-  - {fileID: 1443258494}
-  - {fileID: 1320625726}
   LevelEndRewardThreshold: 5.5
 --- !u!4 &513537719
 Transform:
@@ -7146,6 +7146,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 3
+  HasRequiredAdjacents: 1
+  RequiredAdjacents: 0000000001000000
+  BlacklistedAdjacents: 03000000
 --- !u!61 &1160866059
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9621,7 +9624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.56252}
+  m_AnchoredPosition: {x: -437.25012, y: 115.56249}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -9882,7 +9885,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304991317}
   m_HandleRect: {fileID: 1304991316}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12614,6 +12617,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 2
+  HasRequiredAdjacents: 0
+  RequiredAdjacents: 
+  BlacklistedAdjacents: 02000000
 --- !u!61 &1951856972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13131,6 +13137,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 0
+  HasRequiredAdjacents: 1
+  RequiredAdjacents: 0200000001000000
+  BlacklistedAdjacents: 00000000
 --- !u!61 &2017302982
 BoxCollider2D:
   m_ObjectHideFlags: 0

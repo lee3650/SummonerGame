@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllableSummon, IEarner
+public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllableSummon, IEarner, IRanged
 {
-    [SerializeField] float MoneyPerWave = 5f; 
+    [SerializeField] float MoneyPerWave = 5f;
+    [SerializeField] float Range = 15f;
 
     public override void Init()
     {
@@ -84,6 +85,21 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         return GetMoneyMultipler() * MoneyPerWave;
     }
 
+    public float GetRange()
+    {
+        return Range;
+    }
+
+    public bool IsCrossShaped()
+    {
+        return false; 
+    }
+
+    public float GetCrossDelta()
+    {
+        return 0f;
+    }
+
     public Factions GetFaction()
     {
         return Factions.Player;
@@ -95,6 +111,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         {
             case SellCommand sc:
                 RemoveSummon();
+                BlueprintManager.ForceBlueprintsChanged(); //so, this is contingent on the blueprint satisfiers relying on miners... hm. 
                 break;
             case UpgradeCommand uc:
                 RemoveSummon();

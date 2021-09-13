@@ -120,9 +120,8 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
         foreach (BlueprintSummon bs in SummonedEntities)
         {
-            if (BlueprintManager.ShouldRemoveSummon(bs.Point, bs.BlueprintType))
+            if (BlueprintManager.ShouldRemoveSummon(bs.Point, bs.BlueprintType) || !IsBlueprintInRange(bs.Point))
             {
-
                 summons.Add(bs);
             }
         }
@@ -145,7 +144,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public string GetStatString()
     {
-        string stats = string.Format("Range: {0}\nMax Summons: {1}\nMaintenance Fee: {2}\nActivated: {3}", Range, CalculateMaxSummons(), MaintenanceFee, activated);
+        string stats = string.Format("Range: {0}\nMax Summons: {1}\nMaintenance Fee: {2}\nActivated: {3}", Range, MaxNumSummons, MaintenanceFee, activated);
         return stats; 
     }
 
@@ -173,6 +172,11 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     int CalculateMaxSummons() //don't we really just need to calculate that once? The tile underneath can't change? 
     {
+        if (prevNode == null)
+        {
+            throw new System.Exception("Somehow prev node became null!");
+        }
+
         if (prevNode.TileType == CapacityBuffTile)
         {
             return (int)(MaxNumSummons * capacityBuff);
@@ -206,7 +210,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
         foreach (Blueprint p in prints)
         {
-            if (!p.Satisfied && IsBlueprintInRange(p))
+            if (!p.Satisfied && IsBlueprintInRange(p.Point))
             {
                 result.Add(p);
             }
@@ -215,9 +219,10 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         return result; 
     }
 
-    private bool IsBlueprintInRange(Blueprint p)
+    private bool IsBlueprintInRange(Vector2 p)
     {
-        return Vector2.Distance(transform.position, p.Point) <= Range;
+        return MySummon.GetSummoner().IsPointInSummonRange(p);
+        //return Vector2.Distance(transform.position, p) <= Range;
     }
 
     protected virtual GameObject SummonEntity(GameObject entity, Vector2 endPoint)
@@ -231,7 +236,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         {
             if (SummonedEntities[i].IsAlive() == false)
             {
-                //I also need to reset satisfied. Hm. 
+                //I also need to reset satisfied. Hm.
                 SetSatisfied(SummonedEntities[i], false);
                 SummonedEntities[i].HealthManager.OnDeath -= PruneSummonedEntitiesList;
                 SummonedEntities.RemoveAt(i);

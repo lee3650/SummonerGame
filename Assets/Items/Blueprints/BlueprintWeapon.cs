@@ -6,6 +6,10 @@ using UnityEngine;
 public class BlueprintWeapon : SummonWeapon
 {
     [SerializeField] BlueprintType BlueprintType;
+    [SerializeField] bool HasRequiredAdjacents = true; 
+    [SerializeField] List<BlueprintType> RequiredAdjacents;
+    [SerializeField] List<BlueprintType> BlacklistedAdjacents;
+
     List<GameObject> blueprintImages = new List<GameObject>();
 
     private void Awake()
@@ -18,7 +22,7 @@ public class BlueprintWeapon : SummonWeapon
     {
         for (int i = blueprintImages.Count - 1; i >= 0; i--)
         {
-            if (BlueprintManager.ShouldRemoveSummon(blueprintImages[i].transform.position, BlueprintType))
+            if (BlueprintManager.ShouldRemoveSummon(VectorRounder.RoundVectorToInt(blueprintImages[i].transform.position), BlueprintType))
             {
                 GameObject g = blueprintImages[i];
                 blueprintImages[i] = null;
@@ -28,9 +32,43 @@ public class BlueprintWeapon : SummonWeapon
         }
     }
 
+    public override bool CanUseWeapon(Vector2 mousePos)
+    {
+        if (BlueprintManager.IsPointTaken(VectorRounder.RoundVectorToInt(mousePos)))
+        {
+            return false; 
+        }
+
+        bool adjacentsPass = !HasRequiredAdjacents; //so, if we don't require adjacents, it's automatically true  
+
+        List<Blueprint> adjacentSummons = BlueprintManager.GetAdjacentBlueprints(VectorRounder.RoundVectorToInt(mousePos));
+
+        if (HasRequiredAdjacents)
+        {
+            foreach (Blueprint b in adjacentSummons)
+            {
+                if (RequiredAdjacents.Contains(b.BlueprintType))
+                {
+                    adjacentsPass = true;
+                    break; 
+                }
+            }
+        }
+
+        foreach (Blueprint b in adjacentSummons)
+        {
+            if (BlacklistedAdjacents.Contains(b.BlueprintType))
+            {
+                adjacentsPass = false; 
+            }
+        }
+
+        return base.CanUseWeapon(mousePos) && adjacentsPass;
+    }
+
     public override void UseWeapon(Vector2 mousePos)
     {
-        BlueprintManager.AddBlueprint(VectorRounder.RoundVector(mousePos), BlueprintType);
+        BlueprintManager.AddBlueprint(VectorRounder.RoundVectorToInt(mousePos), BlueprintType);
         GameObject b = Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero));
         blueprintImages.Add(b);
         RangeVisualizer rv; 
