@@ -6,7 +6,8 @@ using UnityEngine;
 public class BlueprintWeapon : SummonWeapon
 {
     [SerializeField] BlueprintType BlueprintType;
-    [SerializeField] bool HasRequiredAdjacents = true; 
+    [SerializeField] bool HasRequiredAdjacents = true;
+    [SerializeField] List<TileType> RequiredAdjacentTiles;
     [SerializeField] List<BlueprintType> RequiredAdjacents;
     [SerializeField] List<BlueprintType> BlacklistedAdjacents;
 
@@ -43,6 +44,8 @@ public class BlueprintWeapon : SummonWeapon
 
         List<Blueprint> adjacentSummons = BlueprintManager.GetAdjacentBlueprints(VectorRounder.RoundVectorToInt(mousePos));
 
+        List<TileType> tiles = MapManager.GetAdjacentTiles(VectorRounder.RoundVectorToInt(mousePos));
+
         if (HasRequiredAdjacents)
         {
             foreach (Blueprint b in adjacentSummons)
@@ -51,6 +54,14 @@ public class BlueprintWeapon : SummonWeapon
                 {
                     adjacentsPass = true;
                     break; 
+                }
+            }
+            foreach (TileType t in tiles)
+            {
+                if (RequiredAdjacentTiles.Contains(t))
+                {
+                    adjacentsPass = true;
+                    break;
                 }
             }
         }

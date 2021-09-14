@@ -1152,6 +1152,7 @@ MonoBehaviour:
   ZeroRotation: 1
   BlueprintType: 1
   HasRequiredAdjacents: 1
+  RequiredAdjacentTiles: 
   RequiredAdjacents: 0000000002000000
   BlacklistedAdjacents: 01000000
 --- !u!61 &144089482
@@ -7147,6 +7148,7 @@ MonoBehaviour:
   ZeroRotation: 1
   BlueprintType: 3
   HasRequiredAdjacents: 1
+  RequiredAdjacentTiles: 0b00000011000000100000000f000000
   RequiredAdjacents: 0000000001000000
   BlacklistedAdjacents: 03000000
 --- !u!61 &1160866059
@@ -12617,8 +12619,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 2
-  HasRequiredAdjacents: 0
-  RequiredAdjacents: 
+  HasRequiredAdjacents: 1
+  RequiredAdjacentTiles: 02000000
+  RequiredAdjacents: 0000000001000000
   BlacklistedAdjacents: 02000000
 --- !u!61 &1951856972
 BoxCollider2D:
@@ -13138,6 +13141,7 @@ MonoBehaviour:
   ZeroRotation: 1
   BlueprintType: 0
   HasRequiredAdjacents: 1
+  RequiredAdjacentTiles: 
   RequiredAdjacents: 0200000001000000
   BlacklistedAdjacents: 00000000
 --- !u!61 &2017302982

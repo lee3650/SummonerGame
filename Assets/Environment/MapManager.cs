@@ -120,6 +120,30 @@ public class MapManager
         return Map[x, y].TileType == tileType;
     }
 
+    public static List<TileType> GetAdjacentTiles(Vector2Int tile)
+    {
+        Vector2Int[] dirs = new Vector2Int[]
+        {
+            new Vector2Int(1, 0),
+            new Vector2Int(0, 1),
+            new Vector2Int(-1, 0),
+            new Vector2Int(0, -1),
+        };
+
+        List<TileType> result = new List<TileType>();
+
+        for (int i = 0; i < dirs.Length; i++)
+        {
+            Vector2Int cur = tile + dirs[i];
+            if (IsPointInBounds(cur.x, cur.y))
+            {
+                result.Add(Map[cur.x, cur.y].TileType);
+            }
+        }
+
+        return result; 
+    }
+
     public static bool IsPointInBounds(int x, int y)
     {
         if (x >= xSize || y >= ySize || x < 0 || y < 0 || Map[0,0] == null)
