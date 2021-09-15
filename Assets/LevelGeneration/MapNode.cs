@@ -61,6 +61,7 @@ public class MapNode
             case TileType.Gate:
                 return 8;
             case TileType.Wall:
+            case TileType.SummonTotem:
                 return 100; 
         }
         throw new System.Exception("Could not get traversal cost for tile type " + TileType);
@@ -117,6 +118,8 @@ public class TileDescription
                 return "Archer barracks. Spawns archers that are positioned based on archer blueprints.";
             case TileType.WallGenerator:
                 return "Wall Generator. Spawns walls based on wall and gate blueprints.";
+            case TileType.SummonTotem:
+                return "Summon Totem. Any blueprint can be placed next to it.";
         }
         return type.ToString();
     }
@@ -142,4 +145,5 @@ public enum TileType
     Barracks,
     ArcherBarracks,
     WallGenerator, 
+    SummonTotem,
 }

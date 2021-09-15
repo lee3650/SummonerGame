@@ -24,8 +24,12 @@ public class MapGenerator : MonoBehaviour
 
         AddWalls(newMap, xSize, ySize);
 
+        AddTotems(xSize, ySize, newMap);
+
         return newMap;
     }
+
+
 
     void AddDivider(int xSize, int ySize, MapNode[,] newMap)
     {
@@ -60,6 +64,57 @@ public class MapGenerator : MonoBehaviour
                 newMap[xSize - 1 - i, y] = new MapNode(false, TileType.Wall);
             }
         }
+    }
+
+    private void AddTotems(int xSize, int ySize, MapNode[,] newMap)
+    {
+        //might as well start at 1 because it's impossible to be 1 away from a wall in the bottom left corner. 
+
+        List<TileType> typesToAvoid = new List<TileType>() {
+            TileType.Wall,
+            TileType.Valley,
+            TileType.SummonTotem,
+        };
+
+        List<Vector2Int> prevTotems = new List<Vector2Int>();
+
+        for (int y = 1; y < ySize - 1; y++)
+        {
+            for (int x = 1; x < xSize - 1; x++)
+            {
+                if (CanPlaceTotem(typesToAvoid, x, y, newMap, prevTotems))
+                {
+                    prevTotems.Add(new Vector2Int(x, y));
+                    newMap[x, y] = new MapNode(false, TileType.SummonTotem);
+                }
+            }
+        }
+    }
+
+    private bool CanPlaceTotem(List<TileType> typesToAvoid, int x, int y, MapNode[,] map, List<Vector2Int> prevTotems)
+    {
+        float minDist = 4.5f; 
+
+        for (int dx = -1; dx <= 1; dx++)
+        {
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                if (typesToAvoid.Contains(map[x + dx, y + dy].TileType))
+                {
+                    return false; 
+                }
+            }
+        }
+
+        foreach (Vector2Int prevTotem in prevTotems)
+        {
+            if (Vector2Int.Distance(new Vector2Int(x, y), prevTotem) < minDist)
+            {
+                return false; 
+            }
+        }
+
+        return true; 
     }
 
     //okay. So, this is the only place we really have to do this. 
