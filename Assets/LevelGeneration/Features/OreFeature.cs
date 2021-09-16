@@ -6,7 +6,7 @@ public class OreFeature : MapFeature
 {
     public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
-        int seedNum = Random.Range(1, 4);
+        int seedNum = Random.Range(3, 6);
 
         List<Vector2> seeds = new List<Vector2>();
 

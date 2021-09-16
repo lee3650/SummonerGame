@@ -7,11 +7,15 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 {
     [SerializeField] float MoneyPerWave = 5f;
     [SerializeField] float Range = 15f;
+    [SerializeField] bool AddToTargeting = true; 
 
     public override void Init()
     {
         print("Awake called!");
-        TargetableEntitiesManager.AddTargetable(this);
+        if (AddToTargeting)
+        {
+            TargetableEntitiesManager.AddTargetable(this);
+        }
         WaveSpawner.NotifyWhenWaveEnds(this);
         base.Init();
     }

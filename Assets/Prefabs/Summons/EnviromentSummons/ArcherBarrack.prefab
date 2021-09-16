@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3441093660795237328}
   - component: {fileID: 6892030134738560957}
   - component: {fileID: -6970883149118319029}
+  - component: {fileID: 4967932676324232505}
   m_Layer: 15
   m_Name: ArcherBarrack
   m_TagString: Untraversable
@@ -163,7 +164,7 @@ MonoBehaviour:
   MySummon: {fileID: 1343946729412818244}
   TileType: 16
   Precedence: 0
-  Range: 15
+  Range: 5
   MaxNumSummons: 2
   CapacityBuffTile: 13
   Types: 03000000
@@ -171,6 +172,7 @@ MonoBehaviour:
   - {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}
   SpriteRenderer: {fileID: 7609072344873876228}
   MaintenanceFee: 5
+  AddToTargeting: 0
   CalculatedMaintenanceFee: 0
   SpawnOffset: {x: 0, y: 1}
 --- !u!114 &3441093660795237328
@@ -217,3 +219,19 @@ MonoBehaviour:
   indicator: {fileID: 5333255960525562003, guid: 4b234ad161cb75d458232d1432b907ef,
     type: 3}
   BlueprintBarracks: {fileID: 4188969383076785655}
+--- !u!114 &4967932676324232505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609072344873876229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ea1c63db06653409f81ccc2acb08d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
+    type: 3}
+  SquareGraphicPrefab: {fileID: 0}
+  CreateOnAwake: 1

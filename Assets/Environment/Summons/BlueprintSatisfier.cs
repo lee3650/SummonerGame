@@ -226,8 +226,8 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     private bool IsBlueprintInRange(Vector2 p)
     {
-        return MySummon.GetSummoner().IsPointInSummonRange(p);
-        //return Vector2.Distance(transform.position, p) <= Range;
+        return Vector2.Distance(transform.position, p) <= Range;
+        //return MySummon.GetSummoner().IsPointInSummonRange(p);
     }
 
     protected virtual GameObject SummonEntity(GameObject entity, Vector2 endPoint)
