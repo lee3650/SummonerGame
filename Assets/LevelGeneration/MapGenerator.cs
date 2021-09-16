@@ -24,12 +24,10 @@ public class MapGenerator : MonoBehaviour
 
         AddWalls(newMap, xSize, ySize);
 
-        AddTotems(xSize, ySize, newMap);
+        //AddTotems(xSize, ySize, newMap);
 
         return newMap;
     }
-
-
 
     void AddDivider(int xSize, int ySize, MapNode[,] newMap)
     {
@@ -85,7 +83,7 @@ public class MapGenerator : MonoBehaviour
                 if (CanPlaceTotem(typesToAvoid, x, y, newMap, prevTotems))
                 {
                     prevTotems.Add(new Vector2Int(x, y));
-                    newMap[x, y] = new MapNode(false, TileType.SummonTotem);
+                    newMap[x, y] = new MapNode(true, TileType.SummonTotem);
                 }
             }
         }

@@ -3465,7 +3465,7 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
-  RequiredTileTypes: 110000000f0000000b000000
+  RequiredTileTypes: 110000000f0000000b00000005000000
   BlacklistedTileTypes: 10000000
 --- !u!1 &437786492
 GameObject:
@@ -12402,7 +12402,7 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
-  RequiredTileTypes: 0b000000100000000f000000
+  RequiredTileTypes: 0b000000100000000f00000005000000
   BlacklistedTileTypes: 11000000
 --- !u!1 &1925111382
 GameObject:
@@ -13144,7 +13144,7 @@ MonoBehaviour:
   ZeroRotation: 1
   BlueprintType: 0
   HasRequiredAdjacents: 1
-  RequiredAdjacentTiles: 120000000500000006000000
+  RequiredAdjacentTiles: 060000000500000011000000
   RequiredAdjacents: 0000000001000000
   BlacklistedAdjacents: 
 --- !u!61 &2017302982
@@ -13528,7 +13528,7 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
-  RequiredTileTypes: 0b0000001000000011000000
+  RequiredTileTypes: 0b000000100000001100000005000000
   BlacklistedTileTypes: 0f000000
 --- !u!1 &2119171362
 GameObject:

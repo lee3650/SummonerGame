@@ -57,11 +57,11 @@ public class MapNode
             case TileType.ArcherBarracks:
                 return 1;
             case TileType.BreakableWall:
+            case TileType.SummonTotem:
                 return 15;
             case TileType.Gate:
                 return 8;
             case TileType.Wall:
-            case TileType.SummonTotem:
                 return 100; 
         }
         throw new System.Exception("Could not get traversal cost for tile type " + TileType);

@@ -19,6 +19,8 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     private bool activated = true;
 
+    [SerializeField] bool AddToTargeting = true; 
+
     List<BlueprintSummon> SummonedEntities = new List<BlueprintSummon>();
 
     [SerializeField] private float CalculatedMaintenanceFee; 
@@ -27,7 +29,10 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     {
         print("Init was called on blueprint satisfier!");
         SummonedEntities = new List<BlueprintSummon>();
-        TargetableEntitiesManager.AddTargetable(this);
+        if (AddToTargeting)
+        {
+            TargetableEntitiesManager.AddTargetable(this);
+        }
         MySummon.SummonerSet += SummonerSet;
         MySummon.SummonWaveEnds += WaveEnds;
         base.Init();

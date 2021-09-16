@@ -40,7 +40,7 @@ public class EnemyRangedPursuitState : AIPursuitState
             {
                 break; 
             }
-            if (MapManager.GetTileType(result + dir) != TileType.Wall)
+            if (MapManager.GetTileType(result + dir) != TileType.Wall && MapManager.GetTileType(result + dir) != TileType.Valley)
             {
                 result += dir;
             } else

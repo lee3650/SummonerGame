@@ -171,6 +171,7 @@ MonoBehaviour:
   - {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
   SpriteRenderer: {fileID: 6000955293405737802}
   MaintenanceFee: 2.5
+  AddToTargeting: 0
   CalculatedMaintenanceFee: 0
 --- !u!114 &-1678411296291060380
 MonoBehaviour:
