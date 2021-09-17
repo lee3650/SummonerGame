@@ -614,7 +614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 213.04962}
+  m_AnchoredPosition: {x: -437.25012, y: 392.92}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1151,9 +1151,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 1
-  HasRequiredAdjacents: 1
-  RequiredAdjacentTiles: 120000000500000006000000
-  RequiredAdjacents: 0000000001000000
+  HasRequiredAdjacents: 0
+  RequiredAdjacentTiles: 
+  RequiredAdjacents: 
   BlacklistedAdjacents: 
 --- !u!61 &144089482
 BoxCollider2D:
@@ -3465,7 +3465,7 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
-  RequiredTileTypes: 110000000f0000000b00000005000000
+  RequiredTileTypes: 110000000f0000000b000000
   BlacklistedTileTypes: 10000000
 --- !u!1 &437786492
 GameObject:
@@ -7150,10 +7150,10 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 3
-  HasRequiredAdjacents: 1
-  RequiredAdjacentTiles: 060000000500000012000000
+  HasRequiredAdjacents: 0
+  RequiredAdjacentTiles: 
   RequiredAdjacents: 
-  BlacklistedAdjacents: 
+  BlacklistedAdjacents: 0300000002000000
 --- !u!61 &1160866059
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9629,7 +9629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.94958}
+  m_AnchoredPosition: {x: -437.25012, y: 295.82007}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -12402,7 +12402,7 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
-  RequiredTileTypes: 0b000000100000000f00000005000000
+  RequiredTileTypes: 0b000000100000000f000000
   BlacklistedTileTypes: 11000000
 --- !u!1 &1925111382
 GameObject:
@@ -12622,10 +12622,10 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 2
-  HasRequiredAdjacents: 1
-  RequiredAdjacentTiles: 120000000500000006000000
+  HasRequiredAdjacents: 0
+  RequiredAdjacentTiles: 
   RequiredAdjacents: 
-  BlacklistedAdjacents: 
+  BlacklistedAdjacents: 0200000003000000
 --- !u!61 &1951856972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13143,9 +13143,9 @@ MonoBehaviour:
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 0
-  HasRequiredAdjacents: 1
-  RequiredAdjacentTiles: 060000000500000011000000
-  RequiredAdjacents: 0000000001000000
+  HasRequiredAdjacents: 0
+  RequiredAdjacentTiles: 
+  RequiredAdjacents: 
   BlacklistedAdjacents: 
 --- !u!61 &2017302982
 BoxCollider2D:
@@ -13528,7 +13528,7 @@ MonoBehaviour:
   rotationOffset: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
-  RequiredTileTypes: 0b000000100000001100000005000000
+  RequiredTileTypes: 0b0000001000000011000000
   BlacklistedTileTypes: 0f000000
 --- !u!1 &2119171362
 GameObject:

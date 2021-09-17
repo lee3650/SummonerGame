@@ -164,7 +164,7 @@ MonoBehaviour:
   MySummon: {fileID: 1343946729412818244}
   TileType: 16
   Precedence: 0
-  Range: 5
+  Range: 15
   MaxNumSummons: 2
   CapacityBuffTile: 13
   Types: 03000000

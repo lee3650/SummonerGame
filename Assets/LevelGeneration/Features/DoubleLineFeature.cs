@@ -8,5 +8,9 @@ public class DoubleLineFeature : LineDividerFeature
     {
         AddLine(ySize / 3, xSize, map);
         AddLine(2 * ySize / 3, xSize, map);
+
+        AddVerticalLine(xSize - lineXOffset - 1, ySize / 3, ySize, -1, map);
+        AddVerticalLine(xSize - lineXOffset - 1, 2 * ySize / 3, ySize, 1, map);
+
     }
 }
