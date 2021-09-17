@@ -30,6 +30,7 @@ public class MapNode
             case TileType.BreakableWall:
             case TileType.ArcherBarracks:
             case TileType.WallGenerator:
+            case TileType.TrapGenerator:
             case TileType.Miner: 
                 return true; 
         }
@@ -52,6 +53,7 @@ public class MapNode
             case TileType.Stone:
             case TileType.Marsh:
             case TileType.Barracks:
+            case TileType.TrapGenerator:
             case TileType.Miner:
             case TileType.WallGenerator:
             case TileType.ArcherBarracks:
@@ -146,4 +148,5 @@ public enum TileType
     ArcherBarracks,
     WallGenerator, 
     SummonTotem,
+    TrapGenerator, 
 }

@@ -9,4 +9,6 @@ public enum BlueprintType
     Gate,
     Melee,
     Archer, 
+    SpikeTrap,
+    ArrowTrap, 
 }

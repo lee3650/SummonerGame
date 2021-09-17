@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngineInternal;
 
 public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitialize
 {
@@ -59,6 +60,11 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
         {
             i.Init();
         }
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 
     public bool CanBeTargetedBy(Factions faction)

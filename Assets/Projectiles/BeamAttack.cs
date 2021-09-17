@@ -30,7 +30,7 @@ public class BeamAttack : Projectile
         {
             line.enabled = true;
 
-            line.SetPositions(new Vector3[] {myWielder.GetPosition(), TargetManager.Target.GetPosition()});
+            line.SetPositions(new Vector3[] {myWielder.GetTransform().position, TargetManager.Target.GetPosition()});
 
             foreach (Event e in EventsToApply)
             {
