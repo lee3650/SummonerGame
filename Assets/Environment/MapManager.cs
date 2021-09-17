@@ -153,6 +153,30 @@ public class MapManager
         return true; 
     }
 
+    public static int GetNumOfAdjacentImpassableTiles(int sx, int sy)
+    {
+        int count = 0;
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x != 0 ^ y != 0)
+                {
+                    if (IsPointInBounds(sx + x, sy + y))
+                    {
+                        if (!Map[sx + x, sy + y].IsTraversable(false))
+                        {
+                            count++; //holy nesting 
+                        }
+                    }
+                }
+            }
+        }
+
+        return count; 
+    }
+
     public static void WritePoint(int x, int y, MapNode newNode)
     {
         if (x >= xSize || y >= ySize || x < 0 || y < 0)

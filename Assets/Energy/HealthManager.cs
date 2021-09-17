@@ -11,9 +11,9 @@ public class HealthManager : MonoBehaviour, IEnergyManager
     public event Action OnDeath = delegate { };
     public event Action OnHealthChanged = delegate { };
 
-    private void Start()
+    private void Awake()
     {
-        CurrentHealth = MaxHealth;        
+        CurrentHealth = MaxHealth;
     }
 
     public bool IsAlive()

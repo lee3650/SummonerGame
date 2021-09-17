@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 {
+  
     [SerializeField] StateController StateController;
     [SerializeField] TargetSearcher TargetSearcher;
     [SerializeField] HoldPointState HoldPointState;
@@ -13,6 +14,7 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
     [SerializeField] float MaintenanceFee;
     [SerializeField] PointToHoldManager PointToHoldManager;
     [SerializeField] DeactivatedState DeactivatedState;
+    [SerializeField] AIAttackState AttackState;
 
     [SerializeField] List<string> StatString; 
 
@@ -79,6 +81,19 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 
         (StateController.GetCurrentState() as IControllableState).HandleCommand(command);
     }
+
+    /*
+     int adjacentImpassableTiles = MapManager.GetNumOfAdjacentImpassableTiles(Mathf.RoundToInt(PointToHoldManager.PointToHold.x), Mathf.RoundToInt(PointToHoldManager.PointToHold.y));
+
+                float totalModifier = 1 - (AttackSpeedModifierPerTile * adjacentImpassableTiles);
+                AttackState.MultiplyAttackLength(totalModifier);
+                print("Attack modifier: " + totalModifier);
+
+                float healthModifier = 1 + (HealthModifierPerTile * adjacentImpassableTiles);
+                HealthManager.HealToNewMax(healthModifier);
+                print("Health modifier: " + healthModifier);
+         
+         */
 
     public bool CanBeSold()
     {

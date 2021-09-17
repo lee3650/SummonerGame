@@ -166,8 +166,6 @@ public class CurrentLevelManager : MonoBehaviour
             case 0:
             case 1: 
             case 3:
-            case 5:
-            case 7: 
                 return true;
         }
         return false; 

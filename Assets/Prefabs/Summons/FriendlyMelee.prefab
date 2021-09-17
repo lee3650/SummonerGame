@@ -417,6 +417,7 @@ MonoBehaviour:
   MaintenanceFee: 0
   PointToHoldManager: {fileID: -6420320303085296378}
   DeactivatedState: {fileID: 5448426088680229287}
+  AttackState: {fileID: 9152717928565083761}
   StatString:
   - 'Range: 1.5'
   - 'Damage: 4'
@@ -568,7 +569,6 @@ MonoBehaviour:
   col: {fileID: 8709340639070952995}
   SpriteRenderer: {fileID: 9194925930672925244}
   MeleeWeapon: {fileID: 8775604864804320805}
-  PointToHoldManager: {fileID: -6420320303085296378}
 --- !u!114 &7699678110255344992
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class AIAttackState : MonoBehaviour, IState
 
     [SerializeField] TargetManager TargetManager;
 
+    float InternalAttackLength;
+
     protected AIEntity AIEntity;
 
     float AttackTimer = 0f;
@@ -21,6 +23,7 @@ public class AIAttackState : MonoBehaviour, IState
     private void Awake()
     {
         AIEntity = GetComponent<AIEntity>();
+        InternalAttackLength = AttackLength;
     }
 
     public void EnterState()
@@ -44,7 +47,7 @@ public class AIAttackState : MonoBehaviour, IState
             TargetManager.MoveAtTarget();
         }
 
-        if (AttackTimer > AttackLength)
+        if (AttackTimer > InternalAttackLength)
         {
             AIStateMachine.TransitionToState(StateToExitTo as IState);
         }
@@ -53,6 +56,16 @@ public class AIAttackState : MonoBehaviour, IState
     public void ExitState()
     {
         EndAttack();
+    }
+
+    public void MultiplyAttackLength(float multiplier)
+    {
+        InternalAttackLength = multiplier * AttackLength;
+    }
+
+    public void ResetAttackLength()
+    {
+        InternalAttackLength = AttackLength;
     }
 
     public virtual void EndAttack()
