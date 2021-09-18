@@ -13,10 +13,21 @@ public class BlueprintWeapon : SummonWeapon
 
     List<GameObject> blueprintImages = new List<GameObject>();
 
+    float Rotation = 0f; 
+
     private void Awake()
     {
         blueprintImages = new List<GameObject>();
         BlueprintManager.BlueprintsChanged += BlueprintsChanged;
+    }
+
+    public override void UpdatePreview(bool visible, Vector2 mousePos)
+    {
+        if (visible && SummonPreview != null)
+        {
+            SummonPreview.transform.eulerAngles = new Vector3(0f, 0f, Rotation);
+        }
+        base.UpdatePreview(visible, mousePos);
     }
 
     private void BlueprintsChanged()
@@ -29,6 +40,17 @@ public class BlueprintWeapon : SummonWeapon
                 blueprintImages[i] = null;
                 blueprintImages.RemoveAt(i);
                 Destroy(g);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (IsSelected)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Rotation -= 90f; 
             }
         }
     }
@@ -79,8 +101,8 @@ public class BlueprintWeapon : SummonWeapon
 
     public override void UseWeapon(Vector2 mousePos)
     {
-        BlueprintManager.AddBlueprint(VectorRounder.RoundVectorToInt(mousePos), BlueprintType);
-        GameObject b = Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector2.zero));
+        BlueprintManager.AddBlueprint(VectorRounder.RoundVectorToInt(mousePos), BlueprintType, Rotation);
+        GameObject b = Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(new Vector3(0f, 0f, Rotation)));
         blueprintImages.Add(b);
         RangeVisualizer rv; 
         if (b.TryGetComponent<RangeVisualizer>(out rv))

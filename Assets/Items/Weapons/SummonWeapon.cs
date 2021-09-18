@@ -16,9 +16,9 @@ public class SummonWeapon : Weapon
 
     public bool ZeroRotation = false;
 
-    private GameObject SummonPreview; 
+    protected GameObject SummonPreview; 
 
-    public void UpdatePreview(bool visible, Vector2 mousePos)
+    public virtual void UpdatePreview(bool visible, Vector2 mousePos)
     {
         if (visible)
         {

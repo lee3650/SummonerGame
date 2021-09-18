@@ -10,6 +10,8 @@ public class Item : MonoBehaviour //base class for every item
     
     private bool AbleToBePickedUp = true;
 
+    protected bool IsSelected = false; 
+
     protected Transform Wielder; 
 
     public bool CanBePickedUp()
@@ -43,6 +45,7 @@ public class Item : MonoBehaviour //base class for every item
     {
         //SpriteRenderer.enabled = true;
         //col.enabled = true; 
+        IsSelected = true; 
     }
     
     public virtual ItemType GetItemType()
@@ -59,5 +62,6 @@ public class Item : MonoBehaviour //base class for every item
     {
         SpriteRenderer.enabled = false;
         col.enabled = false;
+        IsSelected = false; 
     }
 }

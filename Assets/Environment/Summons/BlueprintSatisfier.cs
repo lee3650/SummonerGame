@@ -200,7 +200,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
             p.Satisfied = true;
 
-            GameObject summoned = SummonEntity(prefabs[index], p.Point);
+            GameObject summoned = SummonEntity(prefabs[index], p.Point, p.Rotation);
 
             HealthManager hm = summoned.GetComponent<HealthManager>();
             SummonedEntities.Add(new BlueprintSummon(hm, p));
@@ -230,9 +230,9 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         //return MySummon.GetSummoner().IsPointInSummonRange(p);
     }
 
-    protected virtual GameObject SummonEntity(GameObject entity, Vector2 endPoint)
+    protected virtual GameObject SummonEntity(GameObject entity, Vector2 endPoint, float rotation)
     {
-        return SummonWeapon.SpawnSummon(entity, endPoint, MySummon.GetSummoner(), Quaternion.Euler(Vector3.zero));
+        return SummonWeapon.SpawnSummon(entity, endPoint, MySummon.GetSummoner(), Quaternion.Euler(new Vector3(0f, 0f, rotation)));
     }
 
     private void PruneSummonedEntitiesList()

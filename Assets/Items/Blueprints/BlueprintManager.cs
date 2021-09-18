@@ -8,9 +8,9 @@ public class BlueprintManager : MonoBehaviour, IResettable
     private static List<Blueprint> Blueprints = new List<Blueprint>();
     private static Dictionary<Vector2Int, Blueprint> BlueprintPositions = new Dictionary<Vector2Int, Blueprint>();
     
-    public static void AddBlueprint(Vector2Int point, BlueprintType type)
+    public static void AddBlueprint(Vector2Int point, BlueprintType type, float rotation)
     {
-        Blueprint add = new Blueprint(point, type);
+        Blueprint add = new Blueprint(point, type, rotation);
 
         BlueprintPositions[point] = add; 
         Blueprints.Add(add);

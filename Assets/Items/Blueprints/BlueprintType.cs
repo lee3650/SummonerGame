@@ -11,4 +11,5 @@ public enum BlueprintType
     Archer, 
     SpikeTrap,
     ArrowTrap, 
+    ArrowTurner, 
 }

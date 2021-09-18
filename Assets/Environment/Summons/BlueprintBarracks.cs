@@ -6,7 +6,7 @@ public class BlueprintBarracks : BlueprintSatisfier
 {
     [SerializeField] Vector2Int SpawnOffset; //we are going to want to draw a preview for that.  
 
-    protected override GameObject SummonEntity(GameObject entity, Vector2 endPoint)
+    protected override GameObject SummonEntity(GameObject entity, Vector2 endPoint, float rotation)
     {
         GameObject summon = SummonWeapon.SpawnSummon(entity, (Vector2)transform.position + SpawnOffset, MySummon.GetSummoner(), Quaternion.Euler(Vector2.zero));
         summon.GetComponent<IControllableSummon>().HandleCommand(new HoldPointCommand(endPoint));

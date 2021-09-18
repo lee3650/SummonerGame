@@ -6,12 +6,14 @@ public class Blueprint
 {
     public Vector2Int Point;
     public BlueprintType BlueprintType;
-    public bool Satisfied; 
+    public bool Satisfied;
+    public float Rotation; 
 
-    public Blueprint(Vector2Int point, BlueprintType blueprintType)
+    public Blueprint(Vector2Int point, BlueprintType blueprintType, float rotation)
     {
         Point = point;
         BlueprintType = blueprintType;
-        Satisfied = false; 
+        Satisfied = false;
+        Rotation = rotation;
     }
 }

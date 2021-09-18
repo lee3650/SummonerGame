@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowTrap : MonoBehaviour, IDamager, IWielder
+public class ArrowTrap : PlayerWall, IDamager, IWielder
 {
     [SerializeField] Projectile Projectile;
     [SerializeField] float AttackLength;
@@ -26,7 +26,7 @@ public class ArrowTrap : MonoBehaviour, IDamager, IWielder
 
     private void Attack()
     {
-        Projectile p = Instantiate(Projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, projDir)));
+        Projectile p = Instantiate(Projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, transform.eulerAngles.z + projDir)));
         p.Fire(this);
     }
 
