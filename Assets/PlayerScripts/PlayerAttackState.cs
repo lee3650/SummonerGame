@@ -19,6 +19,7 @@ public class PlayerAttackState : MonoBehaviour, IState
     [SerializeField] StateController StateController;
 
     [SerializeField] PlayerSummonController PlayerSummonController;
+    [SerializeField] Summoner Summoner;
 
     float timer = 0f;
 
@@ -48,6 +49,8 @@ public class PlayerAttackState : MonoBehaviour, IState
             deselectAfter = weapon.ShouldDeselectAfterAttacking();
 
             //play an animation, a sound, stuff like that
+
+            Summoner.OnFinancialsChanged();
         } else
         {
             StateController.TransitionToState(PlayerMoveState);

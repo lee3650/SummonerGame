@@ -12,7 +12,8 @@ public class PlaceHomeState : MonoBehaviour, IState
     [SerializeField] HealthManager health;
     [SerializeField] MovementController MovementController;
     [SerializeField] RotationController RotationController;
-    [SerializeField] GameObject NextWaveButton; 
+    [SerializeField] GameObject NextWaveButton;
+    [SerializeField] Summoner Summoner;
 
     private HomeTileSummon actualHomeSummon;
 
@@ -63,5 +64,6 @@ public class PlaceHomeState : MonoBehaviour, IState
         NextWaveButton.SetActive(true); //this is kinda lame but whatever 
         actualHomeSummon.GetComponent<SummonWeapon>().OnDeselection();
         Destroy(actualHomeSummon.gameObject);
+        Summoner.OnFinancialsChanged();
     }
 }

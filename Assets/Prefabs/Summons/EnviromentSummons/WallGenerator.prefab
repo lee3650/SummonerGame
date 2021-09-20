@@ -163,13 +163,15 @@ MonoBehaviour:
   TileType: 17
   Precedence: 0
   Range: 17.5
-  MaxNumSummons: 8
+  MaxNumSummons: 15
   CapacityBuffTile: 13
-  Types: 000000000100000006000000
-  Prefabs:
-  - {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
-  - {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
-  - {fileID: 8271108277455081949, guid: 54c9f9b8002a79c41aef855f85be16d5, type: 3}
+  BlueprintData:
+  - BlueprintType: 0
+    Prefab: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
+    MaintenanceFee: 0.3125
+  - BlueprintType: 1
+    Prefab: {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
+    MaintenanceFee: 0.3125
   SpriteRenderer: {fileID: 6000955293405737802}
   MaintenanceFee: 2.5
   AddToTargeting: 0

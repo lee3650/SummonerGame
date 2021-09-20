@@ -115,7 +115,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         gameObject.SetActive(false);
     }
 
-    public void HandleEvent(Event e)
+    public virtual void HandleEvent(Event e)
     {
         switch (e.MyType)
         {

@@ -11,8 +11,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     [SerializeField] TileType CapacityBuffTile = TileType.Stone;
     const float capacityBuff = 1.5f;
 
-    [SerializeField] List<BlueprintType> Types; 
-    [SerializeField] List<GameObject> Prefabs;
+    [SerializeField] List<BlueprintPrefabData> BlueprintData;  
     [SerializeField] SpriteRenderer SpriteRenderer;
 
     [SerializeField] float MaintenanceFee = 5f; 
@@ -56,10 +55,14 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         }
     }
 
-    private void CalculateMaintenanceFee(int totalSummons)
+    public void CalculateMaintenanceFee()
     {
-        //this does require that all the summons we can place, have been placed, so. 
-        CalculatedMaintenanceFee = MaintenanceFee * (float)totalSummons / (float)CalculateMaxSummons();
+        float newFee = 0f;
+        foreach (BlueprintSummon bs in SummonedEntities)
+        {
+            newFee += bs.Fee;
+        }
+        CalculatedMaintenanceFee = newFee; 
     }
 
     private void SummonerSet()
@@ -71,6 +74,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public float GetRecurringCost()
     {
+        CalculateMaintenanceFee();
         return CalculatedMaintenanceFee;
     }
 
@@ -105,7 +109,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     private void KillUnneededSummons()
     {
         List<BlueprintSummon> summons = FindSummonsToRemove();
-        CalculateMaintenanceFee(SummonedEntities.Count - summons.Count);
+        //CalculateMaintenanceFee(SummonedEntities.Count - summons.Count);
 
         foreach (BlueprintSummon bs in summons)
         {
@@ -165,13 +169,13 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             PruneSummonedEntitiesList();
 
             int maxSummonsToPlace = CalculateMaxSummons() - SummonedEntities.Count;
-            List<Blueprint> validPrints = GetValidBlueprints(Types);
+            List<Blueprint> validPrints = GetValidBlueprints(BlueprintData);
             int actualSummonsToPlace = Mathf.Min(maxSummonsToPlace, validPrints.Count);
-            int summonsAfterPlacement = actualSummonsToPlace + SummonedEntities.Count;
+            
+            List<BlueprintPrefabData> summonsToPlace = GetSummonsToPlace(validPrints, BlueprintData, actualSummonsToPlace);
+            //CalculateMaintenanceFee(summonsToPlace);
 
-            CalculateMaintenanceFee(summonsAfterPlacement);
-
-            PlaceSummons(validPrints, Types, Prefabs, actualSummonsToPlace);
+            PlaceSummons(validPrints, summonsToPlace, actualSummonsToPlace);
         }
     }
 
@@ -190,26 +194,55 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         return MaxNumSummons;
     }
 
-    private void PlaceSummons(List<Blueprint> validPrints, List<BlueprintType> types, List<GameObject> prefabs, int actualSummons)
+    private List<BlueprintPrefabData> GetSummonsToPlace(List<Blueprint> validPrints, List<BlueprintPrefabData> data, int actualSummons)
+    {
+        List<BlueprintPrefabData> result = new List<BlueprintPrefabData>();
+
+        for (int i = 0; i < actualSummons; i++)
+        {
+            result.Add(FindBlueprintDataFromType(validPrints[i].BlueprintType, data));
+        }
+
+        return result; 
+    }
+
+    private void PlaceSummons(List<Blueprint> validPrints, List<BlueprintPrefabData> summonsToPlace, int actualSummons)
     {
         for (int i = 0; i < actualSummons; i++)
         {
             Blueprint p = validPrints[i];
-
-            int index = types.IndexOf(p.BlueprintType);
+            BlueprintPrefabData d = summonsToPlace[i];
 
             p.Satisfied = true;
 
-            GameObject summoned = SummonEntity(prefabs[index], p.Point, p.Rotation);
+            GameObject summoned = SummonEntity(d.Prefab, p.Point, p.Rotation);
 
             HealthManager hm = summoned.GetComponent<HealthManager>();
-            SummonedEntities.Add(new BlueprintSummon(hm, p));
+            SummonedEntities.Add(new BlueprintSummon(hm, p, d.MaintenanceFee));
             hm.OnDeath += PruneSummonedEntitiesList;
         }
     }
 
-    List<Blueprint> GetValidBlueprints(List<BlueprintType> types)
+    private BlueprintPrefabData FindBlueprintDataFromType(BlueprintType t, List<BlueprintPrefabData> data)
     {
+        foreach (BlueprintPrefabData d in data)
+        {
+            if (d.BlueprintType == t)
+            {
+                return d;
+            }
+        }
+        throw new System.Exception("Could not find blueprint data for type " + t.ToString());
+    }
+
+    List<Blueprint> GetValidBlueprints(List<BlueprintPrefabData> data)
+    {
+        List<BlueprintType> types = new List<BlueprintType>();
+        foreach (BlueprintPrefabData d in data)
+        {
+            types.Add(d.BlueprintType);
+        }
+
         List<Blueprint> prints = BlueprintManager.GetBlueprintsOfTypes(types);
         List<Blueprint> result = new List<Blueprint>();
 
@@ -226,10 +259,10 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     private bool IsBlueprintInRange(Vector2 p)
     {
-        return Vector2.Distance(transform.position, p) <= Range;
-        //return MySummon.GetSummoner().IsPointInSummonRange(p);
+        return MySummon.GetSummoner().IsPointInSummonRange(p);
+        //return Vector2.Distance(transform.position, p) <= Range;
     }
-
+    
     protected virtual GameObject SummonEntity(GameObject entity, Vector2 endPoint, float rotation)
     {
         return SummonWeapon.SpawnSummon(entity, endPoint, MySummon.GetSummoner(), Quaternion.Euler(new Vector3(0f, 0f, rotation)));

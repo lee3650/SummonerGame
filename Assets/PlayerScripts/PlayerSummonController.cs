@@ -11,6 +11,7 @@ public class PlayerSummonController : MonoBehaviour
     [SerializeField] SelectedSummonUI SelectedSummonUI;
     [SerializeField] ManaManager ManaManager;
     [SerializeField] PlayerAttackState PlayerAttackState;
+    [SerializeField] Summoner Summoner;
 
     const float SelectionRadius = 0.1f;
 
@@ -39,6 +40,8 @@ public class PlayerSummonController : MonoBehaviour
             IControllableSummon s = SelectedSummon;
             DeselectSummon();
             s.HandleCommand(new SellCommand());
+
+            Summoner.OnFinancialsChanged();
         }
     }
 
@@ -77,7 +80,11 @@ public class PlayerSummonController : MonoBehaviour
             //so, right click, we'll get rid of the blueprint
             //and then basically we'll check in wall generator if one of 'our' summons has been moved, or our satisfied blueprints, and then 
             //we'll deal with that there. 
-            BlueprintManager.RemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition()));
+
+            if (BlueprintManager.TryRemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition())))
+            {
+                Summoner.OnFinancialsChanged();
+            }
         }
 
         if (SelectedSummon != null)

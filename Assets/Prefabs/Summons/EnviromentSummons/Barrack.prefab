@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -9203610554919119060}
   - component: {fileID: -1143240986551401663}
   - component: {fileID: -4140789016396085564}
-  - component: {fileID: 9089531817422940231}
   m_Layer: 15
   m_Name: Barrack
   m_TagString: Untraversable
@@ -165,13 +164,15 @@ MonoBehaviour:
   TileType: 15
   Precedence: 0
   Range: 15
-  MaxNumSummons: 2
+  MaxNumSummons: 4
   CapacityBuffTile: 13
-  Types: 02000000
-  Prefabs:
-  - {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
+  BlueprintData:
+  - BlueprintType: 2
+    Prefab: {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab,
+      type: 3}
+    MaintenanceFee: 2.25
   SpriteRenderer: {fileID: 5052993147076501496}
-  MaintenanceFee: 4.5
+  MaintenanceFee: 0
   AddToTargeting: 0
   CalculatedMaintenanceFee: 0
   SpawnOffset: {x: 1, y: 0}
@@ -219,19 +220,3 @@ MonoBehaviour:
   indicator: {fileID: 5333255960525562003, guid: 4b234ad161cb75d458232d1432b907ef,
     type: 3}
   BlueprintBarracks: {fileID: 1559716552411547915}
---- !u!114 &9089531817422940231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5052993147076501497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ea1c63db06653409f81ccc2acb08d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RangeGraphicPrefab: {fileID: 983139472744808186, guid: 96f9dbf7c7c6c544780d54fe1e4b3984,
-    type: 3}
-  SquareGraphicPrefab: {fileID: 0}
-  CreateOnAwake: 1

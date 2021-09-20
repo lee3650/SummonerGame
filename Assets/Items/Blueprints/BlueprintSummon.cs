@@ -6,6 +6,7 @@ public class BlueprintSummon
 {
     public BlueprintType BlueprintType;
     public Vector2Int Point;
+    public float Fee; 
     public HealthManager HealthManager;
 
     public bool IsAlive()
@@ -14,10 +15,11 @@ public class BlueprintSummon
     }
 
 
-    public BlueprintSummon(HealthManager hm, Blueprint bp)
+    public BlueprintSummon(HealthManager hm, Blueprint bp, float fee)
     {
         Point = bp.Point; 
         BlueprintType = bp.BlueprintType;
-        HealthManager = hm; 
+        HealthManager = hm;
+        Fee = fee; 
     }
 }

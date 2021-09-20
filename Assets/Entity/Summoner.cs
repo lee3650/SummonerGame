@@ -10,7 +10,8 @@ public class Summoner : MonoBehaviour, IWaveNotifier
     [SerializeField] PlayerIncome PlayerIncome;
 
     public event Action SummonsChanged = delegate { };
-    
+    public event Action FinancialsChanged = delegate { };
+
     ILivingEntity Entity;
     List<Summon> Summons = new List<Summon>();
 
@@ -27,6 +28,11 @@ public class Summoner : MonoBehaviour, IWaveNotifier
         {
             TryAddCharmToSummon(s, charm);
         }
+    }
+
+    public void OnFinancialsChanged()
+    {
+        FinancialsChanged();
     }
 
     public List<Summon> GetSummons()

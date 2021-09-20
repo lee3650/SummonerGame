@@ -86,7 +86,7 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
 
     public void Rotate(float amount)
     {
-        transform.eulerAngles = transform.eulerAngles + new Vector3(0f, 0f, amount);
+        transform.eulerAngles = new Vector3(0f, 0f, amount);
         MovementController.SetVelocity(transform.up, Velocity);
     }
 

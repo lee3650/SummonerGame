@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 4
   EventType: 2
-  Velocity: 12
+  Velocity: 20
   StickToTarget: 1
   MovementController: {fileID: 919925079335150361}
   col: {fileID: 388957689}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 919925079335150362}
-  MoveSpeed: 0
+  BaseMoveSpeed: 0
   Sensitivity: 0
   CanGoThroughWalls: 1
 --- !u!50 &919925079335150362

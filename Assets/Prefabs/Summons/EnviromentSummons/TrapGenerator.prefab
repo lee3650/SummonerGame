@@ -15,17 +15,22 @@ PrefabInstance:
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: Types.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: Prefabs.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: MaxNumSummons
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
@@ -35,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: Types.Array.data[1]
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
@@ -47,7 +52,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 4778944115168144804, guid: bef68b6274e30044fb9834931b758ba3,
+      objectReference: {fileID: 8271108277455081949, guid: 54c9f9b8002a79c41aef855f85be16d5,
         type: 3}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
@@ -57,7 +62,39 @@ PrefabInstance:
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: MaintenanceFee
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[1].BlueprintType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 8271108277455081949, guid: 54c9f9b8002a79c41aef855f85be16d5,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[0].BlueprintType
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 4778944115168144804, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[0].MaintenanceFee
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[1].MaintenanceFee
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
