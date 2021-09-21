@@ -12,8 +12,6 @@ public class MazeFeature : MapFeature
     public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
         //so, we're probably going to want to make a new representation of the map. 
-        //We can just do the classic char map and then draw the walls based on that. 
-
 
         EntranceAndExitDir[,] maze = new EntranceAndExitDir[xSize/cellSize, ySize/cellSize];
 
@@ -29,7 +27,7 @@ public class MazeFeature : MapFeature
         Opposites['E'] = 'W';
         Opposites['W'] = 'E';
 
-        CarvePassages(0, 0, maze);
+        CarvePassages(0, 0, maze); //we should start at a random direction 
 
         //eh why even test this. Let's just go for it. 
 
@@ -48,8 +46,10 @@ public class MazeFeature : MapFeature
                 //okay how about this lol - conceptually, it's like pushing a box through the scene. 
                 //a box that is 3x3 and has a bottom left corner at (relative) 1,1. 
                 //okay. We can use that. 
-
-                DrawMazeWalls(x * cellSize, y * cellSize, maze[x, y], map);    
+                if (Random.Range(0, 100) < 75)
+                {
+                    DrawMazeWalls(x * cellSize, y * cellSize, maze[x, y], map);    
+                }
             }
         }
     }
@@ -58,7 +58,7 @@ public class MazeFeature : MapFeature
     {
         for (int dx = 0; dx < cellSize; dx++)
         {
-            if (ShouldPlaceWallAtPoint(dx, 0, dir))
+            if (ShouldPlaceWallAtPoint(dx, 0, dir) && TileIsNotBoundary(sx + dx, map))
             {
                 map[sx + dx, sy] = new MapNode(false, TileType.Valley);
             }
@@ -71,21 +71,25 @@ public class MazeFeature : MapFeature
 
         for (int dy = 0; dy < cellSize; dy++)
         {
-            if (ShouldPlaceWallAtPoint(0, dy, dir))
+            if (ShouldPlaceWallAtPoint(0, dy, dir) && TileIsNotBoundary(sx, map))
             {
                 map[sx, sy + dy] = new MapNode(false, TileType.Valley);
             }
 
-            if (ShouldPlaceWallAtPoint(cellSize - 1, dy, dir))
+            if (ShouldPlaceWallAtPoint(cellSize - 1, dy, dir) && TileIsNotBoundary(sx + cellSize - 1, map))
             {
                 map[sx + cellSize - 1, sy + dy] = new MapNode(false, TileType.Valley);
             }
         }
     }
 
+    private bool TileIsNotBoundary(int x, MapNode[,] map)
+    {
+        return x != 0 && x != map.GetLength(0) - 1;
+    }
+
     private bool ShouldPlaceWallAtPoint(int dx, int dy, EntranceAndExitDir dirs)
     {
-
         char[,] tile = new char[cellSize, cellSize];
         for (int x = 1; x < cellSize - 1; x++)
         {
@@ -95,12 +99,15 @@ public class MazeFeature : MapFeature
 
                 if (x + dirs.EntranceDir.x < cellSize && y + dirs.EntranceDir.y < cellSize && x + dirs.EntranceDir.x >= 0 && y + dirs.EntranceDir.y >= 0)
                 {
-                    tile[x + dirs.EntranceDir.x , y + dirs.EntranceDir.y] = 'c';
+                    tile[x + dirs.EntranceDir.x, y + dirs.EntranceDir.y] = 'c';
                 }
 
-                if (x + dirs.ExitDir.x < cellSize && y + dirs.ExitDir.y < cellSize && x + dirs.ExitDir.x >= 0 && y + dirs.ExitDir.y >= 0)
+                foreach (Vector2Int exitDir in dirs.ExitDir)
                 {
-                    tile[x + dirs.ExitDir.x, y + dirs.ExitDir.y] = 'c';
+                    if (x + exitDir.x < cellSize && y + exitDir.y < cellSize && x + exitDir.x >= 0 && y + exitDir.y >= 0)
+                    {
+                        tile[x + exitDir.x, y + exitDir.y] = 'c';
+                    }
                 }
             }
         }
@@ -120,7 +127,7 @@ public class MazeFeature : MapFeature
 
             if (next.x >= 0 && next.y >= 0 && next.x < map.GetLength(0) && next.y < map.GetLength(1) && map[next.x, next.y] == null)
             {
-                map[x, y].ExitDir = DirToVector[dir];
+                map[x, y].ExitDir.Add(DirToVector[dir]);
                 map[next.x, next.y] = new EntranceAndExitDir(DirToVector[Opposites[dir]]);
 
                 CarvePassages(next.x, next.y, map);
@@ -132,11 +139,11 @@ public class MazeFeature : MapFeature
 class EntranceAndExitDir
 {
     public Vector2Int EntranceDir;
-    public Vector2Int ExitDir;
+    public List<Vector2Int> ExitDir;
 
     public EntranceAndExitDir(Vector2Int entranceDir)
     {
         EntranceDir = entranceDir;
-        ExitDir = new Vector2Int(); 
+        ExitDir = new List<Vector2Int>(); 
     }
 }

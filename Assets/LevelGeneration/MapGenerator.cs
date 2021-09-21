@@ -33,10 +33,16 @@ public class MapGenerator : MonoBehaviour
     {
         List<MapFeature> dividers = new List<MapFeature>()
         {
-//            new DividerFeature(),
-  //          new LineDividerFeature(),
-    //        new DoubleLineFeature(),
-            new MazeFeature()
+            new DividerFeature(),
+            new LineDividerFeature(),
+            new DoubleLineFeature(),
+            new MazeFeature(),
+            new MazeFeature(),
+            new MazeFeature(),
+            new MazeFeature(),
+            new MazeFeature(),
+            new MazeFeature(),
+            new MazeFeature(),
         };
 
         MapFeature divider = dividers[Random.Range(0, dividers.Count)];
