@@ -14,8 +14,9 @@ public class MazeFeature : MapFeature
         //so, we're probably going to want to make a new representation of the map. 
 
         EntranceAndExitDir[,] maze = new EntranceAndExitDir[xSize/cellSize, ySize/cellSize];
-
-        maze[0, 0] = new EntranceAndExitDir(new Vector2Int());
+        //Random.Range(0, maze.GetLength(1))
+        Vector2Int start = new Vector2Int(Random.Range(0, maze.GetLength(0)), 0);
+        maze[start.x, start.y] = new EntranceAndExitDir(new Vector2Int());
 
         DirToVector['N'] = new Vector2Int(0, 1);
         DirToVector['S'] = new Vector2Int(0, -1);
@@ -27,7 +28,8 @@ public class MazeFeature : MapFeature
         Opposites['E'] = 'W';
         Opposites['W'] = 'E';
 
-        CarvePassages(0, 0, maze); //we should start at a random direction 
+
+        CarvePassages(start.x, start.y, maze); 
 
         //eh why even test this. Let's just go for it. 
 
