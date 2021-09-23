@@ -15,10 +15,11 @@ public class BlueprintWeapon : SummonWeapon
 
     float Rotation = 0f; 
 
-    private void Awake()
+    protected override void Awake()
     {
         blueprintImages = new List<GameObject>();
         BlueprintManager.BlueprintsChanged += BlueprintsChanged;
+        base.Awake();
     }
 
     public override void UpdatePreview(bool visible, Vector2 mousePos)

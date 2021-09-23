@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4188969383076785655}
   - component: {fileID: 3441093660795237328}
   - component: {fileID: 6892030134738560957}
-  - component: {fileID: -6970883149118319029}
   m_Layer: 15
   m_Name: ArcherBarrack
   m_TagString: Untraversable
@@ -76,8 +75,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: 49d1f42ebd757f6499b1dfca27e25fef, type: 3}
-  m_Color: {r: 0.51690996, g: 0.57867527, b: 0.9056604, a: 1}
+  m_Sprite: {fileID: 9085000768154411086, guid: a08b5cb348339a945bf254fd37903fa3,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -136,8 +136,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -205,18 +205,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SellPrice: 0
---- !u!114 &-6970883149118319029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7609072344873876229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7504c4c61a8b99e4fa858e4d55b7103c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indicator: {fileID: 5333255960525562003, guid: 4b234ad161cb75d458232d1432b907ef,
-    type: 3}
-  BlueprintBarracks: {fileID: 4188969383076785655}

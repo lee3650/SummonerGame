@@ -475,6 +475,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 8059090261315814483, guid: 87ba03f399c694745b8cc03722422acb, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 080000000a00000009000000
@@ -520,6 +521,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 2771856131788798343, guid: c1500481aa36d2c41ac01519b37c31af, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000011000000
@@ -748,7 +750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 212.66248}
+  m_AnchoredPosition: {x: -437.25012, y: 212.6625}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -830,6 +832,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 5154709158764781008, guid: b0c7de29f8adb1d48876e4ff92307974, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 0
 --- !u!61 &64325006
@@ -1280,8 +1283,9 @@ MonoBehaviour:
     a gate blueprint if it still has generating capacity. Gates have less health than
     walls but entities friendly to the player can pass through them.
   DeselectAfterAttacking: 0
-  Summon: {fileID: 4562105208068300990, guid: 25439b22922a27b45b8ed464ae6bdc39, type: 3}
+  Summon: {fileID: 7416534811140319932, guid: a0b51cd3df3046f4bb6c5b7d58c28ef5, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 1
@@ -3595,9 +3599,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3644,8 +3648,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.3962264, g: 0.2532485, b: 0.11027056, a: 1}
+  m_Sprite: {fileID: 6451434630987828960, guid: a08b5cb348339a945bf254fd37903fa3,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3690,6 +3695,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 7609072344873876229, guid: d4a8b6a0816f2d34184cdcb1ab31b670, type: 3}
   rotationOffset: 0
+  UseSummonImage: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 110000000f0000000b00000013000000
@@ -3764,6 +3770,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
 --- !u!61 &442475573
@@ -4360,6 +4367,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 0
 --- !u!1 &570699593
@@ -5053,7 +5061,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5455,6 +5463,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 5470023481148401198, guid: bee1ae85a3b48944097279dda1c2ab1a, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 0
 --- !u!61 &710260378
@@ -5679,6 +5688,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 0
   Summon: {fileID: 8450089276935444039, guid: d99b1d586616bf242a3b84d7ea772224, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 6
@@ -6829,6 +6839,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 0
   Summon: {fileID: 5352556645138838702, guid: 6a7a670d42e46564ba9080e7e5d8334d, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 5
@@ -7469,6 +7480,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
 --- !u!61 &1130657129
@@ -7648,6 +7660,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 0
   Summon: {fileID: 895104399634732807, guid: e1fa421ce2678a240a00763e774e69d0, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 3
@@ -7871,6 +7884,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 0
 --- !u!61 &1176545906
@@ -9593,6 +9607,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 0
   Summon: {fileID: 1252479461384218976, guid: a725cfd8442a8e84bbb4bb92e9b13821, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 4
@@ -12780,6 +12795,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 258440875104758320, guid: 07465f95b160a3d488881269cadc31a1, type: 3}
   rotationOffset: 90
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 0
 --- !u!61 &1773494493
@@ -13222,6 +13238,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000013000000
@@ -13441,6 +13458,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 0
   Summon: {fileID: 3948711407154339661, guid: 11c15ffe86833674ea07f0001b70f13f, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 2
@@ -13960,8 +13978,9 @@ MonoBehaviour:
   WeaponDescription: Places a wall blueprint. A wall generator will place its walls
     based on where the wall blueprints are.
   DeselectAfterAttacking: 0
-  Summon: {fileID: 7555862398476564625, guid: 686e46e85e8510443996dcffa748b95c, type: 3}
+  Summon: {fileID: 790292517423554865, guid: 83af48144d84fad489da690235d3dc26, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 0
@@ -14034,7 +14053,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6792453, g: 0.44535422, b: 0.44762093, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4745098}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14252,9 +14271,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -14301,8 +14320,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.84046316, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 1760848090713864405, guid: f141d045742550243b7cdc3d21d3d257,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14348,6 +14368,7 @@ MonoBehaviour:
   DeselectAfterAttacking: 1
   Summon: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000001300000011000000

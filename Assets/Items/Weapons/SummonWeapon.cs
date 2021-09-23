@@ -10,13 +10,27 @@ public class SummonWeapon : Weapon
     public const float RefundPercent = 0.67f;
 
     [SerializeField] protected GameObject Summon;
-    [SerializeField] float rotationOffset; 
+    [SerializeField] float rotationOffset;
+    [SerializeField] bool UseSummonImage = true; 
     
     public bool ReduceMaxMana;
 
     public bool ZeroRotation = false;
 
-    protected GameObject SummonPreview; 
+    protected GameObject SummonPreview;
+
+    protected virtual void Awake()
+    {
+        if (UseSummonImage)
+        {
+            SpriteRenderer sr;
+            if (Summon.TryGetComponent<SpriteRenderer>(out sr))
+            {
+                GetComponent<SpriteRenderer>().color = sr.color;
+                GetComponent<SpriteRenderer>().sprite = sr.sprite;
+            }
+        }
+    }
 
     public virtual void UpdatePreview(bool visible, Vector2 mousePos)
     {
