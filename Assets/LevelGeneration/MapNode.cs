@@ -149,4 +149,7 @@ public enum TileType
     WallGenerator, 
     SummonTotem,
     TrapGenerator, 
+    Any, 
+    BottomOfMap,
+    TopOfMap
 }

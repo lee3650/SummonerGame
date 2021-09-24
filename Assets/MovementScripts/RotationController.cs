@@ -7,6 +7,9 @@ public class RotationController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float RotationSpeed;
+    [SerializeField] DirectionToSprite[] directionToSprites = new DirectionToSprite[4];
+    [SerializeField] SpriteRenderer sr;
+    [SerializeField] bool RotateByChangingSprite; 
 
     void Start()
     {
@@ -48,10 +51,35 @@ public class RotationController : MonoBehaviour
 
     public void FaceDirection(Vector2 dir)
     {
-        float z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (RotateByChangingSprite)
+        {
+            rb.rotation = 0f;
+            Vector2Int rounded = VectorRounder.RoundVectorToInt(dir);
+            if (Mathf.Abs(rounded.x) > 0 && Mathf.Abs(rounded.y) > 0)
+            {
+                rounded = new Vector2Int(0, rounded.y);
+            }
+            if (rounded != Vector2Int.zero)
+            {
+                sr.sprite = GetSprite(rounded);
+            }
+        } else
+        {
+            float z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            z -= 90f;
+            rb.rotation = z;
+        }
+    }
 
-        z -= 90f;
-
-        rb.rotation = z;
+    private Sprite GetSprite(Vector2Int dir)
+    {
+        foreach (DirectionToSprite ds in directionToSprites)
+        {
+            if (ds.Direction == dir)
+            {
+                return ds.Sprite;
+            }
+        }
+        throw new Exception("Could not find sprite for direction: " + dir);
     }
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TileToObject 
+public class TileToSprites
 {
     public TileType TileType;
-    public GameObject GameObject;
+    public Sprite[] Sprites;
+    public bool UseDefaultObject = true;
+    public GameObject OverridenPrefab; 
 }

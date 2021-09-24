@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class MapDrawer : MonoBehaviour
 {
-    [SerializeField] List<TileToObject> Tiles;
+    [SerializeField] List<TileToSprites> Tiles;
+    [SerializeField] GameObject EmptyPrefab; 
 
     GameObject[,] DrawnMap = null;
 
-    Dictionary<TileType, GameObject> TileToPrefab = new Dictionary<TileType, GameObject>(); 
+    Dictionary<TileType, GameObject[]> TileToPrefab = new Dictionary<TileType, GameObject[]>(); 
 
     private void Awake()
     {
-        foreach (TileToObject tileToObject in Tiles)
+        foreach (TileToSprites tileToSprites in Tiles)
         {
-            TileToPrefab[tileToObject.TileType] = tileToObject.GameObject;
+            if (tileToSprites.Sprites.Length != 0)
+            {
+                GameObject[] images = new GameObject[tileToSprites.Sprites.Length];
+
+                for (int i = 0; i < tileToSprites.Sprites.Length; i++)
+                {
+                    Sprite s = tileToSprites.Sprites[i];
+                    GameObject pref = tileToSprites.UseDefaultObject ? tileToSprites.OverridenPrefab : EmptyPrefab;
+                    GameObject prefab = Instantiate(pref);
+                    prefab.GetComponent<SpriteRenderer>().sprite = s;
+                    images[i] = prefab;
+                }
+
+                TileToPrefab[tileToSprites.TileType] = images;
+            }
         }
     }
     
@@ -79,7 +94,7 @@ public class MapDrawer : MonoBehaviour
 
     GameObject GetInstantiatedTile(int x, int y, MapNode tile)
     {
-        return Instantiate(TileToPrefab[tile.TileType], new Vector2(x, y), Quaternion.Euler(Vector3.zero));
+        return Instantiate(TileToPrefab[tile.TileType][Random.Range(0, TileToPrefab[tile.TileType].Length)], new Vector2(x, y), Quaternion.Euler(Vector3.zero));
     }
 
     public void InstantiateMap(MapNode[,] map)

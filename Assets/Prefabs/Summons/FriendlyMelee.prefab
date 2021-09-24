@@ -301,6 +301,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 9194925930672925234}
   RotationSpeed: 15
+  directionToSprites:
+  - Sprite: {fileID: 2069652915871402172, guid: 1cc002bce2c0c1d4b9830a20735eaab2,
+      type: 3}
+    Direction: {x: 1, y: 0}
+  - Sprite: {fileID: -6620305959381963081, guid: 1cc002bce2c0c1d4b9830a20735eaab2,
+      type: 3}
+    Direction: {x: -1, y: 0}
+  - Sprite: {fileID: -4248406731077692811, guid: 1cc002bce2c0c1d4b9830a20735eaab2,
+      type: 3}
+    Direction: {x: 0, y: 1}
+  - Sprite: {fileID: 9149156106655959821, guid: 1cc002bce2c0c1d4b9830a20735eaab2,
+      type: 3}
+    Direction: {x: 0, y: -1}
+  sr: {fileID: 9194925930672925244}
+  RotateByChangingSprite: 1
 --- !u!114 &9194925930672925237
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -750,7 +750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 212.6625}
+  m_AnchoredPosition: {x: -437.25012, y: 392.92}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1805,41 +1805,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tiles:
   - TileType: 0
-    GameObject: {fileID: 2948870320885295818, guid: ef6ef3394fb90ae44afb6fab42b3a54b,
+    Sprites:
+    - {fileID: -1347532211411968617, guid: fbc302b0c959eb542a277d2d61d9d7cc, type: 3}
+    UseDefaultObject: 1
+    OverridenPrefab: {fileID: 7387774635938530169, guid: fd49fb1ddc834c442a6835b32d672c85,
       type: 3}
   - TileType: 1
-    GameObject: {fileID: 7514391544828907768, guid: 7fa48eb69b838434fac741b5cc784353,
-      type: 3}
+    Sprites:
+    - {fileID: -2995882670761194952, guid: 64310032e651bf944bd29123bfb0834d, type: 3}
+    - {fileID: 3328248117807508260, guid: 64310032e651bf944bd29123bfb0834d, type: 3}
+    - {fileID: 5196433360237248106, guid: 64310032e651bf944bd29123bfb0834d, type: 3}
+    - {fileID: 3807452238198900728, guid: 64310032e651bf944bd29123bfb0834d, type: 3}
+    - {fileID: 1502757297773140773, guid: 64310032e651bf944bd29123bfb0834d, type: 3}
+    - {fileID: 3186843214845920199, guid: 64310032e651bf944bd29123bfb0834d, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 2
-    GameObject: {fileID: 7939173541511920637, guid: f916fd665bcbabe42b47f90ecfba6b32,
+    Sprites:
+    - {fileID: 21300000, guid: 5e298881fc4652d45b8ea71e1d4e89f9, type: 3}
+    UseDefaultObject: 1
+    OverridenPrefab: {fileID: 4562807669380113230, guid: 45deb4f39eb48864c98621472accb824,
       type: 3}
   - TileType: 3
-    GameObject: {fileID: 2969422698878761914, guid: 12a40fca504625d4d9cb46d9a28c8303,
-      type: 3}
+    Sprites: []
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 4
-    GameObject: {fileID: 1246482312796869226, guid: 95b79c24ed8350340bec4a0c4e4c6f35,
-      type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 4b62697d4281ce3428ca44223c38c937, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 8
-    GameObject: {fileID: 1364406368375324852, guid: 2a939b16dbec9724f91d175bef393866,
-      type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 1d8d3e3b98b891543b08ea77743303f0, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 9
-    GameObject: {fileID: 5945236266668555859, guid: 7ff19bfaa646cba41aaec92eb83107a9,
-      type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e2a742e5a7af5de4e9560d18bcd92c74, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 10
-    GameObject: {fileID: 8565047179991635313, guid: 2973d0e8cd1b17743afca7af13c1eae2,
-      type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 21f961c5cc5c6504d882fbcb2f3385a8, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 12
-    GameObject: {fileID: 8736320266349055197, guid: 0c84dccd3445f62479dfa0c1310fc727,
-      type: 3}
+    Sprites: []
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 13
-    GameObject: {fileID: 313791189871114068, guid: 17b2becd7a6a62e44b5e0a7a6099be39,
-      type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d47ee3d1ecb0e254b8cfa06486abd4a4, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 14
-    GameObject: {fileID: 4575102493453994984, guid: a7d3c73566c15d64daabad439bedffa3,
-      type: 3}
+    Sprites: []
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
   - TileType: 18
-    GameObject: {fileID: 8959621161727300862, guid: 4b0806b6a4770374cb680aeb0159434c,
-      type: 3}
+    Sprites: []
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 0}
+  EmptyPrefab: {fileID: 75245369750213584, guid: 5e03ca94930c40d47962e61a7e03720a,
+    type: 3}
 --- !u!4 &250621017
 Transform:
   m_ObjectHideFlags: 0
@@ -2485,6 +2514,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 333112605}
   RotationSpeed: 15
+  directionToSprites:
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  sr: {fileID: 0}
+  RotateByChangingSprite: 0
 --- !u!114 &333112609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5061,7 +5101,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10370,7 +10410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.56252}
+  m_AnchoredPosition: {x: -437.25012, y: 295.82004}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
