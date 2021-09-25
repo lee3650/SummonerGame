@@ -151,5 +151,7 @@ public enum TileType
     TrapGenerator, 
     Any, 
     BottomOfMap,
-    TopOfMap
+    TopOfMap,
+    LeftOfMap,
+    RightOfMap,
 }

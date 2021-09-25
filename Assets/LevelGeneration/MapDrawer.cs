@@ -22,7 +22,7 @@ public class MapDrawer : MonoBehaviour
                 for (int i = 0; i < tileToSprites.Sprites.Length; i++)
                 {
                     Sprite s = tileToSprites.Sprites[i];
-                    GameObject pref = tileToSprites.UseDefaultObject ? tileToSprites.OverridenPrefab : EmptyPrefab;
+                    GameObject pref = tileToSprites.UseDefaultObject ? EmptyPrefab : tileToSprites.OverridenPrefab;
                     GameObject prefab = Instantiate(pref);
                     prefab.GetComponent<SpriteRenderer>().sprite = s;
                     images[i] = prefab;
