@@ -1,0 +1,22 @@
+This is a work in progress tower defense game. The most recent published build can be downloaded at 
+https://hopa.itch.io/summoner-game
+
+This project is using Unity v2019.2.14f. If you clone into the repository and try and open the project
+in Unity you most likely will get errors because I have github not tracking some internal files as 
+well as all the art assets, because I'm using commerical asset packs. 
+
+As for the structure of the project: there is a lot of code here. The basics are straightforward. 
+
+When the Next Level button is pressed it calls on method on WaveViewModel: 'EnterNextLevelOrSpawnWave()'. 
+This generates and draws the map. It also changes the Next Level button to read Next Wave. When the Next Wave button is pressed it calls the same method, which will generate and spawn in the next wave of enemies. 
+
+AI, both friendly and enemy, is a traditional state machine (https://gameprogrammingpatterns.com/state.html).
+
+The map itself is stored in the MapManager class (Environment/MapManager). All modifications to the map go through that class. 
+
+For player interaction with the world: the player is a state machine. When the left mouse button is clicked the PlayerAttackState is entered (in the PlayerScripts folder). All this does is pass in the current mouse position into
+the currently selected item and call attack on the currently selected item. If the currently selected item is a SummonWeapon, it will instantiate its summon underneath the player mouse. 
+Each summon's code can be viewed under AI/Summons and in Environment/Summons. The game works by the player 
+summoning buildings (BlueprintSatisfier under Environment/Summons) which then themselves summon units which actually damage the enemies and move around. The unit scripts are in AI/Summons while the building scripts are in Environment/Summons. 
+
+Demo video of the game coming soon. 
