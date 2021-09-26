@@ -1,5 +1,5 @@
 This is a work in progress tower defense game. The most recent published build can be downloaded at 
-https://hopa.itch.io/summoner-game
+https://hopa.itch.io/summoner-game. Note the game does not currently include a tutorial. 
 
 This project is using Unity v2019.2.14f. If you clone into the repository and try and open the project
 in Unity you most likely will get errors because I have github not tracking some internal files as 
