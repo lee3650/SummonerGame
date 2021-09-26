@@ -6,9 +6,7 @@ public class AIAttackManager : MonoBehaviour, IRanged
 {
     [SerializeField] AIAttackState AttackState;
     [SerializeField] AIStateMachine AIStateMachine;
-
-    //so, this is not a great solution - this exists only in the case of manual player deactivation of a summon. This doesn't matter for enemies. 
-    private bool activated = true; 
+    [SerializeField] bool ApplyDamage = false; 
 
     public bool IsTargetInRange(ITargetable CurrentTarget)
     {
@@ -44,18 +42,7 @@ public class AIAttackManager : MonoBehaviour, IRanged
 
     public virtual bool CanAttack(ITargetable CurrentTarget)
     {
-        return IsTargetInRange(CurrentTarget) && Activated;
+        return IsTargetInRange(CurrentTarget);
     }
 
-    public bool Activated
-    {
-        get
-        {
-            return activated;
-        }
-        set 
-        {
-            activated = value; 
-        }
-    }
 }

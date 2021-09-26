@@ -12,7 +12,8 @@ public class AIAttackState : MonoBehaviour, IState
     [SerializeField] AIStateMachine AIStateMachine;
     [SerializeField] Component StateToExitTo;
 
-    [SerializeField] TargetManager TargetManager;
+    [SerializeField] protected TargetManager TargetManager;
+    [SerializeField] DirectionalAnimator Animator;
 
     float InternalAttackLength;
 
@@ -32,7 +33,7 @@ public class AIAttackState : MonoBehaviour, IState
         AttackTimer = 0f;
         TargetManager.LookAtTarget();
     }
-
+    
     public void UpdateState()
     {
         AttackTimer += Time.deltaTime;
@@ -70,15 +71,15 @@ public class AIAttackState : MonoBehaviour, IState
 
     public virtual void EndAttack()
     {
-
+        if (Animator != null)
+        {
+            Animator.IdleInDirection(TargetManager.Target.GetPosition());
+        }
     }
+
     public virtual void StartAttack()
     {
-        //so, this would be, either spawn projectile, or 
-        //start animation for melee. 
-
-        //probably want to... not do anything here and subclass this. 
-
+        Animator.PlayAttack(TargetManager.Target.GetPosition());
     }
 
     public float GetRange()

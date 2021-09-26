@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3600352979565121685}
   - component: {fileID: 1570570612983766584}
   - component: {fileID: 1337009842691720106}
+  - component: {fileID: 5671485332004650711}
   m_Layer: 16
   m_Name: PlayerGate
   m_TagString: Untraversable
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 931787108138655623, guid: c3096fd82100d3844ad8dd31d6aef295, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 647c6c11d21876c42a5db9e03005ba3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -160,3 +161,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5671485332004650711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694221489078713342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ba7aa0f538cb74798641367d595e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRules:
+  - AdjacentsToTiles:
+    - RelativePosition: {x: 1, y: 0}
+      TileType: 5
+      Blacklist: 0
+    Sprite: {fileID: 21300000, guid: 647c6c11d21876c42a5db9e03005ba3b, type: 3}
+  - AdjacentsToTiles:
+    - RelativePosition: {x: -1, y: 0}
+      TileType: 5
+      Blacklist: 0
+    Sprite: {fileID: 21300000, guid: 647c6c11d21876c42a5db9e03005ba3b, type: 3}
+  - AdjacentsToTiles:
+    - RelativePosition: {x: 0, y: -1}
+      TileType: 5
+      Blacklist: 0
+    Sprite: {fileID: 21300000, guid: 2f4a1a2f065f56c4ebffa2b2a9a0b300, type: 3}
+  - AdjacentsToTiles:
+    - RelativePosition: {x: 0, y: 1}
+      TileType: 5
+      Blacklist: 0
+    Sprite: {fileID: 21300000, guid: 2f4a1a2f065f56c4ebffa2b2a9a0b300, type: 3}
+  sr: {fileID: 694221489078713343}
+  ContinuouslyUpdate: 1

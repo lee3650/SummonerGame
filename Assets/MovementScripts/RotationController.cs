@@ -51,6 +51,7 @@ public class RotationController : MonoBehaviour
 
     public void FaceDirection(Vector2 dir)
     {
+        /*
         if (RotateByChangingSprite)
         {
             rb.rotation = 0f;
@@ -69,6 +70,8 @@ public class RotationController : MonoBehaviour
             z -= 90f;
             rb.rotation = z;
         }
+         */ 
+         //basically this method and this script are obsolete.
     }
 
     private Sprite GetSprite(Vector2Int dir)

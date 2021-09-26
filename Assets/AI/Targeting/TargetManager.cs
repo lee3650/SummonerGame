@@ -37,10 +37,12 @@ public class TargetManager : MonoBehaviour
 
     public void LookAtTarget()
     {
+        /*
         if (Target != null)
         {
             RotationController.FacePoint(Target.GetPosition());
         }
+         */
     }
     
     public float DistanceFromTargetToPoint(Vector2 point)

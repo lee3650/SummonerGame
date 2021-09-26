@@ -31,6 +31,9 @@ GameObject:
   - component: {fileID: 5286100465103995708}
   - component: {fileID: 5943352569538661701}
   - component: {fileID: 2331141051224123708}
+  - component: {fileID: 5570387599296888763}
+  - component: {fileID: 9146059483967851020}
+  - component: {fileID: 5103964693806700265}
   m_Layer: 12
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -45,14 +48,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5487195000452624840}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7069987, w: 0.7072149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.72207, y: -2.05478, z: -0.4354974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5487195001173321386}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5487195000452624891
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,8 +94,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0816af33b83a754a9a8fa69f8508438, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -5372828631164573143, guid: fc25e47e31ed23044aa81d4a0b10f0a4,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,7 +126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5487195000452624838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +157,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5487195000452624889}
   RotationSpeed: 15
+  directionToSprites:
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  sr: {fileID: 0}
+  RotateByChangingSprite: 1
 --- !u!114 &5487195000452624836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackState: {fileID: 5487195000452624846}
   AIStateMachine: {fileID: 5487195000452624836}
+  ApplyDamage: 0
 --- !u!114 &5487195000452624844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +348,9 @@ MonoBehaviour:
   AIStateMachine: {fileID: 5487195000452624836}
   StateToExitTo: {fileID: 5487195000452624837}
   TargetManager: {fileID: 5487195000452624834}
+  Animator: {fileID: 5570387599296888763}
   MeleeWeapon: {fileID: 5487195001173321389}
+  AIAttackManager: {fileID: 5487195000452624847}
 --- !u!114 &4876094762447304020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +453,85 @@ MonoBehaviour:
   SearchFrequency: 0.2
   TargetSearcher: {fileID: 5487195000452624832}
   TargetFaction: 0
+--- !u!114 &5570387599296888763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0968cc5a8bdec45a587c886b969a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackAnimation:
+  - {fileID: 7400000, guid: 3a9d82f3f7cdc774d852e26234b5430e, type: 2}
+  - {fileID: 7400000, guid: 91defe2d752bd81478204eb6507506c2, type: 2}
+  - {fileID: 7400000, guid: f26cbb88a34cac241b0ea28898ee2a6b, type: 2}
+  - {fileID: 7400000, guid: f26cbb88a34cac241b0ea28898ee2a6b, type: 2}
+  WalkAnimation:
+  - {fileID: 7400000, guid: 561578eba231bdd4eae05632cf9a0da1, type: 2}
+  - {fileID: 7400000, guid: 655da3e4d5f601d40be3e133f6e844b5, type: 2}
+  - {fileID: 7400000, guid: 2a8e15efd3f455344b990eca27e679eb, type: 2}
+  - {fileID: 7400000, guid: a94141a74a2050c4fbb1db41d35f7a0c, type: 2}
+  IdleAnimation:
+  - {fileID: 7400000, guid: 42124dcfbbc340c4daf6262b2d3140e7, type: 2}
+  - {fileID: 7400000, guid: 61de34facfeee394c8165b6eda8cdfa5, type: 2}
+  - {fileID: 7400000, guid: 1cd0c160bc3266a4fac213338e52ea2c, type: 2}
+  - {fileID: 7400000, guid: bbb6cbbcb3f617247831c8da257cea80, type: 2}
+  Animator: {fileID: 5103964693806700265}
+  Directions:
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  - {x: -1, y: 0}
+--- !u!111 &9146059483967851020
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 61de34facfeee394c8165b6eda8cdfa5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f26cbb88a34cac241b0ea28898ee2a6b, type: 2}
+  - {fileID: 7400000, guid: 521d69fd57f51044ea24a85defba8630, type: 2}
+  - {fileID: 7400000, guid: 91defe2d752bd81478204eb6507506c2, type: 2}
+  - {fileID: 7400000, guid: 3a9d82f3f7cdc774d852e26234b5430e, type: 2}
+  - {fileID: 7400000, guid: 61de34facfeee394c8165b6eda8cdfa5, type: 2}
+  - {fileID: 7400000, guid: bbb6cbbcb3f617247831c8da257cea80, type: 2}
+  - {fileID: 7400000, guid: 1cd0c160bc3266a4fac213338e52ea2c, type: 2}
+  - {fileID: 7400000, guid: 42124dcfbbc340c4daf6262b2d3140e7, type: 2}
+  - {fileID: 7400000, guid: 2a8e15efd3f455344b990eca27e679eb, type: 2}
+  - {fileID: 7400000, guid: a94141a74a2050c4fbb1db41d35f7a0c, type: 2}
+  - {fileID: 7400000, guid: 655da3e4d5f601d40be3e133f6e844b5, type: 2}
+  - {fileID: 7400000, guid: 561578eba231bdd4eae05632cf9a0da1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &5103964693806700265
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8428a3173504aba49b82db4a361d390b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5487195001173321385
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +573,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5487195001173321385}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -575,8 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa968b424d16855428e35d1adf3e5055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 5487195001173321388}
-  Attack: {fileID: 7400000, guid: ed9838a76592ed34caacc3a5abaf4388, type: 2}
   Magnitude: 5
   EventType: 2
   WielderObject: {fileID: 5487195000452624840}
+  AttackStartToDamageDelay: 0

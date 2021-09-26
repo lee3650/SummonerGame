@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class MeleeWeapon : MonoBehaviour, IDamager
 {
-    [SerializeField] Animator Animator;
-    [SerializeField] AnimationClip Attack;
     [SerializeField] float Magnitude;
     [SerializeField] EventType EventType;
     [SerializeField] GameObject WielderObject;
+    [SerializeField] float AttackStartToDamageDelay;
 
-    IWielder Wielder; 
-
+    IWielder Wielder;
     bool alreadyHit = false; 
 
     List<Event> UnmodifiedEventsToApplyOnHit = new List<Event>();
@@ -28,13 +26,23 @@ public class MeleeWeapon : MonoBehaviour, IDamager
         UnmodifiedEventsToApplyOnHit.Add(e); //so, we actually want this to be in the unmodified list because that means it will be constant and consistent 
     }
 
-    public void StartAttack()
+    public void StartAttack(ITargetable target, AIAttackManager aIAttackManager)
     {
         ModifiedEventsToApplyOnHit = Wielder.ModifyEventList(UnmodifiedEventsToApplyOnHit); //this is a little messed up, because it is going to be passed in by reference, so we actually could modify the original, which we don't want to do. 
-        alreadyHit = false; 
-        Animator.Play(Attack.name);
+        //alreadyHit = false;
+        StartCoroutine(HitTarget(target, aIAttackManager));
     }
 
+    IEnumerator HitTarget(ITargetable target, AIAttackManager aIAttackManager)
+    {
+        yield return new WaitForSeconds(AttackStartToDamageDelay);
+        if (aIAttackManager.IsTargetInRange(target))
+        {
+            HandleCollision(target);
+        }
+    }
+
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IEntity entity; 
@@ -47,6 +55,7 @@ public class MeleeWeapon : MonoBehaviour, IDamager
             }
         }
     }
+     */
 
     protected virtual void HandleCollision(IEntity entity)
     {

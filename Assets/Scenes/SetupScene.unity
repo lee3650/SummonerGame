@@ -750,7 +750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 213.17978}
+  m_AnchoredPosition: {x: -437.25012, y: 392.92004}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1838,17 +1838,17 @@ MonoBehaviour:
       type: 3}
   - TileType: 8
     Sprites:
-    - {fileID: 21300000, guid: 1d8d3e3b98b891543b08ea77743303f0, type: 3}
+    - {fileID: 5312321564253103974, guid: a036ff0bdc89c3648bdca882714a23df, type: 3}
     UseDefaultObject: 1
     OverridenPrefab: {fileID: 0}
   - TileType: 9
     Sprites:
-    - {fileID: 21300000, guid: e2a742e5a7af5de4e9560d18bcd92c74, type: 3}
+    - {fileID: 3183536496323558777, guid: a036ff0bdc89c3648bdca882714a23df, type: 3}
     UseDefaultObject: 1
     OverridenPrefab: {fileID: 0}
   - TileType: 10
     Sprites:
-    - {fileID: 21300000, guid: 21f961c5cc5c6504d882fbcb2f3385a8, type: 3}
+    - {fileID: 5249488196033223913, guid: a036ff0bdc89c3648bdca882714a23df, type: 3}
     UseDefaultObject: 1
     OverridenPrefab: {fileID: 0}
   - TileType: 12
@@ -1857,9 +1857,10 @@ MonoBehaviour:
     OverridenPrefab: {fileID: 0}
   - TileType: 13
     Sprites:
-    - {fileID: 21300000, guid: d47ee3d1ecb0e254b8cfa06486abd4a4, type: 3}
-    UseDefaultObject: 1
-    OverridenPrefab: {fileID: 0}
+    - {fileID: 5451609806878104545, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 1869130436216400931, guid: c97d08ecacc9ae74791f2cd3cc74d751,
+      type: 3}
   - TileType: 14
     Sprites: []
     UseDefaultObject: 1
@@ -10411,7 +10412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 116.0798}
+  m_AnchoredPosition: {x: -437.25012, y: 295.82}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -13938,7 +13939,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
