@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowTrap : PlayerWall, IDamager, IWielder
 {
     [SerializeField] Projectile Projectile;
+    [SerializeField] Transform SpawnPos; 
     [SerializeField] float AttackLength;
     [SerializeField] float projDir; 
     float timer = 0f;
@@ -26,7 +27,7 @@ public class ArrowTrap : PlayerWall, IDamager, IWielder
 
     private void Attack()
     {
-        Projectile p = Instantiate(Projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, transform.eulerAngles.z + projDir)));
+        Projectile p = Instantiate(Projectile, SpawnPos.position, Quaternion.Euler(new Vector3(0f, 0f, transform.eulerAngles.z + projDir)));
         p.Fire(this);
     }
 

@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class RangedAttackState : AIAttackState
 {
-    //so, we need to serialize a projectile here. That's fine. 
-    //I recall the collision code being super complicated. Hm.
-    
     [SerializeField] Projectile Projectile;
     [SerializeField] Transform firingPosition;
+    [SerializeField] float ProjectileSpawnDelay = 0.25f;
 
     public override void StartAttack()
     {
-        Projectile p = Instantiate(Projectile, firingPosition.position, transform.rotation);
+        ITargetable target = TargetManager.Target;
+        Animator.PlayAttack(target.GetPosition());
+        StartCoroutine(SpawnProjectile());
+    }
+
+    private IEnumerator SpawnProjectile()
+    {
+        yield return new WaitForSeconds(ProjectileSpawnDelay);
+
+        Projectile p = Instantiate(Projectile, firingPosition.position, Quaternion.Euler(GetRotationToFaceTarget(TargetManager.Target.GetPosition())));
         ActivateProjectile(p, GetComponent<IWielder>());
+    }
+
+    private Vector3 GetRotationToFaceTarget(Vector2 targetPos)
+    {
+        Vector2 delta = (Vector2)transform.position - targetPos;
+
+        float rot = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
+
+        return new Vector3(0f, 0f, rot + 90f);
     }
 
     protected virtual void ActivateProjectile(Projectile p, IWielder wielder)

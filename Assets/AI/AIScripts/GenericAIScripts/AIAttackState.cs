@@ -13,9 +13,9 @@ public class AIAttackState : MonoBehaviour, IState
     [SerializeField] Component StateToExitTo;
 
     [SerializeField] protected TargetManager TargetManager;
-    [SerializeField] DirectionalAnimator Animator;
+    [SerializeField] protected DirectionalAnimator Animator;
 
-    float InternalAttackLength;
+    private float InternalAttackLength;
 
     protected AIEntity AIEntity;
 

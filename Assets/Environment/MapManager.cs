@@ -97,7 +97,23 @@ public class MapManager
 
     public static TileType GetTileType(Vector2 point)
     {
-        return Map[(int)point.x, (int)point.y].TileType;
+        if (IsPointInBounds((int)point.x, (int)point.y))
+        {
+            return Map[(int)point.x, (int)point.y].TileType;
+        }
+        if (point.x < 0)
+        {
+            return TileType.LeftOfMap;
+        }
+        if (point.x >= xSize)
+        {
+            return TileType.RightOfMap;
+        }
+        if (point.y > ySize)
+        {
+            return TileType.TopOfMap;
+        }
+        return TileType.BottomOfMap;
     }
 
     public static bool IsPointTraversable(int x, int y, bool CanGoThroughWalls)

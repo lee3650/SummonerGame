@@ -203,6 +203,7 @@ MonoBehaviour:
   Precedence: 1000
   Projectile: {fileID: 2300688480454240103, guid: 63dfab75171e894448065041eb6e0f65,
     type: 3}
+  SpawnPos: {fileID: 7702634644456596503}
   AttackLength: 1.5
   projDir: -90
 --- !u!114 &8793106112654034639

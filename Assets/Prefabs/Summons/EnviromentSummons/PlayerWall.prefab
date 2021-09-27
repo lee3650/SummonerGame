@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5157839651516772810}
   - component: {fileID: 2042207029774516379}
   - component: {fileID: 3941265906476139161}
-  - component: {fileID: 1754920880351295351}
+  - component: {fileID: -2753071127080646932}
   m_Layer: 15
   m_Name: PlayerWall
   m_TagString: Untraversable
@@ -162,7 +162,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1754920880351295351
+--- !u!114 &-2753071127080646932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,107 +171,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 17723146810303837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ba7aa0f538cb74798641367d595e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 804498bf62385c04992c027c14c53955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteRules:
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 6365569803162937948, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 0, y: 1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 8149533764019539231, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: -7972065133965726847, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 8517234801947581280, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 2423783838918396570, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: -3812307342319657127, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 0, y: 1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 114536642419278606, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: 1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: -3427360601999743002, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: 1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: -116942880874293894, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: 1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: -3812307342319657127, guid: 06d3ac717889ae54e9fbbefa7617c8e8,
-      type: 3}
+  WangTile: 0600000005000000
+  OrderedTiles:
+  - {fileID: 4939356944261800985, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 4939356944261800985, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -3427360601999743002, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -1605469004565928542, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 2423783838918396570, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -2868292612462391668, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -6787322763852124325, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -3427360601999743002, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 8530332953440471139, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 8409772814282319609, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 6365569803162937948, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 114536642419278606, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 4524240667832175801, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -116942880874293894, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -3812307342319657127, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -3812307342319657127, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  OrderedCenters: []
   sr: {fileID: 17723146810303836}
   ContinuouslyUpdate: 1
+  CornerSet: 0
+  RecalculateCenterTiles: 0

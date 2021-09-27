@@ -193,7 +193,7 @@ public class LevelGenerator : MonoBehaviour
         List<MapFeature> NeutralFeatures = new List<MapFeature>()
         {
             new LakeFeature(),
-            new PitFeature(),
+            //new PitFeature(),
         };
 
         HorizontalFeatures.AddRange(NeutralFeatures);

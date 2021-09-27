@@ -10,7 +10,6 @@ public abstract class Weapon : Item, IPurchasable
     [SerializeField] string WeaponDescription;
     [SerializeField] bool DeselectAfterAttacking = true; 
 
-
     public virtual float GetCost()
     {
         return ManaDrain;

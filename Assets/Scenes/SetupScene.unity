@@ -750,7 +750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 392.92004}
+  m_AnchoredPosition: {x: -437.25012, y: 213.41473}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1821,8 +1821,7 @@ MonoBehaviour:
     OverridenPrefab: {fileID: 0}
   - TileType: 2
     Sprites:
-    - {fileID: -5984067352639016396, guid: 28a74f78885becb4686b115efbe81b4a, type: 3}
-    - {fileID: -3705772136527718893, guid: 28a74f78885becb4686b115efbe81b4a, type: 3}
+    - {fileID: 6518442787250503601, guid: b1430885f154dfb499085ede4fce2fb6, type: 3}
     UseDefaultObject: 0
     OverridenPrefab: {fileID: 4562807669380113230, guid: 45deb4f39eb48864c98621472accb824,
       type: 3}
@@ -10412,7 +10411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 295.82}
+  m_AnchoredPosition: {x: -437.25012, y: 116.31471}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
