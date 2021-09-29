@@ -450,6 +450,7 @@ MonoBehaviour:
   MovementController: {fileID: 1090552370236627257}
   AIAttackManager: {fileID: -5376926671011951225}
   TargetSearcher: {fileID: 1090552370236627263}
+  DirectionalAnimator: {fileID: 1817816882177825975}
   SightChecker: {fileID: -5861504520014042726}
   RangeAdjustment: 2
 --- !u!114 &-5376926671011951225

@@ -50,7 +50,7 @@ public class DirectionalAnimator : MonoBehaviour
         Animator.Play(AttackAnimation[DirectionsIndexOf(dir)].name);
     }
 
-    public void IdleInDirection(Vector2 pointToFace)
+    public void IdleFacePoint(Vector2 pointToFace)
     {
         Vector2Int dir = RoundToCardinalDirection(GetRotationVector(pointToFace));
         Animator.Play(IdleAnimation[DirectionsIndexOf(dir)].name);

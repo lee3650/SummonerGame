@@ -73,7 +73,7 @@ public class AIAttackState : MonoBehaviour, IState
     {
         if (Animator != null)
         {
-            Animator.IdleInDirection(TargetManager.Target.GetPosition());
+            Animator.IdleFacePoint(TargetManager.Target.GetPosition());
         }
     }
 

@@ -473,6 +473,7 @@ MonoBehaviour:
   TargetManager: {fileID: 9194925930672925235}
   StateController: {fileID: 9194925930672925237}
   AIAttackManager: {fileID: 9194925930672925241}
+  DirectionalAnimator: {fileID: 5993736718554861897}
 --- !u!114 &-6588670612194777328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,11 +668,11 @@ MonoBehaviour:
   - {fileID: 7400000, guid: cb42c51b32d53db4eb559fabc1d0a0fb, type: 2}
   - {fileID: 7400000, guid: 919980ad431e20f4bbf36ad9c3ca77d9, type: 2}
   - {fileID: 7400000, guid: 990b3b8b9712c774cbf293eded81ad0c, type: 2}
-  - {fileID: 7400000, guid: 13ed27acc0e233a47831819ac84b264d, type: 2}
+  - {fileID: 7400000, guid: da95a2438244b564a9c586482c9c79ea, type: 2}
   IdleAnimation:
   - {fileID: 7400000, guid: 66fb998576ac5114abb3d5d496b32ab6, type: 2}
   - {fileID: 7400000, guid: 431dc887efcf9ec43bc1851bf18e51a8, type: 2}
-  - {fileID: 7400000, guid: 7243fe909a1650c4084b9a3c01118a9b, type: 2}
+  - {fileID: 7400000, guid: c968e19be6b4f254ebc2fbfcc4d7a1e9, type: 2}
   - {fileID: 7400000, guid: 54bc4577902ef5e4a9b73a245be6e42d, type: 2}
   Animator: {fileID: 3711082862545154627}
   Directions:

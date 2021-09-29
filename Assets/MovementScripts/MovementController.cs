@@ -49,7 +49,7 @@ public class MovementController : MonoBehaviour
         if (Vector2.Distance(transform.position, pointToHold) > 0.5f)
         {
             MonitorGoalAndFollowPath();
-            rc.FaceForward();
+            //rc.FaceForward();
         }
     }
 

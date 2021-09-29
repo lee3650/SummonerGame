@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740066753122141734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.362, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1740066754483794922}
@@ -64,6 +64,8 @@ GameObject:
   - component: {fileID: 519861522697496829}
   - component: {fileID: -4797642703810614546}
   - component: {fileID: -8574627119691709154}
+  - component: {fileID: 7460180578036577217}
+  - component: {fileID: 791481969154780677}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -124,8 +126,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0816af33b83a754a9a8fa69f8508438, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.98154783, a: 1}
+  m_Sprite: {fileID: -8279185905841022901, guid: cde3bcb59ce9a5942b0833bce9dbe906,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +158,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1740066754483794916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +189,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1740066754483794919}
   RotationSpeed: 15
+  directionToSprites:
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  sr: {fileID: 1740066754483794921}
+  RotateByChangingSprite: 0
 --- !u!114 &1740066754483794912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +324,7 @@ MonoBehaviour:
   TargetManager: {fileID: 1740066754483794918}
   StateController: {fileID: 1740066754483794912}
   AIAttackManager: {fileID: -4797642703810614546}
+  DirectionalAnimator: {fileID: 7460180578036577217}
 --- !u!114 &7656610161056084375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,9 +394,11 @@ MonoBehaviour:
   AIStateMachine: {fileID: 1740066754483794912}
   StateToExitTo: {fileID: 6726932860956113883}
   TargetManager: {fileID: 1740066754483794918}
+  Animator: {fileID: 7460180578036577217}
   Projectile: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
     type: 3}
   firingPosition: {fileID: 1740066753122141735}
+  ProjectileSpawnDelay: 0.25
   PointToHoldManager: {fileID: 8145606651001300045}
 --- !u!114 &1416074324957118578
 MonoBehaviour:
@@ -512,6 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackState: {fileID: 6384751669862364838}
   AIStateMachine: {fileID: 1740066754483794912}
+  ApplyDamage: 0
 --- !u!114 &-8574627119691709154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,3 +548,55 @@ MonoBehaviour:
   TargetManager: {fileID: 1740066754483794918}
   SearchSpeed: 1
   MyFaction: 0
+--- !u!114 &7460180578036577217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0968cc5a8bdec45a587c886b969a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackAnimation:
+  - {fileID: 7400000, guid: 4fba43f5fd97c8b4b9fc6a543777c9d2, type: 2}
+  - {fileID: 7400000, guid: 1fee4a2bb3ab6bb45ae67eca9d7ac7ba, type: 2}
+  - {fileID: 7400000, guid: 8f4c1d16cf035774bb7d6b719529d0c6, type: 2}
+  - {fileID: 7400000, guid: 901b9b828f655ad40b48632803d9c167, type: 2}
+  WalkAnimation:
+  - {fileID: 7400000, guid: 07291f86b6125cc4ebcc10c02b230e40, type: 2}
+  - {fileID: 7400000, guid: 75e150b108a94c244bbf5ac1c5679974, type: 2}
+  - {fileID: 7400000, guid: 97ed26f2679f0e240a6289c42aac9434, type: 2}
+  - {fileID: 7400000, guid: 26fe42275f74d254da7f3a0f07fbac75, type: 2}
+  IdleAnimation:
+  - {fileID: 7400000, guid: e21dc525173e9ed48a73d10e03489025, type: 2}
+  - {fileID: 7400000, guid: 9e63bab338b39c748abbd697cefefc07, type: 2}
+  - {fileID: 7400000, guid: 427d2c8eca680be4e94ed3c4b8565765, type: 2}
+  - {fileID: 7400000, guid: 8a56d9d82146bb24d9f599ffdc8f24f5, type: 2}
+  Animator: {fileID: 791481969154780677}
+  Directions:
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  - {x: -1, y: 0}
+--- !u!95 &791481969154780677
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 985412cec50cd2145bb05ebc1f08fce5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

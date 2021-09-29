@@ -9,12 +9,16 @@ public class HoldPointState : MonoBehaviour, IControllableState
     [SerializeField] TargetManager TargetManager;
     [SerializeField] StateController StateController;
     [SerializeField] AIAttackManager AIAttackManager;
+    [SerializeField] DirectionalAnimator DirectionalAnimator;
+
+    Rigidbody2D rb; 
 
     PointToHoldManager PointToHoldManager;
 
     void Awake()
     {
         PointToHoldManager = GetComponent<PointToHoldManager>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void EnterState()
@@ -29,6 +33,14 @@ public class HoldPointState : MonoBehaviour, IControllableState
     public void UpdateState()
     {
         MovementController.MoveTowardPointWithRotation(PointToHoldManager.PointToHold);
+
+        if (rb.velocity.sqrMagnitude > 0.5f)
+        {
+            DirectionalAnimator.PlayWalk(rb.velocity);
+        } else
+        {
+            DirectionalAnimator.IdleFacePoint((Vector2)transform.position + new Vector2(0, -1));
+        }
 
         if (TargetManager.HasLivingTarget() && Vector2.Distance(transform.position, PointToHoldManager.PointToHold) < 2.5f)
         {

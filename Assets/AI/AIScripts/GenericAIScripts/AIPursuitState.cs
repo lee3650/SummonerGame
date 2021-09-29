@@ -10,6 +10,9 @@ public class AIPursuitState : MonoBehaviour, IState
     [SerializeField] protected MovementController MovementController;
     [SerializeField] protected AIAttackManager AIAttackManager;
     [SerializeField] TargetSearcher TargetSearcher;
+    [SerializeField] DirectionalAnimator DirectionalAnimator;
+
+    Rigidbody2D rb; 
 
     RotationController RotationController;
 
@@ -18,6 +21,7 @@ public class AIPursuitState : MonoBehaviour, IState
     private void Awake()
     {
         RotationController = GetComponent<RotationController>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void EnterState()
@@ -39,6 +43,11 @@ public class AIPursuitState : MonoBehaviour, IState
             {
                 TargetManager.MoveAtTarget();
                 RotationController.FaceForward();
+
+                if (rb.velocity.sqrMagnitude > 0.5f)
+                {
+                    DirectionalAnimator.PlayWalk(rb.velocity);
+                } 
 
                 if (ShouldRecalculatePathfinding())
                 {

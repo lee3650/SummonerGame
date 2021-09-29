@@ -32,7 +32,6 @@ GameObject:
   - component: {fileID: 5943352569538661701}
   - component: {fileID: 2331141051224123708}
   - component: {fileID: 5570387599296888763}
-  - component: {fileID: 9146059483967851020}
   - component: {fileID: 5103964693806700265}
   m_Layer: 12
   m_Name: MeleeEnemy
@@ -200,6 +199,7 @@ MonoBehaviour:
   MovementController: {fileID: 5487195000452624838}
   AIAttackManager: {fileID: 5487195000452624847}
   TargetSearcher: {fileID: 5487195000452624832}
+  DirectionalAnimator: {fileID: 5570387599296888763}
 --- !u!114 &5487195000452624834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,33 +486,6 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: 0, y: -1}
   - {x: -1, y: 0}
---- !u!111 &9146059483967851020
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5487195000452624840}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 61de34facfeee394c8165b6eda8cdfa5, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: f26cbb88a34cac241b0ea28898ee2a6b, type: 2}
-  - {fileID: 7400000, guid: 521d69fd57f51044ea24a85defba8630, type: 2}
-  - {fileID: 7400000, guid: 91defe2d752bd81478204eb6507506c2, type: 2}
-  - {fileID: 7400000, guid: 3a9d82f3f7cdc774d852e26234b5430e, type: 2}
-  - {fileID: 7400000, guid: 61de34facfeee394c8165b6eda8cdfa5, type: 2}
-  - {fileID: 7400000, guid: bbb6cbbcb3f617247831c8da257cea80, type: 2}
-  - {fileID: 7400000, guid: 1cd0c160bc3266a4fac213338e52ea2c, type: 2}
-  - {fileID: 7400000, guid: 42124dcfbbc340c4daf6262b2d3140e7, type: 2}
-  - {fileID: 7400000, guid: 2a8e15efd3f455344b990eca27e679eb, type: 2}
-  - {fileID: 7400000, guid: a94141a74a2050c4fbb1db41d35f7a0c, type: 2}
-  - {fileID: 7400000, guid: 655da3e4d5f601d40be3e133f6e844b5, type: 2}
-  - {fileID: 7400000, guid: 561578eba231bdd4eae05632cf9a0da1, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &5103964693806700265
 Animator:
   serializedVersion: 3

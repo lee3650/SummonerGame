@@ -32,6 +32,8 @@ GameObject:
   - component: {fileID: 4648206095511936277}
   - component: {fileID: 3612669858900733009}
   - component: {fileID: 6934713143476588037}
+  - component: {fileID: 818753487579262456}
+  - component: {fileID: 6603066443833279831}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -46,14 +48,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4648206095511936293}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7069987, w: 0.7072149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.41, y: 8.26, z: -0.4354974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4648206096231582279}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4648206095511936278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +94,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0816af33b83a754a9a8fa69f8508438, type: 3}
-  m_Color: {r: 0.99075747, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: -5195548481315880158, guid: 56741c3f8aa6898498363ea933e9c1a7,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,7 +126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4648206095511936299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +157,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4648206095511936276}
   RotationSpeed: 15
+  directionToSprites:
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  - Sprite: {fileID: 0}
+    Direction: {x: 0, y: 0}
+  sr: {fileID: 0}
+  RotateByChangingSprite: 0
 --- !u!114 &4648206095511936297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +200,7 @@ MonoBehaviour:
   MovementController: {fileID: 4648206095511936299}
   AIAttackManager: {fileID: 4648206095511936290}
   TargetSearcher: {fileID: 4648206095511936301}
+  DirectionalAnimator: {fileID: 818753487579262456}
 --- !u!114 &4648206095511936303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackState: {fileID: 4648206095511936291}
   AIStateMachine: {fileID: 4648206095511936297}
+  ApplyDamage: 0
 --- !u!114 &4648206095511936289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +349,9 @@ MonoBehaviour:
   AIStateMachine: {fileID: 4648206095511936297}
   StateToExitTo: {fileID: 4648206095511936296}
   TargetManager: {fileID: 4648206095511936303}
+  Animator: {fileID: 818753487579262456}
   MeleeWeapon: {fileID: 4648206096231582272}
+  AIAttackManager: {fileID: 4648206095511936290}
 --- !u!58 &5630834523097520173
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -450,6 +468,58 @@ MonoBehaviour:
   SearchFrequency: 0.2
   TargetSearcher: {fileID: 4648206095511936301}
   TargetFaction: 0
+--- !u!114 &818753487579262456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0968cc5a8bdec45a587c886b969a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackAnimation:
+  - {fileID: 7400000, guid: fb2100ede40755d40b5f3bdf4a5c9c15, type: 2}
+  - {fileID: 7400000, guid: 132452e6b974b8b4c9310d6b4671bdd3, type: 2}
+  - {fileID: 7400000, guid: 52687f215c07a044fabb064e17cf71ea, type: 2}
+  - {fileID: 7400000, guid: dfdf09750d279324cb4e269c5e6101e8, type: 2}
+  WalkAnimation:
+  - {fileID: 7400000, guid: d2f023d0bcb52c34996a3beb151f5a08, type: 2}
+  - {fileID: 7400000, guid: 37c975e99df8a074e853e5d33062461f, type: 2}
+  - {fileID: 7400000, guid: 505d109b315319540879bbe26d1456dc, type: 2}
+  - {fileID: 7400000, guid: 8f542cf333540c2408561205dcff149c, type: 2}
+  IdleAnimation:
+  - {fileID: 7400000, guid: a6d78405c7c77c246a5b86a455647955, type: 2}
+  - {fileID: 7400000, guid: 7c5c21df92b5fa94aa4b57d4b45b027b, type: 2}
+  - {fileID: 7400000, guid: 4120b6f37449e4c42928910117c4a506, type: 2}
+  - {fileID: 7400000, guid: 30e0b40749601514288fc9d0b3f05cfb, type: 2}
+  Animator: {fileID: 6603066443833279831}
+  Directions:
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  - {x: -1, y: 0}
+--- !u!95 &6603066443833279831
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af5474fe9c1f2a34c92872aea907eacf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +561,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4648206096231582276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -590,8 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa968b424d16855428e35d1adf3e5055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 4648206096231582273}
-  Attack: {fileID: 7400000, guid: ed9838a76592ed34caacc3a5abaf4388, type: 2}
   Magnitude: 10
   EventType: 2
   WielderObject: {fileID: 4648206095511936293}
+  AttackStartToDamageDelay: 0
