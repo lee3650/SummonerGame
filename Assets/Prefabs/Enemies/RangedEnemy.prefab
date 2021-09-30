@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 5811157012089966205}
   - component: {fileID: 1817816882177825975}
   - component: {fileID: 180630222893668431}
+  - component: {fileID: 6069888589989077877}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -328,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 1090552370236627251}
-  Height: 1.5
+  Height: 0.75
   WidthAdjustment: -0.85
 --- !u!114 &1090552370236627261
 MonoBehaviour:
@@ -538,3 +539,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6069888589989077877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df48701e4fd6784b83a624b675437a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: a2ed74f153d78d44fa942da2edd13fc3, type: 2}
+  SpriteRenderer: {fileID: 1090552370236627252}
+  HealthManager: {fileID: 1090552370236627251}

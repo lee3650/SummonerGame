@@ -10,6 +10,7 @@ public class HealthManager : MonoBehaviour, IEnergyManager
 
     public event Action OnDeath = delegate { };
     public event Action OnHealthChanged = delegate { };
+    public event Action OnDamageTaken = delegate { };
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class HealthManager : MonoBehaviour, IEnergyManager
     {
         CurrentHealth -= damage;
         OnHealthChanged();
+        OnDamageTaken();
         if (CurrentHealth <= 0f)
         {
             OnDeath();

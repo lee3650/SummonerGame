@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: -37205503177062602}
   - component: {fileID: 5993736718554861897}
   - component: {fileID: 3711082862545154627}
+  - component: {fileID: 1056023739503505477}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -405,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 9194925930672925243}
-  Height: 1.5
+  Height: 0.75
   WidthAdjustment: -0.85
 --- !u!114 &4092543355812176230
 MonoBehaviour:
@@ -699,3 +700,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1056023739503505477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df48701e4fd6784b83a624b675437a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: a2ed74f153d78d44fa942da2edd13fc3, type: 2}
+  SpriteRenderer: {fileID: 9194925930672925244}
+  HealthManager: {fileID: 9194925930672925243}

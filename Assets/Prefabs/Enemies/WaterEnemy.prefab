@@ -34,6 +34,7 @@ GameObject:
   - component: {fileID: 6934713143476588037}
   - component: {fileID: 818753487579262456}
   - component: {fileID: 6603066443833279831}
+  - component: {fileID: 7773904187481824307}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -310,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 4648206095511936289}
-  Height: 1.5
+  Height: 0.75
   WidthAdjustment: -0.85
 --- !u!114 &4648206095511936294
 MonoBehaviour:
@@ -329,7 +330,6 @@ MonoBehaviour:
   AIIdleState: {fileID: 4648206095511936302}
   RenderersToEnable:
   - {fileID: 4648206095511936278}
-  - {fileID: 4648206096231582278}
 --- !u!114 &4648206095511936291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +520,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7773904187481824307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df48701e4fd6784b83a624b675437a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: a2ed74f153d78d44fa942da2edd13fc3, type: 2}
+  SpriteRenderer: {fileID: 4648206095511936278}
+  HealthManager: {fileID: 4648206095511936289}
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +544,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4648206096231582279}
-  - component: {fileID: 4648206096231582278}
   - component: {fileID: 4648206096231582277}
   - component: {fileID: 4648206096231582273}
   - component: {fileID: 4648206096231582272}
@@ -554,55 +568,6 @@ Transform:
   m_Father: {fileID: 4648206095511936279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4648206096231582278
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4648206096231582276}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0922623e923d9cb4cad96887386e726d, type: 3}
-  m_Color: {r: 0, g: 0.84743667, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.25, y: 1.25}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!61 &4648206096231582277
 BoxCollider2D:
   m_ObjectHideFlags: 0

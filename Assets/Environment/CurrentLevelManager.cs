@@ -25,8 +25,6 @@ public class CurrentLevelManager : MonoBehaviour
     StageNode HeadNode;
     StageNode RootNode; 
 
-
-
     public void EnterFirstLevel()
     {
         LevelGenerator.SetTotalMapSizeAndInitMap();
@@ -36,18 +34,32 @@ public class CurrentLevelManager : MonoBehaviour
 
         LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
         Player.position = MapManager.GetClosestValidTile(Player.position);
+
+        HeadNode = new StageNode(new Vector2(1, 0), HeadNode);
+
+        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
+        Player.position = MapManager.GetClosestValidTile(Player.position);
+
+        HeadNode = new StageNode(new Vector2(2, 0), HeadNode);
+
+        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
+        Player.position = MapManager.GetClosestValidTile(Player.position);
+
+        LevelGenerator.RecalculateSpawnRegion(FindEndNodes(RootNode));
     }
 
     public void EnterNextLevel()
     {
         WaveGenerator.AddSpawns(AdditionalSpawns[levelNum].Spawns);
 
+        /*
         if (ShouldGenerateLevel(levelNum))
         {
             HeadNode = GenerateNextNode(HeadNode, levelNum);
             LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, HeadNode.Delta);
             LevelGenerator.RecalculateSpawnRegion(FindEndNodes(RootNode));
         }
+         */
 
         highestWave = Mathf.RoundToInt(Mathf.Lerp(3, 5, LevelGenerator.LevelPercentage(levelNum)));
 
