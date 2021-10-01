@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
 
     public const int StageSize = 15;
 
-    public const int MapStagesWidth = 5;
+    public const int MapStagesWidth = 3;
     public const int MapStagesHeight = 1;
 
     int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 

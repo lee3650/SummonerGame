@@ -8,7 +8,7 @@ public class MapManager
     public static int ySize = 17;
 
     static MapNode[,] Map = new MapNode[xSize, ySize]; //I believe all these entries are automatically null. 
-    
+
     public static void InitMap()
     {
         Map = new MapNode[xSize, ySize];

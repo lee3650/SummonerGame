@@ -12,6 +12,8 @@ public class CurrentLevelManager : MonoBehaviour
     [SerializeField] WaveSpawner WaveSpawner;
     [SerializeField] Transform Player;
     [SerializeField] List<SpawnToOddsWrapper> AdditionalSpawns;
+    [SerializeField] OceanGenerator OceanGenerator;
+    [SerializeField] MapDrawer MapDrawer;
 
     private const int maxLevel = 7;
     private int levelNum = 0;
@@ -33,19 +35,22 @@ public class CurrentLevelManager : MonoBehaviour
         RootNode = HeadNode;
 
         LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
-        Player.position = MapManager.GetClosestValidTile(Player.position);
 
         HeadNode = new StageNode(new Vector2(1, 0), HeadNode);
-
         LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
-        Player.position = MapManager.GetClosestValidTile(Player.position);
 
         HeadNode = new StageNode(new Vector2(2, 0), HeadNode);
-
         LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
-        Player.position = MapManager.GetClosestValidTile(Player.position);
 
         LevelGenerator.RecalculateSpawnRegion(FindEndNodes(RootNode));
+
+        MapDrawer.ConditionallyDestroyTiles();
+
+        //so, now we have a map of max size, right. 
+        //so, we want to generate a decorative under-map for the ocean. 
+        //new class, I guess? 
+
+        OceanGenerator.DrawOcean();
     }
 
     public void EnterNextLevel()

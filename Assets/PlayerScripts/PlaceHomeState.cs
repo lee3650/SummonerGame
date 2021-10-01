@@ -14,7 +14,7 @@ public class PlaceHomeState : MonoBehaviour, IState
     [SerializeField] RotationController RotationController;
     [SerializeField] GameObject NextWaveButton;
     [SerializeField] Summoner Summoner;
-
+    
     private HomeTileSummon actualHomeSummon;
 
     bool selected = false; 

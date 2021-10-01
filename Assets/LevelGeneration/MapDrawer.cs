@@ -9,7 +9,9 @@ public class MapDrawer : MonoBehaviour
 
     GameObject[,] DrawnMap = null;
 
-    Dictionary<TileType, GameObject[]> TileToPrefab = new Dictionary<TileType, GameObject[]>(); 
+    Dictionary<TileType, GameObject[]> TileToPrefab = new Dictionary<TileType, GameObject[]>();
+
+    List<GameObject> ExtraWalls = new List<GameObject>();
 
     private void Awake()
     {
@@ -33,44 +35,62 @@ public class MapDrawer : MonoBehaviour
         }
     }
     
+    public void ConditionallyDestroyTiles()
+    {
+        for (int x = 0; x < DrawnMap.GetLength(0); x++)
+        {
+            for (int y = 0; y < DrawnMap.GetLength(1); y++)
+            {
+                if (DrawnMap[x, y] != null)
+                {
+                    ConditionalDelete cd;
+                    if (DrawnMap[x,y].TryGetComponent<ConditionalDelete>(out cd))
+                    {
+                        if (cd.TryDestroy())
+                        {
+                            DrawnMap[x, y] = null;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = ExtraWalls.Count - 1; i >= 0; i--)
+        {
+            ConditionalDelete cd;
+            if (ExtraWalls[i] != null && ExtraWalls[i].TryGetComponent<ConditionalDelete>(out cd))
+            {
+                if (cd.TryDestroy())
+                {
+                    ExtraWalls.RemoveAt(i);
+                }
+            }
+        }
+    }
+
     public void DrawEnclosingWalls(int xSize, int ySize)
     {
         for (int x = -1; x <= xSize; x++)
         {
-            GetInstantiatedTile(x, -1, new MapNode(false, TileType.Wall));
-            GetInstantiatedTile(x, ySize, new MapNode(false, TileType.Wall));
+            ExtraWalls.Add(GetInstantiatedTile(x, -1, new MapNode(false, TileType.Wall)));
+            ExtraWalls.Add(GetInstantiatedTile(x, ySize, new MapNode(false, TileType.Wall)));
         }
         for (int y = 0; y < ySize; y++)
         {
-            GetInstantiatedTile(-1, y, new MapNode(false, TileType.Wall));
-            GetInstantiatedTile(xSize, y, new MapNode(false, TileType.Wall));
+            ExtraWalls.Add(GetInstantiatedTile(-1, y, new MapNode(false, TileType.Wall)));
+            ExtraWalls.Add(GetInstantiatedTile(xSize, y, new MapNode(false, TileType.Wall)));
         }
     }
-
+    
     public void DestroyTiles(List<Vector2> tiles)
     {
         foreach (Vector2 t in tiles)
         {
-            Destroy(DrawnMap[(int)t.x, (int)t.y].gameObject);
-        }
-    }
-
-    public void DestroyOldMap()
-    {
-        if (DrawnMap == null)
-        {
-            return;
-        }
-
-        for (int x = 0; x < MapManager.xSize; x++)
-        {
-            for (int y = 0; y < MapManager.ySize; y++)
+            if (DrawnMap[(int)t.x, (int)t.y] != null)
             {
-                Destroy(DrawnMap[x, y].gameObject);
+                Destroy(DrawnMap[(int)t.x, (int)t.y].gameObject);
             }
         }
-
-        DrawnMap = null; 
     }
 
     public void RewritePoint(int x, int y, MapNode mapNode)
@@ -87,7 +107,7 @@ public class MapDrawer : MonoBehaviour
         {
             for (int y = (int)start.y; y < (int)end.y; y++)
             {
-                DrawnMap[x, y] = GetInstantiatedTile(x, y, map[x, y]);
+                DrawnMap[x, y] = GetInstantiatedTile(x, y, map[x, y]); //okay, so this just uses x and y to place, and then map[x,y] to find the tile type. 
             }
         }
     }
@@ -102,5 +122,26 @@ public class MapDrawer : MonoBehaviour
         DrawnMap = new GameObject[MapManager.xSize, MapManager.ySize];
 
         InstantiatePartOfMap(map, new Vector2(0, 0), new Vector2(MapManager.xSize, MapManager.ySize));        
+    }
+
+    public void InstantiateNonCenteredMap(MapNode[,] map, Vector2Int worldOrigin)
+    {
+        int xSize = map.GetLength(0);
+        int ySize = map.GetLength(1);
+
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                Vector2Int worldPoint = new Vector2Int(x, y) + worldOrigin;
+                GameObject g = GetInstantiatedTile(worldPoint.x, worldPoint.y, map[x, y]);
+
+                SetSpriteWangTiles w;
+                if (g.TryGetComponent<SetSpriteWangTiles>(out w))
+                {
+                    w.InjectMap(map, worldOrigin);
+                }
+            }
+        }
     }
 }
