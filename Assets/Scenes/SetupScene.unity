@@ -750,7 +750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 212.98535}
+  m_AnchoredPosition: {x: -437.25012, y: 212.85599}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1876,6 +1876,12 @@ MonoBehaviour:
     - {fileID: 2407422145535244175, guid: 782b4956ff2d4eb46997c3e1116add3a, type: 3}
     UseDefaultObject: 0
     OverridenPrefab: {fileID: 1666266001604561197, guid: 2a0d2614de1f62d459b0babf27e3a330,
+      type: 3}
+  - TileType: 27
+    Sprites:
+    - {fileID: -5277732040273135813, guid: 4fefb299b0e0ace419f9835b350a1eb2, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 3372641323892507583, guid: 33edff3131707904789427c83434ec60,
       type: 3}
   - TileType: 26
     Sprites:
@@ -10447,7 +10453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.88532}
+  m_AnchoredPosition: {x: -437.25012, y: 115.756}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -11360,7 +11366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapDrawer: {fileID: 250621016}
-  buffer: 4
+  buffer: 10
   Blacklist: 0400000016000000170000001500000018000000
 --- !u!1 &1581065120
 GameObject:
@@ -14101,7 +14107,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

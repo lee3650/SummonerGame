@@ -25,7 +25,7 @@ public class MapDrawer : MonoBehaviour
                 {
                     Sprite s = tileToSprites.Sprites[i];
                     GameObject pref = tileToSprites.UseDefaultObject ? EmptyPrefab : tileToSprites.OverridenPrefab;
-                    GameObject prefab = Instantiate(pref, new Vector3(-10, -10, 0f), Quaternion.Euler(Vector3.zero)); //I'm not sure if this is necessary. 
+                    GameObject prefab = Instantiate(pref, new Vector3(-25, -25, 0f), Quaternion.Euler(Vector3.zero)); //I'm not sure if this is necessary. 
                     prefab.GetComponent<SpriteRenderer>().sprite = s;
                     images[i] = prefab;
                 }
@@ -46,10 +46,7 @@ public class MapDrawer : MonoBehaviour
                     ConditionalDelete cd;
                     if (DrawnMap[x,y].TryGetComponent<ConditionalDelete>(out cd))
                     {
-                        if (cd.TryDestroy())
-                        {
-                            DrawnMap[x, y] = null;
-                        }
+                        cd.TryDestroy();
                     }
                 }
             }
@@ -60,14 +57,28 @@ public class MapDrawer : MonoBehaviour
             ConditionalDelete cd;
             if (ExtraWalls[i] != null && ExtraWalls[i].TryGetComponent<ConditionalDelete>(out cd))
             {
-                if (cd.TryDestroy())
-                {
-                    ExtraWalls.RemoveAt(i);
-                }
+                cd.TryDestroy();
             }
         }
     }
 
+    public bool IsTileDrawn(Vector2Int pos)
+    {
+        if (MapManager.IsPointInBounds(pos.x, pos.y) && DrawnMap[pos.x, pos.y] != null && DrawnMap[pos.x, pos.y].GetComponent<SpriteRenderer>().enabled)
+        {
+            return true; 
+        }
+
+        foreach (GameObject g in ExtraWalls)
+        {
+            if (g != null && (Vector2)g.transform.position == pos && g.GetComponent<SpriteRenderer>().enabled)
+            {
+                return true;
+            }
+        }
+
+        return false; 
+    }
     public void DrawEnclosingWalls(int xSize, int ySize)
     {
         for (int x = -1; x <= xSize; x++)
@@ -84,6 +95,11 @@ public class MapDrawer : MonoBehaviour
     
     public void DestroyTiles(List<Vector2> tiles)
     {
+        if (DrawnMap == null)
+        {
+            return;
+        }
+
         foreach (Vector2 t in tiles)
         {
             if (DrawnMap[(int)t.x, (int)t.y] != null)
@@ -115,6 +131,11 @@ public class MapDrawer : MonoBehaviour
     GameObject GetInstantiatedTile(int x, int y, MapNode tile)
     {
         return Instantiate(TileToPrefab[tile.TileType][Random.Range(0, TileToPrefab[tile.TileType].Length)], new Vector2(x, y), Quaternion.Euler(Vector3.zero));
+    }
+
+    public void InitializeMap()
+    {
+        DrawnMap = new GameObject[MapManager.xSize, MapManager.ySize];
     }
 
     public void InstantiateMap(MapNode[,] map)

@@ -10,7 +10,6 @@ public class ConditionalDelete : MonoBehaviour
 
     public bool TryDestroy()
     {
-        //yield return new WaitForSeconds(5f);
         int count = 0;
         for (int x = -1; x <= 1; x++)
         {
@@ -25,8 +24,8 @@ public class ConditionalDelete : MonoBehaviour
         }
         if (count == DestroyThreshold)
         {
-            Destroy(this.gameObject);
-            return true;  //idk about this lol 
+            GetComponent<SpriteRenderer>().enabled = false;
+            return true;  
         }
         return false; 
     }

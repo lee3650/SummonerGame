@@ -125,7 +125,7 @@ public class LevelGenerator : MonoBehaviour
     {
         MapManager.SetMapSize(new Vector2(MapStagesWidth * StageSize, MapStagesHeight * StageSize));
         MapManager.InitMap();
-        MapDrawer.InstantiateMap(MapManager.GetMap());
+        MapDrawer.InitializeMap(); 
         MapDrawer.DrawEnclosingWalls(MapManager.xSize, MapManager.ySize);
     }
 

@@ -66,6 +66,7 @@ public class MapNode
             case TileType.OceanTransition:
             case TileType.Wall:
             case TileType.OceanTile:
+            case TileType.IslandTile:
                 return 100; 
         }
         throw new System.Exception("Could not get traversal cost for tile type " + TileType);
@@ -158,4 +159,5 @@ public enum TileType
     RightOfMap,
     OceanTransition,
     OceanTile, 
+    IslandTile, 
 }
