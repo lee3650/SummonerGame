@@ -9,6 +9,7 @@ public class MapNode
     private bool Traversable;
     public int TraversalCost = 1;
     private bool UseCanGoThroughWalls;
+    public bool ConnectedToOcean = false; 
 
     public MapNode(bool traversable)
     {

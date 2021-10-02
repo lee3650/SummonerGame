@@ -51,30 +51,6 @@ public class AdjacentConnections : MonoBehaviour
         return true;
     }
 
-    public static bool DoesAnyAdjacentTileConnectToTile(Vector2Int start, TileType goalType, TileType[] connectedTiles)
-    {
-        for (int i = 0; i < dirs.Length; i++)
-        {
-            //so, if this tile is traversable, and it's not a miner, then we'll test it, blacklisting ourselves. 
-            Vector2Int cur = start + dirs[i];
-            
-            if (MapManager.IsTileType(cur.x, cur.y, goalType))
-            {
-                return true;
-            }
-
-            if (IsNodeTileAcceptable(cur, connectedTiles))
-            {
-                bool r = ExistsPathToGoal(cur, start, goalType, connectedTiles);
-                if (r)
-                {
-                    return true;
-                }
-            }
-        }
-        return false; 
-    }
-
     static bool ExistsPathToGoal(Vector2Int start, Vector2Int blacklist, TileType goalType, TileType[] connectedTiles) 
     {
         //wait, this doesn't make sense. 

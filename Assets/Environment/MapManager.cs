@@ -63,6 +63,23 @@ public class MapManager
         return result;
     }
 
+    public static void SetConnectedToOcean(Vector2Int tile)
+    {
+        if (IsPointInBounds(tile.x, tile.y))
+        {
+            Map[tile.x, tile.y].ConnectedToOcean = true;
+        }
+    }
+
+    public static bool IsTileConnectedToOcean(Vector2Int tile)
+    {
+        if (IsPointInBounds(tile.x, tile.y))
+        {
+            return Map[tile.x, tile.y].ConnectedToOcean || Map[tile.x, tile.y].TileType == TileType.Wall;
+        }
+        return true; 
+    }
+
     public static int GetTraversalCost(int x, int y)
     {
         return Map[x, y].TraversalCost;

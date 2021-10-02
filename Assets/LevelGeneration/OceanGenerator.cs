@@ -73,10 +73,9 @@ public class OceanGenerator : MonoBehaviour
         {
             Vector2Int sizes = new Vector2Int(xSize, ySize);
             int islandSize = Random.Range(1, 3); //basically 1 or 2.
-            Vector2Int seed = GetSeed(sizes, islandSize * islandSize);
+            Vector2Int seed = GetSeed(sizes, (islandSize * islandSize) + 1);
             FillOutIslandSeed(oceanMap, seed, sizes, islandSize);
         }
-
         MapDrawer.InstantiateNonCenteredMap(oceanMap, new Vector2Int(-buffer, -buffer)); 
     }
 
@@ -85,7 +84,7 @@ public class OceanGenerator : MonoBehaviour
         //okay.
         //now this can assume those conditions hold. Hopefully it looks good lol. Way to put the code over the client. 
 
-        print("seed: " + seed);
+        print("seed: " + seed + ", island size: " + islandSize);
 
         for (int x = -1; x <= 1 + islandSize; x++)
         {
@@ -120,7 +119,7 @@ public class OceanGenerator : MonoBehaviour
         //y = ySize - buffer/2 to mapsize, x = 0 to mapsize. 
 
         //okay. 
-        int leftAndAboveSpace = 2;
+        int leftAndAboveSpace = 3;
         int ran = Random.Range(0, 4);
 
         switch (ran)
