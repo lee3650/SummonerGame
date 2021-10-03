@@ -10,6 +10,6 @@ public class CurrentManaDisplay : MonoBehaviour
 
     private void Update()
     {
-        Text.text = string.Format("Mana: {0}", PlayerMana.GetCurrent());
+        Text.text = string.Format("{0}", PlayerMana.GetCurrent());
     }
 }

@@ -54,6 +54,15 @@ public class IncomeDisplay : MonoBehaviour
     {
         IncomeText.text = "Income: " + Income;
         ExpensesText.text = "Expenses: " + Expenses;
-        NetIncomeText.text = "Net Income: " + (Income - Expenses);
+        NetIncomeText.text = getSignChar((Income - Expenses)) + "" + Mathf.Abs(Income - Expenses);
+    }
+
+    private char getSignChar(float num)
+    {
+        if (Mathf.Sign(num) == 1)
+        {
+            return '+';
+        }
+        return '-';
     }
 }

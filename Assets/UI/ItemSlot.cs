@@ -7,6 +7,8 @@ public class ItemSlot : MonoBehaviour
 {
     private Item MyItem;
     [SerializeField] protected Image Image;
+    [SerializeField] Sprite DefaultSprite;
+    [SerializeField] Color DefaultColor = new Color(1, 1, 1, 0);
 
     public void SetItem(Item item)
     {
@@ -22,7 +24,7 @@ public class ItemSlot : MonoBehaviour
 
     public void ResetItem()
     {
-        Image.sprite = null;
+        Image.sprite = DefaultSprite;
         MyItem = null;
         Image.color = Color.white;
     }
