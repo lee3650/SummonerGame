@@ -11,8 +11,9 @@ public class SummonWeapon : Weapon
 
     [SerializeField] protected GameObject Summon;
     [SerializeField] float rotationOffset;
-    [SerializeField] bool UseSummonImage = true; 
-    
+    [SerializeField] bool UseSummonImage = true;
+    [SerializeField] bool SetColorToWhite = false;
+
     public bool ReduceMaxMana;
 
     public bool ZeroRotation = false;
@@ -26,8 +27,15 @@ public class SummonWeapon : Weapon
             SpriteRenderer sr;
             if (Summon.TryGetComponent<SpriteRenderer>(out sr))
             {
-                GetComponent<SpriteRenderer>().color = sr.color;
                 GetComponent<SpriteRenderer>().sprite = sr.sprite;
+                if (SetColorToWhite)
+                {
+                    GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().color = sr.color;
+                }
             }
         }
     }
@@ -38,7 +46,8 @@ public class SummonWeapon : Weapon
         {
             SummonPreview.SetActive(true);
             SummonPreview.transform.position = VectorRounder.RoundVector(mousePos);
-        } else
+        }
+        else
         {
             SummonPreview.SetActive(false);
         }
@@ -53,13 +62,13 @@ public class SummonWeapon : Weapon
             Collider[] cols = SummonPreview.GetComponents<Collider>();
             foreach (Collider c in cols)
             {
-                c.enabled = false; 
+                c.enabled = false;
             }
 
             Behaviour[] bs = SummonPreview.GetComponents<Behaviour>();
             foreach (Behaviour b in bs)
             {
-                b.enabled = false; 
+                b.enabled = false;
             }
         }
         base.OnSelection();
@@ -81,7 +90,7 @@ public class SummonWeapon : Weapon
         {
             summoned.GetComponent<Summon>().ManaRefundAmount = GetManaDrain();
         }
-        
+
         Sellable sellable;
         if (summoned.TryGetComponent<Sellable>(out sellable))
         {
@@ -92,7 +101,7 @@ public class SummonWeapon : Weapon
     public override float GetRecurringCost()
     {
         IRecurringCost purchasable;
-        
+
         if (Summon.TryGetComponent<IRecurringCost>(out purchasable))
         {
             return purchasable.GetRecurringCost();
@@ -110,7 +119,7 @@ public class SummonWeapon : Weapon
     {
         GameObject summoned = Instantiate(summon, pos, rotation);
         Summon summonComponent = summoned.GetComponent<Summon>();
-        
+
         InitializeSpawnedSummon(summonComponent, summoner);
 
         return summoned;
