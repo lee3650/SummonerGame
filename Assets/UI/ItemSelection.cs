@@ -10,7 +10,6 @@ public class ItemSelection : MonoBehaviour
     [SerializeField] Transform SelectionImage;
 
     [SerializeField] PlayerEntity PlayerEntity;
-    
 
     private int ItemSlotsLength;
 

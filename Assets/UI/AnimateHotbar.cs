@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimateBasedOnKey : MonoBehaviour
+public class AnimateHotbar : MonoBehaviour
 {
     [SerializeField] AnimateInAndOut Animator;
 
