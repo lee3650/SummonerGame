@@ -183,7 +183,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     {
         if (prevNode == null)
         {
-            throw new System.Exception("Somehow prev node became null!");
+            return MaxNumSummons;
         }
 
         if (prevNode.TileType == CapacityBuffTile)

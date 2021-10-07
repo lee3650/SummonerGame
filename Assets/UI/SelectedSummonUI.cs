@@ -5,11 +5,14 @@ using UnityEngine;
 public class SelectedSummonUI : MonoBehaviour
 {
     [SerializeField] DisplayUpgrade UpgradePanelPrefab;
-    [SerializeField] StringDisplayPanel StringDisplayPanelPrefab;
+    [SerializeField] StringDisplayPanel TooltipDisplayPanel;
+    [SerializeField] StringDisplayPanel SellInfoDisplayPanel;
 
     [SerializeField] Canvas TooltipCanvas; //this code really should not be here. 
     [SerializeField] PlayerInput pi;
     [SerializeField] PanelDisplayer TooltipPD;
+
+    [SerializeField] Canvas SelectedSummonUICanvas; 
 
     [SerializeField] PlayerSummonController PlayerSummonController;
 
@@ -56,7 +59,7 @@ public class SelectedSummonUI : MonoBehaviour
                         TooltipCanvas.transform.position = pi.GetWorldMousePosition();
                         TooltipPD.HideAllPanels();
                         lastTile = mousePos;
-                        TooltipPD.ShowPanel(StringDisplayPanelPrefab, TileDescription.GetTileDescription(mousedTile));
+                        TooltipPD.ShowPanel(TooltipDisplayPanel, TileDescription.GetTileDescription(mousedTile));
                     }
                 } else
                 {
@@ -72,12 +75,15 @@ public class SelectedSummonUI : MonoBehaviour
         }
 
         lastMousePos = mousePos;
-
-        print("Time since mouse move: " + timeSinceMouseMove);
     }
     
     public void SelectSummon(IControllableSummon s)
     {
+        TooltipPD.HideAllPanels();
+
+        SelectedSummonUICanvas.transform.position = s.GetTransform().position;
+        SelectedSummonUICanvas.gameObject.SetActive(true);
+
         SummonSelected = true; 
 
         PanelDisplayer.HideAllPanels();
@@ -99,12 +105,13 @@ public class SelectedSummonUI : MonoBehaviour
             //so, yeah that's sketchy because if the object it's asking for changes, we won't know until we get a runtime error 
         }
 
-        PanelDisplayer.ShowPanel(StringDisplayPanelPrefab, s.GetStatString());
+        PanelDisplayer.ShowPanel(SellInfoDisplayPanel, s.GetStatString());
     }
     
     public void DeselectSummon()
     {
         PanelDisplayer.HideAllPanels();
-        SummonSelected = false; 
+        SummonSelected = false;
+        SelectedSummonUICanvas.gameObject.SetActive(false);
     }
 }
