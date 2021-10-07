@@ -113,6 +113,8 @@ GameObject:
   - component: {fileID: 9010513314167623919}
   - component: {fileID: 9010513314167623905}
   - component: {fileID: 9010513314167623907}
+  - component: {fileID: 3606616274549204730}
+  - component: {fileID: -7464147375590530698}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -216,6 +218,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 9010513315856799013}
   UpgradeButton: {fileID: 9010513314318564354}
+--- !u!114 &3606616274549204730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9010513314167623917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8b15cb767cc549b4b474c5da90b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: -7464147375590530698}
+  AnimateIn: {fileID: 7400000, guid: 7ac14f461b87d0246bb9804bdbedd039, type: 2}
+  AnimateOut: {fileID: 0}
+  Shown: 0
+  AnimateInOnStart: 1
+--- !u!95 &-7464147375590530698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9010513314167623917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c368e9dc2c564e429e4958d6f03304d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9010513314318564352
 GameObject:
   m_ObjectHideFlags: 0

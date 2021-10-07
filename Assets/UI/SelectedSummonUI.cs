@@ -7,12 +7,11 @@ public class SelectedSummonUI : MonoBehaviour
     [SerializeField] DisplayUpgrade UpgradePanelPrefab;
     [SerializeField] StringDisplayPanel TooltipDisplayPanel;
     [SerializeField] StringDisplayPanel SellInfoDisplayPanel;
+    [SerializeField] StickToWorldPoint SelectedSummonParent;
 
-    [SerializeField] Canvas TooltipCanvas; //this code really should not be here. 
     [SerializeField] PlayerInput pi;
+    [SerializeField] StickToWorldPoint TooltipParent;
     [SerializeField] PanelDisplayer TooltipPD;
-
-    [SerializeField] Canvas SelectedSummonUICanvas; 
 
     [SerializeField] PlayerSummonController PlayerSummonController;
 
@@ -55,20 +54,20 @@ public class SelectedSummonUI : MonoBehaviour
                     TileType mousedTile = MapManager.GetTileType(mousePos);
                     if (mousePos != lastTile)
                     {
-                        TooltipCanvas.gameObject.SetActive(true);
-                        TooltipCanvas.transform.position = pi.GetWorldMousePosition();
+                        TooltipParent.gameObject.SetActive(true);
+                        TooltipParent.SetWorldPoint(pi.GetWorldMousePosition());
                         TooltipPD.HideAllPanels();
                         lastTile = mousePos;
                         TooltipPD.ShowPanel(TooltipDisplayPanel, TileDescription.GetTileDescription(mousedTile));
                     }
                 } else
                 {
-                    TooltipCanvas.gameObject.SetActive(false);
+                    TooltipParent.gameObject.SetActive(false);
                     TooltipPD.HideAllPanels();
                 }
             } else
             {
-                TooltipCanvas.gameObject.SetActive(false);
+                TooltipParent.gameObject.SetActive(false);
                 TooltipPD.HideAllPanels();
                 timeSinceMouseMove = 0f;
             }
@@ -81,8 +80,8 @@ public class SelectedSummonUI : MonoBehaviour
     {
         TooltipPD.HideAllPanels();
 
-        SelectedSummonUICanvas.transform.position = s.GetTransform().position;
-        SelectedSummonUICanvas.gameObject.SetActive(true);
+        SelectedSummonParent.SetWorldPoint(s.GetTransform().position);
+        SelectedSummonParent.gameObject.SetActive(true);
 
         SummonSelected = true; 
 
@@ -112,6 +111,6 @@ public class SelectedSummonUI : MonoBehaviour
     {
         PanelDisplayer.HideAllPanels();
         SummonSelected = false;
-        SelectedSummonUICanvas.gameObject.SetActive(false);
+        SelectedSummonParent.gameObject.SetActive(false);
     }
 }

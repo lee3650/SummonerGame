@@ -51,7 +51,7 @@ public class ItemSelection : MonoBehaviour
 
         if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
         {
-            int newIndex = 0;
+            int newIndex;
             
             if (Input.mouseScrollDelta.y > 0)
             {
@@ -104,7 +104,8 @@ public class ItemSelection : MonoBehaviour
 
         if (newSelect == selectedIndex)
         {
-            DeselectItem();
+            //DeselectItem();
+            ChangeSelection((newSelect + ItemSlotsLength / 2) % ItemSlotsLength);
             return; 
         }
 

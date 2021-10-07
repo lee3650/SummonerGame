@@ -189,6 +189,8 @@ GameObject:
   - component: {fileID: 3286938058510414009}
   - component: {fileID: -2495869970801869472}
   - component: {fileID: 8477451371982643228}
+  - component: {fileID: 3258648025450866685}
+  - component: {fileID: -8279778611752324850}
   m_Layer: 5
   m_Name: SellPanel
   m_TagString: Untagged
@@ -264,6 +266,42 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &3258648025450866685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286938058510414004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e8b15cb767cc549b4b474c5da90b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: -8279778611752324850}
+  AnimateIn: {fileID: 7400000, guid: 8e3f614f515c15047aa2b7e699fed94a, type: 2}
+  AnimateOut: {fileID: 0}
+  Shown: 0
+  AnimateInOnStart: 1
+--- !u!95 &-8279778611752324850
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286938058510414004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3580666752328774d8464b9164496119, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3286938058661338201
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,15 @@ public class AnimateInAndOut : MonoBehaviour
     [SerializeField] AnimationClip AnimateOut;
 
     [SerializeField] bool Shown = true;
+    [SerializeField] bool AnimateInOnStart = false;
+
+    private void Start()
+    {
+        if (AnimateInOnStart)
+        {
+            PlayAnimateIn();
+        }    
+    }
 
     public void ToggleVisibility()
     {
@@ -35,6 +44,7 @@ public class AnimateInAndOut : MonoBehaviour
     {
         Animator.Play(AnimateOut.name);
     }
+
     private void PlayAnimateIn()
     {
         Animator.Play(AnimateIn.name);

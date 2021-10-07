@@ -143,8 +143,8 @@ public class PlayerSummonController : MonoBehaviour
                 rv.Show();
             }
 
-            Time.timeScale = 0.1f;
-            Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
+            //Time.timeScale = 0.1f;
+            //Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
         } 
         else
         {
