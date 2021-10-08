@@ -70,6 +70,7 @@ public class SelectedSummonUI : MonoBehaviour
                 TooltipParent.gameObject.SetActive(false);
                 TooltipPD.HideAllPanels();
                 timeSinceMouseMove = 0f;
+                lastTile = new Vector2Int(-1, -1);
             }
         }
 
