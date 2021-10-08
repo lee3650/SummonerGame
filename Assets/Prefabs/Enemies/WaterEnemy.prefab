@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SearchRange: 2
-  SearchFrequency: 0.2
+  SearchFrequency: 0.1
   TargetSearcher: {fileID: 4648206095511936301}
   TargetFaction: 0
 --- !u!114 &818753487579262456

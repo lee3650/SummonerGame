@@ -7,10 +7,23 @@ public class ArrowTrap : PlayerWall, IDamager, IWielder
     [SerializeField] Projectile Projectile;
     [SerializeField] Transform SpawnPos; 
     [SerializeField] float AttackLength;
-    [SerializeField] float projDir; 
+    [SerializeField] float projDir;
+    [SerializeField] DirectionalAnimator Animator;
+    [SerializeField] float animationDelayTime = 0.15f;
     float timer = 0f;
 
     List<Event> AttackModifiers = new List<Event>();
+
+    float zRot = 0f;
+
+    private void Awake()
+    {
+        Vector2 spawnPos = SpawnPos.position;
+        zRot = transform.eulerAngles.z;
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+        Animator.IdleDirection(zRot);
+        SpawnPos.position = spawnPos;
+    }
 
     private void Update()
     {
@@ -20,15 +33,18 @@ public class ArrowTrap : PlayerWall, IDamager, IWielder
             if (timer > AttackLength)
             {
                 timer = 0f;
-                Attack();
+                StartCoroutine(Attack());
             }
         }
     }
 
-    private void Attack()
+    private IEnumerator Attack()
     {
-        Projectile p = Instantiate(Projectile, SpawnPos.position, Quaternion.Euler(new Vector3(0f, 0f, transform.eulerAngles.z + projDir)));
+        Animator.PlayAttack(zRot);
+        yield return new WaitForSeconds(animationDelayTime);
+        Projectile p = Instantiate(Projectile, SpawnPos.position, Quaternion.Euler(new Vector3(0f, 0f, zRot + projDir)));
         p.Fire(this);
+        Animator.IdleDirection(zRot);
     }
 
     public Transform GetTransform()

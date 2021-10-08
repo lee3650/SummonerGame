@@ -11,6 +11,8 @@ public class BlueprintWeapon : SummonWeapon
     [SerializeField] List<BlueprintType> RequiredAdjacents;
     [SerializeField] List<BlueprintType> BlacklistedAdjacents;
 
+    [SerializeField] bool RotateDirAnimator = false; 
+
     List<GameObject> blueprintImages = new List<GameObject>();
 
     float Rotation = 0f; 
@@ -26,7 +28,17 @@ public class BlueprintWeapon : SummonWeapon
     {
         if (visible && SummonPreview != null)
         {
-            SummonPreview.transform.eulerAngles = new Vector3(0f, 0f, Rotation);
+            if (RotateDirAnimator)
+            {
+                if (SummonPreview.activeInHierarchy)
+                {
+                    SummonPreview.GetComponent<Animator>().enabled = true;
+                    SummonPreview.GetComponent<DirectionalAnimator>().IdleDirection(Rotation);
+                }
+            } else
+            {
+                SummonPreview.transform.eulerAngles = new Vector3(0f, 0f, Rotation);
+            }
         }
         base.UpdatePreview(visible, mousePos);
     }

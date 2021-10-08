@@ -8,6 +8,7 @@ public class DirectionalAnimator : MonoBehaviour
     [SerializeField] private AnimationClip[] WalkAnimation = new AnimationClip[4];
     [SerializeField] private AnimationClip[] IdleAnimation = new AnimationClip[4];
     [SerializeField] Animator Animator;
+    [SerializeField] bool MakeAwakeRotationIdle = false;
 
     [Space(20)]
 
@@ -21,6 +22,16 @@ public class DirectionalAnimator : MonoBehaviour
         new Vector2Int(-1, 0)
     };
 
+    private void Awake()
+    {
+        if (MakeAwakeRotationIdle)
+        {
+            float zRot = transform.eulerAngles.z;
+            transform.eulerAngles = Vector3.zero;
+            IdleDirection(zRot);
+        }
+    }
+
     public void PlayWalk(Vector2 direction)
     {
         //so, it'd be better to input our velocity, right? 
@@ -29,6 +40,12 @@ public class DirectionalAnimator : MonoBehaviour
         Vector2Int dir = RoundToCardinalDirection(direction);
 
         Animator.Play(WalkAnimation[DirectionsIndexOf(dir)].name);
+    }
+
+    public void PlayAttack(float zRot)
+    {
+        Vector2Int dir = RoundToCardinalDirection(GetRotationVector(zRot));
+        Animator.Play(AttackAnimation[DirectionsIndexOf(dir)].name);
     }
 
     private int DirectionsIndexOf(Vector2Int item)
@@ -54,6 +71,21 @@ public class DirectionalAnimator : MonoBehaviour
     {
         Vector2Int dir = RoundToCardinalDirection(GetRotationVector(pointToFace));
         Animator.Play(IdleAnimation[DirectionsIndexOf(dir)].name);
+    }
+
+    public void IdleDirection(float zRotation)
+    {
+        Vector2Int dir = RoundToCardinalDirection(GetRotationVector(zRotation));
+        if (dir == Vector2Int.zero)
+        {
+            print("Z rotation of " + zRotation + " resulted in zero dir!"); 
+        }
+        Animator.Play(IdleAnimation[DirectionsIndexOf(dir)].name);
+    }
+
+    private Vector2 GetRotationVector(float zRot)
+    {
+        return new Vector2(Mathf.Cos(zRot * Mathf.Deg2Rad), Mathf.Sin(zRot * Mathf.Deg2Rad));
     }
 
     private Vector2 GetRotationVector(Vector2 pointToFace)

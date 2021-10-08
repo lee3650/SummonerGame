@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8838798976600515603
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8101295082181157308, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: MakeAwakeRotationIdle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137764414655570917, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: HealthManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144804, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowTrapBlueprintVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144805, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144806, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144807, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: HealthManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144807, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: MySummon
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8421448952825121376, guid: bef68b6274e30044fb9834931b758ba3, type: 3}
+    - {fileID: 8793106112654034639, guid: bef68b6274e30044fb9834931b758ba3, type: 3}
+    - {fileID: 4137764414655570917, guid: bef68b6274e30044fb9834931b758ba3, type: 3}
+    - {fileID: 4778944115168144807, guid: bef68b6274e30044fb9834931b758ba3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: bef68b6274e30044fb9834931b758ba3, type: 3}
