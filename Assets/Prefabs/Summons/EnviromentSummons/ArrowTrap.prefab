@@ -157,10 +157,10 @@ MonoBehaviour:
   Projectile: {fileID: 2300688480454240103, guid: 63dfab75171e894448065041eb6e0f65,
     type: 3}
   SpawnPos: {fileID: 5715662106442440533}
-  AttackLength: 1.5
+  AttackLength: 1.25
   projDir: -90
   Animator: {fileID: -8101295082181157308}
-  animationDelayTime: 0.15
+  animationDelayTime: 0.25
 --- !u!114 &8793106112654034639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +229,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 7055abca37b0fee439cb578ec92852ce, type: 2}
   - {fileID: 7400000, guid: 4f5760ff17ad5cc449b999660320edc7, type: 2}
   Animator: {fileID: -1515683915028491842}
+  MakeAwakeRotationIdle: 0
   Directions:
   - {x: 0, y: 1}
   - {x: 1, y: 0}

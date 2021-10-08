@@ -49,6 +49,14 @@ public class ItemSelection : MonoBehaviour
             }
         }
 
+        if (Input.GetMouseButtonDown(2))
+        {
+            if (selectedIndex != -1)
+            {
+                ChangeSelection(selectedIndex);
+            }
+        }
+
         if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
         {
             int newIndex;
