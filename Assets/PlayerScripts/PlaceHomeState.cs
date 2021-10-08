@@ -14,7 +14,8 @@ public class PlaceHomeState : MonoBehaviour, IState
     [SerializeField] RotationController RotationController;
     [SerializeField] GameObject NextWaveButton;
     [SerializeField] Summoner Summoner;
-    
+    [SerializeField] TileRestrictedSummon MinerSummon;
+
     private HomeTileSummon actualHomeSummon;
 
     bool selected = false; 
@@ -65,5 +66,6 @@ public class PlaceHomeState : MonoBehaviour, IState
         actualHomeSummon.GetComponent<SummonWeapon>().OnDeselection();
         Destroy(actualHomeSummon.gameObject);
         Summoner.OnFinancialsChanged();
+        MinerSummon.ScaleCost();
     }
 }

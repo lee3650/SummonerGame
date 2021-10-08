@@ -482,6 +482,8 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 080000000a00000009000000
   BlacklistedTileTypes: 0b000000
+  IncomeMultipler: 1.75
+  Summoner: {fileID: 333112619}
 --- !u!1 &28208780
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +531,8 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000011000000
   BlacklistedTileTypes: 13000000
+  IncomeMultipler: 1.75
+  Summoner: {fileID: 0}
 --- !u!61 &28208782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -755,7 +759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55, y: 150.18607}
+  m_AnchoredPosition: {x: -453.55, y: 330.25003}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -2967,6 +2971,7 @@ MonoBehaviour:
   RotationController: {fileID: 333112608}
   NextWaveButton: {fileID: 1391116079}
   Summoner: {fileID: 333112619}
+  MinerSummon: {fileID: 27557985}
 --- !u!1 &336836271
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,6 +4160,8 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 110000000f0000000b00000013000000
   BlacklistedTileTypes: 10000000
+  IncomeMultipler: 1.75
+  Summoner: {fileID: 0}
 --- !u!1 &437786492
 GameObject:
   m_ObjectHideFlags: 0
@@ -10838,6 +10845,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 27557985}
+        m_MethodName: ScaleCost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1391116082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11164,7 +11182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.75598}
+  m_AnchoredPosition: {x: -437.25012, y: 295.82004}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -11526,7 +11544,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304991317}
   m_HandleRect: {fileID: 1304991316}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14460,6 +14478,8 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000013000000
   BlacklistedTileTypes: 11000000
+  IncomeMultipler: 1.75
+  Summoner: {fileID: 0}
 --- !u!1 &1905715854
 GameObject:
   m_ObjectHideFlags: 0
@@ -15771,6 +15791,8 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000001300000011000000
   BlacklistedTileTypes: 0f000000
+  IncomeMultipler: 1.75
+  Summoner: {fileID: 0}
 --- !u!1 &2119171362
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,32 @@ public class TileRestrictedSummon : SummonWeapon
 {
     [SerializeField] List<TileType> RequiredTileTypes;
     [Tooltip("Tiles that this tile cannot be spawned next to")]
-    [SerializeField] List<TileType> BlacklistedTileTypes; 
+    [SerializeField] List<TileType> BlacklistedTileTypes;
+    [SerializeField] float IncomeMultipler = 1.75f;
+    [SerializeField] Summoner Summoner; //no clue if that's the right class
+
+    public void ScaleCost()
+    {
+        float income = Summoner.CalculateIncome();
+        print("scaling cost: income is " + income);
+        ManaDrain = RoundToHalf(income * IncomeMultipler);
+    }
+
+    private float RoundToHalf(float input)
+    {
+        float whole = (int)input;
+        float frac = input - whole;
+        int tens = (int)(10 * frac);
+        if (tens <= 2.5)
+        {
+            return whole;
+        } 
+        if (tens >= 7.5)
+        {
+            return whole + 1;
+        }
+        return whole + 0.5f;
+    }
 
     public override bool CanUseWeapon(Vector2 mousePos)
     {

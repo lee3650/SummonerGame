@@ -27,7 +27,7 @@ public class MapGenerator : MonoBehaviour
         //AddTotems(xSize, ySize, newMap);
 
         new ValleyExpander().AddFeature(xSize, ySize, newMap);
-
+        
         return newMap;
     }
 

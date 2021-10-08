@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Weapon : Item, IPurchasable
 {
     //for now let's assume only the player can use items. 
-    [SerializeField] private float ManaDrain; //we'll also assume you can only use mana 
+    [SerializeField] protected float ManaDrain; //we'll also assume you can only use mana 
     [SerializeField] private float AttackLength;
     [SerializeField] string WeaponDescription;
     [SerializeField] bool DeselectAfterAttacking = true; 

@@ -106,10 +106,10 @@ public class LevelGenerator : MonoBehaviour
                 {
                     float distToSafety = Vector2.Distance(centerTile, GetTrueMapCoordinate(x, y, pos));
 
-                    if (distToSafety < 10f)
+                    if (distToSafety < 15f)
                     {
                         newMap[x, y] = new MapNode(true, TileType.Copper);
-                    } else if (distToSafety < 20f)
+                    } else if (distToSafety < 27f)
                     {
                         newMap[x, y] = new MapNode(true, TileType.Silver);
                     } else //so, we are going to have to change this when we add more ore types 

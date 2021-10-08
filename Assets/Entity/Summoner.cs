@@ -91,6 +91,18 @@ public class Summoner : MonoBehaviour, IWaveNotifier
         }
     }
 
+    public float CalculateIncome() 
+    {
+        float income = PlayerIncome.GetIncome();
+
+        foreach (Summon s in Summons)
+        {
+            income += s.GetIncome();
+        }
+
+        return income;
+    }
+
     public void OnHit(IEntity hit)
     {
         Entity.OnHit(hit);
