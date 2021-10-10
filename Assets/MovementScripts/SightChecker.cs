@@ -12,7 +12,8 @@ public class SightChecker : MonoBehaviour
     //welp, just made that less efficient 
     public bool CanSeePathToTarget(Vector2 goal)
     {
-        return NoCollidersInPathHaveTags(new List<string>() {"Unbreakable", "Untraversable"}, goal);
+        return false; 
+        //return NoCollidersInPathHaveTags(new List<string>() {"Unbreakable", "Untraversable"}, goal);
     }
 
     private Vector2 CalculateNormal(Vector2 goal)

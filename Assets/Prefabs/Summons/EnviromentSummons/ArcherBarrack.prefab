@@ -51,6 +51,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -170,7 +171,8 @@ MonoBehaviour:
   - BlueprintType: 3
     Prefab: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29,
       type: 3}
-    MaintenanceFee: 2.5
+    MaintenanceFee: 0
+    DisplayName: Archer Unit
   SpriteRenderer: {fileID: 7609072344873876228}
   MaintenanceFee: 0
   AddToTargeting: 0

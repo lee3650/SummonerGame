@@ -52,6 +52,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -171,7 +172,8 @@ MonoBehaviour:
   - BlueprintType: 2
     Prefab: {fileID: 9194925930672925386, guid: a6d5428c89d2e6945b95ec06890747ab,
       type: 3}
-    MaintenanceFee: 2.25
+    MaintenanceFee: 0
+    DisplayName: Melee Unit
   SpriteRenderer: {fileID: 5052993147076501496}
   MaintenanceFee: 0
   AddToTargeting: 0

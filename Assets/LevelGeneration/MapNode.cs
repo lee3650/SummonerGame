@@ -97,17 +97,17 @@ public class TileDescription
         switch (type)
         {
             case TileType.Copper:
-                return "Copper Tile. Earns an income of 5 mana per turn if a miner is placed adjacent.";
+                return "Copper Tile. Earns an income of 5 coin per turn if a miner is placed adjacent.";
             case TileType.Gold:
-                return "Gold Tile. Earns an income of 10 mana per turn if a miner is placed adjacent.";
+                return "Gold Tile. Earns an income of 10 coin per turn if a miner is placed adjacent.";
             case TileType.Silver:
-                return "Silver Tile. Earns an income of 7.5 mana per turn if a miner is placed adjacent.";
+                return "Silver Tile. Earns an income of 7.5 coin per turn if a miner is placed adjacent.";
             case TileType.Stone:
-                return "Stone Tile. Increases generator capacity by 50% when a generator is placed on it."; //I actually don't know the value
+                return "Clearing Tile. Increases generator capacity by 50% when a generator is placed on it."; //I actually don't know the value
             case TileType.Valley:
                 return "Valley Tile";
             case TileType.Wall:
-                return "Wall Tile";
+                return "Ocean Tile";
             case TileType.Barracks:
                 return "Barracks";
             case TileType.BreakableWall:
@@ -117,7 +117,7 @@ public class TileDescription
             case TileType.Hills:
                 return "Hill Tile. Increases damage dealt by 25% when a unit is standing on it.";
             case TileType.Water:
-                return "Water Tile. Increases damage taken by 100% when a unit is standing on it."; //yeah in retrospect that seems a bit OP
+                return "Sand Tile. Increases damage taken by 100% when a unit is standing on it."; //yeah in retrospect that seems a bit OP
             case TileType.Land:
                 return "Land Tile";
             case TileType.ArcherBarracks:

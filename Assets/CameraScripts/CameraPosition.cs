@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CameraPosition : MonoBehaviour
 {
-    [SerializeField] Camera FixedCamera;
     [SerializeField] Transform Player; 
 
     public void FixedUpdate()
     {
-        transform.position = ((Vector2)Player.position); //+ (3 * mousePos)) / 4;
+        transform.position = ((Vector2)Player.position);
     }
 }

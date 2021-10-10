@@ -89,12 +89,22 @@ PrefabInstance:
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: BlueprintData.Array.data[0].MaintenanceFee
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: BlueprintData.Array.data[1].MaintenanceFee
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[1].DisplayName
+      value: Arrow Turner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[0].DisplayName
+      value: Ballista
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}

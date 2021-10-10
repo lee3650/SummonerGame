@@ -10,6 +10,7 @@ public class BlueprintWeapon : SummonWeapon
     [SerializeField] List<TileType> RequiredAdjacentTiles;
     [SerializeField] List<BlueprintType> RequiredAdjacents;
     [SerializeField] List<BlueprintType> BlacklistedAdjacents;
+    [SerializeField] float MaintenanceFee;
 
     [SerializeField] bool RotateDirAnimator = false; 
 
@@ -112,9 +113,14 @@ public class BlueprintWeapon : SummonWeapon
         return base.CanUseWeapon(mousePos) && adjacentsPass;
     }
 
+    public override float GetRecurringCost()
+    {
+        return MaintenanceFee;
+    }
+
     public override void UseWeapon(Vector2 mousePos)
     {
-        BlueprintManager.AddBlueprint(VectorRounder.RoundVectorToInt(mousePos), BlueprintType, Rotation);
+        BlueprintManager.AddBlueprint(VectorRounder.RoundVectorToInt(mousePos), BlueprintType, Rotation, MaintenanceFee);
         GameObject b = Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(new Vector3(0f, 0f, Rotation)));
         blueprintImages.Add(b);
         RangeVisualizer rv; 

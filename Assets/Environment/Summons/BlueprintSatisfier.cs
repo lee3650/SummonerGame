@@ -153,8 +153,19 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public string GetStatString()
     {
-        string stats = string.Format("Range: {0}\nMax Summons: {1}\nMaintenance Fee: {2}\nActivated: {3}", Range, CalculateMaxSummons(), MaintenanceFee, activated);
+        string stats = string.Format("Max Summons: {1}\nSummons Types: {2}\nActivated: {3}", Range, CalculateMaxSummons(), GetSummonTypesString(), activated);
         return stats; 
+    }
+
+    protected string GetSummonTypesString()
+    {
+        string result = "";
+        foreach (BlueprintPrefabData d in BlueprintData)
+        {
+            result += "\n" + d.ToString();
+        }
+
+        return result; 
     }
 
     public bool CanBeSelected()
@@ -218,7 +229,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             GameObject summoned = SummonEntity(d.Prefab, p.Point, p.Rotation);
 
             HealthManager hm = summoned.GetComponent<HealthManager>();
-            SummonedEntities.Add(new BlueprintSummon(hm, p, d.MaintenanceFee));
+            SummonedEntities.Add(new BlueprintSummon(hm, p, p.MaintenanceFee));
             hm.OnDeath += PruneSummonedEntitiesList;
         }
     }

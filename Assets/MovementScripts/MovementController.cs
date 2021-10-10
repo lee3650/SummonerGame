@@ -52,7 +52,7 @@ public class MovementController : MonoBehaviour
             //rc.FaceForward();
         }
     }
-
+    //Is this unity version slower to recompile? 
     public void MoveTowardPoint(Vector2 worldPoint)
     {
         Vector2 dir = worldPoint - rb.position;
@@ -67,20 +67,20 @@ public class MovementController : MonoBehaviour
             return; 
         }
 
-        if ((pathfindPath.x != (int)pathfindGoal.x && pathfindPath.y != (int)pathfindGoal.y) && SightChecker.CanSeePathToTarget(pathfindGoal))
-        {
-            pathfindPath = new SearchNode((int)pathfindGoal.x, (int)pathfindGoal.y);
-        }
-        else
-        {
-            MoveTowardPoint(new Vector2(pathfindPath.x, pathfindPath.y));
+        //if ((pathfindPath.x != (int)pathfindGoal.x && pathfindPath.y != (int)pathfindGoal.y) && SightChecker.CanSeePathToTarget(pathfindGoal))
+        //{
+        //    pathfindPath = new SearchNode((int)pathfindGoal.x, (int)pathfindGoal.y);
+        //}
+        //else
+        //{
+        //}
+        MoveTowardPoint(new Vector2(pathfindPath.x, pathfindPath.y));
 
-            if (Vector2.Distance(new Vector2(pathfindPath.x, pathfindPath.y), transform.position) < 0.25f)
+        if (Vector2.Distance(new Vector2(pathfindPath.x, pathfindPath.y), transform.position) < 0.25f)
+        {
+            if (pathfindPath.ParentNode != null)
             {
-                if (pathfindPath.ParentNode != null)
-                {
-                    pathfindPath = pathfindPath.ParentNode;
-                }
+                pathfindPath = pathfindPath.ParentNode;
             }
         }
     }

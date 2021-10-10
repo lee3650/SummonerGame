@@ -51,6 +51,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -168,10 +169,12 @@ MonoBehaviour:
   BlueprintData:
   - BlueprintType: 0
     Prefab: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90, type: 3}
-    MaintenanceFee: 0.3125
+    MaintenanceFee: 0
+    DisplayName: Wall
   - BlueprintType: 1
     Prefab: {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
-    MaintenanceFee: 0.3125
+    MaintenanceFee: 0
+    DisplayName: Gate
   SpriteRenderer: {fileID: 6000955293405737802}
   MaintenanceFee: 2.5
   AddToTargeting: 0

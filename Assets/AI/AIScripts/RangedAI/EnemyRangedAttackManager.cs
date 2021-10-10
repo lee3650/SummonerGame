@@ -9,7 +9,7 @@ public class EnemyRangedAttackManager : AIAttackManager
 
     public override bool CanAttack(ITargetable CurrentTarget)
     {
-        return base.CanAttack(CurrentTarget) && SightChecker.NoUnbreakableWallsInWay(CurrentTarget.GetPosition()) && IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta);
+        return base.CanAttack(CurrentTarget) && IsTargetWithinDelta(CurrentTarget.GetPosition(), transform.position, attackWidthDelta); //&& SightChecker.NoUnbreakableWallsInWay(CurrentTarget.GetPosition())
     }
 
     public static bool IsTargetWithinDelta(Vector2 target, Vector2 pos, float attackWidthDelta) //I'm aware this is poor organization 

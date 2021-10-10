@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -216,6 +217,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -265,7 +267,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 10
   m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -676,6 +678,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: c968e19be6b4f254ebc2fbfcc4d7a1e9, type: 2}
   - {fileID: 7400000, guid: 54bc4577902ef5e4a9b73a245be6e42d, type: 2}
   Animator: {fileID: 3711082862545154627}
+  MakeAwakeRotationIdle: 0
   Directions:
   - {x: 0, y: 1}
   - {x: 1, y: 0}

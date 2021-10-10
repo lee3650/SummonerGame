@@ -17,4 +17,9 @@ public class ResetManager : MonoBehaviour
         print("If the build index changes this is going to break!");
         SceneManager.LoadScene(0);        
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
