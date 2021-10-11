@@ -10,7 +10,7 @@ public class SpikeTrap : MonoBehaviour, IDamager
 
     private void Awake()
     {
-        EventsToApply.Add(new Event(EventType, Damage));
+        EventsToApply.Add(new Event(EventType, Damage, null));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

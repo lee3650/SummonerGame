@@ -11,15 +11,16 @@ public class BeamAttack : Projectile
 
     float timer = 0f;
 
-    IWielder myWielder; 
-
+    IWielder myWielder;
+    IEntity Sender;
     //so, we're modifying our damage by Time.deltaTime, so basically it's not going to be super insane if you get a charm. 
 
-    public override void Fire(IWielder wielder)
+    public override void Fire(IWielder wielder, IEntity sender)
     {
         timer = 0f;
         myWielder = wielder;
         TargetSearcher.Init();
+        Sender = sender;
     }
 
     private void Update()
@@ -34,7 +35,7 @@ public class BeamAttack : Projectile
 
             foreach (Event e in EventsToApply)
             {
-                TargetManager.Target.HandleEvent(new Event(e.MyType, e.Magnitude * Time.deltaTime));
+                TargetManager.Target.HandleEvent(new Event(e.MyType, e.Magnitude * Time.deltaTime, Sender));
             }
         } else
         {

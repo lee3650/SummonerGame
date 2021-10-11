@@ -12,7 +12,7 @@ public class BearTrap : MonoBehaviour
         IEntity e; 
         if (collision.TryGetComponent<IEntity>(out e))
         {
-            e.HandleEvent(new Event(EventType, Damage));
+            e.HandleEvent(new Event(EventType, Damage, null));
             Destroy(gameObject);
         }
     }

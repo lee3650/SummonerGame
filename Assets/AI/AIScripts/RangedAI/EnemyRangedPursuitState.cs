@@ -107,10 +107,6 @@ public class EnemyRangedPursuitState : AIPursuitState
         Dictionary<Vector2Int, Vector2Int> furthestPoints = FindFurthestPoints(targetPos, maxDist, dirs);
         Dictionary<Vector2Int, int> DirToWallScore = GetWallScores(dirs, furthestPoints, targetPos);
 
-        foreach (KeyValuePair<Vector2Int, int> pairs in DirToWallScore)
-        {
-            print(string.Format("Direction: {0}, wall score: {1}", pairs.Key, pairs.Value));
-        }
 
         Vector2 candidate;
         for (int i = 0; i <= maxDist; i++)

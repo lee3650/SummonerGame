@@ -47,7 +47,7 @@ public class WaterDeathState : MeleeDeathState
             PlayerWall wall;
             if (hit.transform.TryGetComponent<PlayerWall>(out wall))
             {
-                wall.HandleEvent(new Event(EventType.Physical, 10000f));
+                wall.HandleEvent(new Event(EventType.Physical, 10000f, null));
             }
         }
 

@@ -35,6 +35,6 @@ public class RangedAttackState : AIAttackState
     protected virtual void ActivateProjectile(Projectile p, IWielder wielder)
     {
         //p.gameObject.layer = LayerMask.NameToLayer(LayerManager.GetProjLayerFromFaction(AIEntity.GetFaction()));
-        p.Fire(wielder);
+        p.Fire(wielder, GetComponent<IEntity>()); //this is not great... 
     }
 }

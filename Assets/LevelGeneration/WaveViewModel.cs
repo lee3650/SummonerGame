@@ -10,7 +10,8 @@ public class WaveViewModel : MonoBehaviour
     [SerializeField] TextMeshProUGUI NextWaveText;
     [SerializeField] TextMeshProUGUI CurrentWaveText;
     [SerializeField] TextMeshProUGUI LevelNum;
-    [SerializeField] GameObject NextWaveButton; 
+    [SerializeField] GameObject NextWaveButton;
+    [SerializeField] GameObject NextLevelButton;
 
     [SerializeField] Summoner PlayerSummoner;
 
@@ -29,7 +30,7 @@ public class WaveViewModel : MonoBehaviour
 
     //yeah I'm definitely making this too complicated. 
 
-    public void EnterNextLevelOrSpawnWave()
+    public void EnterNextLevel()
     {
         if (firstLevel)
         {
@@ -38,23 +39,22 @@ public class WaveViewModel : MonoBehaviour
             NextWaveButton.SetActive(false);
         }
 
-        //this is where we give out our new items and charms and such 
-        if (NextWaveFunctionMonitor.DoesNextWaveButtonStartNextLevel())
-        {
-            CurrentLevelManager.EnterNextLevel();
+        CurrentLevelManager.EnterNextLevel();
 
-            StopSpawningWaves();
+        StopSpawningWaves();
 
-            UpdateCurrentWaveUI();
-            UpdateNextWaveUI(CurrentLevelManager.GetNextWave());
+        UpdateCurrentWaveUI();
+        UpdateNextWaveUI(CurrentLevelManager.GetNextWave());
 
-            LevelNum.text = "Level: " + CurrentLevelManager.GetLevelNum();
-        }
-        else
-        {
-            StartNextWave();
-            NextWaveButton.SetActive(false);
-        }
+        NextLevelButton.SetActive(false);
+
+        LevelNum.text = "Level: " + CurrentLevelManager.GetLevelNum();
+    }
+
+    public void SpawnNextWaveButtonPressed()
+    {
+        StartNextWave();
+        NextWaveButton.SetActive(false);
     }
 
     public void StopSpawningWaves()

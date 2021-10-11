@@ -13,7 +13,7 @@ public class ApplyEvent : MonoBehaviour
         {
             if (VectorRounder.RoundVector(transform.position) == VectorRounder.RoundVector(entity.GetPosition()))
             {
-                entity.HandleEvent(new Event(EventType, Magnitude));
+                entity.HandleEvent(new Event(EventType, Magnitude, null));
             }
         }
     }

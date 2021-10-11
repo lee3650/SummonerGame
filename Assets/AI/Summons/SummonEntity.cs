@@ -30,7 +30,7 @@ public class SummonEntity : AIEntity
             case EventType.Fire:
             case EventType.Magic:
             case EventType.Physical:
-                return new Event(e.MyType, e.Magnitude * damageModifier);
+                return new Event(e.MyType, e.Magnitude * damageModifier, this);
         }
 
         return e; 

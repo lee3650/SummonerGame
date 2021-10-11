@@ -138,7 +138,7 @@ public class Summon : MonoBehaviour
     {
         if (IDamager != null)
         {
-            IDamager.AddAttackModifier(charm.GetAttackModifier());
+            IDamager.AddAttackModifier(charm.GetAttackModifier(GetComponent<IEntity>()));
         }
     }
 

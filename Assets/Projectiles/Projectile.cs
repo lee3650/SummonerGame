@@ -12,17 +12,16 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     [SerializeField] MovementController MovementController;
     [SerializeField] Collider2D col;
 
+    [SerializeField] bool CheckFaction;
+    [SerializeField] Factions TargetFaction; 
+
     bool alreadyHit = false; 
 
     protected List<Event> EventsToApply = new List<Event>();
 
-    private void Awake()
+    public virtual void Fire(IWielder wielder, IEntity sender)
     {
-        EventsToApply.Add(new Event(EventType, Damage));
-    }
-
-    public virtual void Fire(IWielder wielder)
-    {
+        EventsToApply.Add(new Event(EventType, Damage, sender));
         EventsToApply = wielder.ModifyEventList(EventsToApply);
         MovementController.SetVelocity(transform.up, Velocity);
     }
@@ -53,12 +52,34 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
         MovementController.DisableRigidbody();
         GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
-        IEntity entity;
-        if (collision.transform.TryGetComponent<IEntity>(out entity))
+        bool applyEvents = true;
+
+        if (CheckFaction)
         {
-            foreach (Event e in EventsToApply)
+            ILivingEntity e;
+            if (collision.transform.TryGetComponent<ILivingEntity>(out e))
             {
-                entity.HandleEvent(e);
+                if (e.GetFaction() != TargetFaction)
+                {
+                    applyEvents = false;
+                }
+            } else
+            {
+                //so, this is a bit sketchy, but if it's not a living entity we don't want to damage it then
+                applyEvents = false; 
+            }
+        }
+
+        if (applyEvents)
+        {
+            IEntity entity;
+            if (collision.transform.TryGetComponent<IEntity>(out entity))
+            {
+
+                foreach (Event e in EventsToApply)
+                {
+                    entity.HandleEvent(e);
+                }
             }
         }
 

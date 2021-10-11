@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Event
 {
-    public Event(EventType type, float magnitude)
+    public Event(EventType type, float magnitude, IEntity sender)
     {
         MyType = type;
         Magnitude = magnitude;
+        Sender = sender;
     }
 
     public EventType MyType
@@ -15,6 +16,10 @@ public class Event
         get;
     }
     public float Magnitude
+    {
+        get;
+    }
+    public IEntity Sender
     {
         get;
     }

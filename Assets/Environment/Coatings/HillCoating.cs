@@ -21,7 +21,7 @@ public class HillCoating : Coating
         List<Event> result = new List<Event>();
         foreach (Event e in original)
         {
-            result.Add(new Event(e.MyType, e.Magnitude * damageIncrease));
+            result.Add(new Event(e.MyType, e.Magnitude * damageIncrease, e.Sender));
         }
 
         return result; 

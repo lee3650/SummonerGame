@@ -7,8 +7,8 @@ public class CharmOfDamageModification : Charm
     [SerializeField] EventType additionalEventType;
     [SerializeField] float eventMagnitude;
 
-    public override Event GetAttackModifier()
+    public override Event GetAttackModifier(IEntity sender)
     {
-        return new Event(additionalEventType, eventMagnitude);
+        return new Event(additionalEventType, eventMagnitude, sender);
     }
 }

@@ -17,8 +17,8 @@ public class MeleeWeapon : MonoBehaviour, IDamager
 
     private void Awake()
     {
-        UnmodifiedEventsToApplyOnHit.Add(new Event(EventType, Magnitude));
         Wielder = WielderObject.GetComponent<IWielder>();
+        UnmodifiedEventsToApplyOnHit.Add(new Event(EventType, Magnitude, WielderObject.GetComponent<IEntity>()));
     }
 
     public void AddAttackModifier(Event e)

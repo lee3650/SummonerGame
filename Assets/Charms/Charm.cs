@@ -12,7 +12,7 @@ public abstract class Charm : MonoBehaviour
         return e; 
     }
 
-    public abstract Event GetAttackModifier();
+    public abstract Event GetAttackModifier(IEntity sender);
 
     public bool ApplyToType(SummonType type)
     {
