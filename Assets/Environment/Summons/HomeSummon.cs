@@ -9,4 +9,13 @@ public class HomeSummon : PlayerMiner
         HealthManager = hm;
         MySummon.SetHealthManager(hm);
     }
+
+    public override void HandleEvent(Event e)
+    {
+        if (e.Sender != null)
+        {
+            e.Sender.HandleEvent(e); //if it's itself it's going to cause some issues. 
+        }
+        base.HandleEvent(e);
+    }
 }
