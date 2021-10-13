@@ -764,7 +764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55, y: 442.74997}
+  m_AnchoredPosition: {x: -453.55, y: 442.75}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1214,6 +1214,7 @@ MonoBehaviour:
   Image: {fileID: 131340663}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &131340663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,7 +2996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 21
+  MaxHealth: 30
   CurrentHealth: 0
 --- !u!114 &333112616
 MonoBehaviour:
@@ -3569,6 +3570,7 @@ MonoBehaviour:
   Image: {fileID: 358657638}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &358657638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4072,6 +4074,7 @@ MonoBehaviour:
   Image: {fileID: 421241911}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &421241911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6792,6 +6795,7 @@ MonoBehaviour:
   Image: {fileID: 741026235}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &741026235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8673,6 +8677,7 @@ MonoBehaviour:
   Image: {fileID: 1172749643}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1172749643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9128,6 +9133,7 @@ MonoBehaviour:
   Image: {fileID: 1252543691}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1252543691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10297,6 +10303,7 @@ MonoBehaviour:
   Image: {fileID: 1322694783}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1322694783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10388,6 +10395,7 @@ MonoBehaviour:
   Image: {fileID: 1325964314}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1325964314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11593,6 +11601,7 @@ MonoBehaviour:
   Image: {fileID: 1433977003}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1433977003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13268,6 +13277,7 @@ MonoBehaviour:
   Image: {fileID: 1648437868}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1648437868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13501,6 +13511,7 @@ MonoBehaviour:
   Image: {fileID: 1667296795}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1667296795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13836,6 +13847,7 @@ MonoBehaviour:
   Image: {fileID: 1702667038}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &1702667038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13874,6 +13886,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702667035}
   m_CullTransparentMesh: 0
+--- !u!1 &1712215907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1712215909}
+  - component: {fileID: 1712215908}
+  m_Layer: 0
+  m_Name: TombstoneSpriteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1712215908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712215907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2bd26edcf2bc54b996cf73063294d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TombstoneSprites:
+  - {fileID: 7614490245818497817, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: 6826001034726423758, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: -547917136490490874, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: -547134095607965401, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: -2813291323598974925, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: -1060667070553596720, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: 7240943993274552943, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+  - {fileID: -8670152319270884365, guid: fcf70734af53eba4fadf878c594320f8, type: 3}
+--- !u!4 &1712215909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712215907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 491.96997, y: 272.92014, z: -4.0625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738205689
 GameObject:
   m_ObjectHideFlags: 0
@@ -16066,6 +16130,7 @@ MonoBehaviour:
   Image: {fileID: 2068760863}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &2068760863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16528,6 +16593,7 @@ MonoBehaviour:
   Image: {fileID: 2138849275}
   DefaultSprite: {fileID: 0}
   DefaultColor: {r: 1, g: 1, b: 1, a: 0}
+  Index: 0
 --- !u!114 &2138849275
 MonoBehaviour:
   m_ObjectHideFlags: 0

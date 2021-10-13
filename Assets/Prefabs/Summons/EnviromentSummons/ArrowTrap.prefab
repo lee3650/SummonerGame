@@ -82,6 +82,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -152,7 +153,7 @@ MonoBehaviour:
   HealthManager: {fileID: 8793106112654034639}
   sr: {fileID: 4778944115168144805}
   MySummon: {fileID: 4137764414655570917}
-  TileType: 5
+  TileType: 28
   Precedence: 1000
   Projectile: {fileID: 2300688480454240103, guid: 63dfab75171e894448065041eb6e0f65,
     type: 3}

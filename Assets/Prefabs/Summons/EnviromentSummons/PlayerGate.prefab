@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3600352979565121685}
   - component: {fileID: 1570570612983766584}
   - component: {fileID: 1337009842691720106}
-  - component: {fileID: 5671485332004650711}
+  - component: {fileID: 2105061340760964004}
   m_Layer: 16
   m_Name: PlayerGate
   m_TagString: Untraversable
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -161,7 +162,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5671485332004650711
+--- !u!114 &2105061340760964004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,29 +171,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 694221489078713342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ba7aa0f538cb74798641367d595e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 804498bf62385c04992c027c14c53955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteRules:
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 21300000, guid: 647c6c11d21876c42a5db9e03005ba3b, type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: -1, y: 0}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 21300000, guid: 647c6c11d21876c42a5db9e03005ba3b, type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 0, y: -1}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 21300000, guid: 2f4a1a2f065f56c4ebffa2b2a9a0b300, type: 3}
-  - AdjacentsToTiles:
-    - RelativePosition: {x: 0, y: 1}
-      TileType: 5
-      Blacklist: 0
-    Sprite: {fileID: 21300000, guid: 2f4a1a2f065f56c4ebffa2b2a9a0b300, type: 3}
+  WangTile: 0500000006000000
+  OrderedTiles:
+  - {fileID: -3438999256171790477, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: 8993451112901572815, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: -9058530192992236209, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: 8517234801947581280, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -3120941439861210204, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: -6344400868051495725, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: 8517234801947581280, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -6344400868051495725, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: 1970453124214665671, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: -7972065133965726847, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: 2323720641331218244, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: 2323720641331218244, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: -7972065133965726847, guid: 06d3ac717889ae54e9fbbefa7617c8e8, type: 3}
+  - {fileID: -6344400868051495725, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: 2323720641331218244, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
+  - {fileID: -6344400868051495725, guid: 070217d21867ada4a95a954679ebde6c, type: 3}
   sr: {fileID: 694221489078713343}
   ContinuouslyUpdate: 1
+  CornerSet: 0
+  UseInjectedMap: 0
+  Animator: {fileID: 0}
+  Clips: []
+  invertIndex: 0
+  OverwriteTileForZeroIndex: 0

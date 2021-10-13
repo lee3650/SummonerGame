@@ -32,7 +32,8 @@ public class MapNode
             case TileType.ArcherBarracks:
             case TileType.WallGenerator:
             case TileType.TrapGenerator:
-            case TileType.Miner: 
+            case TileType.Miner:
+            case TileType.BallistaTile:
                 return true; 
         }
         return false; 
@@ -61,6 +62,7 @@ public class MapNode
                 return 1;
             case TileType.BreakableWall:
             case TileType.SummonTotem:
+            case TileType.BallistaTile:
                 return 15;
             case TileType.Gate:
                 return 8;
@@ -161,4 +163,5 @@ public enum TileType
     OceanTransition,
     OceanTile, 
     IslandTile, 
+    BallistaTile, 
 }

@@ -27,9 +27,35 @@ public class ItemSelection : MonoBehaviour
 
     private void Awake()
     {
+        AssignSlotIndexes();
         ItemSlotsLength = ItemSlots.Length;
+        SubscribeToSlotEvents();
     }
-    
+
+    private void AssignSlotIndexes()
+    {
+        for (int i = 0; i < ItemSlots.Length; i++)
+        {
+            ItemSlots[i].Index = i;
+        }
+    }
+
+    private void SubscribeToSlotEvents()
+    {
+        foreach (ItemSlot s in ItemSlots)
+        {
+            s.OnSlotClicked += OnSlotClicked;
+        }
+    }
+
+    private void OnSlotClicked(ItemSlot slot)
+    {
+        if (slot != null)
+        {
+            ChangeSelection(slot.Index);
+        }
+    }
+
     public bool HasItem()
     {
         if (SelectedItem != null)

@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     private Item MyItem;
     [SerializeField] protected Image Image;
     [SerializeField] Sprite DefaultSprite;
     [SerializeField] Color DefaultColor = new Color(1, 1, 1, 0);
+    public int Index;
+
+    public event System.Action<ItemSlot> OnSlotClicked = delegate { };
 
     public void SetItem(Item item)
     {
@@ -17,6 +21,11 @@ public class ItemSlot : MonoBehaviour
         Image.color = item.GetColor();
     }
     
+    public void OnPointerClick(PointerEventData data)
+    {
+        OnSlotClicked(this);
+    }
+
     public Item GetItem()
     {
         return MyItem;

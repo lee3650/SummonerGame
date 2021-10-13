@@ -7,18 +7,24 @@ public class AIDeathState : MonoBehaviour, IState
     [SerializeField] MovementController MovementController;
     [SerializeField] Collider2D col;
     [SerializeField] SpriteRenderer SpriteRenderer;
+    float startFadeTime = 3f;
+    float fadeLength = 2f;
+
+    float deathTimer = 0f;
 
     public void EnterState()
     {
         col.enabled = false;
         MovementController.DisableAllMovement();
-    
+
         if (SpriteRenderer == null)
         {
             SpriteRenderer = GetComponent<SpriteRenderer>();
         }
-        SpriteRenderer.color = new Color(SpriteRenderer.color.r, SpriteRenderer.color.g, SpriteRenderer.color.b, 0.25f);
-        SpriteRenderer.sortingOrder = -4;
+
+        SetDeathGraphic();
+
+        RemoveProjectiles();
 
         StartCoroutine(Destroy());
         
@@ -30,9 +36,41 @@ public class AIDeathState : MonoBehaviour, IState
 
     }
 
+    private void SetDeathGraphic()
+    {
+        Animator m;
+        if (TryGetComponent<Animator>(out m))
+        {
+            m.enabled = false;
+        }
+        SpriteRenderer.sprite = TombstoneSpriteManager.GetRandomTombstone();
+        SpriteRenderer.sortingOrder = -4;
+    }
+
+    private void RemoveProjectiles()
+    {
+        foreach (Transform child in transform)
+        {
+            Projectile p;
+            if (child.TryGetComponent<Projectile>(out p))
+            {
+                p.gameObject.SetActive(false);
+            }
+        }
+    }
+
     public void UpdateState()
     {
+        deathTimer += Time.deltaTime;
 
+        if (deathTimer >= startFadeTime)
+        {
+            SpriteRenderer.color = new Color(SpriteRenderer.color.r, SpriteRenderer.color.g, SpriteRenderer.color.b, 
+                Mathf.Lerp(SpriteRenderer.color.a, 0, (deathTimer - startFadeTime) / fadeLength));
+        } else
+        {
+            RemoveProjectiles();
+        }
     }
 
     public void ExitState()
