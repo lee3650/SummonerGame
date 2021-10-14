@@ -10,31 +10,31 @@ public class AnimateHotbar : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < 9; i++)
-        {
-            if (Input.GetKeyDown((KeyCode)(ZeroIndex + i)))
-            {
-                if (!Animator.IsShown)
-                {
-                    Animator.ToggleVisibility();
-                }
-            }
-        }
+        //for (int i = 0; i < 9; i++)
+        //{
+        //    if (Input.GetKeyDown((KeyCode)(ZeroIndex + i)))
+        //    {
+        //        if (!Animator.IsShown)
+        //        {
+        //            Animator.ToggleVisibility();
+        //        }
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Animator.IsShown)
-            {
-                Animator.ToggleVisibility();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (Animator.IsShown)
+        //    {
+        //        Animator.ToggleVisibility();
+        //    }
+        //}
 
-        if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
-        {
-            if (!Animator.IsShown)
-            {
-                Animator.ToggleVisibility();
-            }
-        }
+        //if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
+        //{
+        //    if (!Animator.IsShown)
+        //    {
+        //        Animator.ToggleVisibility();
+        //    }
+        //}
     }
 }

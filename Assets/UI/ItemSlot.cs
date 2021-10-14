@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler
+public class ItemSlot : MonoBehaviour, IPointerDownHandler
 {
     private Item MyItem;
     [SerializeField] protected Image Image;
@@ -21,7 +21,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         Image.color = item.GetColor();
     }
     
-    public void OnPointerClick(PointerEventData data)
+    public void OnPointerDown(PointerEventData data)
     {
         OnSlotClicked(this);
     }

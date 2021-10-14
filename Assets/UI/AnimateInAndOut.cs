@@ -8,6 +8,8 @@ public class AnimateInAndOut : MonoBehaviour
     [SerializeField] AnimationClip AnimateIn;
     [SerializeField] AnimationClip AnimateOut;
 
+    [SerializeField] bool InterruptAnimations = true;
+
     [SerializeField] bool Shown = true;
     [SerializeField] bool AnimateInOnStart = false;
 
@@ -24,11 +26,9 @@ public class AnimateInAndOut : MonoBehaviour
         if (Shown)
         {
             PlayAnimateOut();
-            Shown = false;
         } else
         {
             PlayAnimateIn();
-            Shown = true; 
         }
     }
 
@@ -40,13 +40,26 @@ public class AnimateInAndOut : MonoBehaviour
         } 
     }
 
+    private bool CanPlayAnimation()
+    {
+        return Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f || InterruptAnimations;
+    }
+
     private void PlayAnimateOut()
     {
-        Animator.Play(AnimateOut.name);
+        if (CanPlayAnimation())
+        {
+            Animator.Play(AnimateOut.name);
+            Shown = false;
+        }
     }
 
     private void PlayAnimateIn()
     {
-        Animator.Play(AnimateIn.name);
+        if (CanPlayAnimation())
+        {
+            Animator.Play(AnimateIn.name);
+            Shown = true;
+        }
     }
 }
