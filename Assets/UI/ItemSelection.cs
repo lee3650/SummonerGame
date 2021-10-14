@@ -13,8 +13,6 @@ public class ItemSelection : MonoBehaviour
 
     private int ItemSlotsLength;
 
-    private const int ZeroIndex = (int)KeyCode.Alpha1;
-
     public event Action SelectedItemChanged = delegate { };
 
     public Item SelectedItem
@@ -67,22 +65,6 @@ public class ItemSelection : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < ItemSlotsLength; i++)
-        {
-            if (Input.GetKeyDown((KeyCode)(ZeroIndex + i)))
-            {
-                ChangeSelection(i);
-            }
-        }
-
-        if (Input.GetMouseButtonDown(2))
-        {
-            if (selectedIndex != -1)
-            {
-                ChangeSelection(selectedIndex);
-            }
-        }
-
         if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
         {
             int newIndex;

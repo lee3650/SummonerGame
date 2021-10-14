@@ -29,12 +29,12 @@ public class AnimateHotbar : MonoBehaviour
         //    }
         //}
 
-        //if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
-        //{
-        //    if (!Animator.IsShown)
-        //    {
-        //        Animator.ToggleVisibility();
-        //    }
-        //}
+        if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
+        {
+            if (!Animator.IsShown)
+            {
+                Animator.ToggleVisibility();
+            }
+        }
     }
 }

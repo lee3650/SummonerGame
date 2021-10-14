@@ -764,7 +764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55, y: 447.25003}
+  m_AnchoredPosition: {x: -453.55, y: 150.25006}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -2908,6 +2908,8 @@ MonoBehaviour:
   ItemSelection: {fileID: 1680095495}
   PlayerDodgeState: {fileID: 333112612}
   PlayerAttackState: {fileID: 333112617}
+  MouseMoveSensitivity: 0.1
+  MoveDistThreshold: 0.5
 --- !u!114 &333112611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3148,6 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5a1924b754fcd459e8b7683a5b0de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveState: {fileID: 333112610}
   HomeSummonPrefab: {fileID: 5155199365498519783, guid: bf22af521cb3b0342a9168dbe93d2175,
     type: 3}
   PlayerAttackState: {fileID: 333112617}
@@ -5183,7 +5186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapons
+  m_text: Useable Items
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ac88b6a3f84d1e4eafae467d675947c, type: 2}
   m_sharedMaterial: {fileID: -7759963748889186133, guid: 3ac88b6a3f84d1e4eafae467d675947c,
@@ -5250,13 +5253,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -73.85282, w: 0}
   m_textInfo:
     textComponent: {fileID: 570699595}
-    characterCount: 7
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -6578,6 +6581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimateInAndOut: {fileID: 1680095498}
+  Hotbar: {fileID: 1680095495}
 --- !u!1 &727400619
 GameObject:
   m_ObjectHideFlags: 0

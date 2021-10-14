@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlaceHomeState : MonoBehaviour, IState
 {
+    [SerializeField] PlayerMoveState MoveState;
     [SerializeField] HomeTileSummon HomeSummonPrefab;
     [SerializeField] PlayerAttackState PlayerAttackState; 
     [SerializeField] Component StateToExitTo;
@@ -28,10 +29,12 @@ public class PlaceHomeState : MonoBehaviour, IState
 
     public void UpdateState()
     {
-        Vector2 unitMoveDir = PlayerInput.GetUnitInputDirection();
-        MovementController.MoveInDirection(unitMoveDir);
+        //Vector2 unitMoveDir = PlayerInput.GetUnitInputDirection();
+        //MovementController.MoveInDirection(unitMoveDir);
 
-        RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
+        //RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
+
+        MoveState.MoveWithMouse();
 
         if (MapManager.IsMapInitialized())
         {
