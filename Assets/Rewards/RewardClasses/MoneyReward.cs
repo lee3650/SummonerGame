@@ -20,7 +20,7 @@ public class MoneyReward : Reward
     {
         get
         {
-            return rewardAmt + " mana";
+            return rewardAmt + " coin";
         }
     }
 }

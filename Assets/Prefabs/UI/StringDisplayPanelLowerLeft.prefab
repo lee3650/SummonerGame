@@ -27,6 +27,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1151716795532066946, guid: 4cc9178af012c484daa95a31f9ffacc3,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.6901961
+      objectReference: {fileID: 0}
     - target: {fileID: 4477614244917006329, guid: 4cc9178af012c484daa95a31f9ffacc3,
         type: 3}
       propertyPath: m_LocalPosition.x

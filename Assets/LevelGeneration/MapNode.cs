@@ -28,12 +28,14 @@ public class MapNode
         switch (TileType)
         {
             case TileType.Barracks:
-            case TileType.BreakableWall:
             case TileType.ArcherBarracks:
             case TileType.WallGenerator:
             case TileType.TrapGenerator:
             case TileType.Miner:
             case TileType.BallistaTile:
+                Traversable = true; //this is really bad, I know
+                break;
+            case TileType.BreakableWall:
                 return true; 
         }
         return false; 
