@@ -18,6 +18,8 @@ public class PlayerMoveState : MonoBehaviour, IState
     [SerializeField] float MouseMoveSensitivity;
     [SerializeField] float MoveDistThreshold;
 
+    [SerializeField] Rigidbody2D rb;
+
     private Vector2 targetMousePos;
 
     //so, do we want to serialize the dodge state or just use get component? 
@@ -75,7 +77,7 @@ public class PlayerMoveState : MonoBehaviour, IState
         {
             if (Vector2.Distance(targetMousePos, PlayerInput.GetWorldMousePosition()) > MoveDistThreshold)
             {
-                transform.position = (Vector2)transform.position + MouseMoveSensitivity * (targetMousePos - PlayerInput.GetWorldMousePosition());
+                rb.position = (Vector2)rb.position + MouseMoveSensitivity * (targetMousePos - PlayerInput.GetWorldMousePosition());
             }
         }
     }
