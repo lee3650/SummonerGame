@@ -55,22 +55,24 @@ public class LevelGenerator : MonoBehaviour
         //okay. 
 
         Vector2 bottomLeft;
-        Vector2 topRight; 
+        Vector2 topRight;
+
+        int spawnRegWidth = 1;
 
         if (delta == new Vector2(1, 0))
         {
-            bottomLeft = new Vector2(StageSize - 2, 0);
+            bottomLeft = new Vector2(StageSize - spawnRegWidth, 0);
             topRight = new Vector2(StageSize, StageSize);
         }
         else if (delta == new Vector2(0, 1))
         {
-            bottomLeft = new Vector2(0, StageSize - 2);
+            bottomLeft = new Vector2(0, StageSize - spawnRegWidth);
             topRight = new Vector2(StageSize, StageSize);
         }
         else if (delta == new Vector2(0, -1))
         {
             bottomLeft = new Vector2(0, 0);
-            topRight = new Vector2(StageSize, 2);
+            topRight = new Vector2(StageSize, spawnRegWidth);
         }
         else
         {

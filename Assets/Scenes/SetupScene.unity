@@ -523,8 +523,8 @@ MonoBehaviour:
   ItemType: 0
   ManaDrain: 8
   AttackLength: 0.1
-  WeaponDescription: Places a trap generator. A trap generator generates spike and
-    arrow traps.
+  WeaponDescription: Places a trap generator. A trap generator generates  arrow traps
+    and arrow turners.
   DeselectAfterAttacking: 1
   Summon: {fileID: 2771856131788798343, guid: c1500481aa36d2c41ac01519b37c31af, type: 3}
   rotationOffset: 0
@@ -10708,6 +10708,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1388708030}
+        m_MethodName: MakeRandomPointsAvailable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1332552763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15053,9 +15064,9 @@ MonoBehaviour:
   ItemType: 0
   ManaDrain: 5
   AttackLength: 0.1
-  WeaponDescription: Places a wall generator. A wall generator will place up to 6
-    walls or gates based on where wall and gate blueprints are placed. At the end
-    of each wave any walls that were destroyed during the wave will be regenerated.
+  WeaponDescription: Places a wall generator. A wall generator will place walls or
+    gates based on where wall and gate blueprints are placed. At the end of each
+    wave any walls that were destroyed during the wave will be regenerated.
   DeselectAfterAttacking: 1
   Summon: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}
   rotationOffset: 0
@@ -16462,8 +16473,8 @@ MonoBehaviour:
   ItemType: 0
   ManaDrain: 10
   AttackLength: 0.1
-  WeaponDescription: 'Summons a barrack. A barrack creates two melee units at the
-    end of each wave, up to a max of two. '
+  WeaponDescription: Places a barrack. A barrack creates melee units at the end of
+    each wave.
   DeselectAfterAttacking: 1
   Summon: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}
   rotationOffset: 0

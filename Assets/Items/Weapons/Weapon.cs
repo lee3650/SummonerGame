@@ -7,7 +7,7 @@ public abstract class Weapon : Item, IPurchasable
     //for now let's assume only the player can use items. 
     [SerializeField] protected float ManaDrain; //we'll also assume you can only use mana 
     [SerializeField] private float AttackLength;
-    [SerializeField] string WeaponDescription;
+    [SerializeField] protected string WeaponDescription;
     [SerializeField] bool DeselectAfterAttacking = true; 
 
     public virtual float GetCost()
@@ -17,7 +17,12 @@ public abstract class Weapon : Item, IPurchasable
 
     public virtual string GetDescription()
     {
-        return StringWidthFormatter.FormatStringToWidth(WeaponDescription, StringWidthFormatter.StandardWidth); 
+        return FormatStringWidth(WeaponDescription); 
+    }
+
+    protected string FormatStringWidth(string s)
+    {
+        return StringWidthFormatter.FormatStringToWidth(s, StringWidthFormatter.StandardWidth);
     }
 
     public virtual float GetRecurringCost()

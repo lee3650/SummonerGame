@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2042207029774516379}
   - component: {fileID: 3941265906476139161}
   - component: {fileID: -2753071127080646932}
-  m_Layer: 15
+  m_Layer: 23
   m_Name: PlayerWall
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -195,5 +196,8 @@ MonoBehaviour:
   sr: {fileID: 17723146810303836}
   ContinuouslyUpdate: 1
   CornerSet: 0
-  PrintIndex: 0
   UseInjectedMap: 0
+  Animator: {fileID: 0}
+  Clips: []
+  invertIndex: 0
+  OverwriteTileForZeroIndex: 0

@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
     static List<IWaveNotifier> ClientsToNotify = new List<IWaveNotifier>();
 
     List<Vector2> SpawnRegion = new List<Vector2>();
-
+    List<Vector2> AvailablePoints = new List<Vector2>();
     List<AIEntity> CurrentWave = new List<AIEntity>();
 
     bool NotifiedWaveCompletion = true;
@@ -34,6 +34,27 @@ public class WaveSpawner : MonoBehaviour, IResettable
         if (UseTransforms)
         {
             SpawnRegion = LevelGenerator.GetPointsWithinBoundaries(BottomLeft.position, TopRight.position);
+        }
+    }
+
+    public List<Vector2> GetSpawnPoints()
+    {
+        return AvailablePoints;
+    }
+
+    public void MakeRandomPointsAvailable()
+    {
+        int points = Random.Range(1, 4);
+        for (int i = 0; i < points; i++)
+        {
+            int ind = Random.Range(0, SpawnRegion.Count);
+            AvailablePoints.Add(SpawnRegion[ind]);
+            SpawnRegion.RemoveAt(ind);
+        }
+
+        foreach (Vector2 v in AvailablePoints)
+        {
+            print("Available spawn point: " + v);
         }
     }
 
@@ -137,6 +158,6 @@ public class WaveSpawner : MonoBehaviour, IResettable
 
     Vector2 GetRandomPointInSpawnZone()
     {
-        return SpawnRegion[Random.Range(0, SpawnRegion.Count)]; 
+        return AvailablePoints[Random.Range(0, AvailablePoints.Count)];
     }
 }

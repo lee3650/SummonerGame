@@ -40,6 +40,19 @@ public class SummonWeapon : Weapon
         }
     }
 
+    public override string GetDescription()
+    {
+        IControllableSummon cs;
+        if (Summon.TryGetComponent<IControllableSummon>(out cs))
+        {
+            return FormatStringWidth(WeaponDescription + "\n\n" + cs.GetStatString());
+        }
+        else
+        {
+            return base.GetDescription();
+        }
+    }
+
     public virtual void UpdatePreview(bool visible, Vector2 mousePos)
     {
         if (visible)
