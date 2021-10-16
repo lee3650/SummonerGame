@@ -61,6 +61,28 @@ public class TileRestrictedSummon : SummonWeapon
             }
         }
 
+        TileType under = MapManager.GetTileType(point);
+        if (MapNode.IsTileOre(under))
+        {
+            return false; 
+        }
+
+        if (BlueprintBarracks.IsPointSpawnPoint(VectorRounder.RoundVectorToInt(point)))
+        {
+            return false; 
+        }
+
+        BlueprintBarracks bb;
+        if (Summon.TryGetComponent<BlueprintBarracks>(out bb))
+        {
+            Vector2 spawnPoint = point + bb.GetSpawnOffset();
+            TileType t = MapManager.GetTileType(spawnPoint);
+            if (!MapManager.IsPointTraversable(spawnPoint, false) || MapNode.IsTileTypeBuilding(t))
+            {
+                return false; 
+            }
+        }
+
         return acceptedTiles;
     }
 

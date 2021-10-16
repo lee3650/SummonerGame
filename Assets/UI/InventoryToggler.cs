@@ -5,7 +5,12 @@ using UnityEngine;
 public class InventoryToggler : MonoBehaviour
 {
     [SerializeField] List<InventorySlotManager> InventorySlotManagers;
-    [SerializeField] List<GameObject> ParallelToggleUI; 
+    [SerializeField] List<GameObject> ParallelToggleUI;
+
+    private void Start()
+    {
+        ToggleInventory();
+    }
 
     private void Update()
     {

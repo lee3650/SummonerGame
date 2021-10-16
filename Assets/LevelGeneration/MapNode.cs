@@ -9,7 +9,47 @@ public class MapNode
     private bool Traversable;
     public int TraversalCost = 1;
     private bool UseCanGoThroughWalls;
-    public bool ConnectedToOcean = false; 
+    public bool ConnectedToOcean = false;
+
+    private static TileType[] OreTypes = new TileType[]
+    {
+        TileType.Copper,
+        TileType.Silver,
+        TileType.Gold,
+    };
+
+    private static TileType[] BuildingTypes = new TileType[]
+    {
+        TileType.ArcherBarracks,
+        TileType.Barracks,
+        TileType.TrapGenerator,
+        TileType.WallGenerator,
+        TileType.Miner,
+    };
+
+    public static bool IsTileTypeBuilding(TileType tile)
+    {
+        for (int i = 0; i < BuildingTypes.Length; i++)
+        {
+            if (BuildingTypes[i] == tile)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static bool IsTileOre(TileType tile)
+    {
+        for (int i = 0; i < OreTypes.Length; i++)
+        {
+            if (OreTypes[i] == tile)
+            {
+                return true;
+            }
+        }
+        return false; 
+    }
 
     public MapNode(bool traversable)
     {
@@ -22,19 +62,11 @@ public class MapNode
         TraversalCost = GetTraversalCost();
         UseCanGoThroughWalls = ShouldUseCanGoThroughWalls();
     }
-
+    
     private bool ShouldUseCanGoThroughWalls()
     {
         switch (TileType)
         {
-            case TileType.Barracks:
-            case TileType.ArcherBarracks:
-            case TileType.WallGenerator:
-            case TileType.TrapGenerator:
-            case TileType.Miner:
-            case TileType.BallistaTile:
-                Traversable = true; //this is really bad, I know
-                break;
             case TileType.BreakableWall:
                 return true; 
         }

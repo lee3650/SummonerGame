@@ -5,6 +5,22 @@ using UnityEngine;
 public class BlueprintBarracks : BlueprintSatisfier
 {
     [SerializeField] Vector2Int SpawnOffset; //we are going to want to draw a preview for that.  
+    private static List<Vector2Int> SpawnPoints = new List<Vector2Int>();
+
+    private Vector2Int SpawnPos;
+
+    public static bool IsPointSpawnPoint(Vector2Int point)
+    {
+        return SpawnPoints.Contains(point);
+    }
+
+    public override void Init()
+    {
+        SpawnPos = VectorRounder.RoundVectorToInt(transform.position) + GetSpawnOffset();
+        SpawnPoints.Add(SpawnPos);
+        print("Added " + SpawnPos + " to spawn points!");
+        base.Init();
+    }
 
     protected override GameObject SummonEntity(GameObject entity, Vector2 endPoint, float rotation)
     {
@@ -13,8 +29,26 @@ public class BlueprintBarracks : BlueprintSatisfier
         return summon; 
     }
 
+    protected override void OnDeath()
+    {
+        RemovePointFromSpawnPoints();
+        base.OnDeath();
+    }
+
     public Vector2Int GetSpawnOffset()
     {
         return SpawnOffset;
+    }
+
+    private void RemovePointFromSpawnPoints()
+    {
+        SpawnPoints.Remove(SpawnPos);
+        print("removed " + SpawnPos + " from spawn points!");
+        print("SpawnPoints count:  " + SpawnPoints.Count);
+    }
+
+    private void OnDestroy()
+    {
+        RemovePointFromSpawnPoints();
     }
 }
