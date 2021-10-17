@@ -76,6 +76,7 @@ public class OceanGenerator : MonoBehaviour
             Vector2Int seed = GetSeed(sizes, (islandSize * islandSize) + 1);
             FillOutIslandSeed(oceanMap, seed, sizes, islandSize);
         }
+
         MapDrawer.InstantiateNonCenteredMap(oceanMap, new Vector2Int(-buffer, -buffer)); 
     }
 
@@ -120,15 +121,16 @@ public class OceanGenerator : MonoBehaviour
 
         //okay. 
         int leftAndAboveSpace = 3;
-        int ran = Random.Range(0, 4);
+        int ran = Random.Range(0, 3);
+
+        //case 2:
+        //  return new Vector2Int(Random.Range(sizes.x - buffer + leftAndAboveSpace, sizes.x - rightAndBelowSpace), Random.Range(rightAndBelowSpace, sizes.y - leftAndAboveSpace));
 
         switch (ran)
         {
             case 0:
                 return new Vector2Int(Random.Range(leftAndAboveSpace, (buffer - rightAndBelowSpace)), Random.Range(rightAndBelowSpace, sizes.y - leftAndAboveSpace));
             case 1:
-                return new Vector2Int(Random.Range(sizes.x - buffer + leftAndAboveSpace, sizes.x - rightAndBelowSpace), Random.Range(rightAndBelowSpace, sizes.y - leftAndAboveSpace));
-            case 2:
                 return new Vector2Int(Random.Range(leftAndAboveSpace, sizes.x - rightAndBelowSpace), Random.Range(rightAndBelowSpace, buffer - leftAndAboveSpace));
             default:
                 return new Vector2Int(Random.Range(leftAndAboveSpace, sizes.x - rightAndBelowSpace), Random.Range(sizes.y - buffer + rightAndBelowSpace, sizes.y - leftAndAboveSpace));
