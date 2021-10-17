@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6604907241908217411}
   - component: {fileID: 7026245684619887461}
   - component: {fileID: -5021402466455287429}
+  - component: {fileID: 5928682463790703972}
   m_Layer: 15
   m_Name: HomeTile
   m_TagString: Untraversable
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,3 +168,19 @@ MonoBehaviour:
   MoneyPerWave: 7.5
   Range: 50
   AddToTargeting: 1
+--- !u!114 &5928682463790703972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864867464807989639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f08a31669b94e048a5ae491aef4d117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 7864867464807989638}
+  SquashAmount: 0.85
+  SquashTime: 0.075
+  RecoveryTime: 0.075

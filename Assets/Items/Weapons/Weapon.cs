@@ -8,7 +8,8 @@ public abstract class Weapon : Item, IPurchasable
     [SerializeField] protected float ManaDrain; //we'll also assume you can only use mana 
     [SerializeField] private float AttackLength;
     [SerializeField] protected string WeaponDescription;
-    [SerializeField] bool DeselectAfterAttacking = true; 
+    [SerializeField] bool DeselectAfterAttacking = true;
+    [SerializeField] bool RepeatAttack = false;
 
     public virtual float GetCost()
     {
@@ -18,6 +19,11 @@ public abstract class Weapon : Item, IPurchasable
     public virtual string GetDescription()
     {
         return FormatStringWidth(WeaponDescription); 
+    }
+
+    public bool AllowRepeatAttack()
+    {
+        return RepeatAttack;
     }
 
     protected string FormatStringWidth(string s)

@@ -33,28 +33,35 @@ public class PlayerAttackState : MonoBehaviour, IState
 
         if (AttackConditionsMet())
         {
-            attackFrame = Time.frameCount;
-
-            Weapon weapon = ItemSelection.SelectedItem as Weapon;
-            float attackDecrement = weapon.GetManaDrain();
-
-            //so, this method should never get called in theory 
-            if (ManaManager.TryDecreaseMana(attackDecrement) == false)
-            {
-                SubtractManaAndHealth(attackDecrement);
-            }
-
-            weapon.UseWeapon(PlayerInput.GetWorldMousePosition());
-
-            deselectAfter = weapon.ShouldDeselectAfterAttacking();
-
-            //play an animation, a sound, stuff like that
-
-            Summoner.OnFinancialsChanged();
+            DoAttack();
+            SummonWeapon w = ItemSelection.SelectedItem as SummonWeapon;
+            w.UpdatePreview(false, Vector2.zero);
         } else
         {
             StateController.TransitionToState(PlayerMoveState);
         }
+    }
+
+    private void DoAttack()
+    {
+        attackFrame = Time.frameCount;
+
+        Weapon weapon = ItemSelection.SelectedItem as Weapon;
+        float attackDecrement = weapon.GetManaDrain();
+
+        //so, this method should never get called in theory 
+        if (ManaManager.TryDecreaseMana(attackDecrement) == false)
+        {
+            SubtractManaAndHealth(attackDecrement);
+        }
+
+        weapon.UseWeapon(PlayerInput.GetWorldMousePosition());
+
+        deselectAfter = weapon.ShouldDeselectAfterAttacking();
+
+        //play an animation, a sound, stuff like that
+        
+        Summoner.OnFinancialsChanged();
     }
 
     void SubtractManaAndHealth(float attackDecrement)
@@ -161,14 +168,28 @@ public class PlayerAttackState : MonoBehaviour, IState
 
         timer += Time.deltaTime;
 
-        if (timer >= (ItemSelection.SelectedItem as Weapon).GetAttackLength())
+        Weapon weapon = (ItemSelection.SelectedItem as Weapon);
+
+        if (timer >= weapon.GetAttackLength())
         {
-            StateController.TransitionToState(PlayerMoveState);
-            if (deselectAfter)
+            if (Input.GetMouseButton(0) && weapon.AllowRepeatAttack())
             {
-                ItemSelection.DeselectItem();
+                if (AttackConditionsMet())
+                {
+                    timer = 0f;
+                    DoAttack();
+                }
             }
-            //this is kind of interesting - this runs after the current state has changed. 
+            else
+            {
+                StateController.TransitionToState(PlayerMoveState);
+                if (deselectAfter)
+                {
+                    ItemSelection.DeselectItem();
+                }
+            }
+            //this is kind of interesting - this runs after the current state has changed.
+            //I'm not sure why this isn't in exit state
         }
     }
 
