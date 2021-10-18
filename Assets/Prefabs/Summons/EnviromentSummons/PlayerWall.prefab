@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2042207029774516379}
   - component: {fileID: 3941265906476139161}
   - component: {fileID: -2753071127080646932}
+  - component: {fileID: -7240296653374110979}
+  - component: {fileID: 9222658590425354811}
   m_Layer: 23
   m_Name: PlayerWall
   m_TagString: Untraversable
@@ -201,3 +203,37 @@ MonoBehaviour:
   Clips: []
   invertIndex: 0
   OverwriteTileForZeroIndex: 0
+--- !u!114 &-7240296653374110979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17723146810303837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f08a31669b94e048a5ae491aef4d117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashOnStart: 1
+  sr: {fileID: 17723146810303836}
+  SquashAmount: 0.5
+  SquashTime: 0.02
+  RecoveryTime: 0.035
+  JumpOnStart: 1
+  gravity: 0.05
+  upwardVel: 0.25
+--- !u!114 &9222658590425354811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17723146810303837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618460e92c883254fb68b188a609c36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashAndStretch: {fileID: -7240296653374110979}
+  hm: {fileID: -5157839651516772810}

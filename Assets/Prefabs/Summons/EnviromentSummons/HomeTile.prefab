@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6604907241908217411}
   - component: {fileID: 7026245684619887461}
   - component: {fileID: -5021402466455287429}
-  - component: {fileID: 5928682463790703972}
+  - component: {fileID: 1292562532716074887}
   m_Layer: 15
   m_Name: HomeTile
   m_TagString: Untraversable
@@ -168,7 +168,7 @@ MonoBehaviour:
   MoneyPerWave: 7.5
   Range: 50
   AddToTargeting: 1
---- !u!114 &5928682463790703972
+--- !u!114 &1292562532716074887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f08a31669b94e048a5ae491aef4d117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SquashOnStart: 1
   sr: {fileID: 7864867464807989638}
-  SquashAmount: 0.85
-  SquashTime: 0.075
-  RecoveryTime: 0.075
+  SquashAmount: 0.5
+  SquashTime: 0.02
+  RecoveryTime: 0.035
+  JumpOnStart: 1
+  gravity: 0.05
+  upwardVel: 0.4

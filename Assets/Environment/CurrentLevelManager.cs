@@ -88,7 +88,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     void SetSpawnTime()
     {
-        enemySpawnTime = Mathf.Lerp(0.75f, 0.075f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 1));
+        enemySpawnTime = Mathf.Lerp(0.75f, 0.45f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 1));
         print("Spawn time: " + enemySpawnTime);
     }
 
@@ -191,7 +191,15 @@ public class CurrentLevelManager : MonoBehaviour
     public void SpawnNextWave()
     {
         print("Spawned wave: " + currentWave);
-        WaveSpawner.SpawnWave(GetNextWave(), enemySpawnTime);
+
+        float effectiveSpawnTime = enemySpawnTime;
+
+        if (OnLastWave())
+        {
+            effectiveSpawnTime += 0.15f;
+        }
+
+        WaveSpawner.SpawnWave(GetNextWave(), effectiveSpawnTime);
         currentWave++;
     }
 
