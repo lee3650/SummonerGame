@@ -67,6 +67,8 @@ GameObject:
   - component: {fileID: 7460180578036577217}
   - component: {fileID: 791481969154780677}
   - component: {fileID: -8000701060211229571}
+  - component: {fileID: 6631579085205426983}
+  - component: {fileID: -282535155632935970}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -618,3 +620,37 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: a2ed74f153d78d44fa942da2edd13fc3, type: 2}
   SpriteRenderer: {fileID: 1740066754483794921}
   HealthManager: {fileID: 1740066754483794926}
+--- !u!114 &6631579085205426983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f08a31669b94e048a5ae491aef4d117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashOnStart: 1
+  sr: {fileID: 1740066754483794921}
+  SquashAmount: 0.75
+  SquashTime: 0.02
+  RecoveryTime: 0.035
+  JumpOnStart: 0
+  gravity: 0
+  upwardVel: 0
+--- !u!114 &-282535155632935970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618460e92c883254fb68b188a609c36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashAndStretch: {fileID: 6631579085205426983}
+  hm: {fileID: 1740066754483794926}

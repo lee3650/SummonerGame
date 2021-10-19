@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 895104399634733041}
   - component: {fileID: 7588477037582416679}
   - component: {fileID: -3065019654653325439}
+  - component: {fileID: -303395808848310195}
   m_Layer: 11
   m_Name: RangedFriendlyBlueprint
   m_TagString: Untagged
@@ -47,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -115,3 +117,23 @@ MonoBehaviour:
   RangeSupplier: {fileID: 1740066754483794719, guid: 2e7e4455a7b786e41b07da56bcce5c29,
     type: 3}
   RangeVisualizer: {fileID: 7588477037582416679}
+--- !u!114 &-303395808848310195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895104399634732807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f08a31669b94e048a5ae491aef4d117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashOnStart: 1
+  sr: {fileID: 895104399634733041}
+  SquashAmount: 0.5
+  SquashTime: 0.02
+  RecoveryTime: 0.035
+  JumpOnStart: 0
+  gravity: 0
+  upwardVel: 0

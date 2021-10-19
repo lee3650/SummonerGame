@@ -20,10 +20,8 @@ public class SummonEntity : AIEntity
     private Event GetAdjacentModifiedEvent(Event e)
     {
         int adjacentImpassableTiles = MapManager.GetNumOfAdjacentImpassableTiles(Mathf.RoundToInt(PointToHoldManager.PointToHold.x), Mathf.RoundToInt(PointToHoldManager.PointToHold.y));
-        print("Adjacent tiles: " + adjacentImpassableTiles);
         float damageModifier = 1 - (HealthModifierPerTile * adjacentImpassableTiles);
-
-        print("Damage modifier: " + damageModifier);
+        print("Getting adjacent modified event whatever that does");
 
         switch (e.MyType)
         {

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3441093660795237328}
   - component: {fileID: 6892030134738560957}
   - component: {fileID: -8651758193511034256}
+  - component: {fileID: -1917334783744031079}
   m_Layer: 15
   m_Name: ArcherBarrack
   m_TagString: Untraversable
@@ -228,3 +229,17 @@ MonoBehaviour:
   JumpOnStart: 1
   gravity: 0.05
   upwardVel: 0.4
+--- !u!114 &-1917334783744031079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609072344873876229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618460e92c883254fb68b188a609c36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashAndStretch: {fileID: -8651758193511034256}
+  hm: {fileID: 5894510192240988270}

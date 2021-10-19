@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1678411296291060380}
   - component: {fileID: -7697342277831129212}
   - component: {fileID: 2750045554699061386}
+  - component: {fileID: 3470760398145262473}
   m_Layer: 15
   m_Name: WallGenerator
   m_TagString: Untraversable
@@ -229,3 +230,17 @@ MonoBehaviour:
   JumpOnStart: 1
   gravity: 0.05
   upwardVel: 0.4
+--- !u!114 &3470760398145262473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000955293405737803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618460e92c883254fb68b188a609c36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SquashAndStretch: {fileID: 2750045554699061386}
+  hm: {fileID: 7715499841672435744}
