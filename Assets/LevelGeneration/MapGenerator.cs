@@ -151,6 +151,8 @@ public class MapGenerator : MonoBehaviour
     TileType GetRandomTileType(int x, int y, int xSize, int ySize, float xSeed, float ySeed, float width)
     {
         //wow that's a lot of arguments 
+        //this is actually pretty slow, right, because we do this for every tile and it probably has to write to memory to hold all these arguments
+
         float adjustedX = xSeed + ((float)x / xSize) * width;
         float adjustedY = ySeed + ((float)y / ySize) * width;
 
@@ -164,6 +166,10 @@ public class MapGenerator : MonoBehaviour
         }
         if (val < 0.85f)
         {
+            if (MainMenuScript.TutorialMode) //this is kinda sketchy but I guess it shows up in references, so it should be okay
+            {
+                return TileType.Land;
+            }
             return TileType.Stone;
         }
         return TileType.Land;

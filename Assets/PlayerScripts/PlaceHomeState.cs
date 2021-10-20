@@ -16,6 +16,7 @@ public class PlaceHomeState : MonoBehaviour, IState
     [SerializeField] GameObject NextWaveButton;
     [SerializeField] Summoner Summoner;
     [SerializeField] TileRestrictedSummon MinerSummon;
+    [SerializeField] GameObject Hotbar;
 
     private HomeTileSummon actualHomeSummon;
 
@@ -66,6 +67,7 @@ public class PlaceHomeState : MonoBehaviour, IState
     public void ExitState()
     {
         NextWaveButton.SetActive(true); //this is kinda lame but whatever 
+        Hotbar.SetActive(true);
         actualHomeSummon.GetComponent<SummonWeapon>().OnDeselection();
         Destroy(actualHomeSummon.gameObject);
         Summoner.OnFinancialsChanged();

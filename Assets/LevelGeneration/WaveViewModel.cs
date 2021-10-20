@@ -26,14 +26,27 @@ public class WaveViewModel : MonoBehaviour
 
     float waveTime = 30f;
 
+    private const int tutorialSeed = 958;
+
     bool firstLevel = true; 
 
     //yeah I'm definitely making this too complicated. 
-
     public void EnterNextLevel()
     {
         if (firstLevel)
         {
+            if (MainMenuScript.TutorialMode)
+            {
+                print("Using tutorial seed!");
+                Random.InitState(tutorialSeed);
+            }
+            else
+            {
+                int seed = System.DateTime.Now.Millisecond;
+                print("seed: " + seed);
+                Random.InitState(seed);
+            }
+
             firstLevel = false;
             CurrentLevelManager.EnterFirstLevel();
             NextWaveButton.SetActive(false);

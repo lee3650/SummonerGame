@@ -176,11 +176,15 @@ public class LevelGenerator : MonoBehaviour
 
     List<MapFeature> GetMapFeatures(int levelNum, Vector2 delta)
     {
+        if (MainMenuScript.TutorialMode)
+        {
+            return new List<MapFeature>();
+        }
+
         //so, these allow horizontal movement 
         List<MapFeature> HorizontalFeatures = new List<MapFeature>()
         {
             new ValleyFeature(),
-            //new BridgeValleyFeature(),
 
         };
 
@@ -188,14 +192,12 @@ public class LevelGenerator : MonoBehaviour
         List<MapFeature> VerticalFeatures = new List<MapFeature>()
         {
             new VerticalValleyFeature(),
-            //new VerticalBridgeValleyFeature(),
         };
 
         //these allow any direction of movement 
         List<MapFeature> NeutralFeatures = new List<MapFeature>()
         {
             new LakeFeature(),
-            //new PitFeature(),
         };
 
         HorizontalFeatures.AddRange(NeutralFeatures);

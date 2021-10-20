@@ -28,6 +28,7 @@ public class ItemSelection : MonoBehaviour
         AssignSlotIndexes();
         ItemSlotsLength = ItemSlots.Length;
         SubscribeToSlotEvents();
+        gameObject.SetActive(false);
     }
 
     private void AssignSlotIndexes()
