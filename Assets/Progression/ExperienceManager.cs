@@ -6,24 +6,38 @@ using UnityEngine;
 public class ExperienceManager : MonoBehaviour
 {
     private static int CurrentLevel = 0;
-    private static float CurrentLevelPercentage = 0f;
+    private static float CurrentLevelXP = 0f;
     
     private const string KeyToCurrentLevel = "CurLevl";
-    private const string KeyToCurrentLevelPercentage = "CurLevlPct";
+    private const string KeyToCurrentLevelXP = "CurLevlXP";
+
+    public const float FirstTwoLevelXP = 4f;
 
     private void Awake()
     {
         CurrentLevel = PlayerPrefs.GetInt(KeyToCurrentLevel, 0);
-        CurrentLevelPercentage = PlayerPrefs.GetFloat(KeyToCurrentLevelPercentage, 0);
+        CurrentLevelXP = PlayerPrefs.GetFloat(KeyToCurrentLevelXP, 0);
+    }
+    
+    public static void GainXP(float amt)
+    {
+        CurrentLevelXP += amt;
+        float reqXP = GetXPToNextLevel(CurrentLevel);
+        if (CurrentLevelXP >= reqXP)
+        {
+            CurrentLevel++;
+            CurrentLevelXP -= reqXP;
+        }
     }
 
     public static int GetCurrentLevel()
     {
         return CurrentLevel;
     }
+
     public static float GetCurrentLevelPercentage()
     {
-        return CurrentLevelPercentage;
+        return CurrentLevelXP / GetXPToNextLevel(CurrentLevel);
     }
 
     private static float GetXPToNextLevel(int currentLevel)
