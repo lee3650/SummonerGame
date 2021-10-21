@@ -13,7 +13,7 @@ public abstract class Weapon : Item, IPurchasable
 
     public virtual float GetCost()
     {
-        return ManaDrain;
+        return GetManaDrain();
     }
 
     public virtual string GetDescription()
@@ -36,7 +36,7 @@ public abstract class Weapon : Item, IPurchasable
         return 0f; 
     }
 
-    public float GetManaDrain()
+    public virtual float GetManaDrain()
     {
         return ManaDrain;
     }
