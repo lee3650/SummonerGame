@@ -6,7 +6,7 @@ public class UnlockedItemManager : MonoBehaviour
 {
     [SerializeField] PlayerInventory PlayerInventory;
     
-    private void Awake()
+    private void Start()
     {
         int cur = ExperienceManager.GetCurrentLevel();
         for (int i = cur; i >= 0; i--)
@@ -14,7 +14,8 @@ public class UnlockedItemManager : MonoBehaviour
             List<GameObject> items = ItemProgressionManager.GetItemsUnlockedAtLevel(cur);
             foreach (GameObject item in items)
             {
-                PlayerInventory.TryToPickUpGameobject(item);
+                GameObject instance = Instantiate(item);
+                PlayerInventory.TryToPickUpGameobject(instance);
             }
         }
     }

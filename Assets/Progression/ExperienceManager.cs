@@ -5,12 +5,11 @@ using UnityEngine;
 //this will have to be in the main menu as well so it's guaranteed to run. 
 public class ExperienceManager : MonoBehaviour
 {
-    private static int CurrentLevel;
-    private static float CurrentLevelPercentage;
+    private static int CurrentLevel = 0;
+    private static float CurrentLevelPercentage = 0f;
     
     private const string KeyToCurrentLevel = "CurLevl";
     private const string KeyToCurrentLevelPercentage = "CurLevlPct";
-
 
     private void Awake()
     {
