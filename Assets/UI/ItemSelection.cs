@@ -11,6 +11,8 @@ public class ItemSelection : MonoBehaviour
 
     [SerializeField] PlayerEntity PlayerEntity;
 
+    [SerializeField] HotbarSelectorScript HotbarSelector; 
+
     private int ItemSlotsLength;
 
     public event Action SelectedItemChanged = delegate { };
@@ -29,6 +31,12 @@ public class ItemSelection : MonoBehaviour
         ItemSlotsLength = ItemSlots.Length;
         SubscribeToSlotEvents();
         gameObject.SetActive(false);
+        HotbarSelector.HotbarSelectorClicked += HotbarSelectorClicked;
+    }
+
+    private void HotbarSelectorClicked()
+    {
+        DeselectItem();
     }
 
     private void AssignSlotIndexes()
@@ -49,8 +57,11 @@ public class ItemSelection : MonoBehaviour
 
     private void OnSlotClicked(ItemSlot slot)
     {
+        print("changing selection!");
+
         if (slot != null)
         {
+            print("changing selection!");
             ChangeSelection(slot.Index);
         }
     }
@@ -119,10 +130,14 @@ public class ItemSelection : MonoBehaviour
             return; 
         }
 
+        print("new select: " + newSelect);
+        print("Old select: " + selectedIndex);
+
         if (newSelect == selectedIndex)
         {
-            //DeselectItem();
-            ChangeSelection((newSelect + ItemSlotsLength / 2) % ItemSlotsLength);
+            print("Deselecting item!");
+            DeselectItem();
+            //ChangeSelection((newSelect + ItemSlotsLength / 2) % ItemSlotsLength);
             return; 
         }
 

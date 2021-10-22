@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2750045554699061386}
   - component: {fileID: 3470760398145262473}
   m_Layer: 15
-  m_Name: WallGenerator
+  m_Name: Masonry
   m_TagString: Untraversable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
