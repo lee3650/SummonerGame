@@ -17,7 +17,8 @@ public class TargetSearcher : MonoBehaviour, IInitialize
     private bool ShouldSearchForTarget = true;
 
     private SearchStates searchState = SearchStates.SearchForTarget;
-    
+
+
     public void Init()
     {
         if (MyEntity != null)

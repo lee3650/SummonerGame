@@ -421,7 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementController: {fileID: 1090552370236627257}
-  TargetSearcher: {fileID: 1090552370236627263}
+  SecondaryTargetSearcher: {fileID: 5811157012089966205}
+  TargetManager: {fileID: 1090552370236627259}
 --- !u!114 &-5861504520014042726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d3b73a5fb40994a989ed2b2e53157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SearchRange: 2
+  SearchRange: 2.5
   SearchFrequency: 0.1
   TargetSearcher: {fileID: 1090552370236627263}
   TargetFaction: 0

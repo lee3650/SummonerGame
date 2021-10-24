@@ -20,6 +20,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] SegmentToImageSequence[] Gifs;
     [SerializeField] GifDisplayer GifDisplayer;
     [SerializeField] GameObject TrapGenerator;
+    [SerializeField] GameObject ArrowTrap;
 
     const string tutorialFileName = "ttl";
 
@@ -118,6 +119,21 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         else if (SectionAndSegment.x == 8)
         {
             if (BuiltGeqSummons(SummonType.MeleeEntity, 4))
+            {
+                IncrementSection();
+            }
+        }
+        else if (SectionAndSegment.x == 10)
+        {
+            if (BuiltGeqSummons(SummonType.TrapGenerator, 1))
+            {
+                IncrementSection();
+                GivePlayerItem(ArrowTrap);
+            } 
+        }
+        else if (SectionAndSegment.x == 11)
+        {
+            if (BuiltGeqSummons(SummonType.ArrowTrap, 2))
             {
                 IncrementSection();
             }
