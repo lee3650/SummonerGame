@@ -38,10 +38,10 @@ public class PlayerMoveState : MonoBehaviour, IState
     {
         MoveWithMouse();
 
-        Vector2 unitMoveDir = PlayerInput.GetUnitInputDirection();
-        MovementController.MoveInDirection(unitMoveDir);
+        //Vector2 unitMoveDir = PlayerInput.GetUnitInputDirection();
+        //MovementController.MoveInDirection(unitMoveDir);
 
-        RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
+        //RotationController.FacePoint(PlayerInput.GetWorldMousePosition());
 
         /*
         if (Input.GetKeyDown(KeyCode.Space))

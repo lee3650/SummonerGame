@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 3600352979565121685}
-  SummonType: 0
+  SummonType: 14
   HealToFull: 1
   WaveHealAmt: 10
   upgradable: 1

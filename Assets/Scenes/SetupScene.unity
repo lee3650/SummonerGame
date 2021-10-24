@@ -486,7 +486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 462.25006}
+  m_AnchoredPosition: {x: -453.55005, y: 150.13121}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -7457,6 +7457,8 @@ MonoBehaviour:
   - SecAndSeg: {x: 3, y: 2}
     Gif: {fileID: 976485842}
   GifDisplayer: {fileID: 1367039907}
+  TrapGenerator: {fileID: 764195269237895650, guid: fec93d2494f9ec84ab84e894af28bca4,
+    type: 3}
 --- !u!1 &1252543688
 GameObject:
   m_ObjectHideFlags: 0
@@ -9792,7 +9794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 427.81995}
+  m_AnchoredPosition: {x: -437.25012, y: 115.70116}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -10156,7 +10158,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304991317}
   m_HandleRect: {fileID: 1304991316}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

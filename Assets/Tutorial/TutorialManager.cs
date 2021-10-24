@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour, IWaveNotifier
 {
     [SerializeField] StringDisplayPanel TutorialDisplayPanel;
     [SerializeField] PanelDisplayer TutorialPanelDisplayer;
@@ -19,6 +19,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] GameObject MeleeBlueprint;
     [SerializeField] SegmentToImageSequence[] Gifs;
     [SerializeField] GifDisplayer GifDisplayer;
+    [SerializeField] GameObject TrapGenerator;
 
     const string tutorialFileName = "ttl";
 
@@ -41,6 +42,21 @@ public class TutorialManager : MonoBehaviour
             Summoner.SummonsChanged += SummonsChanged;
             IncomeTooltip.MousedOver += MousedOver;
             BlueprintManager.BlueprintsChanged += BlueprintsChanged;
+            WaveSpawner.NotifyWhenWaveEnds(this);
+        }
+    }
+
+    public void OnWaveEnds()
+    {
+        //okay well here's one way to do this: we define constant strings (that function as labels - or... we could parse labels). 
+        //Then we put them in order in an array/list. Then we call index of for that variable name? We'd have to duplicate the labels if we parsed them
+        //but we wouldn't have to update anything else... hm. 
+        //Well, okay... if we add more mechanics we may need to do like, a second tutorial or something as well, right? 
+        
+        if (SectionAndSegment.x == 9)
+        {
+            IncrementSection();
+            GivePlayerItem(TrapGenerator);
         }
     }
 
@@ -48,7 +64,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (SectionAndSegment.x == 4)
         {
-            SectionAndSegment = new Vector2Int(5, 0);
+            IncrementSection();
             GivePlayerItem(barracksPrefab);
         }
     }
@@ -63,37 +79,47 @@ public class TutorialManager : MonoBehaviour
 
         if (SectionAndSegment.x == 1)
         {
-            SectionAndSegment = new Vector2Int(2, 0);
+            IncrementSection();
         }
 
-        if (SectionAndSegment.x == 2)
+        else if (SectionAndSegment.x == 2)
         {
             //so, this is the mason part. 
             if (BuiltGeqSummons(SummonType.WallGenerator, 1))
             {
-                SectionAndSegment = new Vector2Int(3, 0);
+                IncrementSection();
                 //since this section is done we need to also 
                 //give you the wall blueprint item. 
                 GivePlayerItem(wallBlueprintPrefab);
             }
-        }
-
-        if (SectionAndSegment.x == 3)
+        } 
+        else if (SectionAndSegment.x == 3)
         {
             if (BuiltGeqSummons(SummonType.Wall, 3))
             {
-                SectionAndSegment = new Vector2Int(4, 0);
+                IncrementSection();
             }
         }
-
-        //4 is handled in MousedOver
-        
-        if (SectionAndSegment.x == 5)
+        else if (SectionAndSegment.x == 5)
         {
             if (BuiltGeqSummons(SummonType.Barracks, 1))
             {
-                SectionAndSegment = new Vector2Int(6, 0);
+                IncrementSection();
                 GivePlayerItem(MeleeBlueprint);
+            }
+        }
+        else if (SectionAndSegment.x == 7)
+        {
+            if (BuiltGeqSummons(SummonType.Gate, 1))
+            {
+                IncrementSection();
+            }
+        }
+        else if (SectionAndSegment.x == 8)
+        {
+            if (BuiltGeqSummons(SummonType.MeleeEntity, 4))
+            {
+                IncrementSection();
             }
         }
     }
@@ -104,7 +130,7 @@ public class TutorialManager : MonoBehaviour
         {
             if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }).Count >= 4)
             {
-                SectionAndSegment = new Vector2Int(7, 0);
+                IncrementSection();
                 GivePlayerItem(GatePrefab);
             }
         }
@@ -113,6 +139,11 @@ public class TutorialManager : MonoBehaviour
     private void GivePlayerItem(GameObject item)
     {
         PlayerInventory.TryToPickUpGameobject(Instantiate(item));
+    }
+
+    private void IncrementSection()
+    {
+        SectionAndSegment = new Vector2Int(SectionAndSegment.x + 1, 0);
     }
 
     private void OnNextLevel()
@@ -155,9 +186,12 @@ public class TutorialManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButtonDown(0) && !PlayerAttackState.AttackedThisFrame())
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
-                SectionAndSegment = incrementSegment(SectionAndSegment, tutorialText[SectionAndSegment.x].Length - 1); //okay. So, segment should be click based but section should be event based. 
+                SectionAndSegment = incrementSegment(SectionAndSegment, tutorialText[SectionAndSegment.x].Length - 1); //so, segment is under manual control, section is event controlled
+            } else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                SectionAndSegment = decrementSegment(SectionAndSegment, tutorialText[SectionAndSegment.x].Length - 1);
             }
         }
     }
@@ -180,6 +214,16 @@ public class TutorialManager : MonoBehaviour
         if (start.y > max)
         {
             start = new Vector2Int(start.x, 0);
+        }
+        return start;
+    }
+
+    private Vector2Int decrementSegment(Vector2Int start, int max)
+    {
+        start -= new Vector2Int(0, 1);
+        if (start.y < 0)
+        {
+            start = new Vector2Int(start.x, max);
         }
         return start;
     }

@@ -18,4 +18,5 @@ public enum SummonType
     WizardTower,
     Bombard,
     Any,
+    Gate,
 }
