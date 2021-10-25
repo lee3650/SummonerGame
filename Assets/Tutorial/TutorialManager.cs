@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour, IWaveNotifier
 {
@@ -21,6 +22,8 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] GifDisplayer GifDisplayer;
     [SerializeField] GameObject TrapGenerator;
     [SerializeField] GameObject ArrowTrap;
+    [SerializeField] GameObject Miner;
+    [SerializeField] ManaManager PlayerMana;
 
     const string tutorialFileName = "ttl";
 
@@ -93,7 +96,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 //give you the wall blueprint item. 
                 GivePlayerItem(wallBlueprintPrefab);
             }
-        } 
+        }
         else if (SectionAndSegment.x == 3)
         {
             if (BuiltGeqSummons(SummonType.Wall, 3))
@@ -129,12 +132,24 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             {
                 IncrementSection();
                 GivePlayerItem(ArrowTrap);
-            } 
+            }
         }
         else if (SectionAndSegment.x == 11)
         {
             if (BuiltGeqSummons(SummonType.ArrowTrap, 2))
             {
+                IncrementSection();
+                GivePlayerItem(Miner);
+                PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
+            }
+        }
+        else if (SectionAndSegment.x == 12)
+        {
+            if (BuiltGeqSummons(SummonType.Miner, 2))
+            {
+                //well, this is duplicated information - it's assuming the home tile counts as a miner
+                //I kind of need to separate charm type and 'real' type, right? 
+
                 IncrementSection();
             }
         }
@@ -184,6 +199,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
         MainMenuScript.TutorialFinished();
         ExperienceManager.GainXP(ExperienceManager.FirstTwoLevelXP);
+        SceneManager.LoadScene("ProgressionMenu");
     }
 
     private void Update()

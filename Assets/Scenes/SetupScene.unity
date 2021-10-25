@@ -7461,6 +7461,8 @@ MonoBehaviour:
     type: 3}
   ArrowTrap: {fileID: 1166623827238931825, guid: eb1272944b3f68d499ca2302458f3eff,
     type: 3}
+  Miner: {fileID: 7818258934224387670, guid: f33a4cdd738a4cb439f7e84dec7687f0, type: 3}
+  PlayerMana: {fileID: 333112618}
 --- !u!1 &1252543688
 GameObject:
   m_ObjectHideFlags: 0

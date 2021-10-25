@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MinerSummon : TileRestrictedSummon
 {
-    static float IncomeMultipler = 1.2f;
-    static float CalculatedCost;
+    private static float IncomeMultipler = 1.2f;
+    private static float CalculatedCost;
 
     public override float GetManaDrain()
     {
@@ -33,5 +33,10 @@ public class MinerSummon : TileRestrictedSummon
             return whole + 1;
         }
         return whole + 0.5f;
+    }
+
+    public static float GetCurrentMinerCost()
+    {
+        return CalculatedCost;
     }
 }

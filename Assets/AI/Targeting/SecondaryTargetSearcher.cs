@@ -9,8 +9,6 @@ public class SecondaryTargetSearcher : MonoBehaviour, IInitialize
     [SerializeField] TargetSearcher TargetSearcher;
     [SerializeField] Factions TargetFaction = Factions.Player;
 
-    //private ITargetable previousTarget = null; //technically we could subscribe to their death event... that'd be interesting. I don't think that'd be any faster, and I'd need a new field, so. 
-
     private Stack<ITargetable> secondaryTargets = new Stack<ITargetable>();
 
     public void Init()
@@ -28,27 +26,31 @@ public class SecondaryTargetSearcher : MonoBehaviour, IInitialize
     {
         while (true)
         {
-            if (secondaryTargets.Count == 0 || !secondaryTargets.Peek().IsAlive())
+            if (IsCurrentTargetDead())
             {
+                secondaryTargets.Pop();
                 if (secondaryTargets.Count != 0)
                 {
-                    secondaryTargets.Pop();
-                    if (secondaryTargets.Count != 0)
-                    {
-                        TargetSearcher.AssignTarget(secondaryTargets.Peek());
-                    }
-                } 
-                else
-                {
-                    ITargetable target = SearchForSecondaryTarget(transform.position);
-                    if (target != null)
-                    {
-                        SetSecondaryTarget(target);
-                    }
+                    TargetSearcher.AssignTarget(secondaryTargets.Peek());
                 }
             }
+
+            if (secondaryTargets.Count == 0)
+            {
+                ITargetable target = SearchForSecondaryTarget(transform.position);
+                if (target != null)
+                {
+                    SetSecondaryTarget(target);
+                }
+            }
+
             yield return new WaitForSeconds(SearchFrequency);
         }
+    }
+
+    private bool IsCurrentTargetDead()
+    {
+        return secondaryTargets.Count > 0 && !secondaryTargets.Peek().IsAlive();
     }
 
     protected virtual ILivingEntity SearchForSecondaryTarget(Vector2 position)
@@ -59,15 +61,6 @@ public class SecondaryTargetSearcher : MonoBehaviour, IInitialize
     protected virtual bool IncludeTarget(ILivingEntity target)
     {
         return target.IsAlive(); 
-    }
-
-    protected virtual void RecalculateSecondaryTargetNow(Vector2 position)
-    {
-        ITargetable target = SearchForTargetAdjacent(position); //okay. So, this only assigns state. It doesn't return... hm. 
-        if (target != null)
-        {
-            SetSecondaryTarget(target);
-        }
     }
 
     protected ILivingEntity SearchForTargetAdjacent(Vector2 position)
@@ -94,6 +87,16 @@ public class SecondaryTargetSearcher : MonoBehaviour, IInitialize
         return null;
     }
 
+    /*
+    protected virtual void RecalculateSecondaryTargetNow(Vector2 position)
+    {
+        ITargetable target = SearchForTargetAdjacent(position); //okay. So, this only assigns state. It doesn't return... hm. 
+        if (target != null)
+        {
+            SetSecondaryTarget(target);
+        }
+    }
+    
     private void Update()
     {
         if (secondaryTargets.Count != 0)
@@ -109,4 +112,5 @@ public class SecondaryTargetSearcher : MonoBehaviour, IInitialize
             Destroy(this); //for testing purposes
         }
     }
+     */
 }
