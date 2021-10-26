@@ -28,7 +28,14 @@ public class WaveViewModel : MonoBehaviour
 
     private const int tutorialSeed = 958;
 
-    bool firstLevel = true; 
+    bool firstLevel = true;
+
+    //if this gets called then we're in the 'game' - we need to tell the xp manager that. 
+    private void Awake()
+    {
+        ExperienceManager.SetExitingLevel(true);
+        ExperienceManager.ResetXPMessages();
+    }
 
     //yeah I'm definitely making this too complicated. 
     public void EnterNextLevel()

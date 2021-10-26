@@ -11,7 +11,11 @@ public class ExperienceManager : MonoBehaviour
     private const string KeyToCurrentLevel = "CurLevl";
     private const string KeyToCurrentLevelXP = "CurLevlXP";
 
+    private static bool exitingLevel = false;
+
     public const float FirstTwoLevelXP = 4f;
+
+    private static List<XPMessage> xpToApply = new List<XPMessage>();
 
     private void Awake()
     {
@@ -19,15 +23,20 @@ public class ExperienceManager : MonoBehaviour
         CurrentLevelXP = PlayerPrefs.GetFloat(KeyToCurrentLevelXP, 0);
     }
     
-    public static void GainXP(float amt)
+    public static bool GainXP(float amt)
     {
+        bool changedLevel = false;
+
         CurrentLevelXP += amt;
         float reqXP = GetXPToNextLevel(CurrentLevel);
         if (CurrentLevelXP >= reqXP)
         {
+            changedLevel = true;
             CurrentLevel++;
             CurrentLevelXP -= reqXP;
         }
+
+        return changedLevel;
     }
 
     public static int GetCurrentLevel()
@@ -40,9 +49,33 @@ public class ExperienceManager : MonoBehaviour
         return CurrentLevelXP / GetXPToNextLevel(CurrentLevel);
     }
 
+    public static void ResetXPMessages()
+    {
+        xpToApply = new List<XPMessage>();
+    }
+
+    public static List<XPMessage> GetXPMessages()
+    {
+        return xpToApply;
+    }
+    public static void AddXPMessage(XPMessage message)
+    {
+        xpToApply.Add(message);
+    }
+
     private static float GetXPToNextLevel(int currentLevel)
     {
         print("XP is not implemented!");
         return 10f;
+    }
+
+    public static void SetExitingLevel(bool value)
+    {
+        exitingLevel = value;
+    }
+
+    public static bool ExitingLevel()
+    {
+        return exitingLevel;
     }
 }

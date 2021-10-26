@@ -11,7 +11,7 @@ public class UnlockedItemManager : MonoBehaviour
         int cur = ExperienceManager.GetCurrentLevel();
         for (int i = cur; i >= 0; i--)
         {
-            List<GameObject> items = ItemProgressionManager.GetItemsUnlockedAtLevel(cur);
+            List<GameObject> items = ProgressionManager.GetItemsUnlockedAtLevel(cur);
             foreach (GameObject item in items)
             {
                 GameObject instance = Instantiate(item);

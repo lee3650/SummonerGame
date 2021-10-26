@@ -198,7 +198,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         //Then we'll be kind of 'setup' for the standard progression
 
         MainMenuScript.TutorialFinished();
-        ExperienceManager.GainXP(ExperienceManager.FirstTwoLevelXP);
+        //ExperienceManager.GainXP(ExperienceManager.FirstTwoLevelXP);  <- I'm doing this in the progression menu now.
         SceneManager.LoadScene("ProgressionMenu");
     }
 
