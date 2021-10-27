@@ -23,6 +23,11 @@ public class ExperienceManager : MonoBehaviour
         CurrentLevelXP = PlayerPrefs.GetFloat(KeyToCurrentLevelXP, 0);
     }
     
+    public static float GetCurrentLevelXP()
+    {
+        return CurrentLevelXP;
+    }
+
     public static bool GainXP(float amt)
     {
         bool changedLevel = false;
@@ -63,7 +68,7 @@ public class ExperienceManager : MonoBehaviour
         xpToApply.Add(message);
     }
 
-    private static float GetXPToNextLevel(int currentLevel)
+    public static float GetXPToNextLevel(int currentLevel)
     {
         print("XP is not implemented!");
         return 10f;

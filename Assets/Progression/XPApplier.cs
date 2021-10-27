@@ -52,13 +52,17 @@ public class XPApplier : MonoBehaviour
 
             timer += Time.deltaTime;
 
+            if (xpEarned.Count == 0)
+            {
+                animate = false;
+            }
+
             if (timer > getWaitTime(xpEarned))
             {
                 timer = 0f;
                 if (xpEarned.Count == 0)
                 {
                     animate = false;
-                
                 } 
                 else
                 {
@@ -73,8 +77,11 @@ public class XPApplier : MonoBehaviour
             yield return null;
         }
 
+        print("hiding skip button!");
+
         MessageText.gameObject.SetActive(false);
         ApplyAllRemainingMessage(xpEarned);
+        SkipButton.SetActive(false);
     }
 
     private void ApplyAllRemainingMessage(List<XPMessage> xpEarned)
@@ -94,7 +101,8 @@ public class XPApplier : MonoBehaviour
 
         if (gotReward)
         {
-            pause = true;
+            pause = true; // I'm not a huge fan of this because it changes state sneakily. We should split this into two methods, one that applies the xp and returns if you got a reward
+                        //and another that sets pause and shows the reward panel
             ShowRewardPanel(ExperienceManager.GetCurrentLevel()); //so, we'll just show what we got for the current level. 
         }
     }

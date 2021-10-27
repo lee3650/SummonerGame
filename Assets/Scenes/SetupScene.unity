@@ -486,7 +486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 462.25006}
+  m_AnchoredPosition: {x: -453.55005, y: 150.4277}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -3400,61 +3400,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418358728}
   m_CullTransparentMesh: 0
---- !u!1 &419333465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 419333467}
-  - component: {fileID: 419333466}
-  m_Layer: 0
-  m_Name: ItemProgressionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &419333466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419333465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b375b7b2c7541347bab29acd571fd3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SetupItemProgression:
-  - GameObjects:
-    - {fileID: 434522376300737600, guid: d8fb33a28480e8243b5500466ab59f66, type: 3}
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
-  - GameObjects: []
---- !u!4 &419333467
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419333465}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.291208, y: 6.275976, z: -1129.8682}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421241908
 GameObject:
   m_ObjectHideFlags: 0
@@ -7463,6 +7408,9 @@ MonoBehaviour:
     type: 3}
   Miner: {fileID: 7818258934224387670, guid: f33a4cdd738a4cb439f7e84dec7687f0, type: 3}
   PlayerMana: {fileID: 333112618}
+  WallGenerator: {fileID: 434522376300737600, guid: d8fb33a28480e8243b5500466ab59f66,
+    type: 3}
+  CurrentLevelManager: {fileID: 249737491}
 --- !u!1 &1252543688
 GameObject:
   m_ObjectHideFlags: 0
@@ -9798,7 +9746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 427.81995}
+  m_AnchoredPosition: {x: -437.25012, y: 115.99771}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -14000,7 +13948,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

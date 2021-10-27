@@ -13,7 +13,10 @@ public class RewardPanelShower : MonoBehaviour
 
     public void ShowLevelRewards(int level)
     {
+        print("Showing level rewards");
         List<DisplayRewardData> rewards = ProgressionManager.GetRewardDataAtLevel(level);
+
+        print("rewards count: " + rewards.Count);
 
         foreach (DisplayRewardData data in rewards)
         {
@@ -43,6 +46,9 @@ public class RewardPanelShower : MonoBehaviour
     public void HideRewardPanel(UnlockedRewardPanel panel) //needs to take which panel is hidden
     {
         ShownPanels.Remove(panel);
-
+        if (ShownPanels.Count == 0)
+        {
+            AllRewardsClosed();
+        }
     }
 }

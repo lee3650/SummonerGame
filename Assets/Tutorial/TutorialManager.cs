@@ -24,6 +24,8 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] GameObject ArrowTrap;
     [SerializeField] GameObject Miner;
     [SerializeField] ManaManager PlayerMana;
+    [SerializeField] GameObject WallGenerator;
+    [SerializeField] CurrentLevelManager CurrentLevelManager;
 
     const string tutorialFileName = "ttl";
 
@@ -61,6 +63,13 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         {
             IncrementSection();
             GivePlayerItem(TrapGenerator);
+        }
+        else if (SectionAndSegment.x == 13)
+        {
+            if (CurrentLevelManager.OnLastWave())
+            {
+                IncrementSection();
+            }
         }
     }
 
@@ -184,6 +193,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         if (levelCounter == 1)
         {
             SectionAndSegment = new Vector2Int(1, 0);
+            GivePlayerItem(WallGenerator);
         } else
         {
             //finish tutorial
