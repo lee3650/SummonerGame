@@ -11,7 +11,6 @@ public class MainMenuScript : MonoBehaviour
 
     [SerializeField] GameObject PlayButton;
     [SerializeField] GameObject TutorialPlayButton;
-    [SerializeField] string mainSceneName = "SetupScene";
 
     private void Awake()
     {
@@ -21,14 +20,14 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayButtonPressed()
     {
-        tutorialMode = false; 
-        SceneManager.LoadScene(mainSceneName);
+        tutorialMode = false;
+        LoadScript.LoadTo(Scenes.ProgressionMenu, "Loading...");
     }
 
     public void PlayTutorialButtonPressed()
     {
         tutorialMode = true;
-        SceneManager.LoadScene(mainSceneName);
+        LoadScript.LoadTo(Scenes.GameplayScene, "Fifteen Years Ago");
     }
 
     private void ShowPlayButtons()

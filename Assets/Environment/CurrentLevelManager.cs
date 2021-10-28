@@ -228,7 +228,17 @@ public class CurrentLevelManager : MonoBehaviour
     {
         return currentWave;
     }
-    
+
+    public bool OnLastLevel()
+    {
+        return GetLevelNum() == 7; //hardcode in 7 I guess? 
+    }
+
+    public bool OnFinalWaveOfGame()
+    {
+        return OnLastWave() && OnLastLevel();
+    }
+
     public int GetLevelNum()
     {
         return levelNum;

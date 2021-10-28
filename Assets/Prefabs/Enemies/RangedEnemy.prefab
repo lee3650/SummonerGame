@@ -51,7 +51,6 @@ GameObject:
   - component: {fileID: 1090552370236627248}
   - component: {fileID: 1090552370236627251}
   - component: {fileID: 1090552370236627250}
-  - component: {fileID: 1090552370236627261}
   - component: {fileID: 1090552370236627244}
   - component: {fileID: -2438023061778923436}
   - component: {fileID: 7593343942011515222}
@@ -64,6 +63,7 @@ GameObject:
   - component: {fileID: 1817816882177825975}
   - component: {fileID: 180630222893668431}
   - component: {fileID: 6069888589989077877}
+  - component: {fileID: 7731817118219800587}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -274,7 +274,7 @@ MonoBehaviour:
   Faction: 1
   Precedence: 5
   HealthManager: {fileID: 1090552370236627251}
-  AIDeathState: {fileID: 1090552370236627261}
+  AIDeathState: {fileID: 7731817118219800587}
   StateController: {fileID: 1090552370236627245}
   CoatingManager: {fileID: -2438023061778923436}
   AIFallState: {fileID: 9076879527427683830}
@@ -332,21 +332,6 @@ MonoBehaviour:
   HealthManager: {fileID: 1090552370236627251}
   Height: 0.75
   WidthAdjustment: -0.85
---- !u!114 &1090552370236627261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090552370236627394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c276181bedd4c8c4199c7c878985e664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementController: {fileID: 1090552370236627257}
-  col: {fileID: 7593343942011515222}
-  SpriteRenderer: {fileID: 0}
 --- !u!114 &1090552370236627244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +392,7 @@ MonoBehaviour:
   HealthManager: {fileID: 1090552370236627251}
   sr: {fileID: 1090552370236627252}
   StateController: {fileID: 1090552370236627245}
-  AIDeathState: {fileID: 1090552370236627261}
+  AIDeathState: {fileID: 7731817118219800587}
 --- !u!114 &-7025940775605090969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,3 +542,20 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: a2ed74f153d78d44fa942da2edd13fc3, type: 2}
   SpriteRenderer: {fileID: 1090552370236627252}
   HealthManager: {fileID: 1090552370236627251}
+--- !u!114 &7731817118219800587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624b157a71739474a8d65f87b08b3edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 1090552370236627257}
+  col: {fileID: 7593343942011515222}
+  SpriteRenderer: {fileID: 1090552370236627252}
+  DeathMessage: Killed Enemy Archer
+  XPGain: 1.5

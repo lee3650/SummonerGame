@@ -82,6 +82,8 @@ public class XPApplier : MonoBehaviour
         MessageText.gameObject.SetActive(false);
         ApplyAllRemainingMessage(xpEarned);
         SkipButton.SetActive(false);
+
+        ExperienceManager.WriteXP();
     }
 
     private void ApplyAllRemainingMessage(List<XPMessage> xpEarned)

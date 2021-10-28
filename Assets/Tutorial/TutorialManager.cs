@@ -203,12 +203,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     private void EndTutorial()
     {
-        //we'll have to kick you out somehow - change scenes, I guess. 
-        //so, we have to get you to level 2, actually - you need to get your default stuff (level 1) and a letter (level 2). 
-        //Then we'll be kind of 'setup' for the standard progression
-
         MainMenuScript.TutorialFinished();
-        //ExperienceManager.GainXP(ExperienceManager.FirstTwoLevelXP);  <- I'm doing this in the progression menu now.
         SceneManager.LoadScene("ProgressionMenu");
     }
 

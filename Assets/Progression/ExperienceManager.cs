@@ -5,7 +5,7 @@ using UnityEngine;
 //this will have to be in the main menu as well so it's guaranteed to run. 
 public class ExperienceManager : MonoBehaviour
 {
-    private static int CurrentLevel = 0;
+    private static int CurrentLevel = 2;
     private static float CurrentLevelXP = 0f;
     
     private const string KeyToCurrentLevel = "CurLevl";
@@ -23,6 +23,12 @@ public class ExperienceManager : MonoBehaviour
         CurrentLevelXP = PlayerPrefs.GetFloat(KeyToCurrentLevelXP, 0);
     }
     
+    public static void WriteXP()
+    {
+        PlayerPrefs.SetInt(KeyToCurrentLevel, GetCurrentLevel());
+        PlayerPrefs.SetFloat(KeyToCurrentLevelXP, GetCurrentLevelXP());
+    }
+
     public static float GetCurrentLevelXP()
     {
         return CurrentLevelXP;
@@ -70,8 +76,11 @@ public class ExperienceManager : MonoBehaviour
 
     public static float GetXPToNextLevel(int currentLevel)
     {
-        print("XP is not implemented!");
-        return 10f;
+        //So, f(0) = like, 5 ish.
+        //f(1) = 6. 
+        //Let's do current level squared? 
+
+        return 5 + Mathf.Round(currentLevel * currentLevel);
     }
 
     public static void SetExitingLevel(bool value)

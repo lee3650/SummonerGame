@@ -29,12 +29,12 @@ GameObject:
   - component: {fileID: 5042853230309109713}
   - component: {fileID: 6835575532479685032}
   - component: {fileID: 4648206095511936295}
-  - component: {fileID: 4648206095511936277}
   - component: {fileID: 3612669858900733009}
   - component: {fileID: 6934713143476588037}
   - component: {fileID: 818753487579262456}
   - component: {fileID: 6603066443833279831}
   - component: {fileID: 7773904187481824307}
+  - component: {fileID: 638881080154970504}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -265,7 +265,7 @@ MonoBehaviour:
   Faction: 1
   Precedence: 5
   HealthManager: {fileID: 4648206095511936289}
-  AIDeathState: {fileID: 4648206095511936277}
+  AIDeathState: {fileID: 638881080154970504}
   StateController: {fileID: 4648206095511936297}
   CoatingManager: {fileID: 3612669858900733009}
   AIFallState: {fileID: 4769917916030733090}
@@ -384,7 +384,7 @@ MonoBehaviour:
   HealthManager: {fileID: 4648206095511936289}
   sr: {fileID: 4648206095511936278}
   StateController: {fileID: 4648206095511936297}
-  AIDeathState: {fileID: 4648206095511936277}
+  AIDeathState: {fileID: 638881080154970504}
 --- !u!114 &5042853230309109713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,22 +426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementController: {fileID: 4648206095511936299}
   MoveSpeedMultiplier: 2
---- !u!114 &4648206095511936277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4648206095511936293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95f4d7b55c19bb4899b5b9c81681ac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementController: {fileID: 4648206095511936299}
-  col: {fileID: 5630834523097520173}
-  SpriteRenderer: {fileID: 4648206095511936278}
-  MeleeWeapon: {fileID: 4648206096231582276}
 --- !u!114 &3612669858900733009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +522,24 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: a2ed74f153d78d44fa942da2edd13fc3, type: 2}
   SpriteRenderer: {fileID: 4648206095511936278}
   HealthManager: {fileID: 4648206095511936289}
+--- !u!114 &638881080154970504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d55eb9a87e44984c92d9ef3222860d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementController: {fileID: 4648206095511936299}
+  col: {fileID: 5630834523097520173}
+  SpriteRenderer: {fileID: 4648206095511936278}
+  DeathMessage: Killed Sand Enemy
+  XPGain: 3
+  MeleeWeapon: {fileID: 4648206096231582276}
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0
