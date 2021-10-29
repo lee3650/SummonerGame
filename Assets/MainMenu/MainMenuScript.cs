@@ -14,6 +14,7 @@ public class MainMenuScript : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetInt(finishedTutorialKey, 0);
         FinishedTutorial = PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false;
         ShowPlayButtons();
     }

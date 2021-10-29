@@ -26,6 +26,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] ManaManager PlayerMana;
     [SerializeField] GameObject WallGenerator;
     [SerializeField] CurrentLevelManager CurrentLevelManager;
+    [SerializeField] ResetManager ResetManager;
 
     const string tutorialFileName = "ttl";
 
@@ -204,7 +205,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     private void EndTutorial()
     {
         MainMenuScript.TutorialFinished();
-        SceneManager.LoadScene("ProgressionMenu");
+        ResetManager.ExitToScene(Scenes.ProgressionMenu, "Loading...");
     }
 
     private void Update()

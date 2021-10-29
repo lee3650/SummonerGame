@@ -11,6 +11,7 @@ public class GameEndPanel : MonoBehaviour, IWaveNotifier
     [SerializeField] GameObject NextWaveButton;
     [SerializeField] GameObject NextLevelButton;
     [SerializeField] CurrentLevelManager CurrentLevelManager;
+    [SerializeField] ResetManager ResetManager;
 
     private const string ProgressionSceneName = "ProgressionScene";
 
@@ -46,6 +47,6 @@ public class GameEndPanel : MonoBehaviour, IWaveNotifier
 
     public void Continue()
     {
-        SceneManager.LoadScene(ProgressionSceneName);
+        ResetManager.ExitToScene(Scenes.ProgressionMenu, "Loading...");
     }
 }
