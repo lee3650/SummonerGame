@@ -13,6 +13,10 @@ public class WaveViewModel : MonoBehaviour
     [SerializeField] GameObject NextWaveButton;
     [SerializeField] GameObject NextLevelButton;
 
+    [SerializeField] WarshipManager WarshipManager;
+    [SerializeField] WaveSpawner WaveSpawner;
+    [SerializeField] NextLevelEvent NextLevelEvent;
+
     [SerializeField] Summoner PlayerSummoner;
 
     [SerializeField] Slider Slider;
@@ -20,6 +24,8 @@ public class WaveViewModel : MonoBehaviour
     [SerializeField] CurrentLevelManager CurrentLevelManager;
 
     [SerializeField] NextWaveFunctionMonitor NextWaveFunctionMonitor;
+
+    [SerializeField] LoadingPanel LoadingPanel;
 
     private bool RunTimer = false;
     float timer = 0f;
@@ -42,23 +48,41 @@ public class WaveViewModel : MonoBehaviour
     {
         if (firstLevel)
         {
-            if (MainMenuScript.TutorialMode)
-            {
-                print("Using tutorial seed!");
-                Random.InitState(tutorialSeed);
-            }
-            else
-            {
-                int seed = System.DateTime.Now.Millisecond;
-                print("seed: " + seed);
-                Random.InitState(seed);
-            }
+            StartCoroutine(SetupFirstLevel());
+        } else
+        {
+            SetupRegularLevel();
+        }
+    }
 
-            firstLevel = false;
-            CurrentLevelManager.EnterFirstLevel();
-            NextWaveButton.SetActive(false);
+    private IEnumerator SetupFirstLevel()
+    {
+        LoadingPanel.ShowLoadingPanel("Loading..."); //get a battle name at some point
+        yield return null;
+
+        if (MainMenuScript.TutorialMode)
+        {
+            print("Using tutorial seed!");
+            Random.InitState(tutorialSeed);
+        }
+        else
+        {
+            int seed = System.DateTime.Now.Millisecond * System.DateTime.Now.Second;
+            print("seed: " + seed);
+            Random.InitState(seed);
         }
 
+        firstLevel = false;
+        CurrentLevelManager.EnterFirstLevel();
+        NextWaveButton.SetActive(false);
+
+        SetupRegularLevel();
+
+        LoadingPanel.HideLoadingPanel();
+    }
+
+    private void SetupRegularLevel()
+    {
         CurrentLevelManager.EnterNextLevel();
 
         StopSpawningWaves();
@@ -69,6 +93,10 @@ public class WaveViewModel : MonoBehaviour
         NextLevelButton.SetActive(false);
 
         LevelNum.text = "Level: " + CurrentLevelManager.GetLevelNum();
+
+        WaveSpawner.MakeRandomPointsAvailable();
+        WarshipManager.SpawnShips();
+        NextLevelEvent.TriggerOnNextLevelEvent();
     }
 
     public void SpawnNextWaveButtonPressed()

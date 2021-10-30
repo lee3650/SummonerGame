@@ -22,13 +22,22 @@ public class UnlockedRewardPanel : UIPanel
             GifDisplay.PlayGif(DisplayRewardData.Gif);
         }
 
-        Text.text = File.ReadAllText(DisplayRewardData.TextPath);
+        if (File.Exists(DisplayRewardData.TextPath))
+        {
+            Text.text = File.ReadAllText(DisplayRewardData.TextPath);
+        } else
+        {
+            Text.text = "";
+        }
     }
 
     public void HidePanel()
     {
         print("hid panel!");
-        rds.HideRewardPanel(this);
+        if (rds != null)
+        {
+            rds.HideRewardPanel(this);
+        }
         Destroy(gameObject);
     }
 }

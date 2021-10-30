@@ -29,6 +29,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     public void EnterFirstLevel()
     {
+
         LevelGenerator.SetTotalMapSizeAndInitMap();
         
         HeadNode = new StageNode(new Vector2(0, 0), null);
