@@ -6,3 +6,4 @@
 !.gitignore
 /Assets/Audio/
 !/Assets/Audio/Scripts/
+/Assets/Scenes/
