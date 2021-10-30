@@ -4,3 +4,5 @@
 !/README
 !/Assets/
 !.gitignore
+/Assets/Audio/
+!/Assets/Audio/Scripts/
