@@ -12,8 +12,23 @@ public class ProgressionManager : MonoBehaviour
         StaticProgRewards = ProgressionRewards;
     }
 
+    public ProgressionUnlock[] GetUnlocksFromLevel(int level)
+    {
+        if (level >= ProgressionRewards.Length)
+        {
+            return new ProgressionUnlock[0];
+        }
+
+        return ProgressionRewards[level].Unlocks;
+    }
+
     public List<DisplayRewardData> GetRewardDataAtLevel(int level) 
     {
+        if (level >= ProgressionRewards.Length)
+        {
+            return new List<DisplayRewardData>();
+        }
+
         return ProgressionRewards[level].GetRewardData();
     }
 

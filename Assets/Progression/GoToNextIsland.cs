@@ -7,6 +7,6 @@ public class GoToNextIsland : MonoBehaviour
 {
     public void NextIsland()
     {
-        SceneManager.LoadScene("SetupScene"); //lol
+        LoadScript.LoadTo(Scenes.GameplayScene, "Loading...");
     }
 }

@@ -10,33 +10,41 @@ public class UnlockGraphic : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] UnlockedRewardPanel UnlockedRewardPanel; //that's a prefab
     [SerializeField] Transform PanelSpawnPos;
 
-    private DisplayRewardData drdInstance;
+    private DisplayRewardData drd;
     private UnlockedRewardPanel panelInstance;
+
+    private void Awake()
+    {
+        if (image == null)
+        {
+            image = GetComponent<Image>();
+        }
+    }
 
     public void SetGraphic(Sprite s, DisplayRewardData rd)
     {
-        //mm. I guess better if this doesn't know about the progression system? 
         image.sprite = s;
-        drdInstance = Instantiate(rd);
-        drdInstance.TextPath = ""; //this isn't really ideal either... 
-        //we should make a showPreview thing.
+        drd = rd;
     }
 
     public void OnPointerDown(PointerEventData data)
     {
-        if (panelInstance.gameObject.activeInHierarchy)
+        if (panelInstance != null)
         {
-            if (panelInstance != null)
+            if (panelInstance.gameObject.activeInHierarchy)
             {
                 panelInstance.gameObject.SetActive(false);
+            } else
+            {
+                panelInstance.gameObject.SetActive(true);
             }
         }
         else
         {
-            if (drdInstance.HasGif)
+            if (drd != null && drd.HasGif)
             {
                 panelInstance = Instantiate(UnlockedRewardPanel, PanelSpawnPos);
-                panelInstance.Show(drdInstance);
+                panelInstance.ShowPreview(drd);
             }
         }
     }

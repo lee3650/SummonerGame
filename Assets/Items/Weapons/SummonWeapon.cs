@@ -40,6 +40,16 @@ public class SummonWeapon : Weapon
         }
     }
 
+    public Sprite GetSummonSprite()
+    {
+        SpriteRenderer s;
+        if (Summon.TryGetComponent<SpriteRenderer>(out s))
+        {
+            return s.sprite;
+        }
+        return null;
+    }
+
     public override string GetDescription()
     {
         IControllableSummon cs;

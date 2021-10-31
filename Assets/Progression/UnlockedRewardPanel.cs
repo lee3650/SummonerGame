@@ -17,10 +17,7 @@ public class UnlockedRewardPanel : UIPanel
         DisplayRewardData DisplayRewardData = information as DisplayRewardData;
         rds = DisplayRewardData.RewardPanelShower;
 
-        if (DisplayRewardData.HasGif)
-        {
-            GifDisplay.PlayGif(DisplayRewardData.Gif);
-        }
+        TryPlayGif(DisplayRewardData);
 
         if (File.Exists(DisplayRewardData.TextPath))
         {
@@ -29,6 +26,19 @@ public class UnlockedRewardPanel : UIPanel
         {
             Text.text = "";
         }
+    }
+
+    private void TryPlayGif(DisplayRewardData displayRewardData)
+    {
+        if (displayRewardData.HasGif)
+        {
+            GifDisplay.PlayGif(displayRewardData.Gif);
+        }
+    }
+
+    public void ShowPreview(DisplayRewardData data)
+    {
+        TryPlayGif(data);
     }
 
     public void HidePanel()
