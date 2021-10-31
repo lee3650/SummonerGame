@@ -107,6 +107,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Wall
   ManaRefundAmount: 0
 --- !u!114 &-5157839651516772810
 MonoBehaviour:

@@ -107,6 +107,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Masonry
   ManaRefundAmount: 0
 --- !u!114 &7715499841672435744
 MonoBehaviour:

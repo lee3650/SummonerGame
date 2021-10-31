@@ -7,7 +7,8 @@ public class Item : MonoBehaviour //base class for every item
     [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] Collider2D col;
     [SerializeField] ItemType ItemType = ItemType.Weapon;
-    
+    [SerializeField] private string itemName; 
+
     private bool AbleToBePickedUp = true;
 
     protected bool IsSelected = false; 
@@ -63,5 +64,13 @@ public class Item : MonoBehaviour //base class for every item
         SpriteRenderer.enabled = false;
         col.enabled = false;
         IsSelected = false; 
+    }
+
+    public string ItemName
+    {
+        get
+        {
+            return itemName;
+        }
     }
 }

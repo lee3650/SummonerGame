@@ -105,6 +105,7 @@ MonoBehaviour:
   WaveHealAmt: 0
   upgradable: 0
   summonTier: 0
+  summonName: Home Tile
   ManaRefundAmount: 0
 --- !u!61 &6604907241908217411
 BoxCollider2D:

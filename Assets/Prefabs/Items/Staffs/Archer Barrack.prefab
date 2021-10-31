@@ -125,6 +125,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 4583727241796758192}
   col: {fileID: 4583727241796758195}
   ItemType: 0
+  itemName: Archer Barrack
   ManaDrain: 10
   AttackLength: 0.1
   WeaponDescription: Places an archer barrack
@@ -138,5 +139,4 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 110000000f0000000b00000013000000
   BlacklistedTileTypes: 10000000
-  IncomeMultipler: 1.75
   Summoner: {fileID: 0}

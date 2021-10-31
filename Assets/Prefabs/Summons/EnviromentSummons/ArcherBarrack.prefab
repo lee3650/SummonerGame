@@ -108,6 +108,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Archer Barracks
   ManaRefundAmount: 0
 --- !u!114 &5894510192240988270
 MonoBehaviour:

@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 764195269237895649}
   col: {fileID: 764195269237895648}
   ItemType: 0
+  itemName: Armory
   ManaDrain: 8
   AttackLength: 0.1
   WeaponDescription: Places a trap generator. A trap generator generates  arrow traps
@@ -138,5 +139,4 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000011000000
   BlacklistedTileTypes: 13000000
-  IncomeMultipler: 1.75
   Summoner: {fileID: 0}

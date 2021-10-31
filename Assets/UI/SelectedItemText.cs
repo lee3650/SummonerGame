@@ -12,7 +12,7 @@ public class SelectedItemText : MonoBehaviour
     {
         if (ItemSelection.HasItem())
         {
-            text.text = ItemSelection.SelectedItem.name;
+            text.text = ItemSelection.SelectedItem.ItemName;
         } else
         {
             text.text = "";

@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 9095432019461751826}
   col: {fileID: 9095432019461751827}
   ItemType: 0
+  itemName: Wall Blueprint
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a wall blueprint. A wall generator will place its walls

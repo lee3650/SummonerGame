@@ -18,6 +18,42 @@ public class BlueprintManager : MonoBehaviour, IResettable
         BlueprintsChanged();
     }
 
+    public static List<Blueprint> GetSatisfiedBlueprints()
+    {
+        List<Blueprint> result = new List<Blueprint>();
+
+        foreach (Blueprint b in Blueprints)
+        {
+            if (b.Satisfied)
+            {
+                result.Add(b);
+            }
+        }
+
+        return result;
+    }
+
+    //this isn't great practice - I've got a ton of duplication here, actually. 
+    public static string GetNameFromBlueprintType(BlueprintType bt)
+    {
+        switch (bt)
+        {
+            case BlueprintType.Archer:
+                return "Archer Unit";
+            case BlueprintType.ArrowTrap:
+                return "Ballista";
+            case BlueprintType.Melee:
+                return "Melee Unit";
+            case BlueprintType.ArrowTurner:
+                return "Arrow Turner";
+            case BlueprintType.Gate:
+            case BlueprintType.SpikeTrap:
+            case BlueprintType.Wall:
+            default:
+                return bt.ToString();
+        }
+    }
+
     public static bool IsPointTaken(Vector2Int point)
     {
         Blueprint b;

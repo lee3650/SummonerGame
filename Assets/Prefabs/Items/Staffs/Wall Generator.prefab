@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 434522376300737605}
   col: {fileID: 434522376300737602}
   ItemType: 0
+  itemName: Masonry
   ManaDrain: 5
   AttackLength: 0.1
   WeaponDescription: Places a wall generator. A wall generator will place walls or
@@ -139,5 +140,4 @@ MonoBehaviour:
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000013000000
   BlacklistedTileTypes: 11000000
-  IncomeMultipler: 1.75
   Summoner: {fileID: 0}

@@ -10,7 +10,8 @@ public class Summon : MonoBehaviour
     [SerializeField] bool HealToFull = false; 
     [SerializeField] protected float WaveHealAmt = 10f;
     [SerializeField] bool upgradable = true;
-    [SerializeField] int summonTier = 0; 
+    [SerializeField] int summonTier = 0;
+    [SerializeField] string summonName;
 
     public event Action SummonerSet = delegate { };
     public event Action SummonWaveEnds = delegate { };
@@ -183,5 +184,13 @@ public class Summon : MonoBehaviour
     {
         MySummoner.RemoveSummonFromParty(this);
         MySummoner.OnSummonDeath(ManaRefundAmount);
+    }
+
+    public string SummonName
+    {
+        get
+        {
+            return summonName;
+        }
     }
 }

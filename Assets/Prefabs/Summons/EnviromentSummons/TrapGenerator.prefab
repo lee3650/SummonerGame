@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: SummonType
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2916608103962426634, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: summonName
+      value: Armory
+      objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: Types.Array.size

@@ -108,6 +108,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 0
   summonTier: 0
+  summonName: Miner
   ManaRefundAmount: 0
 --- !u!114 &6305876023889047352
 MonoBehaviour:

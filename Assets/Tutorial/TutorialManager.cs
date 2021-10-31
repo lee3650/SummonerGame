@@ -27,6 +27,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] GameObject WallGenerator;
     [SerializeField] CurrentLevelManager CurrentLevelManager;
     [SerializeField] ResetManager ResetManager;
+    [SerializeField] GameObject MinerCostDisplay;
 
     const string tutorialFileName = "ttl";
 
@@ -50,6 +51,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             IncomeTooltip.MousedOver += MousedOver;
             BlueprintManager.BlueprintsChanged += BlueprintsChanged;
             WaveSpawner.NotifyWhenWaveEnds(this);
+            MinerCostDisplay.SetActive(false);
         }
     }
 
@@ -151,6 +153,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 IncrementSection();
                 GivePlayerItem(Miner);
                 PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
+                MinerCostDisplay.SetActive(true);
             }
         }
         else if (SectionAndSegment.x == 12)

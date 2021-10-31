@@ -279,6 +279,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Ranged Unit
   ManaRefundAmount: 0
   StateController: {fileID: 1740066754483794912}
   TargetSearcher: {fileID: -8574627119691709154}

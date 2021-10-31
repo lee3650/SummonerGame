@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 6639920486162523644}
   col: {fileID: 6639920486162523643}
   ItemType: 0
+  itemName: Ranged Unit
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a ranged blueprint

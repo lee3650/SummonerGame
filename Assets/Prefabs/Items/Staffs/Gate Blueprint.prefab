@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 6683589744283348552}
   col: {fileID: 6683589744283348553}
   ItemType: 0
+  itemName: Gate Blueprint
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a gate blueprint. A wall generator will place a gate

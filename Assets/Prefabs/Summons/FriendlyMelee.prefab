@@ -430,6 +430,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Melee Unit
   ManaRefundAmount: 0
   StateController: {fileID: 9194925930672925237}
   TargetSearcher: {fileID: 9194925930672925239}
@@ -751,6 +752,6 @@ MonoBehaviour:
   SquashAmount: 0.75
   SquashTime: 0.02
   RecoveryTime: 0.035
-  Jump: 0
+  JumpOnStart: 0
   gravity: 0
   upwardVel: 0

@@ -104,6 +104,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Gate
   ManaRefundAmount: 0
 --- !u!114 &3600352979565121685
 MonoBehaviour:

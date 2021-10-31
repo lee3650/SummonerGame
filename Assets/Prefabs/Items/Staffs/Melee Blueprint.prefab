@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 2318945554763282464}
   col: {fileID: 2318945554763282465}
   ItemType: 0
+  itemName: Melee Unit
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a melee blueprint. A melee blueprint tells the barracks

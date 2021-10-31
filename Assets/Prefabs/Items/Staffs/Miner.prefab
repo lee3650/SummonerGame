@@ -124,6 +124,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 7818258934224387669}
   col: {fileID: 7818258934224387668}
   ItemType: 0
+  itemName: Miner
   ManaDrain: 15
   AttackLength: 0.1
   WeaponDescription: Summons a miner. Miners generate money based on how many ore

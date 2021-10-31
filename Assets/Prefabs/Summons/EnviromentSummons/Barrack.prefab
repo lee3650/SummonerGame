@@ -109,6 +109,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 1
   summonTier: 0
+  summonName: Barracks
   ManaRefundAmount: 0
 --- !u!114 &9100241369393230994
 MonoBehaviour:

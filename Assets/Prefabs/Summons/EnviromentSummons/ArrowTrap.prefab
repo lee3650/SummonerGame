@@ -137,6 +137,7 @@ MonoBehaviour:
   WaveHealAmt: 10
   upgradable: 0
   summonTier: 0
+  summonName: Ballista
   ManaRefundAmount: 0
 --- !u!114 &4778944115168144807
 MonoBehaviour:

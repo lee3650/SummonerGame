@@ -15,7 +15,10 @@ public class IncomeDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI NetIncomeText; 
 
     float Income = 0f;
-    float Expenses = 0f; 
+    float Expenses = 0f;
+
+    string incomeText = "";
+    string expensesText = "";
 
     private void Awake()
     {
@@ -38,6 +41,9 @@ public class IncomeDisplay : MonoBehaviour
 
     void RecalculateFinancials()
     {
+        incomeText = "";
+        expensesText = "";
+
         Income = PlayerIncome.GetIncome(); 
         Expenses = 0f;
 
@@ -45,15 +51,28 @@ public class IncomeDisplay : MonoBehaviour
 
         foreach (Summon s in summons)
         {
-            Income += s.GetIncome();
+            float income = s.GetIncome();
+            if (income != 0)
+            {
+                incomeText += string.Format("{0}: +{1}\n", s.SummonName, income);
+            }
+            Income += income;
+
             Expenses += s.GetMaintenanceFee();
+        }
+
+        List<Blueprint> bps = BlueprintManager.GetSatisfiedBlueprints();
+
+        foreach (Blueprint b in bps)
+        {
+            expensesText += string.Format("{0}: -{1}\n", BlueprintManager.GetNameFromBlueprintType(b.BlueprintType), b.MaintenanceFee);
         }
     }
 
     void UpdateText()
     {
-        IncomeText.text = "Income: " + Income;
-        ExpensesText.text = "Expenses: " + Expenses;
+        IncomeText.text = incomeText;
+        ExpensesText.text = expensesText;
         NetIncomeText.text = getSignChar((Income - Expenses)) + "" + Mathf.Abs(Income - Expenses);
     }
 
