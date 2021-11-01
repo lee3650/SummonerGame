@@ -28,6 +28,8 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] CurrentLevelManager CurrentLevelManager;
     [SerializeField] ResetManager ResetManager;
     [SerializeField] GameObject MinerCostDisplay;
+    [SerializeField] GameObject EndPanel;
+    [SerializeField] GameEndPanel GameEndPanel;
 
     const string tutorialFileName = "ttl";
 
@@ -52,6 +54,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             BlueprintManager.BlueprintsChanged += BlueprintsChanged;
             WaveSpawner.NotifyWhenWaveEnds(this);
             MinerCostDisplay.SetActive(false);
+            GameEndPanel.SetExitMessage("Present Day");
         }
     }
 
@@ -72,6 +75,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             if (CurrentLevelManager.OnLastWave())
             {
                 IncrementSection();
+                EndTutorial();
             }
         }
     }
@@ -198,17 +202,13 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         {
             SectionAndSegment = new Vector2Int(1, 0);
             GivePlayerItem(WallGenerator);
-        } else
-        {
-            //finish tutorial
-            EndTutorial();
-        }
+        } 
     }
 
     private void EndTutorial()
     {
         MainMenuScript.TutorialFinished();
-        ResetManager.ExitToScene(Scenes.ProgressionMenu, "Loading...");
+        EndPanel.SetActive(true);
     }
 
     private void Update()

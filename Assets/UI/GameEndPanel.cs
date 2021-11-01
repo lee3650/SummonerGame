@@ -15,6 +15,8 @@ public class GameEndPanel : MonoBehaviour, IWaveNotifier
 
     private const string ProgressionSceneName = "ProgressionScene";
 
+    private string ExitMessage = "Loading...";
+
     private void Awake()
     {
         PlayerHealth.OnDeath += OnDeath;
@@ -45,8 +47,13 @@ public class GameEndPanel : MonoBehaviour, IWaveNotifier
         NextWaveButton.SetActive(false);
     }
 
+    public void SetExitMessage(string message)
+    {
+        ExitMessage = message;
+    }
+
     public void Continue()
     {
-        ResetManager.ExitToScene(Scenes.ProgressionMenu, "Loading...");
+        ResetManager.ExitToScene(Scenes.ProgressionMenu, ExitMessage);
     }
 }
