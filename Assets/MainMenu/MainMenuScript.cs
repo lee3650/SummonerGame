@@ -5,17 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    //set this to false if, in the setup scene, we want to not play the tutorial
     private static bool tutorialMode = true; //we'll have to load this from a file, or use PlayerPrefs. 
     private static string finishedTutorialKey = "TutorialMode";
     private bool FinishedTutorial;
+
+    public const string appendPath = "data/";
 
     [SerializeField] GameObject PlayButton;
     [SerializeField] GameObject TutorialPlayButton;
 
     private void Awake()
     {
-        PlayerPrefs.SetInt(finishedTutorialKey, 0);
         FinishedTutorial = PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false;
+        ShowPlayButtons();
+    }
+
+    public void ResetState()
+    {
+        ExperienceManager.ResetState();
+        PlayerPrefs.SetInt(finishedTutorialKey, 0);
+        tutorialMode = false;
+        FinishedTutorial = false;
+
         ShowPlayButtons();
     }
 

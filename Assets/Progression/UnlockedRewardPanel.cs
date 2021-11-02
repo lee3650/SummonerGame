@@ -19,13 +19,7 @@ public class UnlockedRewardPanel : UIPanel
 
         TryPlayGif(DisplayRewardData);
 
-        if (File.Exists(DisplayRewardData.TextPath))
-        {
-            Text.text = File.ReadAllText(DisplayRewardData.TextPath);
-        } else
-        {
-            Text.text = "";
-        }
+        DisplayText(DisplayRewardData);
     }
 
     private void TryPlayGif(DisplayRewardData displayRewardData)
@@ -39,6 +33,20 @@ public class UnlockedRewardPanel : UIPanel
     public void ShowPreview(DisplayRewardData data)
     {
         TryPlayGif(data);
+    }
+
+    private void DisplayText(DisplayRewardData data)
+    {
+        string path = MainMenuScript.appendPath + data.TextPath;
+
+        if (File.Exists(path))
+        {
+            Text.text = File.ReadAllText(path);
+        }
+        else
+        {
+            Text.text = "";
+        }
     }
 
     public void HidePanel()

@@ -45,7 +45,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         if (MainMenuScript.TutorialMode)
         {
             //convention: use \n to separate each section and use / to separate parts within a section - a segment
-            string fileContents = File.ReadAllText(tutorialFileName);
+            string fileContents = File.ReadAllText(MainMenuScript.appendPath + tutorialFileName);
             tutorialText = ParseFileContents(fileContents);
             NextLevelEvent.OnNextLevel += OnNextLevel;
             SectionAndSegment = new Vector2Int();
@@ -220,7 +220,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             {
                 changeText = false;
                 ShowTutorialText(SectionAndSegment);
-                ImageSequence gif = GetGifFromSection(SectionAndSegment);
+                ImageSequence gif = GetGifFromSection(SectionAndSegment, GetMaxSegment(SectionAndSegment.x));
                 if (gif != null)
                 {
                     GifDisplayer.PlayGif(gif);
@@ -229,19 +229,24 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
-                SectionAndSegment = incrementSegment(SectionAndSegment, tutorialText[SectionAndSegment.x].Length - 1); //so, segment is under manual control, section is event controlled
+                SectionAndSegment = incrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x)); //so, segment is under manual control, section is event controlled
             } else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
-                SectionAndSegment = decrementSegment(SectionAndSegment, tutorialText[SectionAndSegment.x].Length - 1);
+                SectionAndSegment = decrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x));
             }
         }
     }
 
-    private ImageSequence GetGifFromSection(Vector2Int sectionAndSegment)
+    private int GetMaxSegment(int section)
+    {
+        return tutorialText[section].Length - 1;
+    }
+
+    private ImageSequence GetGifFromSection(Vector2Int sectionAndSegment, int maxSegment)
     {
         foreach (SegmentToImageSequence seg in Gifs)
         {
-            if (seg.SecAndSeg == sectionAndSegment)
+            if (seg.SecAndSeg == sectionAndSegment || (seg.SecAndSeg.y == -1 && sectionAndSegment.y == maxSegment && seg.SecAndSeg.x == sectionAndSegment.x)) //eventually we'll want to compare the label
             {
                 return seg.Gif;
             }
@@ -272,7 +277,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     private void ShowTutorialText(Vector2Int secAndSeg)
     {
         TutorialPanelDisplayer.HideAllPanels();
-        TutorialPanelDisplayer.ShowPanel(TutorialDisplayPanel, tutorialText[secAndSeg.x][secAndSeg.y]);
+        TutorialPanelDisplayer.ShowPanel(TutorialDisplayPanel, tutorialText[secAndSeg.x][secAndSeg.y].Trim());
     }
 
     private string[][] ParseFileContents(string text)

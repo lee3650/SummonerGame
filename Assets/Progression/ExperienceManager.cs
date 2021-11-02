@@ -13,16 +13,25 @@ public class ExperienceManager : MonoBehaviour
 
     private static bool exitingLevel = false;
 
-    public const float FirstTwoLevelXP = 4f;
-
     private static List<XPMessage> xpToApply = new List<XPMessage>();
 
     private void Awake()
     {
-        //CurrentLevel = PlayerPrefs.GetInt(KeyToCurrentLevel, 0);
-       //CurrentLevelXP = PlayerPrefs.GetFloat(KeyToCurrentLevelXP, 0);
+       CurrentLevel = PlayerPrefs.GetInt(KeyToCurrentLevel, 0);
+       CurrentLevelXP = PlayerPrefs.GetFloat(KeyToCurrentLevelXP, 0);
     }
     
+    public static void ResetState()
+    {
+        ResetXPMessages();
+
+        CurrentLevel = 0;
+        CurrentLevelXP = 0f;
+
+        PlayerPrefs.SetInt(KeyToCurrentLevel, 0);
+        PlayerPrefs.SetFloat(KeyToCurrentLevelXP, 0f);
+    }
+
     public static void WriteXP()
     {
         PlayerPrefs.SetInt(KeyToCurrentLevel, GetCurrentLevel());

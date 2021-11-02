@@ -43,7 +43,10 @@ public class ProgressionManager : MonoBehaviour
 
         for (int i = 0; i <= level; i++)
         {
-            result.AddRange(StaticProgRewards[i].GetUnlockedItems());
+            if (i < StaticProgRewards.Length)
+            {
+                result.AddRange(StaticProgRewards[i].GetUnlockedItems());
+            }
         }
 
         return result; 

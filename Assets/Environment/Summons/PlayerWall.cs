@@ -29,6 +29,7 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         {
             throw new System.Exception("Prev node was set to null!");
         }
+
         WriteMyTileToMap(); 
     }
 

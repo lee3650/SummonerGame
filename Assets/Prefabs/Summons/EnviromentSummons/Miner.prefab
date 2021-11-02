@@ -217,8 +217,8 @@ MonoBehaviour:
   SquashTime: 0.02
   RecoveryTime: 0.035
   JumpOnStart: 1
-  gravity: 0.05
-  upwardVel: 0.4
+  gravity: 0.15
+  upwardVel: 0.8
 --- !u!114 &7223911854411432005
 MonoBehaviour:
   m_ObjectHideFlags: 0

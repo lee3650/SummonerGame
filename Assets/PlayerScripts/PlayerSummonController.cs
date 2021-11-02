@@ -182,14 +182,12 @@ public class PlayerSummonController : MonoBehaviour
     IControllableSummon GetSummonUnderMouse()
     {
         Collider2D[] cols = Physics2D.OverlapCircleAll(PlayerInput.GetWorldMousePosition(), SelectionRadius);
-        print("colliders found: " + cols.Length);
+        
         foreach (Collider2D col in cols)
         {
             IControllableSummon s;
             if (col.TryGetComponent<IControllableSummon>(out s))
             {
-                print("There was a summon!");
-                //so, there is a summon. 
                 if (s.GetTransform().GetComponent<ILivingEntity>().GetFaction() == Factions.Player)
                 {
                     if (s.CanBeSelected())
