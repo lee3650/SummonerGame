@@ -232,7 +232,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 SectionAndSegment = incrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x)); //so, segment is under manual control, section is event controlled
             } else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
-                SectionAndSegment = decrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x));
+                SectionAndSegment = decrementSegment(SectionAndSegment);
             }
         }
     }
@@ -259,17 +259,17 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         start += new Vector2Int(0, 1);
         if (start.y > max)
         {
-            start = new Vector2Int(start.x, 0);
+            start = new Vector2Int(start.x, max);
         }
         return start;
     }
 
-    private Vector2Int decrementSegment(Vector2Int start, int max)
+    private Vector2Int decrementSegment(Vector2Int start)
     {
         start -= new Vector2Int(0, 1);
         if (start.y < 0)
         {
-            start = new Vector2Int(start.x, max);
+            start = new Vector2Int(start.x, 0);
         }
         return start;
     }
@@ -277,7 +277,12 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     private void ShowTutorialText(Vector2Int secAndSeg)
     {
         TutorialPanelDisplayer.HideAllPanels();
-        TutorialPanelDisplayer.ShowPanel(TutorialDisplayPanel, tutorialText[secAndSeg.x][secAndSeg.y].Trim());
+        TutorialPanelDisplayer.ShowPanel(TutorialDisplayPanel, tutorialText[secAndSeg.x][secAndSeg.y].Trim() + GetCompletionText(secAndSeg));
+    }
+
+    private string GetCompletionText(Vector2Int secAndSeg)
+    {
+        return string.Format(" ({0}/{1})", secAndSeg.y + 1, GetMaxSegment(secAndSeg.x) + 1);
     }
 
     private string[][] ParseFileContents(string text)
