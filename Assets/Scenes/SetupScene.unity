@@ -643,7 +643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 353.29984}
+  m_AnchoredPosition: {x: -453.55005, y: 150.22046}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1667,8 +1667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -641, y: 446}
-  m_SizeDelta: {x: 581.6, y: 40.6}
+  m_AnchoredPosition: {x: -823.35, y: 446}
+  m_SizeDelta: {x: 216.90668, y: 40.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254957191
 MonoBehaviour:
@@ -2601,7 +2601,7 @@ MonoBehaviour:
   ItemSelection: {fileID: 1680095495}
   PlayerDodgeState: {fileID: 333112612}
   PlayerAttackState: {fileID: 333112617}
-  MouseMoveSensitivity: 0.2
+  MouseMoveSensitivity: 0.35
   MoveDistThreshold: 0.5
   rb: {fileID: 333112605}
 --- !u!114 &333112611
@@ -9005,6 +9005,7 @@ MonoBehaviour:
   MinerCostDisplay: {fileID: 720223695}
   EndPanel: {fileID: 1479253178}
   GameEndPanel: {fileID: 1903546257}
+  NextWaveButton: {fileID: 1391116079}
 --- !u!1 &1252543688
 GameObject:
   m_ObjectHideFlags: 0
@@ -11584,7 +11585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 318.86975}
+  m_AnchoredPosition: {x: -437.25012, y: 115.79048}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -11983,7 +11984,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304991317}
   m_HandleRect: {fileID: 1304991316}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15486,7 +15487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244.1, y: -80.6}
+  m_AnchoredPosition: {x: -58.453, y: -80.6}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1865249431
@@ -16538,7 +16539,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

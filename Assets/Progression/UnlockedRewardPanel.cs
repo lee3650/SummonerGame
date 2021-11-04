@@ -41,7 +41,7 @@ public class UnlockedRewardPanel : UIPanel
 
         if (File.Exists(path))
         {
-            Text.text = File.ReadAllText(path);
+            Text.text = StringWidthFormatter.FormatStringToWidth(File.ReadAllText(path), 110);
         }
         else
         {

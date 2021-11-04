@@ -30,6 +30,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] GameObject MinerCostDisplay;
     [SerializeField] GameObject EndPanel;
     [SerializeField] GameEndPanel GameEndPanel;
+    [SerializeField] GameObject NextWaveButton;
 
     const string tutorialFileName = "ttl";
 
@@ -139,6 +140,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         {
             if (BuiltGeqSummons(SummonType.MeleeEntity, 4))
             {
+                NextWaveButton.SetActive(true);
                 IncrementSection();
             }
         }
@@ -200,6 +202,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         levelCounter++;
         if (levelCounter == 1)
         {
+            NextWaveButton.SetActive(false);
             SectionAndSegment = new Vector2Int(1, 0);
             GivePlayerItem(WallGenerator);
         } 
@@ -227,12 +230,10 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            //well, that's duplication
+            if (Input.anyKeyDown && !Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(2) && !Input.GetKeyDown(KeyCode.Escape) && !Input.GetKeyDown(KeyCode.R))
             {
                 SectionAndSegment = incrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x)); //so, segment is under manual control, section is event controlled
-            } else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-            {
-                SectionAndSegment = decrementSegment(SectionAndSegment);
             }
         }
     }
@@ -252,6 +253,16 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             }
         }
         return null;
+    }
+
+    public void NextPage()
+    {
+        SectionAndSegment = incrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x));
+    }
+
+    public void PrevPage()
+    {
+        SectionAndSegment = decrementSegment(SectionAndSegment);
     }
 
     private Vector2Int incrementSegment(Vector2Int start, int max)
@@ -277,12 +288,18 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     private void ShowTutorialText(Vector2Int secAndSeg)
     {
         TutorialPanelDisplayer.HideAllPanels();
-        TutorialPanelDisplayer.ShowPanel(TutorialDisplayPanel, tutorialText[secAndSeg.x][secAndSeg.y].Trim() + GetCompletionText(secAndSeg));
+        UIPanel p = TutorialPanelDisplayer.ShowPanel(TutorialDisplayPanel, tutorialText[secAndSeg.x][secAndSeg.y].Trim());
+        p.GetComponent<TutorialPanel>().Initialize(this); //not super efficient to destroy and then recreate this every time lol
+    }
+
+    public string GetProgressText()
+    {
+        return GetCompletionText(SectionAndSegment);
     }
 
     private string GetCompletionText(Vector2Int secAndSeg)
     {
-        return string.Format(" ({0}/{1})", secAndSeg.y + 1, GetMaxSegment(secAndSeg.x) + 1);
+        return string.Format("({0}/{1})", secAndSeg.y + 1, GetMaxSegment(secAndSeg.x) + 1);
     }
 
     private string[][] ParseFileContents(string text)

@@ -7,11 +7,12 @@ public class PanelDisplayer : MonoBehaviour
     [SerializeField] RectTransform PanelParent;
     List<GameObject> DisplayedPanels = new List<GameObject>();
 
-    public void ShowPanel(UIPanel panel, object information)
+    public UIPanel ShowPanel(UIPanel panel, object information)
     {
         UIPanel p = Instantiate(panel, PanelParent);
         p.Show(information);
         DisplayedPanels.Add(p.gameObject);
+        return p;
     }
 
     public void HideAllPanels()

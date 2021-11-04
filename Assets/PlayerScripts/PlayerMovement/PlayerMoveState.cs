@@ -77,7 +77,7 @@ public class PlayerMoveState : MonoBehaviour, IState
         {
             if (Vector2.Distance(targetMousePos, PlayerInput.GetWorldMousePosition()) > MoveDistThreshold)
             {
-                rb.position = (Vector2)rb.position + (Time.deltaTime * 60f * MouseMoveSensitivity * (targetMousePos - PlayerInput.GetWorldMousePosition()));
+                transform.position = (Vector2)transform.position + (MouseMoveSensitivity * (targetMousePos - PlayerInput.GetWorldMousePosition())); //Time.deltaTime * 60f * 
             }
         }
     }
