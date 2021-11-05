@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 125038948}
   - component: {fileID: 125038947}
   - component: {fileID: 125038949}
+  - component: {fileID: 125038950}
   m_Layer: 5
   m_Name: Reward2 (11)
   m_TagString: Untagged
@@ -997,6 +998,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &125038950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125038945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &133046489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1666,7 @@ GameObject:
   - component: {fileID: 232721767}
   - component: {fileID: 232721766}
   - component: {fileID: 232721768}
+  - component: {fileID: 232721769}
   m_Layer: 5
   m_Name: Reward2 (7)
   m_TagString: Untagged
@@ -1728,6 +1748,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &232721769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232721764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &252535403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1966,7 @@ GameObject:
   - component: {fileID: 312577865}
   - component: {fileID: 312577864}
   - component: {fileID: 312577866}
+  - component: {fileID: 312577867}
   m_Layer: 5
   m_Name: Reward2 (9)
   m_TagString: Untagged
@@ -2009,6 +2048,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &312577867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312577862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &324836711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,6 +2607,7 @@ GameObject:
   - component: {fileID: 433574182}
   - component: {fileID: 433574181}
   - component: {fileID: 433574183}
+  - component: {fileID: 433574184}
   m_Layer: 5
   m_Name: Reward2 (14)
   m_TagString: Untagged
@@ -2631,6 +2689,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &433574184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433574179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &434131611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,7 +2719,6 @@ GameObject:
   - component: {fileID: 434131614}
   - component: {fileID: 434131613}
   - component: {fileID: 434131615}
-  - component: {fileID: 434131617}
   - component: {fileID: 434131616}
   m_Layer: 5
   m_Name: Reward2 (1)
@@ -2743,103 +2818,7 @@ MonoBehaviour:
   OverrideUpSound: 0
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
-  AudioSource: {fileID: 434131617}
---- !u!82 &434131617
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434131611}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f357982e18dbad34e9dccfdf69b97f03, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  AudioSource: {fileID: 880339357}
 --- !u!1 &489845338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2831,7 @@ GameObject:
   - component: {fileID: 489845341}
   - component: {fileID: 489845340}
   - component: {fileID: 489845342}
+  - component: {fileID: 489845343}
   m_Layer: 5
   m_Name: Reward2 (2)
   m_TagString: Untagged
@@ -2933,6 +2913,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &489845343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489845338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &501160630
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,6 +3302,7 @@ GameObject:
   - component: {fileID: 633417699}
   - component: {fileID: 633417698}
   - component: {fileID: 633417700}
+  - component: {fileID: 633417701}
   m_Layer: 5
   m_Name: Reward2 (6)
   m_TagString: Untagged
@@ -3385,6 +3384,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &633417701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633417696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &660560577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3903,6 +3920,7 @@ GameObject:
   - component: {fileID: 695672468}
   - component: {fileID: 695672467}
   - component: {fileID: 695672469}
+  - component: {fileID: 695672470}
   m_Layer: 5
   m_Name: Reward2 (13)
   m_TagString: Untagged
@@ -3984,6 +4002,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &695672470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695672465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &775713149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4632,6 +4668,133 @@ MonoBehaviour:
   IsItem: 1
   Item: {fileID: 2318945554763282471, guid: 95840a4efb77baa4bb4aaf7d23fb3312, type: 3}
   DisplayRewardData: {fileID: 1736536063}
+--- !u!1 &880339355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880339356}
+  - component: {fileID: 880339357}
+  m_Layer: 0
+  m_Name: UI Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &880339356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880339355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 490, y: 288, z: -278.79974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &880339357
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880339355}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &884612065
 GameObject:
   m_ObjectHideFlags: 0
@@ -5731,6 +5894,7 @@ GameObject:
   - component: {fileID: 1121335533}
   - component: {fileID: 1121335532}
   - component: {fileID: 1121335534}
+  - component: {fileID: 1121335535}
   m_Layer: 5
   m_Name: Reward2 (8)
   m_TagString: Untagged
@@ -5812,6 +5976,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &1121335535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121335530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1162832224
 GameObject:
   m_ObjectHideFlags: 0
@@ -6334,6 +6516,7 @@ GameObject:
   - component: {fileID: 1307950540}
   - component: {fileID: 1307950539}
   - component: {fileID: 1307950538}
+  - component: {fileID: 1307950541}
   m_Layer: 5
   m_Name: SkipButton
   m_TagString: Untagged
@@ -6452,6 +6635,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307950536}
   m_CullTransparentMesh: 0
+--- !u!114 &1307950541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307950536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1343557644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6855,6 +7056,7 @@ GameObject:
   - component: {fileID: 1419660184}
   - component: {fileID: 1419660183}
   - component: {fileID: 1419660185}
+  - component: {fileID: 1419660186}
   m_Layer: 5
   m_Name: Reward2 (10)
   m_TagString: Untagged
@@ -6936,6 +7138,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &1419660186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419660181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1503100869
 GameObject:
   m_ObjectHideFlags: 0
@@ -7105,6 +7325,7 @@ GameObject:
   - component: {fileID: 1522443658}
   - component: {fileID: 1522443657}
   - component: {fileID: 1522443659}
+  - component: {fileID: 1522443660}
   m_Layer: 5
   m_Name: Reward2 (12)
   m_TagString: Untagged
@@ -7186,6 +7407,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &1522443660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522443655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1536460601
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,6 +8331,7 @@ GameObject:
   - component: {fileID: 1637521768}
   - component: {fileID: 1637521767}
   - component: {fileID: 1637521769}
+  - component: {fileID: 1637521770}
   m_Layer: 5
   m_Name: Reward2 (3)
   m_TagString: Untagged
@@ -8173,6 +8413,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &1637521770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637521765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1656965213
 GameObject:
   m_ObjectHideFlags: 0
@@ -8289,6 +8547,7 @@ GameObject:
   - component: {fileID: 1689548183}
   - component: {fileID: 1689548182}
   - component: {fileID: 1689548184}
+  - component: {fileID: 1689548185}
   m_Layer: 5
   m_Name: Reward2 (5)
   m_TagString: Untagged
@@ -8370,6 +8629,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &1689548185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689548180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1730896875
 GameObject:
   m_ObjectHideFlags: 0
@@ -9503,6 +9780,7 @@ GameObject:
   - component: {fileID: 1929515520}
   - component: {fileID: 1929515519}
   - component: {fileID: 1929515521}
+  - component: {fileID: 1929515522}
   m_Layer: 5
   m_Name: Reward2 (4)
   m_TagString: Untagged
@@ -9584,6 +9862,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &1929515522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929515517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &1932663256
 GameObject:
   m_ObjectHideFlags: 0
@@ -10222,6 +10518,7 @@ GameObject:
   - component: {fileID: 2031414391}
   - component: {fileID: 2031414390}
   - component: {fileID: 2031414392}
+  - component: {fileID: 2031414393}
   m_Layer: 5
   m_Name: Reward1
   m_TagString: Untagged
@@ -10303,6 +10600,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &2031414393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031414388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &2048619431
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,7 +10725,6 @@ GameObject:
   - component: {fileID: 2069310449}
   - component: {fileID: 2069310448}
   - component: {fileID: 2069310447}
-  - component: {fileID: 2069310451}
   - component: {fileID: 2069310450}
   m_Layer: 5
   m_Name: NextIslandButton
@@ -10547,103 +10861,7 @@ MonoBehaviour:
   OverrideUpSound: 0
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
-  AudioSource: {fileID: 2069310451}
---- !u!82 &2069310451
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069310445}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  AudioSource: {fileID: 880339357}
 --- !u!1 &2103069210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10656,6 +10874,7 @@ GameObject:
   - component: {fileID: 2103069213}
   - component: {fileID: 2103069212}
   - component: {fileID: 2103069214}
+  - component: {fileID: 2103069215}
   m_Layer: 5
   m_Name: Reward2
   m_TagString: Untagged
@@ -10737,6 +10956,24 @@ MonoBehaviour:
   UnlockedRewardPanel: {fileID: 572961263069031670, guid: 35684b2c7ea67a24e8a4e337afcdbf58,
     type: 3}
   PanelSpawnPos: {fileID: 1847853291}
+--- !u!114 &2103069215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103069210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7948d9a41212744a24dc8cd5f5ca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverrideDownSound: 0
+  OverrideDown: {fileID: 0}
+  OverrideUpSound: 0
+  OverrideUp: {fileID: 0}
+  PlayOnPointerUp: 1
+  AudioSource: {fileID: 880339357}
 --- !u!1 &2118643865
 GameObject:
   m_ObjectHideFlags: 0
