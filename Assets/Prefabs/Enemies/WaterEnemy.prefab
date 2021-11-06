@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: 6603066443833279831}
   - component: {fileID: 7773904187481824307}
   - component: {fileID: 638881080154970504}
+  - component: {fileID: -6223222422350412741}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -349,6 +350,7 @@ MonoBehaviour:
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 4648206095511936297}
   StateToExitTo: {fileID: 4648206095511936296}
+  AttackStartSound: 0
   TargetManager: {fileID: 4648206095511936303}
   Animator: {fileID: 818753487579262456}
   MeleeWeapon: {fileID: 4648206096231582272}
@@ -540,6 +542,20 @@ MonoBehaviour:
   DeathMessage: Killed Sand Enemy
   XPGain: 3
   MeleeWeapon: {fileID: 4648206096231582276}
+--- !u!114 &-6223222422350412741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c5e615a61c303438c9c47296bf6bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 4648206095511936289}
+  SoundEffect: 2
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0

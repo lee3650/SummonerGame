@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6376523017950260282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790292517423554865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0a1656e3e8e1c45a2bf413862d9b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundToPlay: 4
 --- !u!1001 &777251092609107052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7,6 +20,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7240296653374110979, guid: 21aba1481dee755428f806c196448c90,
+        type: 3}
+      propertyPath: PlayThump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7240296653374110979, guid: 21aba1481dee755428f806c196448c90,
+        type: 3}
+      propertyPath: PlayThumpOnce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 17723146810303836, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_Color.a
@@ -88,3 +111,9 @@ PrefabInstance:
     - {fileID: 2042207029774516379, guid: 21aba1481dee755428f806c196448c90, type: 3}
     - {fileID: 3941265906476139161, guid: 21aba1481dee755428f806c196448c90, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21aba1481dee755428f806c196448c90, type: 3}
+--- !u!1 &790292517423554865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90,
+    type: 3}
+  m_PrefabInstance: {fileID: 777251092609107052}
+  m_PrefabAsset: {fileID: 0}

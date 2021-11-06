@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: -4759480266611487452}
   - component: {fileID: -8649868255030482021}
   - component: {fileID: -2076469931318242967}
+  - component: {fileID: -2331201015993516047}
+  - component: {fileID: -2754350450292369980}
   m_Layer: 11
   m_Name: FriendlyMeleeBlueprint
   m_TagString: Untagged
@@ -215,6 +217,34 @@ MonoBehaviour:
   SquashAmount: 0.5
   SquashTime: 0.02
   RecoveryTime: 0.035
-  Jump: 1
+  JumpOnStart: 0
   gravity: 0.05
   upwardVel: 0.25
+  PlayThump: 0
+  PlayThumpOnce: 0
+--- !u!114 &-2331201015993516047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948711407154339661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26377e5c2050b5a4b97fad0c9cf5b00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundToPlay: 4
+--- !u!114 &-2754350450292369980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948711407154339661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0a1656e3e8e1c45a2bf413862d9b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundToPlay: 1

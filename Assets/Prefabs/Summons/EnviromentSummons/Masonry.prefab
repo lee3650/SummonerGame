@@ -231,6 +231,8 @@ MonoBehaviour:
   JumpOnStart: 1
   gravity: 0.15
   upwardVel: 0.8
+  PlayThump: 1
+  PlayThumpOnce: 0
 --- !u!114 &3470760398145262473
 MonoBehaviour:
   m_ObjectHideFlags: 0

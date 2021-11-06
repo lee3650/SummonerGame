@@ -204,7 +204,6 @@ MonoBehaviour:
   Clips: []
   invertIndex: 0
   OverwriteTileForZeroIndex: 0
-  WaitForSquash: 1
 --- !u!114 &-7240296653374110979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +224,8 @@ MonoBehaviour:
   JumpOnStart: 1
   gravity: 0.1
   upwardVel: 0.5
+  PlayThump: 0
+  PlayThumpOnce: 0
 --- !u!114 &9222658590425354811
 MonoBehaviour:
   m_ObjectHideFlags: 0

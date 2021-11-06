@@ -189,3 +189,5 @@ MonoBehaviour:
   JumpOnStart: 1
   gravity: 0.15
   upwardVel: 0.8
+  PlayThump: 1
+  PlayThumpOnce: 0

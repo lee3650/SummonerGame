@@ -34,6 +34,7 @@ GameObject:
   - component: {fileID: 5103964693806700265}
   - component: {fileID: -7257037542522189363}
   - component: {fileID: 2143992938299189330}
+  - component: {fileID: -4350287358084803745}
   m_Layer: 12
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -348,6 +349,7 @@ MonoBehaviour:
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 5487195000452624836}
   StateToExitTo: {fileID: 5487195000452624837}
+  AttackStartSound: 0
   TargetManager: {fileID: 5487195000452624834}
   Animator: {fileID: 5570387599296888763}
   MeleeWeapon: {fileID: 5487195001173321389}
@@ -525,6 +527,20 @@ MonoBehaviour:
   DeathMessage: Killed Enemy Knight
   XPGain: 1
   MeleeWeapon: {fileID: 5487195001173321385}
+--- !u!114 &-4350287358084803745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c5e615a61c303438c9c47296bf6bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 5487195000452624844}
+  SoundEffect: 2
 --- !u!1 &5487195001173321385
 GameObject:
   m_ObjectHideFlags: 0

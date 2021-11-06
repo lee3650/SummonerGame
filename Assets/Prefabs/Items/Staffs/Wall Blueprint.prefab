@@ -126,7 +126,7 @@ MonoBehaviour:
   ItemType: 0
   itemName: Wall Blueprint
   ManaDrain: 0
-  AttackLength: 0.1
+  AttackLength: 0.2
   WeaponDescription: Places a wall blueprint. A wall generator will place its walls
     based on where the wall blueprints are.
   DeselectAfterAttacking: 0

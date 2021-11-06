@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 180630222893668431}
   - component: {fileID: 6069888589989077877}
   - component: {fileID: 7731817118219800587}
+  - component: {fileID: 4741069508010813962}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -297,6 +298,7 @@ MonoBehaviour:
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 1090552370236627245}
   StateToExitTo: {fileID: 87831727195077226}
+  AttackStartSound: 5
   TargetManager: {fileID: 1090552370236627259}
   Animator: {fileID: 1817816882177825975}
   Projectile: {fileID: 919925079335150363, guid: 75df5a1faf357f04792e0d24a67b95cc,
@@ -559,3 +561,17 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 1090552370236627252}
   DeathMessage: Killed Enemy Archer
   XPGain: 1.5
+--- !u!114 &4741069508010813962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c5e615a61c303438c9c47296bf6bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 1090552370236627251}
+  SoundEffect: 2

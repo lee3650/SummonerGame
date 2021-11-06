@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 1056023739503505477}
   - component: {fileID: -1793715852626045878}
   - component: {fileID: -2388961472760377734}
+  - component: {fileID: 8354499796611643445}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -576,6 +577,7 @@ MonoBehaviour:
   MoveWhileAttacking: 0
   AIStateMachine: {fileID: 9194925930672925237}
   StateToExitTo: {fileID: 3520532898615948338}
+  AttackStartSound: 3
   TargetManager: {fileID: 9194925930672925235}
   Animator: {fileID: 5993736718554861897}
   MeleeWeapon: {fileID: 8775604864804320807}
@@ -755,3 +757,19 @@ MonoBehaviour:
   JumpOnStart: 0
   gravity: 0
   upwardVel: 0
+  PlayThump: 0
+  PlayThumpOnce: 0
+--- !u!114 &8354499796611643445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c5e615a61c303438c9c47296bf6bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 9194925930672925243}
+  SoundEffect: 2

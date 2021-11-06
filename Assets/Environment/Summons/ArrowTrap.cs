@@ -40,6 +40,7 @@ public class ArrowTrap : PlayerWall, IDamager, IWielder
 
     private IEnumerator Attack()
     {
+        GameplaySFX.PlayGameSound(Sounds.RangedAttack, transform.position);
         Animator.PlayAttack(zRot);
         yield return new WaitForSeconds(animationDelayTime);
         Projectile p = Instantiate(Projectile, SpawnPos.position, Quaternion.Euler(new Vector3(0f, 0f, zRot + projDir)));

@@ -12,6 +12,8 @@ public class AIAttackState : MonoBehaviour, IState
     [SerializeField] AIStateMachine AIStateMachine;
     [SerializeField] Component StateToExitTo;
 
+    [SerializeField] Sounds AttackStartSound = Sounds.MeleeAttack;
+
     [SerializeField] protected TargetManager TargetManager;
     [SerializeField] protected DirectionalAnimator Animator;
 
@@ -79,6 +81,7 @@ public class AIAttackState : MonoBehaviour, IState
 
     public virtual void StartAttack()
     {
+        GameplaySFX.PlayGameSound(AttackStartSound, transform.position);
         Animator.PlayAttack(TargetManager.Target.GetPosition());
     }
 
