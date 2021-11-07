@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using System;
 
 public class XPApplier : MonoBehaviour
 {
@@ -15,7 +15,10 @@ public class XPApplier : MonoBehaviour
 
     private bool pause = false;
     private bool animate = true;
-    
+
+    public event Action GainedXP = delegate { };
+    public event Action LeveledUp = delegate { };
+
     //so, as soon as this scene loads
     private void Awake()
     {
@@ -98,11 +101,15 @@ public class XPApplier : MonoBehaviour
     private void ApplyXPMessage(XPMessage message)
     {
         SetUI(message);
-        
+
+        GainedXP();
+
         bool gotReward = ExperienceManager.GainXP(message.XpGain);
 
         if (gotReward)
         {
+            LeveledUp();
+
             pause = true; // I'm not a huge fan of this because it changes state sneakily. We should split this into two methods, one that applies the xp and returns if you got a reward
                         //and another that sets pause and shows the reward panel
             ShowRewardPanel(ExperienceManager.GetCurrentLevel()); //so, we'll just show what we got for the current level. 

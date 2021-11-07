@@ -11,9 +11,26 @@ public class ExperienceManager : MonoBehaviour
     private const string KeyToCurrentLevel = "CurLevl";
     private const string KeyToCurrentLevelXP = "CurLevlXP";
 
-    private static bool exitingLevel = false;
+    private static bool exitingLevel = true;
 
-    private static List<XPMessage> xpToApply = new List<XPMessage>();
+    private static List<XPMessage> xpToApply = new List<XPMessage>()
+    {
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+        new XPMessage("", 1.5f),
+    };
 
     private void Awake()
     {
