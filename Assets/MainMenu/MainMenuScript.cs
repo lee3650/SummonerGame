@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     //set this to false if, in the setup scene, we want to not play the tutorial
-    private static bool tutorialMode = true; //we'll have to load this from a file, or use PlayerPrefs. 
+    private static bool tutorialMode = false; //we'll have to load this from a file, or use PlayerPrefs. 
     private static string finishedTutorialKey = "TutorialMode";
     private bool FinishedTutorial;
 

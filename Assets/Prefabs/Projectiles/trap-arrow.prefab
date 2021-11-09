@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
         type: 3}
       propertyPath: CheckFaction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7110591748230664652, guid: 212c03f6198756949aae4e13f6423fa9,
         type: 3}

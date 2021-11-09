@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingText: {fileID: 1813002215}
-  minWaitTime: 1.5
+  minWaitTime: 0.5
 --- !u!4 &1491227446
 Transform:
   m_ObjectHideFlags: 0

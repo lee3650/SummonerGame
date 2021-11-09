@@ -19,8 +19,18 @@ public class RangedAttackState : AIAttackState
     {
         yield return new WaitForSeconds(ProjectileSpawnDelay);
 
-        Projectile p = Instantiate(Projectile, firingPosition.position, Quaternion.Euler(GetRotationToFaceTarget(TargetManager.Target.GetPosition())));
+        Vector3 rot = GetRotationToFaceTarget(TargetManager.Target.GetPosition());
+
+        Projectile p = Instantiate(Projectile, (Vector2)firingPosition.position + getProjPositionAdjustment(rot), Quaternion.Euler(rot));
         ActivateProjectile(p, GetComponent<IWielder>());
+    }
+
+    private Vector2 getProjPositionAdjustment(Vector3 rotation)
+    {
+        float rot = (rotation.z + 90f) * Mathf.Deg2Rad;
+
+        Vector2 dir = new Vector2(Mathf.Cos(rot), Mathf.Sin(rot));
+        return dir.normalized * 1.25f;
     }
 
     private Vector3 GetRotationToFaceTarget(Vector2 targetPos)
