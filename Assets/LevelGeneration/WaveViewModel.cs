@@ -97,7 +97,7 @@ public class WaveViewModel : MonoBehaviour
         WaveSpawner.MakeRandomPointsAvailable();
         WarshipManager.SpawnShips();
 
-        MinerSummon.ScaleCost(PlayerSummoner);
+        //MinerSummon.ScaleCost(PlayerSummoner);
 
         NextLevelEvent.TriggerOnNextLevelEvent();
     }

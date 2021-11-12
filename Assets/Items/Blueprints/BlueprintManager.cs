@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BlueprintManager : MonoBehaviour, IResettable
 {
-    public static event Action BlueprintsChanged = delegate { };
+    public static event Action<BlueprintType> BlueprintAdded = delegate { };
+    public static event Action<BlueprintType> BlueprintRemoved = delegate { }; //really this should tell you what was added, at the very least
+    public static event Action BlueprintsChanged = delegate { }; //really this should tell you what was added, at the very least
     private static List<Blueprint> Blueprints = new List<Blueprint>();
     private static Dictionary<Vector2Int, Blueprint> BlueprintPositions = new Dictionary<Vector2Int, Blueprint>();
     
@@ -15,7 +17,21 @@ public class BlueprintManager : MonoBehaviour, IResettable
         BlueprintPositions[point] = add; 
         Blueprints.Add(add);
 
+        BlueprintAdded(type);
         BlueprintsChanged();
+    }
+
+    public static void SetFeesForType(BlueprintType type, float start, float delta)
+    {
+        for (int i = 0; i < Blueprints.Count; i++)
+        {
+            Blueprint b = Blueprints[i];
+            if (b.BlueprintType == type)
+            {
+                b.MaintenanceFee = start + (i * delta);
+                print("Type " + type.ToString() + ", new maintenance fee: " + b.MaintenanceFee);
+            }
+        }
     }
 
     public static List<Blueprint> GetSatisfiedBlueprints()
@@ -101,7 +117,9 @@ public class BlueprintManager : MonoBehaviour, IResettable
         {
             if (Blueprints[i].Point == point)
             {
+                BlueprintType r = Blueprints[i].BlueprintType;
                 Blueprints.RemoveAt(i);
+                BlueprintRemoved(r);
                 BlueprintsChanged();
                 return true;
             }
@@ -160,6 +178,12 @@ public class BlueprintManager : MonoBehaviour, IResettable
     {
         BlueprintsChanged = null;
         BlueprintsChanged = delegate { };
+        BlueprintAdded = null;
+        BlueprintAdded = delegate { };
+
+        BlueprintRemoved = null;
+        BlueprintRemoved = delegate { };
+
         Blueprints = new List<Blueprint>();
         BlueprintPositions = new Dictionary<Vector2Int, Blueprint>();
     }

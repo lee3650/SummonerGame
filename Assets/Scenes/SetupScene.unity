@@ -743,7 +743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.13324}
+  m_AnchoredPosition: {x: -453.55005, y: 361.094}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -3293,6 +3293,7 @@ MonoBehaviour:
   NextWaveButton: {fileID: 1391116079}
   Summoner: {fileID: 333112619}
   Hotbar: {fileID: 1680095493}
+  BlueprintFees: {fileID: 1071082196}
 --- !u!114 &333112626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10516,6 +10517,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067887653}
   m_CullTransparentMesh: 0
+--- !u!1 &1071082195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071082197}
+  - component: {fileID: 1071082196}
+  m_Layer: 0
+  m_Name: BlueprintFeeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1071082196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071082195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2249fa692375446ac38a5062ba0eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemInfoDisplayer: {fileID: 1702447326}
+  Prices:
+  - minPrice: 0.15
+    maxPrice: 0.45
+    Increment: 0.02
+    startPrice: 0
+    Type: 0
+  - minPrice: 0.15
+    maxPrice: 0.45
+    Increment: 0.02
+    startPrice: 0
+    Type: 1
+  - minPrice: 1.5
+    maxPrice: 3
+    Increment: 0.1
+    startPrice: 0
+    Type: 2
+  - minPrice: 1.5
+    maxPrice: 3.5
+    Increment: 0.1
+    startPrice: 0
+    Type: 3
+  - minPrice: 0
+    maxPrice: 0
+    Increment: 0
+    startPrice: 0
+    Type: 4
+  - minPrice: 1
+    maxPrice: 1.5
+    Increment: 0.05
+    startPrice: 0
+    Type: 5
+  - minPrice: 0.25
+    maxPrice: 1.25
+    Increment: 0.025
+    startPrice: 0
+    Type: 6
+--- !u!4 &1071082197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071082195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 522.766, y: 277.88132, z: -1430.5625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1071920091
 GameObject:
   m_ObjectHideFlags: 0
@@ -14475,7 +14556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.70325}
+  m_AnchoredPosition: {x: -437.25012, y: 326.664}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -15983,6 +16064,7 @@ MonoBehaviour:
   - {fileID: 1739213642}
   - {fileID: 1388708028}
   - {fileID: 710998784}
+  - {fileID: 1071082195}
 --- !u!4 &1585619781
 Transform:
   m_ObjectHideFlags: 0

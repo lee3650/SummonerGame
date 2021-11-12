@@ -57,14 +57,13 @@ public class IncomeDisplay : MonoBehaviour
                 incomeText += string.Format("{0}: +{1}\n", s.SummonName, income);
             }
             Income += income;
-
-            Expenses += s.GetMaintenanceFee();
         }
 
         List<Blueprint> bps = BlueprintManager.GetSatisfiedBlueprints();
 
         foreach (Blueprint b in bps)
         {
+            Expenses += b.MaintenanceFee;
             expensesText += string.Format("{0}: -{1}\n", BlueprintManager.GetNameFromBlueprintType(b.BlueprintType), b.MaintenanceFee);
         }
     }

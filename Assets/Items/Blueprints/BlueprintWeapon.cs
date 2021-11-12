@@ -41,6 +41,12 @@ public class BlueprintWeapon : SummonWeapon
         MaintenanceFee = BlueprintFees.GetMaintenanceFee(BlueprintType); //very nice, eh? 
     }
 
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\nStart price can be from {0} to {1}\nPrice increase: {2}", BlueprintFees.GetMinFee(BlueprintType), 
+            BlueprintFees.GetMaxFee(BlueprintType), BlueprintFees.GetMaintenanceDelta(BlueprintType)); //is that a hardcoded string? 
+    }
+
     public override void UpdatePreview(bool visible, Vector2 mousePos)
     {
         if (visible && SummonPreview != null)
