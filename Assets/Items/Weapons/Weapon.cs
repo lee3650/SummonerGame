@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Weapon : Item, IPurchasable
 {
     //for now let's assume only the player can use items. 
+    [SerializeField] WeaponType WeaponType;
     [SerializeField] protected float ManaDrain; //we'll also assume you can only use mana 
     [SerializeField] private float AttackLength;
     [SerializeField] protected string WeaponDescription;
@@ -60,6 +61,6 @@ public abstract class Weapon : Item, IPurchasable
 
     public virtual WeaponType GetWeaponType()
     {
-        return WeaponType.Summon;
+        return WeaponType;
     }
 }

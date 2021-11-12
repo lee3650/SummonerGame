@@ -25,6 +25,14 @@ public class ItemSelection : MonoBehaviour
 
     int selectedIndex = -1;
 
+    public int SelectedIndex
+    {
+        get
+        {
+            return selectedIndex;
+        }
+    }
+
     private void Awake()
     {
         AssignSlotIndexes();
@@ -36,6 +44,7 @@ public class ItemSelection : MonoBehaviour
 
     private void HotbarSelectorClicked()
     {
+        print("Hotbar selector clicked!");
         DeselectItem();
     }
 
@@ -73,33 +82,6 @@ public class ItemSelection : MonoBehaviour
             return true;
         }
         return false; 
-    }
-
-    private void Update()
-    {
-        if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
-        {
-            int newIndex;
-            
-            if (Input.mouseScrollDelta.y > 0)
-            {
-                newIndex = selectedIndex - 1;
-                if (newIndex < 0)
-                {
-                    newIndex = ItemSlotsLength - 1;
-                }
-            }
-            else
-            {
-                newIndex = selectedIndex + 1;
-                if (newIndex >= ItemSlotsLength)
-                {
-                    newIndex = 0;
-                }
-            }
-            
-            ChangeSelection(newIndex);
-        }
     }
 
     public void DeselectItem()
@@ -146,7 +128,8 @@ public class ItemSelection : MonoBehaviour
             SelectedItem.OnDeselection();
         }
 
-        SelectionImage.position = ItemSlots[newSelect].GetPosition();
+        SelectionImage.transform.SetParent(ItemSlots[newSelect].transform, false);
+        SelectionImage.localPosition = Vector2.zero;
         SelectionImage.gameObject.SetActive(true);
 
         selectedIndex = newSelect;

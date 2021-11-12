@@ -125,6 +125,7 @@ MonoBehaviour:
   col: {fileID: 6639920486162523643}
   ItemType: 0
   itemName: Ranged Unit
+  WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a ranged blueprint

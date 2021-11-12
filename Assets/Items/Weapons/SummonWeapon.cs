@@ -133,11 +133,6 @@ public class SummonWeapon : Weapon
         return base.GetRecurringCost();
     }
 
-    public override WeaponType GetWeaponType()
-    {
-        return WeaponType.Summon;
-    }
-
     public static GameObject SpawnSummon(GameObject summon, Vector2 pos, Summoner summoner, Quaternion rotation)
     {
         GameObject summoned = Instantiate(summon, pos, rotation);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AnimateInAndOut : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class AnimateInAndOut : MonoBehaviour
 
     [SerializeField] bool Shown = true;
     [SerializeField] bool AnimateInOnStart = false;
+
+    public event Action AnimatingOut = delegate { };
 
     private void Start()
     {
@@ -49,6 +52,7 @@ public class AnimateInAndOut : MonoBehaviour
     {
         if (CanPlayAnimation())
         {
+            AnimatingOut();
             Animator.Play(AnimateOut.name);
             Shown = false;
         }

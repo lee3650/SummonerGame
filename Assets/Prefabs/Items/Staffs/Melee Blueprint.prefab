@@ -125,6 +125,7 @@ MonoBehaviour:
   col: {fileID: 2318945554763282465}
   ItemType: 0
   itemName: Melee Unit
+  WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a melee blueprint. A melee blueprint tells the barracks

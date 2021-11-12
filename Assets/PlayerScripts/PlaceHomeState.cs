@@ -16,6 +16,7 @@ public class PlaceHomeState : MonoBehaviour, IState
     [SerializeField] GameObject NextWaveButton;
     [SerializeField] Summoner Summoner;
     [SerializeField] GameObject Hotbar;
+    [SerializeField] BlueprintFees BlueprintFees;
 
     private HomeTileSummon actualHomeSummon;
 
@@ -65,6 +66,7 @@ public class PlaceHomeState : MonoBehaviour, IState
 
     public void ExitState()
     {
+        BlueprintFees.InitializePrices(); //technically could be static.
         NextWaveButton.SetActive(true); //this is kinda lame but whatever 
         Hotbar.SetActive(true);
         actualHomeSummon.GetComponent<SummonWeapon>().OnDeselection();

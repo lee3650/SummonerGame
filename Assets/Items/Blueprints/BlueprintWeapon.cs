@@ -22,7 +22,23 @@ public class BlueprintWeapon : SummonWeapon
     {
         blueprintImages = new List<GameObject>();
         BlueprintManager.BlueprintsChanged += BlueprintsChanged;
+        BlueprintFees.PriceUpdated += PriceUpdated;
         base.Awake();
+    }
+
+    private void PriceUpdated(BlueprintType type, float fee)
+    {
+        if (type == BlueprintType)
+        {
+            MaintenanceFee = fee;
+        }
+    }
+
+    //this is becoming very deep inheritance
+    public override void OnSelection()
+    {
+        base.OnSelection(); //definitely do that
+        MaintenanceFee = BlueprintFees.GetMaintenanceFee(BlueprintType); //very nice, eh? 
     }
 
     public override void UpdatePreview(bool visible, Vector2 mousePos)
@@ -44,6 +60,9 @@ public class BlueprintWeapon : SummonWeapon
         base.UpdatePreview(visible, mousePos);
     }
 
+    //what lol - that's how this works? 
+    //it'd be a lot better if each blueprint took care of it's own graphic, and then when it's removed it automatically deletes itself 
+    //we can do that without it being a gameobject as well
     private void BlueprintsChanged()
     {
         for (int i = blueprintImages.Count - 1; i >= 0; i--)
@@ -128,10 +147,5 @@ public class BlueprintWeapon : SummonWeapon
         {
             rv.Hide();
         }
-    }
-
-    public override WeaponType GetWeaponType()
-    {
-        return WeaponType.Blueprint;
     }
 }

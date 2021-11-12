@@ -125,6 +125,7 @@ MonoBehaviour:
   col: {fileID: 1166623827238931827}
   ItemType: 0
   itemName: Ballista
+  WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places a gate blueprint. A wall generator will place a gate

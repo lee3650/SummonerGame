@@ -125,6 +125,7 @@ MonoBehaviour:
   col: {fileID: 4922086247372503046}
   ItemType: 0
   itemName: Arrow Turner
+  WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places arrow turner blueprint. Fulfilled by wall generators.

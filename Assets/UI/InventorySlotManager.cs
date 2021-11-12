@@ -117,6 +117,35 @@ public class InventorySlotManager : MonoBehaviour
             return;
         }
 
+        bool[] slotTaken = new bool[HotbarSlots.Count];
+
+        for (int i = 0; i < InventorySlots.Count; i++)
+        {
+            Item item = InventorySlots[i].GetItem();
+
+            if (item != null)
+            {
+                for (int j = 0; j < HotbarSlots.Count; j++)
+                {
+                    if (HotbarSlots[j].IsItemAllowed(item) && !slotTaken[j]) //if it can hold that item and it doesn't have an item
+                    {
+                        HotbarSlots[j].SetItem(item);
+                        slotTaken[j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < HotbarSlots.Count; i++)
+        {
+            if (HotbarSlots[i].GetItem() == null)
+            {
+                HotbarSlots[i].ResetItem();
+            }
+        }
+
+        /*
         for (int i = 0; i < HotbarSlots.Count; i++)
         {
             if (i < InventorySlots.Count)
@@ -127,6 +156,7 @@ public class InventorySlotManager : MonoBehaviour
                 HotbarSlots[i].ResetItem();
             }
         }
+         */
     }
     
     private void DestroyCurrentDisplay()
