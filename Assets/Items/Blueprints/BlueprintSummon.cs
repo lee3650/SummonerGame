@@ -8,18 +8,19 @@ public class BlueprintSummon
     public Vector2Int Point;
     public float Fee; 
     public HealthManager HealthManager;
+    public Blueprint Blueprint;
 
     public bool IsAlive()
     {
         return HealthManager.IsAlive();
     }
 
-
     public BlueprintSummon(HealthManager hm, Blueprint bp, float fee)
     {
         Point = bp.Point; 
         BlueprintType = bp.BlueprintType;
         HealthManager = hm;
-        Fee = fee; 
+        Fee = fee;
+        Blueprint = bp;
     }
 }

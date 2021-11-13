@@ -23,13 +23,15 @@ public class CurrentLevelManager : MonoBehaviour
     private int baseEnemies = 3;
 
     List<List<GameObject>> LevelWaves = new List<List<GameObject>>();
-    
+    List<int> firstEnemyRoll = new List<int>();
+    List<int> secondEnemyRoll = new List<int>();
+    private int previousBaseEnemies;
+
     StageNode HeadNode;
     StageNode RootNode; 
 
     public void EnterFirstLevel()
     {
-
         LevelGenerator.SetTotalMapSizeAndInitMap();
         
         HeadNode = new StageNode(new Vector2(0, 0), null);
@@ -46,10 +48,6 @@ public class CurrentLevelManager : MonoBehaviour
         LevelGenerator.RecalculateSpawnRegion(FindEndNodes(RootNode));
 
         MapDrawer.ConditionallyDestroyTiles();
-
-        //so, now we have a map of max size, right. 
-        //so, we want to generate a decorative under-map for the ocean. 
-        //new class, I guess? 
 
         OceanGenerator.DrawOcean();
     }
@@ -71,11 +69,20 @@ public class CurrentLevelManager : MonoBehaviour
 
         currentWave = 0;
 
+        previousBaseEnemies = baseEnemies;
+
         LevelWaves = new List<List<GameObject>>();
+        firstEnemyRoll = new List<int>();
+        secondEnemyRoll = new List<int>();
 
         for (int i = 0; i <= highestWave; i++)
         {
-            LevelWaves.Add(WaveGenerator.GenerateNextWave(Mathf.RoundToInt(baseEnemies * GetWaveModifier(i / (highestWave - 1)))));
+            int roll = GetEnemyNumber(i);
+            int roll2 = GetEnemyNumber(i);
+            firstEnemyRoll.Add(roll);
+            secondEnemyRoll.Add(roll2);
+
+            LevelWaves.Add(WaveGenerator.GenerateNextWave(roll + roll2));
         }
 
         HealPlayer();
@@ -85,6 +92,35 @@ public class CurrentLevelManager : MonoBehaviour
         SetSpawnTime();
 
         levelNum++;
+    }
+    private int GetEnemiesPerWaveMaxRoll(int wave)
+    {
+        return Mathf.RoundToInt(previousBaseEnemies * GetWaveModifier(wave / (highestWave - 1)));
+    }
+
+    public int GetPreviousFirstRoll()
+    {
+        return firstEnemyRoll[currentWave - 1];
+    }
+
+    public int GetPreviousSecondRoll()
+    {
+        return secondEnemyRoll[currentWave - 1];
+    }
+
+    public int GetMaxRoll()
+    {
+        return GetEnemiesPerWaveMaxRoll(currentWave) - 1;
+    }
+
+    public int GetFirstRoll()
+    {
+        return firstEnemyRoll[currentWave];
+    }
+
+    public int GetEnemyNumber(int wave)
+    {
+        return Random.Range(1, GetEnemiesPerWaveMaxRoll(wave));
     }
 
     void SetSpawnTime()

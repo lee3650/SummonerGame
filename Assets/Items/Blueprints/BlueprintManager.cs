@@ -106,7 +106,7 @@ public class BlueprintManager : MonoBehaviour, IResettable
         return false; 
     }
 
-    public static bool TryRemoveBlueprint(Vector2Int point)
+    public static Blueprint TryRemoveBlueprint(Vector2Int point)
     {
         if (BlueprintPositions.ContainsKey(point))
         {
@@ -117,15 +117,15 @@ public class BlueprintManager : MonoBehaviour, IResettable
         {
             if (Blueprints[i].Point == point)
             {
-                BlueprintType r = Blueprints[i].BlueprintType;
+                Blueprint r = Blueprints[i];
                 Blueprints.RemoveAt(i);
-                BlueprintRemoved(r);
+                BlueprintRemoved(r.BlueprintType);
                 BlueprintsChanged();
-                return true;
+                return r;
             }
         }
 
-        return false; 
+        return null; 
     }
 
     public static void ForceBlueprintsChanged()

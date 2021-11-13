@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class WaveViewModel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI NextWaveText;
+    [SerializeField] EnableForTime RollResultText;
     [SerializeField] TextMeshProUGUI CurrentWaveText;
     [SerializeField] TextMeshProUGUI LevelNum;
     [SerializeField] GameObject NextWaveButton;
@@ -88,7 +89,7 @@ public class WaveViewModel : MonoBehaviour
         StopSpawningWaves();
 
         UpdateCurrentWaveUI();
-        UpdateNextWaveUI(CurrentLevelManager.GetNextWave());
+        UpdateNextWaveUI(CurrentLevelManager.GetFirstRoll(), CurrentLevelManager.GetMaxRoll());
 
         NextLevelButton.SetActive(false);
 
@@ -120,7 +121,8 @@ public class WaveViewModel : MonoBehaviour
             //RunTimer = true;
             CurrentLevelManager.SpawnNextWave();
             timer = 0f;
-            UpdateNextWaveUI(CurrentLevelManager.GetNextWave());
+            SetWaveRollUI(CurrentLevelManager.GetPreviousSecondRoll());
+            UpdateNextWaveUI(CurrentLevelManager.GetFirstRoll(), CurrentLevelManager.GetMaxRoll());
             UpdateCurrentWaveUI();
         }
     }
@@ -138,17 +140,23 @@ public class WaveViewModel : MonoBehaviour
         }
     }
 
+    public void SetWaveRollUI(int secondRoll)
+    {
+        RollResultText.Enable(string.Format("There will be an additional {0} enemies!", secondRoll));
+    }
+
     public void UpdateCurrentWaveUI()
     {
         CurrentWaveText.text = string.Format("{0} / {1}", CurrentLevelManager.GetCurrentWave(), CurrentLevelManager.GetHighestWave());
     }
-
-    public void UpdateNextWaveUI(List<GameObject> NextWave)
+    
+    public void UpdateNextWaveUI(int firstRoll, int maxRoll) //List<GameObject> NextWave
     {
-        NextWaveText.text = "";
+        NextWaveText.text = string.Format("Scouts found: \n{0} enemies\nPlus between 1 and {1} more", firstRoll, maxRoll);
 
+        /*
         Dictionary<string, int> enemyNameToNum = new Dictionary<string, int>();
-
+        
         foreach (GameObject g in NextWave)
         {
             if (enemyNameToNum.ContainsKey(g.name))
@@ -165,6 +173,7 @@ public class WaveViewModel : MonoBehaviour
         {
             NextWaveText.text += keyPair.Key + " x " + keyPair.Value + "\n";
         }
+         */
     }
 
 }

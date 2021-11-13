@@ -39,19 +39,25 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     private void WaveEnds()
     {
-        SetActivated();
+        //SetActivated();
+        ChargeLivingFees();
         PlaceSummonsWhereAble();
     }
 
-    void SetActivated()
+    private void ChargeLivingFees()
     {
-        if (MySummon.GetSummoner().TryReduceMana(CalculatedMaintenanceFee))
+        foreach (BlueprintSummon s in SummonedEntities)
         {
-            Activated = true; 
-        } else
-        {
-            Activated = false;
-            RemoveAllSummons();
+            if (s.IsAlive())
+            {
+                bool afforded = MySummon.GetSummoner().TryReduceMana(s.Blueprint.MaintenanceFee); //ew lol. Why is this code so messy in here? 
+                if (!afforded) 
+                {
+                    s.HealthManager.OnDeath -= PruneSummonedEntitiesList;
+                    s.HealthManager.SubtractHealth(100000);
+                    s.Blueprint.Satisfied = false;
+                }
+            }
         }
     }
 
@@ -60,7 +66,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         float newFee = 0f;
         foreach (BlueprintSummon bs in SummonedEntities)
         {
-            newFee += bs.Fee;
+            newFee += bs.Blueprint.MaintenanceFee;
         }
         CalculatedMaintenanceFee = newFee; 
     }
@@ -222,15 +228,19 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         for (int i = 0; i < actualSummons; i++)
         {
             Blueprint p = validPrints[i];
-            BlueprintPrefabData d = summonsToPlace[i];
+            
+            if (MySummon.GetSummoner().TryReduceMana(p.MaintenanceFee))
+            {
+                BlueprintPrefabData d = summonsToPlace[i];
 
-            p.Satisfied = true;
+                p.Satisfied = true;
 
-            GameObject summoned = SummonEntity(d.Prefab, p.Point, p.Rotation);
+                GameObject summoned = SummonEntity(d.Prefab, p.Point, p.Rotation);
 
-            HealthManager hm = summoned.GetComponent<HealthManager>();
-            SummonedEntities.Add(new BlueprintSummon(hm, p, p.MaintenanceFee));
-            hm.OnDeath += PruneSummonedEntitiesList;
+                HealthManager hm = summoned.GetComponent<HealthManager>();
+                SummonedEntities.Add(new BlueprintSummon(hm, p, p.MaintenanceFee));
+                hm.OnDeath += PruneSummonedEntitiesList;
+            }
         }
     }
 
@@ -302,11 +312,16 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
     {
         foreach (BlueprintSummon bs in SummonedEntities)
         {
-            bs.HealthManager.OnDeath -= PruneSummonedEntitiesList;
-            bs.HealthManager.SubtractHealth(100000);
+            RemoveSummon(bs);
         }
 
         PruneSummonedEntitiesList();
+    }
+
+    private void RemoveSummon(BlueprintSummon bs)
+    {
+        bs.HealthManager.OnDeath -= PruneSummonedEntitiesList;
+        bs.HealthManager.SubtractHealth(100000);
     }
 
     protected override void OnDeath()

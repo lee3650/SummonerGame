@@ -89,6 +89,8 @@ public class Summoner : MonoBehaviour, IWaveNotifier
         {
             Summons[i].OnWaveEnds();
         }
+
+        FinancialsChanged();
     }
 
     public float CalculateIncome() 

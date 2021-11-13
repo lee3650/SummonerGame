@@ -8,7 +8,7 @@ public class Blueprint
     public BlueprintType BlueprintType;
     public bool Satisfied;
     public float Rotation;
-    public float MaintenanceFee; 
+    public float MaintenanceFee;
 
     public Blueprint(Vector2Int point, BlueprintType blueprintType, float rotation, float maintenanceFee)
     {

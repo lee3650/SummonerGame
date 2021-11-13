@@ -81,8 +81,14 @@ public class PlayerSummonController : MonoBehaviour
             //and then basically we'll check in wall generator if one of 'our' summons has been moved, or our satisfied blueprints, and then 
             //we'll deal with that there. 
 
-            if (BlueprintManager.TryRemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition())))
+            Blueprint b = BlueprintManager.TryRemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition()));
+
+            if (b != null)
             {
+                if (b.Satisfied) //this is a bit sketchy but okay... I'm not sure that works actually. Eh. This is such bad code, idk. 
+                {
+                    ManaManager.IncreaseMana(BlueprintFees.GetMaintenanceFee(b.BlueprintType));
+                }
                 Summoner.OnFinancialsChanged();
             }
         }

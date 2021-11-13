@@ -33,7 +33,7 @@ public class BlueprintWeapon : SummonWeapon
             MaintenanceFee = fee;
         }
     }
-
+    
     //this is becoming very deep inheritance
     public override void OnSelection()
     {
