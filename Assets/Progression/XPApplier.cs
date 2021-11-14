@@ -19,6 +19,8 @@ public class XPApplier : MonoBehaviour
     public event Action GainedXP = delegate { };
     public event Action LeveledUp = delegate { };
 
+    public event Action FinishedXPApply = delegate { };
+
     //so, as soon as this scene loads
     private void Awake()
     {
@@ -85,6 +87,8 @@ public class XPApplier : MonoBehaviour
         MessageText.gameObject.SetActive(false);
         ApplyAllRemainingMessage(xpEarned);
         SkipButton.SetActive(false);
+
+        FinishedXPApply();
 
         ExperienceManager.WriteXP();
     }

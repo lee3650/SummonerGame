@@ -76,6 +76,21 @@ public class ExperienceManager : MonoBehaviour
         return changedLevel;
     }
 
+    public static IEnumerator AnimateXPToZero()
+    {
+        float cur = CurrentLevelXP;
+
+        float delta = 0.05f;
+
+        for (int i = 0; i < 1 / delta; i++)
+        {
+            CurrentLevelXP = Mathf.Lerp(cur, 0f, delta);
+            yield return new WaitForSeconds(delta);
+        }
+
+        CurrentLevelXP = 0f;
+    }
+
     public static int GetCurrentLevel()
     {
         return CurrentLevel;
