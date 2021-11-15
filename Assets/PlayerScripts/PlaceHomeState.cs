@@ -22,6 +22,8 @@ public class PlaceHomeState : MonoBehaviour, IState
 
     bool selected = false; 
 
+
+
     public void EnterState()
     {
         actualHomeSummon = Instantiate(HomeSummonPrefab);
@@ -59,6 +61,23 @@ public class PlaceHomeState : MonoBehaviour, IState
         }
     }
 
+    public bool IsSelected
+    {
+        get
+        {
+            return selected;
+        }
+    }
+
+    public HomeTileSummon GetHomeTileSummon()
+    {
+        if (selected)
+        {
+            return actualHomeSummon;
+        }
+        return null;
+    }
+
     bool AttackConditionsMet()
     {
         return PlayerAttackState.IsPositionSpawnable() && PlayerAttackState.IsWeaponUseable(actualHomeSummon) && PlayerAttackState.InventoryIsValid(actualHomeSummon);
@@ -66,6 +85,7 @@ public class PlaceHomeState : MonoBehaviour, IState
 
     public void ExitState()
     {
+        selected = false;
         BlueprintFees.InitializePrices(); //technically could be static.
         NextWaveButton.SetActive(true); //this is kinda lame but whatever 
         Hotbar.SetActive(true);

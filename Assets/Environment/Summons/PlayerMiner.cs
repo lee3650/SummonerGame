@@ -20,6 +20,11 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         base.Init();
     }
 
+    public float GetIncomePreview(Vector2 pos)
+    {
+        return GetMoneyMultipler(pos) * MoneyPerWave;
+    }
+
     public override bool ShouldBeOverwritten()
     {
         return false; 
@@ -34,11 +39,11 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
     {
         print("Got wave ends notification!");
 
-        float multiplier = GetMoneyMultipler();
+        float multiplier = GetMoneyMultipler(transform.position);
         MySummon.GetSummoner().AddMana(multiplier * MoneyPerWave);
     }
 
-    float GetMoneyMultipler()
+    float GetMoneyMultipler(Vector2 position)
     {
         float multiplier = 0f;
 
@@ -52,7 +57,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
         for (int i = 0; i < 4; i++)
         {
-            Vector2 pos = VectorRounder.RoundVector(transform.position) + dirs[i];
+            Vector2 pos = VectorRounder.RoundVector(position) + dirs[i];
 
             if (MapManager.IsTileType((int)pos.x, (int)pos.y, TileType.Gold))
             {
@@ -86,7 +91,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
     public float GetIncome()
     {
-        return GetMoneyMultipler() * MoneyPerWave;
+        return GetMoneyMultipler(transform.position) * MoneyPerWave;
     }
 
     public float GetRange()
@@ -131,7 +136,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
     public string GetStatString()
     {
-        return string.Format("Money per wave: {0}", GetMoneyMultipler() * MoneyPerWave);
+        return string.Format("Money per wave: {0}", GetMoneyMultipler(transform.position) * MoneyPerWave);
     }
 
     public Transform GetTransform()

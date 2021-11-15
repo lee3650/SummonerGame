@@ -72,7 +72,7 @@ public class IncomeDisplay : MonoBehaviour
     {
         IncomeText.text = incomeText;
         ExpensesText.text = expensesText;
-        NetIncomeText.text = getSignChar((Income - Expenses)) + "" + Mathf.Abs(Income - Expenses);
+        NetIncomeText.text = string.Format("{0}{1}", getSignChar((Income - Expenses)), FloatRounder.RoundFloat(Mathf.Abs(Income - Expenses), 2));
     }
 
     private char getSignChar(float num)

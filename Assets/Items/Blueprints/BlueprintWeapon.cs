@@ -33,7 +33,17 @@ public class BlueprintWeapon : SummonWeapon
             MaintenanceFee = fee;
         }
     }
-    
+
+    public override float EffectOnBalance()
+    {
+        return MaintenanceFee;
+    }
+
+    public override float EffectOnIncome(Vector2 pos)
+    {
+        return -1 * MaintenanceFee;
+    }
+
     //this is becoming very deep inheritance
     public override void OnSelection()
     {

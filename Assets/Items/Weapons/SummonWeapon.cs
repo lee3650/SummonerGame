@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonWeapon : Weapon
+public class SummonWeapon : Weapon, IFinancialPreviewer
 {
     //so, we just override UseWeapon. 
     //What exactly is the point of the Weapon class? 
@@ -38,6 +38,23 @@ public class SummonWeapon : Weapon
                 }
             }
         }
+    }
+
+    public virtual float EffectOnBalance()
+    {
+        return GetManaDrain();
+    }
+
+    public virtual float EffectOnIncome(Vector2 pos)
+    {
+        PlayerMiner miner = Summon.GetComponent<PlayerMiner>();
+
+        if (miner != null)
+        {
+            return miner.GetIncomePreview(pos);
+        }
+
+        return GetRecurringCost();
     }
 
     public Sprite GetSummonSprite()

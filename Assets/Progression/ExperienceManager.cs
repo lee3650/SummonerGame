@@ -82,9 +82,12 @@ public class ExperienceManager : MonoBehaviour
 
         float delta = 0.05f;
 
+        float accum = 0f;
+
         for (int i = 0; i < 1 / delta; i++)
         {
-            CurrentLevelXP = Mathf.Lerp(cur, 0f, delta);
+            CurrentLevelXP = Mathf.Lerp(cur, 0f, accum);
+            accum += delta;
             yield return new WaitForSeconds(delta);
         }
 
