@@ -176,7 +176,7 @@ public class LevelGenerator : MonoBehaviour
 
     List<MapFeature> GetMapFeatures(int levelNum, Vector2 delta)
     {
-        if (MainMenuScript.TutorialMode)
+        if (!ProgressionManager.UseGameplayChange(GameplayChange.SandAndClearing))
         {
             return new List<MapFeature>();
         }

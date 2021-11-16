@@ -11,6 +11,7 @@ public class XPApplier : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI MessageText;
     [SerializeField] GameObject SkipButton;
+    [SerializeField] GameObject NextLevelButton;
     [SerializeField] RewardPanelShower RewardPanelShower;
 
     private bool pause = false;
@@ -26,6 +27,7 @@ public class XPApplier : MonoBehaviour
     {
         if (ExperienceManager.ExitingLevel())
         {
+            NextLevelButton.SetActive(false);
             SkipButton.SetActive(true);
             MessageText.gameObject.SetActive(true);
 
@@ -89,6 +91,7 @@ public class XPApplier : MonoBehaviour
         SkipButton.SetActive(false);
 
         FinishedXPApply();
+        NextLevelButton.SetActive(true);
 
         ExperienceManager.WriteXP();
     }

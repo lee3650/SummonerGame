@@ -13,6 +13,8 @@ public class UnlockGraphic : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private DisplayRewardData drd;
     private UnlockedRewardPanel panelInstance;
 
+    private int UnlockedLevel;
+
     private void Awake()
     {
         if (image == null)
@@ -21,10 +23,11 @@ public class UnlockGraphic : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    public void SetGraphic(Sprite s, DisplayRewardData rd)
+    public void SetGraphic(Sprite s, DisplayRewardData rd, int unlockedLevel)
     {
         image.sprite = s;
         drd = rd;
+        UnlockedLevel = unlockedLevel;
     }
 
     public void OnPointerDown(PointerEventData data)
@@ -41,10 +44,20 @@ public class UnlockGraphic : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         else
         {
-            if (drd != null && drd.HasGif)
+            if (drd != null)
             {
-                panelInstance = Instantiate(UnlockedRewardPanel, PanelSpawnPos);
-                panelInstance.ShowPreview(drd);
+                if (ExperienceManager.GetCurrentLevel() < UnlockedLevel)
+                {
+                    if (drd.IsItem)
+                    {
+                        panelInstance = Instantiate(UnlockedRewardPanel, PanelSpawnPos);
+                        panelInstance.ShowPreview(drd);
+                    }
+                } else
+                {
+                    panelInstance = Instantiate(UnlockedRewardPanel, PanelSpawnPos);
+                    panelInstance.ShowPreview(drd);
+                }
             }
         }
     }

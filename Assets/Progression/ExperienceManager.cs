@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 //this will have to be in the main menu as well so it's guaranteed to run. 
 public class ExperienceManager : MonoBehaviour
 {
-    private static int CurrentLevel = 6;
+    private static int CurrentLevel = 0;
     private static float CurrentLevelXP = 0f;
     
     private const string KeyToCurrentLevel = "CurLevl";
@@ -13,15 +14,10 @@ public class ExperienceManager : MonoBehaviour
 
     private static bool exitingLevel = true;
 
+    public static event Action LeveledUp = delegate { };
+
     private static List<XPMessage> xpToApply = new List<XPMessage>()
     {
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
         new XPMessage("", 1.5f),
         new XPMessage("", 1.5f),
         new XPMessage("", 1.5f),
@@ -71,6 +67,7 @@ public class ExperienceManager : MonoBehaviour
             changedLevel = true;
             CurrentLevel++;
             CurrentLevelXP -= reqXP;
+            LeveledUp();
         }
 
         return changedLevel;

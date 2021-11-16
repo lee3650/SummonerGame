@@ -17,7 +17,7 @@ public class UnlockGraphicManager : MonoBehaviour
             {
                 ProgressionUnlock u = unlocks[0];
                 Sprite s = GetSprite(u);
-                unlockGraphics[i - 1].SetGraphic(s, u.DisplayRewardData);
+                unlockGraphics[i - 1].SetGraphic(s, u.DisplayRewardData, i);
             } else
             {
                 if (i > 0)

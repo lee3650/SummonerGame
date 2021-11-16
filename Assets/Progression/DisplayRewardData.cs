@@ -7,9 +7,9 @@ public class DisplayRewardData : MonoBehaviour
     public RewardPanelShower RewardPanelShower;
     public bool HasGif;
     public ImageSequence Gif;
-    //so, we need a path to text, right. 
-    //Either way. 
-    //And we also need to set the background, depending on if it's a letter or if it's an item. 
+    [Tooltip("This is set at awake by the progression unlock that has a reference to this drd")]
+    public bool IsItem;
+
     public string TextPath;
     public Sprite OverideBackground;
 }

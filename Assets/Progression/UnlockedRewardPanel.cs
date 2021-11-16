@@ -32,7 +32,13 @@ public class UnlockedRewardPanel : UIPanel
 
     public void ShowPreview(DisplayRewardData data)
     {
-        TryPlayGif(data);
+        if (data.IsItem)
+        {
+            TryPlayGif(data);
+        } else
+        {
+            DisplayText(data);
+        }
     }
 
     private void DisplayText(DisplayRewardData data)
