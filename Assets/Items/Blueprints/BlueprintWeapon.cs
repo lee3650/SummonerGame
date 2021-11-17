@@ -30,7 +30,7 @@ public class BlueprintWeapon : SummonWeapon
     {
         if (type == BlueprintType)
         {
-            MaintenanceFee = fee;
+            MaintenanceFee = FloatRounder.RoundFloat(fee, 2);
         }
     }
 
@@ -53,8 +53,18 @@ public class BlueprintWeapon : SummonWeapon
 
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\nStart price can be from {0} to {1}\nPrice increase: {2}", BlueprintFees.GetMinFee(BlueprintType), 
-            BlueprintFees.GetMaxFee(BlueprintType), BlueprintFees.GetMaintenanceDelta(BlueprintType)); //is that a hardcoded string? 
+        string modification = "";
+
+        if (ProgressionManager.UseGameplayChange(GameplayChange.RandomPrices))
+        {
+            modification += string.Format("\nStart price can be from {0} to {1}", BlueprintFees.GetMinFee(BlueprintType), BlueprintFees.GetMaxFee(BlueprintType));
+        }
+        if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice))
+        {
+            modification += string.Format("\nPrice increase: {0}", BlueprintFees.GetMaintenanceDelta(BlueprintType));
+        }
+        
+        return base.GetDescription() + modification;
     }
 
     public override void UpdatePreview(bool visible, Vector2 mousePos)

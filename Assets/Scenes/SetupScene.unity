@@ -930,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 361.09396}
+  m_AnchoredPosition: {x: -453.55005, y: 150.13327}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -10864,24 +10864,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemInfoDisplayer: {fileID: 1702447326}
   Prices:
-  - minPrice: 0.15
-    maxPrice: 0.45
-    Increment: 0.02
+  - minPrice: 0.05
+    maxPrice: 0.55
+    Increment: 0.1
     startPrice: 0
     Type: 0
-  - minPrice: 0.15
-    maxPrice: 0.45
-    Increment: 0.02
+  - minPrice: 0.05
+    maxPrice: 0.55
+    Increment: 0.1
     startPrice: 0
     Type: 1
-  - minPrice: 1.5
-    maxPrice: 3
-    Increment: 0.1
+  - minPrice: 0.5
+    maxPrice: 4
+    Increment: 0.5
     startPrice: 0
     Type: 2
-  - minPrice: 1.5
-    maxPrice: 3.5
-    Increment: 0.1
+  - minPrice: 0.5
+    maxPrice: 5
+    Increment: 0.5
     startPrice: 0
     Type: 3
   - minPrice: 0
@@ -10889,14 +10889,14 @@ MonoBehaviour:
     Increment: 0
     startPrice: 0
     Type: 4
-  - minPrice: 1
-    maxPrice: 1.5
-    Increment: 0.05
+  - minPrice: 0.5
+    maxPrice: 2
+    Increment: 0.1
     startPrice: 0
     Type: 5
   - minPrice: 0.25
     maxPrice: 1.25
-    Increment: 0.025
+    Increment: 0.1
     startPrice: 0
     Type: 6
 --- !u!4 &1071082197
@@ -15029,7 +15029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 326.664}
+  m_AnchoredPosition: {x: -437.25012, y: 115.70325}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168

@@ -37,23 +37,51 @@ public class BlueprintFees : MonoBehaviour, IResettable
 
     public void InitializePrices() //this needs to happen after the home tile is placed, so that it doesn't mess up the tutorial map
     {
-        foreach (BlueprintPrice p in Prices)
+        if (ProgressionManager.UseGameplayChange(GameplayChange.RandomPrices))
         {
-            float startPrice = UnityEngine.Random.Range(p.minPrice, p.maxPrice);
-            int hundreds = (int)(startPrice * 100);
-
-            startPrice = (float)hundreds / 100f;
-            p.startPrice = startPrice;
-
-            TypeToPrice[p.Type] = startPrice;
-            TypeToPriceObj[p.Type] = p;
+            foreach (BlueprintPrice p in Prices)
+            {
+                float startPrice = UnityEngine.Random.Range(p.minPrice, p.maxPrice);
+                RoundAndSetPrice(p, startPrice);
+            }
+        }
+        else
+        {
+            foreach (BlueprintPrice p in Prices)
+            {
+                float startPrice = (p.minPrice + p.maxPrice) / 2;
+                RoundAndSetPrice(p, startPrice);
+            }
         } 
+    }
+
+    private void RoundAndSetPrice(BlueprintPrice p, float startPrice)
+    {
+        startPrice = RoundToHundreds(startPrice);
+        SetPrice(p, startPrice);
+    }
+
+    private float RoundToHundreds(float input)
+    {
+        int hundreds = (int)(input * 100);
+        return (float)hundreds / 100f;
+    }
+
+    private void SetPrice(BlueprintPrice p, float startPrice)
+    {
+        p.startPrice = startPrice;
+        
+        TypeToPrice[p.Type] = startPrice;
+        TypeToPriceObj[p.Type] = p;
     }
 
     private void Awake()
     {
-        BlueprintManager.BlueprintAdded += BlueprintAdded;
-        BlueprintManager.BlueprintRemoved += BlueprintRemoved;
+        if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice)) //is this okay? 
+        {
+            BlueprintManager.BlueprintAdded += BlueprintAdded;
+            BlueprintManager.BlueprintRemoved += BlueprintRemoved;
+        }
     }
 
     private void BlueprintAdded(BlueprintType type)
