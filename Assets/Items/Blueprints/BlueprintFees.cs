@@ -80,7 +80,6 @@ public class BlueprintFees : MonoBehaviour, IResettable
         if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice)) //is this okay? 
         {
             BlueprintManager.BlueprintAdded += BlueprintAdded;
-            BlueprintManager.BlueprintRemoved += BlueprintRemoved;
         }
     }
 
@@ -91,7 +90,7 @@ public class BlueprintFees : MonoBehaviour, IResettable
         ItemInfoDisplayer.RefreshSelectedItemUI(type);
     }
 
-    private void BlueprintRemoved(BlueprintType type)
+    public void BlueprintRemoved(BlueprintType type)
     {
         TypeToPrice[type] = TypeToPrice[type] - TypeToPriceObj[type].Increment;
         BlueprintManager.SetFeesForType(type, TypeToPriceObj[type].startPrice, TypeToPriceObj[type].Increment);

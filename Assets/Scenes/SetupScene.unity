@@ -930,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.13327}
+  m_AnchoredPosition: {x: -453.55005, y: 361.09402}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -3479,6 +3479,7 @@ MonoBehaviour:
   ManaManager: {fileID: 333112618}
   PlayerAttackState: {fileID: 333112617}
   Summoner: {fileID: 333112619}
+  BlueprintFees: {fileID: 1071082196}
 --- !u!114 &333112621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15029,7 +15030,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.70325}
+  m_AnchoredPosition: {x: -437.25012, y: 326.664}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168

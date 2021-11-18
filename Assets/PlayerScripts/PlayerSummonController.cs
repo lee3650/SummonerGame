@@ -12,6 +12,7 @@ public class PlayerSummonController : MonoBehaviour
     [SerializeField] ManaManager ManaManager;
     [SerializeField] PlayerAttackState PlayerAttackState;
     [SerializeField] Summoner Summoner;
+    [SerializeField] BlueprintFees BlueprintFees;
 
     const float SelectionRadius = 0.1f;
 
@@ -77,18 +78,19 @@ public class PlayerSummonController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            //so, right click, we'll get rid of the blueprint
-            //and then basically we'll check in wall generator if one of 'our' summons has been moved, or our satisfied blueprints, and then 
-            //we'll deal with that there. 
-
-            Blueprint b = BlueprintManager.TryRemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition()));
+            Blueprint b = BlueprintManager.TryRemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition())); 
 
             if (b != null)
             {
-                if (b.Satisfied) //this is a bit sketchy but okay... I'm not sure that works actually. Eh. This is such bad code, idk. 
+                if (b.Satisfied)
                 {
-                    ManaManager.IncreaseMana(BlueprintFees.GetMaintenanceFee(b.BlueprintType));
+                    float refund = Mathf.Max(b.MaintenanceFee, BlueprintManager.GetMaxSatisfiedFee(b.BlueprintType));
+                    ManaManager.IncreaseMana(refund);
+                    print("Current balance: " + ManaManager.GetCurrent());
                 }
+
+                BlueprintFees.BlueprintRemoved(b.BlueprintType);
+
                 Summoner.OnFinancialsChanged();
             }
         }

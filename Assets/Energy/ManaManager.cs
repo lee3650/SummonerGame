@@ -53,6 +53,6 @@ public class ManaManager : MonoBehaviour
     
     public float GetCurrent()
     {
-        return CurrentMana;
+        return (float)CurrentMana;
     }
 }

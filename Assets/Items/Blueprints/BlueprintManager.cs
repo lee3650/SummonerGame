@@ -49,6 +49,21 @@ public class BlueprintManager : MonoBehaviour, IResettable
         return result;
     }
 
+    public static List<Blueprint> GetSatisfiedBlueprints(BlueprintType type)
+    {
+        List<Blueprint> result = new List<Blueprint>();
+
+        foreach (Blueprint b in Blueprints)
+        {
+            if (b.Satisfied && b.BlueprintType == type)
+            {
+                result.Add(b);
+            }
+        }
+
+        return result;
+    }
+
     //this isn't great practice - I've got a ton of duplication here, actually. 
     public static string GetNameFromBlueprintType(BlueprintType bt)
     {
@@ -89,6 +104,23 @@ public class BlueprintManager : MonoBehaviour, IResettable
         {
             set.Satisfied = Satisfied;
         }
+    }
+
+    public static float GetMaxSatisfiedFee(BlueprintType type)
+    {
+        List<Blueprint> bs = GetSatisfiedBlueprints(type);
+
+        float max = -1f;
+
+        foreach (Blueprint b in bs)
+        {
+            if (b.MaintenanceFee > max)
+            {
+                max = b.MaintenanceFee;
+            }
+        }
+
+        return max;
     }
 
     public static bool ShouldRemoveSummon(Vector2Int point, BlueprintType type)
