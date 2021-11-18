@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 7773904187481824307}
   - component: {fileID: 638881080154970504}
   - component: {fileID: -6223222422350412741}
+  - component: {fileID: -429856057705913513}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -556,6 +557,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 4648206095511936289}
   SoundEffect: 2
+--- !u!114 &-429856057705913513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2e7cb3032ca774dae0224a94e2e81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoatingManager: {fileID: 3612669858900733009}
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0

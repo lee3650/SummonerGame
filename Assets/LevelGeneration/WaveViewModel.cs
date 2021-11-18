@@ -58,9 +58,9 @@ public class WaveViewModel : MonoBehaviour
 
     private IEnumerator SetupFirstLevel()
     {
-        LoadingPanel.ShowLoadingPanel("Loading..."); //get a battle name at some point
+        //LoadingPanel.ShowLoadingPanel("Loading..."); //get a battle name at some point
         yield return null;
-
+            
         if (MainMenuScript.TutorialMode)
         {
             print("Using tutorial seed!");

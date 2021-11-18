@@ -30,7 +30,7 @@ public class BlueprintWeapon : SummonWeapon
     {
         if (type == BlueprintType)
         {
-            MaintenanceFee = FloatRounder.RoundFloat(fee, 2);
+            MaintenanceFee = fee;
             print("new maintenance fee: " + MaintenanceFee);
         }
     }

@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: -1793715852626045878}
   - component: {fileID: -2388961472760377734}
   - component: {fileID: 8354499796611643445}
+  - component: {fileID: 1955623892746941230}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -773,3 +774,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 9194925930672925243}
   SoundEffect: 2
+--- !u!114 &1955623892746941230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2e7cb3032ca774dae0224a94e2e81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoatingManager: {fileID: -6588670612194777328}

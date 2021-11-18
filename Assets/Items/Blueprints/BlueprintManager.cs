@@ -23,13 +23,16 @@ public class BlueprintManager : MonoBehaviour, IResettable
 
     public static void SetFeesForType(BlueprintType type, float start, float delta)
     {
+        int cur = 0;
+
         for (int i = 0; i < Blueprints.Count; i++)
         {
             Blueprint b = Blueprints[i];
             if (b.BlueprintType == type)
             {
-                b.MaintenanceFee = start + (i * delta);
+                b.MaintenanceFee = start + (cur * delta);
                 print("Type " + type.ToString() + ", new maintenance fee: " + b.MaintenanceFee);
+                cur++;
             }
         }
     }

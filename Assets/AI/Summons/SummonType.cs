@@ -19,4 +19,5 @@ public enum SummonType
     Bombard,
     Any,
     Gate,
+    ArrowTurner,
 }

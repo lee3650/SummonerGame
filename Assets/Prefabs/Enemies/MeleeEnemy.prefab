@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: -7257037542522189363}
   - component: {fileID: 2143992938299189330}
   - component: {fileID: -4350287358084803745}
+  - component: {fileID: 3258090053881909968}
   m_Layer: 12
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -541,6 +542,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 5487195000452624844}
   SoundEffect: 2
+--- !u!114 &3258090053881909968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487195000452624840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2e7cb3032ca774dae0224a94e2e81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoatingManager: {fileID: 4876094762447304020}
 --- !u!1 &5487195001173321385
 GameObject:
   m_ObjectHideFlags: 0

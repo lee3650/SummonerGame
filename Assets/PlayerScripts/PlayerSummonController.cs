@@ -85,6 +85,7 @@ public class PlayerSummonController : MonoBehaviour
                 if (b.Satisfied)
                 {
                     float refund = Mathf.Max(b.MaintenanceFee, BlueprintManager.GetMaxSatisfiedFee(b.BlueprintType));
+                    print("Removed fee: " + b.MaintenanceFee + ",  refund: " + refund);
                     ManaManager.IncreaseMana(refund);
                     print("Current balance: " + ManaManager.GetCurrent());
                 }
