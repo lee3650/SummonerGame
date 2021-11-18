@@ -6,7 +6,7 @@ using System;
 //this will have to be in the main menu as well so it's guaranteed to run. 
 public class ExperienceManager : MonoBehaviour
 {
-    private static int CurrentLevel = 6;
+    private static int CurrentLevel = 4;
     private static float CurrentLevelXP = 20f;
     
     private const string KeyToCurrentLevel = "CurLevl";

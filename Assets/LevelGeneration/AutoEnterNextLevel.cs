@@ -7,20 +7,6 @@ public class AutoEnterNextLevel : MonoBehaviour
     [SerializeField] LoadingPanel LoadingPanel;
     [SerializeField] WaveViewModel WaveViewModel;
 
-    private string[] names = new string[]
-    {
-        "Gaptig",
-        "Camins",
-        "Helion",
-        "Erlend",
-        "Dharaz",
-        "Yipire",
-        "Huchne",
-        "Brelog",
-        "Buotro",
-        "Pyxeli"
-    };
-
     private void Awake()
     {
         if (MainMenuScript.TutorialMode)
@@ -28,8 +14,8 @@ public class AutoEnterNextLevel : MonoBehaviour
             LoadingPanel.ShowLoadingPanel("Training Camp"); //I do want to, um, generate names at some point. 
         }
         else
-        {
-            LoadingPanel.ShowLoadingPanel("The Battle of " + names[Random.Range(0, names.Length)] + " Island"); //I do want to, um, generate names at some point. 
+        {                                                   //why don't we just leave this in ram? 
+            LoadingPanel.ShowLoadingPanel("The Battle of " + IslandNamer.NextIslandName + " Island"); //I do want to, um, generate names at some point. 
         }
 
         StartCoroutine(LateStart());

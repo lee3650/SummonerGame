@@ -90,7 +90,9 @@ public class PlayerSummonController : MonoBehaviour
                     print("Current balance: " + ManaManager.GetCurrent());
                 }
 
-                BlueprintFees.BlueprintRemoved(b.BlueprintType);
+                if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice)) { 
+                    BlueprintFees.BlueprintRemoved(b.BlueprintType);
+                }
 
                 Summoner.OnFinancialsChanged();
             }

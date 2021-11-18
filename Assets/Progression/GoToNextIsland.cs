@@ -7,6 +7,7 @@ public class GoToNextIsland : MonoBehaviour
 {
     public void NextIsland()
     {
+        IslandNamer.SetNextRandomIslandName();
         LoadScript.LoadTo(Scenes.GameplayScene, "Loading...");
     }
 }
