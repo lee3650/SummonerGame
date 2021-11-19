@@ -213,18 +213,6 @@ public class CurrentLevelManager : MonoBehaviour
         return point.x < LevelGenerator.MapStagesWidth && point.x >= 0 && point.y >= 0 && point.y < LevelGenerator.MapStagesHeight;
     }
 
-    private bool ShouldGenerateLevel(int level)
-    {
-        switch (level)
-        {
-            case 0:
-            case 1: 
-            case 3:
-                return true;
-        }
-        return false; 
-    }
-
     public void SpawnNextWave()
     {
         print("Spawned wave: " + currentWave);
@@ -268,7 +256,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     public bool OnLastLevel()
     {
-        return GetLevelNum() == 7; //hardcode in 7 I guess? 
+        return GetLevelNum() == 6; //hardcode in 6 I guess? 
     }
 
     public bool OnFinalWaveOfGame()

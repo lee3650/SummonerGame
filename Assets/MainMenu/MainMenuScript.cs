@@ -20,6 +20,12 @@ public class MainMenuScript : MonoBehaviour
         FinishedTutorial = PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false;
         ShowPlayButtons();
     }
+    
+    public void QuitGame()
+    {
+        ResetLevel.WriteIslandsLeft();
+        Application.Quit();
+    }
 
     public void ResetState()
     {

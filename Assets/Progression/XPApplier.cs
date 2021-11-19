@@ -13,6 +13,7 @@ public class XPApplier : MonoBehaviour
     [SerializeField] GameObject SkipButton;
     [SerializeField] GameObject NextLevelButton;
     [SerializeField] RewardPanelShower RewardPanelShower;
+    [SerializeField] GameObject HomeButton;
 
     private bool pause = false;
     private bool animate = true;
@@ -35,6 +36,8 @@ public class XPApplier : MonoBehaviour
             
             List<XPMessage> xpEarned = ExperienceManager.GetXPMessages();
 
+            HomeButton.SetActive(false);
+
             animate = true;
             pause = false;
 
@@ -44,6 +47,11 @@ public class XPApplier : MonoBehaviour
             MessageText.gameObject.SetActive(false);
             SkipButton.SetActive(false);
         }
+    }
+
+    public void ExitToMainMenu()
+    {
+        LoadScript.LoadTo(Scenes.MainMenu, "Have a nice day!");
     }
 
     private IEnumerator ShowXPGained(List<XPMessage> xpEarned)
@@ -92,6 +100,8 @@ public class XPApplier : MonoBehaviour
 
         FinishedXPApply();
         NextLevelButton.SetActive(true);
+
+        HomeButton.SetActive(true);
 
         ExperienceManager.WriteXP();
     }

@@ -7,12 +7,9 @@ public class ResetManager : MonoBehaviour
 {
     [SerializeField] GameObject[] Resettables;
 
-    public void ResetButtonPressed()
+    public void ExitButtonPressed()
     {
-        ResetResettables();
-
-        print("If the build index changes this is going to break!");
-        SceneManager.LoadScene(1);
+        ExitToScene(Scenes.ProgressionMenu, "Loading");
     }
 
     public void ExitToScene(Scenes scene, string message)
@@ -27,10 +24,5 @@ public class ResetManager : MonoBehaviour
         {
             g.GetComponent<IResettable>().ResetState();
         }
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

@@ -95,6 +95,7 @@ public class ExperienceManager : MonoBehaviour
         }
 
         CurrentLevelXP = 0f;
+        WriteXP();
     }
 
     public static int GetCurrentLevel()

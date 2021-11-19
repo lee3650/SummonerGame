@@ -57,7 +57,7 @@ public class FinancialPreviewer : MonoBehaviour
             IncomePreview.text = "";
         } else
         {
-            IncomePreview.text = string.Format("{0}{1}", GetSignChar(income), Mathf.Abs(income));
+            IncomePreview.text = string.Format("{0}{1}", GetSignChar(income), FloatRounder.RoundFloat(Mathf.Abs(income), 2));
         }
         
         if (income > 0)
@@ -71,7 +71,7 @@ public class FinancialPreviewer : MonoBehaviour
         float balance = preview.EffectOnBalance();
         if (balance > 0)
         {
-            BalancePreview.text = string.Format("-{0}", balance);
+            BalancePreview.text = string.Format("-{0}", FloatRounder.RoundFloat(balance, 2));
         } else
         {
             BalancePreview.text = "";

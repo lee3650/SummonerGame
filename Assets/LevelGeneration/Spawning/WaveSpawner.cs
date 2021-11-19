@@ -65,7 +65,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
 
     public bool IsPointInSpawnRegion(Vector2 point)
     {
-        return SpawnRegion.Contains(point);
+        return SpawnRegion.Contains(point) || AvailablePoints.Contains(point);
     }
 
     public void AddSpawnRegion(List<Vector2> region)

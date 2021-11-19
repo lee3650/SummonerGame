@@ -35,16 +35,11 @@ public class IslandNamer : MonoBehaviour
         {
             int startRange = 26 * (last - 97); //it can go from startRange to startRange + 26 (exclusive)
 
-            bool vowel = IsVowel(last);
-
             int sum = 0;
 
             for (int i = 0; i < 26; i++)
             {
-                if (IsVowel(i) != vowel)
-                {
-                    sum += data[i + startRange];
-                }
+                sum += data[i + startRange];
             }
 
             int selection = Random.Range(0, sum);
@@ -53,16 +48,13 @@ public class IslandNamer : MonoBehaviour
 
             for (int i = 0; i < 26; i++)
             {
-                if (IsVowel(i) != vowel)
+                if (selection >= cur && selection < cur + data[i + startRange])
                 {
-                    if (selection >= cur && selection < cur + data[i + startRange])
-                    {
-                        last = (char)(97 + i);
-                        result += last;
-                        break;
-                    }
-                    cur += data[i + startRange];
+                    last = (char)(97 + i);
+                    result += last;
+                    break;
                 }
+                cur += data[i + startRange];
             }
         }
 
