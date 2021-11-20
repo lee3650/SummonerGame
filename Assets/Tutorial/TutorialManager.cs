@@ -178,7 +178,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     {
         if (SectionAndSegment.x == 6)
         {
-            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }).Count >= 4)
+            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }, false).Count >= 4)
             {
                 IncrementSection();
                 GivePlayerItem(GatePrefab);

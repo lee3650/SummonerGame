@@ -40,9 +40,40 @@ public class PlayerSummonController : MonoBehaviour
             ManaManager.IncreaseMana(sellable.SellPrice);
             IControllableSummon s = SelectedSummon;
             DeselectSummon();
-            s.HandleCommand(new SellCommand());
+            TryRefundBuildingSummons(s);
+            s.HandleCommand(new SellCommand()); //okay good... this can work then. 
 
             Summoner.OnFinancialsChanged();
+        }
+    }
+
+    private void RefundBlueprint(Blueprint b)
+    {
+        if (b == null)
+        {
+            return; 
+        }
+
+        ManaManager.IncreaseMana(b.MaintenanceFee);
+    }
+
+    private void TryRefundBuildingSummons(IControllableSummon s)
+    {
+        Transform t = s.GetTransform();
+
+        BlueprintSatisfier building;
+
+        if (t.TryGetComponent<BlueprintSatisfier>(out building))
+        {
+            List<BlueprintSummon> summons = building.GetBlueprintSummons();
+
+            foreach (BlueprintSummon b in summons)
+            {
+                if (b != null && b.IsAlive())
+                {
+                    RefundBlueprint(b.Blueprint);
+                }
+            }
         }
     }
 
@@ -84,10 +115,7 @@ public class PlayerSummonController : MonoBehaviour
             {
                 if (b.Satisfied)
                 {
-                    float refund = Mathf.Max(b.MaintenanceFee, BlueprintManager.GetMaxSatisfiedFee(b.BlueprintType));
-                    print("Removed fee: " + b.MaintenanceFee + ",  refund: " + refund);
-                    ManaManager.IncreaseMana(refund);
-                    print("Current balance: " + ManaManager.GetCurrent());
+                    DesatisfyBlueprint(b);
                 }
 
                 if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice)) { 
@@ -105,6 +133,15 @@ public class PlayerSummonController : MonoBehaviour
                 DeselectSummon();
             }
         }
+    }
+
+    private void DesatisfyBlueprint(Blueprint b)
+    {
+        float refund = Mathf.Max(b.MaintenanceFee, BlueprintManager.GetMaxSatisfiedFee(b.BlueprintType));
+        print("Removed fee: " + b.MaintenanceFee + ",  refund: " + refund);
+
+        ManaManager.IncreaseMana(refund);
+        print("Current balance: " + ManaManager.GetCurrent());
     }
 
     public bool IsMouseOverControllableSummon()

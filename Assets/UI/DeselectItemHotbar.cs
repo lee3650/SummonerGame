@@ -9,12 +9,13 @@ public class DeselectItemHotbar : MonoBehaviour
     int minIndex;
     int maxIndex;
 
-    private void Awake()
+    private void Start()
     {
         AnimateInAndOut.AnimatingOut += TryDeselect;
         ItemSlot[] slots = GetComponentsInChildren<ItemSlot>();
         minIndex = findMinIndex(slots);
         maxIndex = findMaxIndex(slots);
+        print(name + " min index: " + minIndex + ", max index: " + maxIndex);
     }
 
     public void TryDeselect()

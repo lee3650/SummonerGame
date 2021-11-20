@@ -61,6 +61,11 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         }
     }
 
+    public List<BlueprintSummon> GetBlueprintSummons()
+    {
+        return SummonedEntities;
+    }
+
     public void CalculateMaintenanceFee()
     {
         float newFee = 0f;
@@ -264,9 +269,11 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
             types.Add(d.BlueprintType);
         }
 
-        List<Blueprint> prints = BlueprintManager.GetBlueprintsOfTypes(types);
+        List<Blueprint> prints = BlueprintManager.GetBlueprintsOfTypes(types, true);
         List<Blueprint> result = new List<Blueprint>();
 
+        prints.Sort(new BlueprintComparer()); //I don't think we NEED this but it's nice to have the assurance, even though it's inefficient. 
+        
         foreach (Blueprint p in prints)
         {
             if (!p.Satisfied && IsBlueprintInRange(p.Point))

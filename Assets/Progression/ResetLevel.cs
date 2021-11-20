@@ -12,7 +12,7 @@ public class ResetLevel : MonoBehaviour
 
     private float XPPerLevel = 15f;
 
-    private static int IslandsLeft = -1;
+    private static int IslandsLeft = -10;
 
     private const string IslandsLeftKey = "IslandsLeft";
 
@@ -23,7 +23,7 @@ public class ResetLevel : MonoBehaviour
 
     private void Awake()
     {
-        if (IslandsLeft == -1)
+        if (IslandsLeft == -10)
         {
             IslandsLeft = PlayerPrefs.GetInt(IslandsLeftKey, CalculateIslandsLeft()); //so, basically it'll only calculate it the first time and when you level up. 
         }
@@ -33,6 +33,12 @@ public class ResetLevel : MonoBehaviour
         if (ExperienceManager.ExitingLevel())
         {
             NextLevelButton.SetActive(false);
+        } else
+        {
+            if (IslandsLeft < 0)
+            {
+                IslandsLeft = CalculateIslandsLeft();
+            }
         }
 
         IslandsLeftText.text = "Islands Left: " + IslandsLeft;
@@ -60,7 +66,7 @@ public class ResetLevel : MonoBehaviour
 
     private void FinishedXPApply()
     {
-        if (IslandsLeft == 0)
+        if (IslandsLeft <= 0)
         {
             PushedBackPanel.SetActive(true);
             StartCoroutine(ExperienceManager.AnimateXPToZero());

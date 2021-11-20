@@ -6,13 +6,13 @@ using System;
 //this will have to be in the main menu as well so it's guaranteed to run. 
 public class ExperienceManager : MonoBehaviour
 {
-    private static int CurrentLevel = 4;
-    private static float CurrentLevelXP = 20f;
+    private static int CurrentLevel = 7;
+    private static float CurrentLevelXP = 0f;
     
     private const string KeyToCurrentLevel = "CurLevl";
     private const string KeyToCurrentLevelXP = "CurLevlXP";
 
-    private static bool exitingLevel = true;
+    private static bool exitingLevel = false;
 
     public static event Action LeveledUp = delegate { };
 
@@ -128,7 +128,21 @@ public class ExperienceManager : MonoBehaviour
         //f(1) = 6. 
         //Let's do current level squared? 
 
-        return 5 + Mathf.Round(currentLevel * currentLevel);
+        float[] XPToNextLevel = new float[]
+        {
+            5, 
+            6,
+            15, //2 islands: unlock sand
+            20, //2 islands: unlock arrow turner
+            40, //3 islands: random prices
+            40, //2 islands: archers
+            30, //3 islands: unlock increments
+            50,
+            50,
+            50, 
+        };
+
+        return XPToNextLevel[currentLevel];
     }
 
     public static void SetExitingLevel(bool value)

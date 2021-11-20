@@ -194,13 +194,13 @@ public class BlueprintManager : MonoBehaviour, IResettable
         return prints; 
     }
 
-    public static List<Blueprint> GetBlueprintsOfTypes(List<BlueprintType> types)
+    public static List<Blueprint> GetBlueprintsOfTypes(List<BlueprintType> types, bool onlySatisfied)
     {
         List<Blueprint> result = new List<Blueprint>();
 
         foreach (Blueprint b in Blueprints)
         {
-            if (types.Contains(b.BlueprintType))
+            if (types.Contains(b.BlueprintType) && (!b.Satisfied || !onlySatisfied))
             {
                 result.Add(b);
             }
