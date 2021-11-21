@@ -12,6 +12,6 @@ public class XPBar : MonoBehaviour
     {
         XPSlider.value = ExperienceManager.GetCurrentLevelPercentage();
         CurrentLevelText.text = string.Format("{0}", ExperienceManager.GetCurrentLevel());
-        CurrentXPText.text = string.Format("{0}/{1}", ExperienceManager.GetCurrentLevelXP(), ExperienceManager.GetXPToNextLevel(ExperienceManager.GetCurrentLevel()));
+        CurrentXPText.text = string.Format("{0}/{1}", FloatRounder.RoundFloat(ExperienceManager.GetCurrentLevelXP(), 2), ExperienceManager.GetXPToNextLevel(ExperienceManager.GetCurrentLevel()));
     }
 }

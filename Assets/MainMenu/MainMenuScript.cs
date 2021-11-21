@@ -30,10 +30,11 @@ public class MainMenuScript : MonoBehaviour
     public void ResetState()
     {
         ExperienceManager.ResetState();
+        ResetLevel.ResetState();
         PlayerPrefs.SetInt(finishedTutorialKey, 0);
+        ProgressionManager.ResetState();
         tutorialMode = false;
         FinishedTutorial = false;
-
         ShowPlayButtons();
     }
 

@@ -107,7 +107,7 @@ public class PlayerSummonController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && WaveSpawner.IsCurrentWaveDefeated)
         {
             Blueprint b = BlueprintManager.TryRemoveBlueprint(VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition())); 
 

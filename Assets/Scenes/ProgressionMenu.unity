@@ -7944,7 +7944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.7741394, y: 0.7000122}
+  m_AnchoredPosition: {x: -2.77417, y: 0.7000122}
   m_SizeDelta: {x: -42.451675, y: -232.6961}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351464896
@@ -11343,6 +11343,7 @@ MonoBehaviour:
   NextLevelButton: {fileID: 2069310445}
   IslandsLeftText: {fileID: 491186866}
   PushedBackPanel: {fileID: 1180979870}
+  IslandsPerLevel: 02000000020000000200000002000000030000000200000003000000030000000300000003000000
 --- !u!1 &1972692486
 GameObject:
   m_ObjectHideFlags: 0

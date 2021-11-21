@@ -10,7 +10,7 @@ public class ResetLevel : MonoBehaviour
     [SerializeField] TextMeshProUGUI IslandsLeftText;
     [SerializeField] GameObject PushedBackPanel;
 
-    private float XPPerLevel = 15f;
+    [SerializeField] int[] IslandsPerLevel;
 
     private static int IslandsLeft = -10;
 
@@ -19,6 +19,12 @@ public class ResetLevel : MonoBehaviour
     public static void WriteIslandsLeft()
     {
         PlayerPrefs.SetInt(IslandsLeftKey, IslandsLeft);
+    }
+
+    public static void ResetState()
+    {
+        IslandsLeft = -10;
+        PlayerPrefs.DeleteKey(IslandsLeftKey);
     }
 
     private void Awake()
@@ -40,8 +46,6 @@ public class ResetLevel : MonoBehaviour
                 IslandsLeft = CalculateIslandsLeft();
             }
         }
-
-        IslandsLeftText.text = "Islands Left: " + IslandsLeft;
     }
 
     public void ReduceIslandsLeft()
@@ -57,11 +61,17 @@ public class ResetLevel : MonoBehaviour
 
     private int CalculateIslandsLeft()
     {
-        int amt = (int)(ExperienceManager.GetXPToNextLevel(ExperienceManager.GetCurrentLevel()) / (XPPerLevel + 3f * ExperienceManager.GetCurrentLevel())) + 1;
+        int curLevel = ExperienceManager.GetCurrentLevel();
+        if (curLevel < IslandsPerLevel.Length)
+        {
+            return IslandsPerLevel[ExperienceManager.GetCurrentLevel()];
+        }
+        return 3;
+    }
 
-        IslandsLeftText.text = "Islands Left: " + amt;
-
-        return amt; //we add 1 because some early levels could have 0... at some point we'll just have to define it. 
+    private void Update()
+    {
+        IslandsLeftText.text = "Islands Left: " + IslandsLeft;
     }
 
     private void FinishedXPApply()
@@ -71,7 +81,6 @@ public class ResetLevel : MonoBehaviour
             PushedBackPanel.SetActive(true);
             StartCoroutine(ExperienceManager.AnimateXPToZero());
             IslandsLeft = CalculateIslandsLeft();
-            IslandsLeftText.text = "Islands Left: " + IslandsLeft;
         }
         NextLevelButton.SetActive(true);
     }

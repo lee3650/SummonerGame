@@ -15,7 +15,12 @@ public class ProgressionManager : MonoBehaviour
         SetGameplayChangePairs(0, ExperienceManager.GetCurrentLevel());
     }
 
-    private void SetGameplayChangePairs(int start, int level)
+    public static void ResetState()
+    {
+        SetGameplayChangePairs(0, 10);
+    }
+
+    private static void SetGameplayChangePairs(int start, int level)
     {
         for (int i = start; i <= level; i++)
         {
@@ -63,8 +68,11 @@ public class ProgressionManager : MonoBehaviour
     public static bool UseGameplayChange(GameplayChange change)
     {
         bool result = false;
-        GameplayChangePairs.TryGetValue(change, out result);
-        return result;
+        if (GameplayChangePairs.TryGetValue(change, out result))
+        {
+            return result;
+        }
+        return false;
     }
 
     public static List<GameObject> GetItemsUnlockedAtLevel(int level)

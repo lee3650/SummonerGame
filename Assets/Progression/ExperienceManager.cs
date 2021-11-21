@@ -6,33 +6,17 @@ using System;
 //this will have to be in the main menu as well so it's guaranteed to run. 
 public class ExperienceManager : MonoBehaviour
 {
-    private static int CurrentLevel = 7;
-    private static float CurrentLevelXP = 0f;
+    private static int CurrentLevel = 0;
+    private static float CurrentLevelXP = 0;
     
     private const string KeyToCurrentLevel = "CurLevl";
     private const string KeyToCurrentLevelXP = "CurLevlXP";
 
-    private static bool exitingLevel = false;
+    private static bool exitingLevel = true;
 
     public static event Action LeveledUp = delegate { };
 
-    private static List<XPMessage> xpToApply = new List<XPMessage>()
-    {
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-        new XPMessage("", 1.5f),
-    };
+    private static List<XPMessage> xpToApply = new List<XPMessage>();
 
     private void Awake()
     {
@@ -142,7 +126,11 @@ public class ExperienceManager : MonoBehaviour
             50, 
         };
 
-        return XPToNextLevel[currentLevel];
+        if (currentLevel < XPToNextLevel.Length) 
+        { 
+            return XPToNextLevel[currentLevel];
+        }
+        return 50 + currentLevel;
     }
 
     public static void SetExitingLevel(bool value)

@@ -87,12 +87,29 @@ public class CurrentLevelManager : MonoBehaviour
 
         HealPlayer();
 
-        baseEnemies = LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
+        baseEnemies = CalculateBaseEnemies(levelNum);
+            //LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
 
         SetSpawnTime();
 
         levelNum++;
     }
+
+    private int CalculateBaseEnemies(int level)
+    {
+        int[] baseEnemies = new int[]
+        {
+            5,
+            8,
+            12,
+            18,
+            25,
+            32,
+        };
+
+        return baseEnemies[level];
+    }
+
     private int GetEnemiesPerWaveMaxRoll(int wave)
     {
         return Mathf.RoundToInt(previousBaseEnemies * GetWaveModifier(wave / (highestWave - 1)));
@@ -125,7 +142,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     void SetSpawnTime()
     {
-        enemySpawnTime = Mathf.Lerp(0.75f, 0.45f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 1));
+        enemySpawnTime = Mathf.Lerp(0.75f, 0.15f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 2));
         print("Spawn time: " + enemySpawnTime);
     }
 
@@ -219,10 +236,12 @@ public class CurrentLevelManager : MonoBehaviour
 
         float effectiveSpawnTime = enemySpawnTime;
 
+        /*
         if (OnLastWave())
         {
             effectiveSpawnTime += 0.15f;
         }
+         */
 
         WaveSpawner.SpawnWave(GetNextWave(), effectiveSpawnTime);
         currentWave++;

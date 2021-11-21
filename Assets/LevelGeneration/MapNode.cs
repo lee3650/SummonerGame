@@ -68,6 +68,7 @@ public class MapNode
         switch (TileType)
         {
             case TileType.BreakableWall:
+            case TileType.BallistaTile:
                 return true; 
         }
         return false; 
