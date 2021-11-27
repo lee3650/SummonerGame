@@ -24,7 +24,7 @@ public class ResearchManager : MonoBehaviour
 
     private static Research currentResearch; //we have to save this... hm. Okay. 
 
-    Research overflow = null;
+    private Research overflow = null;
 
     const string curresearchpath = "curResearch";
     const string researchdatapath = "progress";
@@ -83,10 +83,7 @@ public class ResearchManager : MonoBehaviour
             ResearchMap[save.Index].ResearchSaveData = save;
         }
 
-        if (staticResearchMap == null)
-        {
-            staticResearchMap = ResearchMap;
-        }
+        staticResearchMap = ResearchMap;
 
         TryLoadCurrentResearch();
     }
@@ -223,20 +220,35 @@ public class ResearchManager : MonoBehaviour
         return r.Progress / r.XPReq;
     }
 
-    public bool ResearchUnlocked (int index)
+    public static bool ResearchUnlocked (int index)
     {
-        if (ResearchMap == null)
+        if (staticResearchMap == null)
         {
             return false;
         }
-        return ResearchMap[index].Unlocked;
+        return staticResearchMap[index].Unlocked;
+    }
+
+    public Research Overflow
+    {
+        get
+        {
+            return overflow;
+        }
     }
 
     private void TryChooseOverflow()
     {
         overflow = null;
 
-        Research[] researches = (Research[])ListRandomSort<Research>.SortListRandomly(ResearchMap);
+        Research[] researches = new Research[ResearchMap.Length];
+
+        for (int i = 0; i < researches.Length; i++)
+        {
+            researches[i] = ResearchMap[i];
+        }
+
+        researches = (Research[])ListRandomSort<Research>.SortListRandomly(researches);
 
         for (int i = 0; i < researches.Length; i++)
         {
@@ -360,7 +372,7 @@ public class ResearchManager : MonoBehaviour
         }
     }
 
-    private void WriteResearchSaveDatas()
+    public void WriteResearchSaveDatas()
     {
         if (ResearchSaveDatas == null)
         {
@@ -396,6 +408,11 @@ public class ResearchManager : MonoBehaviour
         }
 
         File.WriteAllText(Application.persistentDataPath + curresearchpath, "" + index);
+    }
+
+    public string GetResearchName(int index)
+    {
+        return ResearchMap[index].name;
     }
 
     public void ShowResearchPanel(int index)

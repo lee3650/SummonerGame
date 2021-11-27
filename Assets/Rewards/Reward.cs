@@ -7,7 +7,8 @@ public abstract class Reward : MonoBehaviour
     [SerializeField] float quality;
     [SerializeField] bool reusable;
     [SerializeField] string description; 
-    [SerializeField] Reward[] followingRewards; 
+    [SerializeField] Reward[] followingRewards;
+    public int UnlockedIndex;
 
     public abstract void ApplyReward();
 

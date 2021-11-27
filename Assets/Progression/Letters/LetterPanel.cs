@@ -12,5 +12,6 @@ public class LetterPanel : MonoBehaviour
     {
         string letterText = File.ReadAllText(MainMenuScript.appendPath + l.path);
         Letter.text = letterText;
+        gameObject.SetActive(true);
     }
 }

@@ -88,6 +88,8 @@ public class LetterManager : MonoBehaviour
     {
         TotalIslands += 1;
 
+        print("Total islands: " + TotalIslands);
+
         foreach (LetterUnlock l in LetterUnlocks)
         {
             if (l.TotalIslandsReq == TotalIslands) //since we just added, the only way that's possible is it just got unlocked

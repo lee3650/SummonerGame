@@ -930,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.25003}
+  m_AnchoredPosition: {x: -453.55005, y: 150.24997}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1920,6 +1920,7 @@ MonoBehaviour:
   reusable: 0
   description: Unlocked upgrade to bombard
   followingRewards: []
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 1885388614}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &249737490
@@ -1964,12 +1965,14 @@ MonoBehaviour:
       Enabled: 1
       CalculatedMinimum: 0
       CalculatedMaximum: 0
+      startingLevel: 0
     - RelativeLikelihood: 0.4
       Spawn: {fileID: 1090552370236627394, guid: 3d436db8065c44844a162d33f9da7a50,
         type: 3}
       Enabled: 1
       CalculatedMinimum: 0
       CalculatedMaximum: 0
+      startingLevel: 0
   - Spawns:
     - RelativeLikelihood: 0.15
       Spawn: {fileID: 4648206095511936293, guid: 9295a991e01b8bc45adb5f4b24fbd08d,
@@ -1977,6 +1980,7 @@ MonoBehaviour:
       Enabled: 1
       CalculatedMinimum: 0
       CalculatedMaximum: 0
+      startingLevel: 0
   - Spawns: []
   - Spawns: []
   - Spawns: []
@@ -5526,6 +5530,7 @@ MonoBehaviour:
   - {fileID: 738891422}
   - {fileID: 1522356100}
   LevelEndRewardThreshold: 5.5
+  ExtraRewards: []
 --- !u!4 &513537719
 Transform:
   m_ObjectHideFlags: 0
@@ -6306,6 +6311,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Defense. Increases archer units armor.
   followingRewards: []
+  UnlockedIndex: 0
   MyCharm: {fileID: 3221718363063802801, guid: 75e1d5fe30002d74f827433f0d8d08ed, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &598168296
@@ -7934,6 +7940,7 @@ MonoBehaviour:
   reusable: 0
   description: Unlocked upgrade to barracks - increases summon capacity by 1
   followingRewards: []
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 656620488}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &718218233
@@ -8291,6 +8298,7 @@ MonoBehaviour:
   description: Unlocked upgrade to archers
   followingRewards:
   - {fileID: 1775540604}
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 141503885}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &739854942
@@ -8594,6 +8602,7 @@ MonoBehaviour:
   reusable: 0
   description: Unlocked upgrade to Mage Tower - powerful ray attack
   followingRewards: []
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 81363032}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &770575174
@@ -8731,6 +8740,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Melee Defense. Increases melee units armor.
   followingRewards: []
+  UnlockedIndex: 0
   MyCharm: {fileID: 906419907503373317, guid: fcc3bb5afad844146941893bc90d0fed, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &787163885
@@ -8780,6 +8790,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Magic Damage. Increases all magic units damage
   followingRewards: []
+  UnlockedIndex: 0
   MyCharm: {fileID: -1595350434836025127, guid: 15ab8c63b500a2e42abb621fccec1823,
     type: 3}
   PlayerInventory: {fileID: 333112613}
@@ -8893,6 +8904,7 @@ MonoBehaviour:
   reusable: 0
   description: Unlocked upgrade to miner - +33% money per wave and more health
   followingRewards: []
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 415620908}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &804466787
@@ -9039,6 +9051,7 @@ MonoBehaviour:
   description: 'Upgrade to wall generator: stronger walls'
   followingRewards:
   - {fileID: 1317403867}
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 584755808}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &847125555
@@ -11190,6 +11203,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Melee Damage. Increases melee units damage.
   followingRewards: []
+  UnlockedIndex: 0
   MyCharm: {fileID: 1673745170444685917, guid: dc4e86e6ded3f6d40a8611b8ebd1097b, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1132121064
@@ -12810,6 +12824,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Damage. Increases archer units damage.
   followingRewards: []
+  UnlockedIndex: 0
   MyCharm: {fileID: 1183936544931740549, guid: 812eea273078068489295604211edfe5, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1304991315
@@ -13161,6 +13176,7 @@ MonoBehaviour:
   reusable: 0
   description: Unlocked upgrade to miner + 25% money per wave
   followingRewards: []
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 1975842663}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1320625724
@@ -13211,6 +13227,7 @@ MonoBehaviour:
   description: Staff of bombard summon
   followingRewards:
   - {fileID: 237911645}
+  UnlockedIndex: 0
   PlayerInventory: {fileID: 333112613}
   Item: {fileID: 6604838406851077853, guid: b94f9188d20504f43b9e3af17e90a58c, type: 3}
 --- !u!1 &1322694780
@@ -14924,7 +14941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.81999}
+  m_AnchoredPosition: {x: -437.25012, y: 115.82001}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -15260,6 +15277,7 @@ MonoBehaviour:
   followingRewards:
   - {fileID: 752394674}
   - {fileID: 787163887}
+  UnlockedIndex: 0
   PlayerInventory: {fileID: 333112613}
   Item: {fileID: 5348343722147611506, guid: 361c39c3c9e88b647b9978acca48fbcf, type: 3}
 --- !u!1 &1445056092
@@ -15971,6 +15989,7 @@ MonoBehaviour:
   description: Unlocked upgrade to miner + 25% money per wave
   followingRewards:
   - {fileID: 801525328}
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 1867223821}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1523646640
@@ -16397,6 +16416,7 @@ MonoBehaviour:
   reusable: 1
   description: 
   followingRewards: []
+  UnlockedIndex: 0
   PlayerIncome: {fileID: 810335379}
   MinIncrease: 5
   MaxIncrease: 10
@@ -19268,6 +19288,7 @@ MonoBehaviour:
   reusable: 0
   description: Unlocked tier 2 upgrade to archers
   followingRewards: []
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 1669743304}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1802572620
@@ -20352,6 +20373,7 @@ MonoBehaviour:
   reusable: 1
   description: 
   followingRewards: []
+  UnlockedIndex: 0
   PlayerManaManager: {fileID: 333112618}
   min: 10
   max: 20
@@ -20823,6 +20845,7 @@ MonoBehaviour:
   description: Unlocked upgrade to barracks
   followingRewards:
   - {fileID: 715970729}
+  UnlockedIndex: 0
   UnlockedUpgrade: {fileID: 951480105}
   UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &2000764577

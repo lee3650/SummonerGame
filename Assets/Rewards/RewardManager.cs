@@ -8,8 +8,21 @@ public class RewardManager : MonoBehaviour
     [SerializeField] List<Reward> AllRewards;
     [SerializeField] float LevelEndRewardThreshold = 5.5f;
 
+    [SerializeField] List<Reward> ExtraRewards;
+
     //okay so lower quality is better now. So, I guess our threshold should be like, 5 or 6. 
     //5 is kind of a high threshold lol. 5x more likely? 
+
+    private void Awake()
+    {
+        foreach (Reward w in ExtraRewards)
+        {
+            if (ResearchManager.ResearchUnlocked(w.UnlockedIndex))
+            {
+                AllRewards.Add(w);
+            }
+        }
+    }
 
     public Reward ChooseRandomRewardOnWaveEnd(bool excludeWorseRewards)
     {

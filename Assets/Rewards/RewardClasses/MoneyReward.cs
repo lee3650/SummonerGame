@@ -8,7 +8,7 @@ public class MoneyReward : Reward
     [SerializeField] float min, max;
 
     float rewardAmt; 
-
+    
     public override void ApplyReward()
     {
         rewardAmt = Random.Range(min, max);

@@ -17,6 +17,8 @@ public class XPManager : MonoBehaviour
         new XPMessage("message", 1.5f),
         new XPMessage("message", 1.5f),
         new XPMessage("message", 1.5f),
+        new XPMessage("message", 1.5f),
+        new XPMessage("message", 1.5f),
     };
 
     public static void ResetState()

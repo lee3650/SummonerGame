@@ -55,7 +55,9 @@ public class IslandsLeftSetter : MonoBehaviour
         ResearchManager.Interactable = true;
 
         NextLevelButton.SetActive(true);
-        PushedBackPanel.SetActive(false);
+        //PushedBackPanel.SetActive(false);
+
+        ResearchManager.WriteResearchSaveDatas();
 
         ReadyForButton();
     }
