@@ -6,14 +6,12 @@ using System;
 
 public class XPApplier : MonoBehaviour
 {
-    //So, okay. If you unlock something I want to show it to you, then when you close it it'll resume. 
-    //mm. That's fine. We can use flags to communicate with the coroutine. 
-
     [SerializeField] TextMeshProUGUI MessageText;
     [SerializeField] GameObject SkipButton;
     [SerializeField] GameObject NextLevelButton;
-    [SerializeField] RewardPanelShower RewardPanelShower;
+    [SerializeField] ResearchPanel ResearchPanel;
     [SerializeField] GameObject HomeButton;
+    [SerializeField] ResearchManager ResearchManager;
 
     private bool pause = false;
     private bool animate = true;
@@ -24,17 +22,17 @@ public class XPApplier : MonoBehaviour
     public event Action FinishedXPApply = delegate { };
 
     //so, as soon as this scene loads
-    private void Awake()
+    private void Start()
     {
-        if (ExperienceManager.ExitingLevel())
+        if (XPManager.ExitingLevel && !ResearchManager.AllResearchUnlocked())
         {
             NextLevelButton.SetActive(false);
             SkipButton.SetActive(true);
             MessageText.gameObject.SetActive(true);
 
-            ExperienceManager.SetExitingLevel(false);
-            
-            List<XPMessage> xpEarned = ExperienceManager.GetXPMessages();
+            XPManager.ExitingLevel = false;
+
+            List<XPMessage> xpEarned = XPManager.GetXPMessages();
 
             HomeButton.SetActive(false);
 
@@ -56,7 +54,14 @@ public class XPApplier : MonoBehaviour
 
     private IEnumerator ShowXPGained(List<XPMessage> xpEarned)
     {
+        print("Showing xp gained!");
         float timer = 0f;
+
+        while (ResearchManager.CurrentResearch == null && !ResearchManager.AllResearchUnlocked())
+        {
+            print("waiting for research!");
+            yield return null; 
+        }
 
         while (animate) 
         { 
@@ -99,11 +104,10 @@ public class XPApplier : MonoBehaviour
         SkipButton.SetActive(false);
 
         FinishedXPApply();
+
         NextLevelButton.SetActive(true);
-
         HomeButton.SetActive(true);
-
-        ExperienceManager.WriteXP();
+        ResearchManager.SaveResearchData();
     }
 
     private void ApplyAllRemainingMessage(List<XPMessage> xpEarned)
@@ -121,15 +125,15 @@ public class XPApplier : MonoBehaviour
 
         GainedXP();
 
-        bool gotReward = ExperienceManager.GainXP(message.XpGain);
+        Research reward = ResearchManager.GainXP(message.XpGain);
 
-        if (gotReward)
+        if (reward != null)
         {
             LeveledUp();
 
             pause = true; // I'm not a huge fan of this because it changes state sneakily. We should split this into two methods, one that applies the xp and returns if you got a reward
                         //and another that sets pause and shows the reward panel
-            ShowRewardPanel(ExperienceManager.GetCurrentLevel()); //so, we'll just show what we got for the current level. 
+            ShowResearchPanel(reward); //so, we'll just show what we got for the current level. 
         }
     }
 
@@ -143,9 +147,9 @@ public class XPApplier : MonoBehaviour
         MessageText.text = message.Message;
     }
 
-    private void ShowRewardPanel(int level)
+    private void ShowResearchPanel(Research reward)
     {
-        RewardPanelShower.ShowLevelRewards(level);
+        ResearchPanel.Show(reward, true);
     }
 
     private float getWaitTime(List<XPMessage> xpEarned)

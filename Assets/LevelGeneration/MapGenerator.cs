@@ -166,7 +166,7 @@ public class MapGenerator : MonoBehaviour
         }
         if (val < 0.85f)
         {
-            if (!ProgressionManager.UseGameplayChange(GameplayChange.SandAndClearing)) //this is kinda sketchy but I guess it shows up in references, so it should be okay
+            if (!LetterManager.UseGameplayChange(GameplayChange.SandAndClearing)) //this is kinda sketchy but I guess it shows up in references, so it should be okay
             {
                 return TileType.Land;
             }

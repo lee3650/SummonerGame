@@ -16,22 +16,32 @@ public class ResearchPanel : MonoBehaviour
     [SerializeField] Image Image;
     [SerializeField] Button SetResearch;
     [SerializeField] TextMeshProUGUI tooltip;
+    [SerializeField] XPApplier XPApplier;
 
     private int curIndex;
 
-    public void Show(Research research)
+    public void Show(Research research, bool unlocked) //so... somehow, we need to figure out if it's just a letter, right. 
     {
         GifDisplayer.PlayGif(research.Gif);
         ResearchName.text = research.name;
+
+        if (unlocked)
+        {
+            ResearchName.text = "Unlocked " + research.name + "!";
+        }
+
         ResearchDescription.text = research.Description;
-        ResearchProgress.text = string.Format("{0}/{1}", research.Progress, research.Kills);
-        ResearchRequirements.text = "Kills: " + research.Kills;
+        ResearchProgress.text = string.Format("{0}/{1}", research.Progress, research.XPReq);
+        ResearchRequirements.text = "Kills: " + research.XPReq;
         curIndex = research.Index;
         Islands.text = "Islands: " + research.TotalIslands;
         Image.sprite = research.Image;
 
-        SetResearch.interactable = research.PrereqUnlocked;
-        if (!research.PrereqUnlocked) 
+        SetResearch.interactable = research.PrereqUnlocked && !research.Unlocked;
+        if (research.Unlocked)
+        {
+            tooltip.text = "You already researched this!";
+        } else if (!research.PrereqUnlocked)
         {
             tooltip.text = "Research " + research.Prereq.name + " first!";
         } else
@@ -45,10 +55,13 @@ public class ResearchPanel : MonoBehaviour
     public void SetCurrentResearch()
     {
         ResearchManager.SetCurrentResearch(curIndex);
+
+        gameObject.SetActive(false);
     }
 
     public void Hide()
     {
+        XPApplier.AllRewardPanelsClosed();
         gameObject.SetActive(false);
     }
 }

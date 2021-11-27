@@ -118,7 +118,7 @@ public class PlayerSummonController : MonoBehaviour
                     DesatisfyBlueprint(b);
                 }
 
-                if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice)) { 
+                if (LetterManager.UseGameplayChange(GameplayChange.IncrementPrice)) { 
                     BlueprintFees.BlueprintRemoved(b.BlueprintType);
                 }
 

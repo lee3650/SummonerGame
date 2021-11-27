@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class ResearchSaveData
 {
+    public ResearchSaveData()
+    {
+        //basically doesn't do anything, right? For XML serializer
+    }
+
     public ResearchSaveData(int index)
     {
         Index = index;
-        IslandsLeft = 0;
+        IslandsUsed = 0;
         Progress = 0;
         Unlocked = false;
     }
 
     public int Index;
-    public int Progress;
-    public int IslandsLeft;
+    public float Progress;
+    public int IslandsUsed;
     public bool Unlocked;
 }

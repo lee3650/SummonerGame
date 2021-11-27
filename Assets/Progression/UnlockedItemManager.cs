@@ -5,11 +5,17 @@ using UnityEngine;
 public class UnlockedItemManager : MonoBehaviour
 {
     [SerializeField] PlayerInventory PlayerInventory;
+    [SerializeField] List<GameObject> DefaultItems; 
 
     private void Start()
     {
-        int cur = ExperienceManager.GetCurrentLevel();
-        List<GameObject> items = ProgressionManager.GetItemsUnlockedAtLevel(cur);
+        List<GameObject> items = ResearchManager.GetUnlockedItems();
+
+        if (!MainMenuScript.TutorialMode)
+        {
+            items.AddRange(DefaultItems);
+        }
+
         foreach (GameObject item in items)
         {
             GameObject instance = Instantiate(item);

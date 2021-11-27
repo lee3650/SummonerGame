@@ -11,7 +11,8 @@ public class Research : MonoBehaviour
     public int TotalIslands;
     public string Description; //eh, that's fine for now, I guess. I'd rather read it from a file. 
     public Research Prereq = null;
-    public int Kills;
+    public float XPReq;
+    public GameObject Unlock;
 
     public bool PrereqUnlocked
     {
@@ -45,7 +46,7 @@ public class Research : MonoBehaviour
         }
     }
 
-    public int Progress
+    public float Progress
     {
         get
         {
@@ -61,11 +62,11 @@ public class Research : MonoBehaviour
     {
         get
         {
-            return ResearchSaveData.IslandsLeft;
+            return TotalIslands - ResearchSaveData.IslandsUsed;
         }
         set
         {
-            ResearchSaveData.IslandsLeft = value;
+            ResearchSaveData.IslandsUsed = TotalIslands - value;
         }
     }
 }

@@ -28,7 +28,22 @@ public class CurrentLevelManager : MonoBehaviour
     private int previousBaseEnemies;
 
     StageNode HeadNode;
-    StageNode RootNode; 
+    StageNode RootNode;
+
+    private void Awake()
+    {
+        List<SpawnToProbability> extraSpawns = LetterManager.GetExtraSpawns();
+
+        if (extraSpawns == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < extraSpawns.Count; i++)
+        {
+            AdditionalSpawns[extraSpawns[i].startingLevel].Spawns.Add(extraSpawns[i]);
+        }
+    }
 
     public void EnterFirstLevel()
     {

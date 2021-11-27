@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockGraphicManager : MonoBehaviour
+public enum LetterType
 {
+    Info,
+    GameplayChange,
+    AddSpawn,
 }

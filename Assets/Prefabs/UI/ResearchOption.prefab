@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fbb07369f7bb14fa25df3719d0f4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 6084439728493037785}
 --- !u!114 &5852840707064532937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f9a1250963aeb4e87f2545c61de2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RewardIndex: 0
+  LockIcon: {fileID: 6084439728807204487}
+  Slider: {fileID: 6084439728138299571}
 --- !u!1 &6084439728807204487
 GameObject:
   m_ObjectHideFlags: 0

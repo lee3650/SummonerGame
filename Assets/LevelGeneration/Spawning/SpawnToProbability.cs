@@ -11,4 +11,7 @@ public class SpawnToProbability
     public bool Enabled;
     public float CalculatedMinimum;
     public float CalculatedMaximum;
+
+    [Tooltip("Used by letters")]
+    public int startingLevel;
 }

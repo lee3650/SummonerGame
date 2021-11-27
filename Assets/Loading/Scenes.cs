@@ -6,5 +6,6 @@ public enum Scenes
 {
     GameplayScene,
     MainMenu,
-    ProgressionMenu
+    ProgressionMenu,
+    CreditsScene
 }

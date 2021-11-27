@@ -9,7 +9,7 @@ public class EnemyDeathState : AIDeathState
 
     public override void VirtualEnterState()
     {
-        ExperienceManager.AddXPMessage(new XPMessage(DeathMessage, XPGain));
+        XPManager.AddXPMessage(new XPMessage(DeathMessage, XPGain));
         base.VirtualEnterState();
     }
 }

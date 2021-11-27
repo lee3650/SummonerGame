@@ -54,14 +54,4 @@ public class UnlockedRewardPanel : UIPanel
             Text.text = "";
         }
     }
-
-    public void HidePanel()
-    {
-        print("hid panel!");
-        if (rds != null)
-        {
-            rds.HideRewardPanel(this);
-        }
-        Destroy(gameObject);
-    }
 }

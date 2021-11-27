@@ -37,7 +37,7 @@ public class BlueprintFees : MonoBehaviour, IResettable
 
     public void InitializePrices() //this needs to happen after the home tile is placed, so that it doesn't mess up the tutorial map
     {
-        if (ProgressionManager.UseGameplayChange(GameplayChange.RandomPrices))
+        if (LetterManager.UseGameplayChange(GameplayChange.RandomPrices))
         {
             foreach (BlueprintPrice p in Prices)
             {
@@ -77,7 +77,7 @@ public class BlueprintFees : MonoBehaviour, IResettable
 
     private void Awake()
     {
-        if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice)) //is this okay? 
+        if (LetterManager.UseGameplayChange(GameplayChange.IncrementPrice)) //is this okay? 
         {
             BlueprintManager.BlueprintAdded += BlueprintAdded;
         }

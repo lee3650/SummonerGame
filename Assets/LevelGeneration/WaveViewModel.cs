@@ -40,8 +40,8 @@ public class WaveViewModel : MonoBehaviour
     //if this gets called then we're in the 'game' - we need to tell the xp manager that. 
     private void Awake()
     {
-        ExperienceManager.SetExitingLevel(true);
-        ExperienceManager.ResetXPMessages();
+        XPManager.ExitingLevel = true;
+        XPManager.ResetXPMessages();
     }
 
     //yeah I'm definitely making this too complicated. 

@@ -34,6 +34,8 @@ public class LoadScript : MonoBehaviour
                 return "MainMenu";
             case Scenes.ProgressionMenu:
                 return "ProgressionMenu";
+            case Scenes.CreditsScene:
+                return "Credits";
         }
         throw new System.Exception("Could not get next scene name! nextScene = " + nextScene.ToString());
     }

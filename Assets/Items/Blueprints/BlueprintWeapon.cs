@@ -56,11 +56,11 @@ public class BlueprintWeapon : SummonWeapon
     {
         string modification = "";
 
-        if (ProgressionManager.UseGameplayChange(GameplayChange.RandomPrices))
+        if (LetterManager.UseGameplayChange(GameplayChange.RandomPrices))
         {
             modification += string.Format("\nStart price can be from {0} to {1}", BlueprintFees.GetMinFee(BlueprintType), BlueprintFees.GetMaxFee(BlueprintType));
         }
-        if (ProgressionManager.UseGameplayChange(GameplayChange.IncrementPrice))
+        if (LetterManager.UseGameplayChange(GameplayChange.IncrementPrice))
         {
             modification += string.Format("\nPrice increase: {0}", BlueprintFees.GetMaintenanceDelta(BlueprintType));
         }

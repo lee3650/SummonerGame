@@ -23,18 +23,15 @@ public class MainMenuScript : MonoBehaviour
     
     public void QuitGame()
     {
-        ResetLevel.WriteIslandsLeft();
         Application.Quit();
     }
 
     public void ResetState()
     {
-        ExperienceManager.ResetState();
-        ResetLevel.ResetState();
-        PlayerPrefs.SetInt(finishedTutorialKey, 0);
-        ProgressionManager.ResetState();
+        XPManager.ResetState();
+        ResearchManager.ResetState();
+        LetterManager.ResetState();
         tutorialMode = false;
-        FinishedTutorial = false;
         ShowPlayButtons();
     }
 
