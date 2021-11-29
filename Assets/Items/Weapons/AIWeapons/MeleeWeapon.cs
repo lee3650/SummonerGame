@@ -8,6 +8,7 @@ public class MeleeWeapon : MonoBehaviour, IDamager
     [SerializeField] EventType EventType;
     [SerializeField] GameObject WielderObject;
     [SerializeField] float AttackStartToDamageDelay;
+    [SerializeField] int Occurences = 1;
 
     IWielder Wielder;
     bool alreadyHit = false; 
@@ -18,7 +19,7 @@ public class MeleeWeapon : MonoBehaviour, IDamager
     private void Awake()
     {
         Wielder = WielderObject.GetComponent<IWielder>();
-        UnmodifiedEventsToApplyOnHit.Add(new Event(EventType, Magnitude, WielderObject.GetComponent<IEntity>()));
+        UnmodifiedEventsToApplyOnHit.Add(new Event(EventType, Magnitude, WielderObject.GetComponent<IEntity>(), Occurences));
     }
 
     public void AddAttackModifier(Event e)
@@ -61,7 +62,7 @@ public class MeleeWeapon : MonoBehaviour, IDamager
     {
         foreach (Event e in ModifiedEventsToApplyOnHit)
         {
-            entity.HandleEvent(e);
+            entity.HandleEvent(Event.CopyEvent(e));
         }
     }
 }

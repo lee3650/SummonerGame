@@ -177,6 +177,16 @@ MonoBehaviour:
       type: 3}
     MaintenanceFee: 0
     DisplayName: Melee Unit
+  - BlueprintType: 8
+    Prefab: {fileID: 1282214400084388087, guid: d59ef97962e208a42bddbc54541e85de,
+      type: 3}
+    MaintenanceFee: 0
+    DisplayName: Assassin
+  - BlueprintType: 7
+    Prefab: {fileID: 3491987702817237503, guid: d04eb33ff0d45be499e34e064caa5e06,
+      type: 3}
+    MaintenanceFee: 0
+    DisplayName: Axeman
   SpriteRenderer: {fileID: 5052993147076501496}
   MaintenanceFee: 0
   AddToTargeting: 0

@@ -32,7 +32,7 @@ public class ResearchPanel : MonoBehaviour
 
         ResearchDescription.text = research.Description;
         ResearchProgress.text = string.Format("{0}/{1}", research.Progress, research.XPReq);
-        ResearchRequirements.text = "Kills: " + research.XPReq;
+        ResearchRequirements.text = "XP: " + research.XPReq;
         curIndex = research.Index;
         Islands.text = "Islands: " + research.TotalIslands;
         Image.sprite = research.Image;

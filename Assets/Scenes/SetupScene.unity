@@ -930,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.24997}
+  m_AnchoredPosition: {x: -453.55005, y: 150.21738}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -10957,6 +10957,16 @@ MonoBehaviour:
     Increment: 0.1
     startPrice: 0
     Type: 6
+  - minPrice: 1
+    maxPrice: 5
+    Increment: 0.5
+    startPrice: 0
+    Type: 8
+  - minPrice: 1
+    maxPrice: 5
+    Increment: 0.5
+    startPrice: 0
+    Type: 7
 --- !u!4 &1071082197
 Transform:
   m_ObjectHideFlags: 0
@@ -14941,7 +14951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.82001}
+  m_AnchoredPosition: {x: -437.25012, y: 115.787506}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -16958,6 +16968,9 @@ MonoBehaviour:
   - {fileID: 358657637}
   - {fileID: 1667296794}
   - {fileID: 1702667037}
+  - {fileID: 452008623}
+  - {fileID: 938439676}
+  - {fileID: 1825527761}
 --- !u!1 &1613824737
 GameObject:
   m_ObjectHideFlags: 0
@@ -20929,7 +20942,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

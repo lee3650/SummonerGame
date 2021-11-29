@@ -35,7 +35,10 @@ public class PlayerAttackState : MonoBehaviour, IState
         {
             DoAttack();
             SummonWeapon w = ItemSelection.SelectedItem as SummonWeapon;
-            w.UpdatePreview(false, Vector2.zero);
+            if (w != null)
+            {
+                w.UpdatePreview(false, Vector2.zero);
+            }
         } else
         {
             StateController.TransitionToState(PlayerMoveState);

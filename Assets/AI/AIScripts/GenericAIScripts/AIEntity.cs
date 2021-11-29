@@ -14,7 +14,9 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
     [SerializeField] CoatingManager CoatingManager;
     [SerializeField] AIFallState AIFallState;
 
-    [SerializeField] bool Targetable = true; 
+    [SerializeField] bool Targetable = true;
+
+    ISubEntity[] SubEntities;
 
     public void Init()
     {
@@ -26,6 +28,8 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
         {
             CoatingManager = GetComponent<CoatingManager>();
         }
+
+        SubEntities = GetComponents<ISubEntity>();
     }
 
     private void Start()
@@ -100,11 +104,22 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
     {
         e = CoatingManager.ModifyEvent(e);
 
+        foreach (ISubEntity s in SubEntities)
+        {
+            e = s.ModifyEvent(e);
+        }
+
+        foreach (ISubEntity s in SubEntities)
+        {
+            s.HandleEvent(e);
+        }
+
         switch (e.MyType)
         {
             case EventType.Fire:
             case EventType.Magic:
             case EventType.Physical:
+            case EventType.Poison: 
                 HealthManager.SubtractHealth(e.Magnitude);
                 break;
             case EventType.Fall:

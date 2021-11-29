@@ -12,4 +12,6 @@ public enum BlueprintType
     SpikeTrap,
     ArrowTrap, 
     ArrowTurner, 
+    Axeman,
+    Assassin, 
 }
