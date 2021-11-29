@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 7774478847347068964}
   - component: {fileID: -3637889077076435920}
   - component: {fileID: 3323259242009456892}
+  - component: {fileID: 5249084995385316507}
   m_Layer: 12
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -661,7 +662,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5343,3 +5344,16 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5249084995385316507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090552370236627394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23082232518a57d46bc5abb48aa7e22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFaction: 0

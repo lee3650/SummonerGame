@@ -14,4 +14,6 @@ public enum BlueprintType
     ArrowTurner, 
     Axeman,
     Assassin, 
+    Bonfire,
+    StrongWall,
 }

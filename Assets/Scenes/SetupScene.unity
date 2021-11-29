@@ -930,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.21738}
+  m_AnchoredPosition: {x: -453.55005, y: 150.24997}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -10949,12 +10949,12 @@ MonoBehaviour:
     Type: 4
   - minPrice: 0.5
     maxPrice: 2
-    Increment: 0.1
+    Increment: 0.2
     startPrice: 0
     Type: 5
   - minPrice: 0.25
     maxPrice: 1.25
-    Increment: 0.1
+    Increment: 0.2
     startPrice: 0
     Type: 6
   - minPrice: 1
@@ -10967,6 +10967,16 @@ MonoBehaviour:
     Increment: 0.5
     startPrice: 0
     Type: 7
+  - minPrice: 1
+    maxPrice: 5
+    Increment: 1
+    startPrice: 0
+    Type: 9
+  - minPrice: 0.5
+    maxPrice: 1.5
+    Increment: 0.25
+    startPrice: 0
+    Type: 10
 --- !u!4 &1071082197
 Transform:
   m_ObjectHideFlags: 0
@@ -14951,7 +14961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.787506}
+  m_AnchoredPosition: {x: -437.25012, y: 115.82001}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -15371,7 +15381,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304991317}
   m_HandleRect: {fileID: 1304991316}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20942,7 +20952,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

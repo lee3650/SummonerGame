@@ -75,10 +75,12 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
             IEntity entity;
             if (collision.transform.TryGetComponent<IEntity>(out entity))
             {
-
                 foreach (Event e in EventsToApply)
                 {
-                    entity.HandleEvent(e);
+                    print("Event: " + e.ToString());
+                    Event copy = Event.CopyEvent(e);
+                    print("Copy: " + copy.ToString());
+                    entity.HandleEvent(copy);
                 }
             }
         }

@@ -24,10 +24,15 @@ public class HandleRecurringEvent : MonoBehaviour, ISubEntity
 
     public void HandleEvent(Event e)
     {
+        print("Possibly handling event: " + e.ToString());
+
         if (e.Recurrences > 0 && hm.IsAlive())
         {
+            print("Trying to recur event: " + e.ToString());
+
             if (!ContainsType(e))
             {
+                print("Recurring event: " + e.ToString());
                 RecurringEvents.Add(e);
                 StartCoroutine(RecurEvent(e.MyType));
             } else

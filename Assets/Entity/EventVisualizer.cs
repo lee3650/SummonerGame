@@ -39,7 +39,7 @@ public class EventVisualizer : MonoBehaviour, ISubEntity
     IEnumerator EnableFireParticles()
     {
         FireSystem.Play();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         FireSystem.Stop();
     }
 

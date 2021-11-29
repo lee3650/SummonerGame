@@ -11,7 +11,7 @@ public class WaterCoating : Coating
             case EventType.Fire:
             case EventType.Magic:
             case EventType.Physical:
-                return new Event(input.MyType, input.Magnitude * 2f, input.Sender); 
+                return new Event(input.MyType, input.Magnitude * 2f, input.Sender, input.Recurrences, input.Spreads); 
         }
         return input; 
     }

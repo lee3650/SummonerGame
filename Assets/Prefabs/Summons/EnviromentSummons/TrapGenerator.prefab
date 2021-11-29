@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: BlueprintData.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
@@ -110,6 +110,22 @@ PrefabInstance:
         type: 3}
       propertyPath: BlueprintData.Array.data[0].DisplayName
       value: Ballista
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[2].BlueprintType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[2].Prefab
+      value: 
+      objectReference: {fileID: 5698656916880236780, guid: bc6c87c66c32a9547a9f0d4cc1a44b1c,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[2].DisplayName
+      value: Bonfire
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}

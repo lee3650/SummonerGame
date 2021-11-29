@@ -9,9 +9,15 @@ public class Event
         MyType = type;
         Magnitude = magnitude;
         Sender = sender;
-        Recurrences = 1;
+        Recurrences = 0;
+        Spreads = 0;
     }
     
+    public Event (EventType type, float magnitude, IEntity sender, int recurrences, int spreads) : this(type, magnitude, sender, recurrences)
+    {
+        Spreads = spreads;
+    }
+
     public Event(EventType type, float magnitude, IEntity sender, int recurrences) : this (type, magnitude, sender)
     {
         Recurrences = recurrences;
@@ -19,7 +25,13 @@ public class Event
 
     public static Event CopyEvent(Event e)
     {
-        return new Event(e.MyType, e.Magnitude, e.Sender, e.Recurrences);
+        return new Event(e.MyType, e.Magnitude, e.Sender, e.Recurrences, e.Spreads);
+    }
+
+    public int Spreads
+    {
+        get;
+        set;
     }
 
     public int Recurrences
@@ -39,5 +51,10 @@ public class Event
     public IEntity Sender
     {
         get;
+    }
+
+    public override string ToString()
+    {
+        return string.Format("Type: {0}, Recurrences: {1}, Spreads: {2}", MyType, Recurrences, Spreads);
     }
 }
