@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HandleRecurringEvent : MonoBehaviour, ISubEntity
 {
-    [SerializeField] AIEntity AIEntity;
     [SerializeField] HealthManager hm;
 
+    IEntity Entity;
     List<Event> RecurringEvents = new List<Event>();
 
     private void Awake()
@@ -15,6 +15,7 @@ public class HandleRecurringEvent : MonoBehaviour, ISubEntity
         {
             hm = GetComponent<HealthManager>();
         }
+        Entity = GetComponent<IEntity>();
     }
 
     public Event ModifyEvent(Event e)
@@ -79,7 +80,7 @@ public class HandleRecurringEvent : MonoBehaviour, ISubEntity
             yield return new WaitForSeconds(0.75f);
             if (hm.IsAlive() && e.Recurrences > 0)
             {
-                AIEntity.HandleEvent(e);
+                Entity.HandleEvent(e);
             } else
             {
                 break;

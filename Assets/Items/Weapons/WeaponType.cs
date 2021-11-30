@@ -6,4 +6,5 @@ public enum WeaponType
 {
     Summon,
     Blueprint,
+    SpecialAbility
 }

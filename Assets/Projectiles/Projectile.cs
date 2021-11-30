@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IEntity, IDamager
 {
-    [SerializeField] float Damage;
-    [SerializeField] EventType EventType;
+    [SerializeField] protected float Damage;
+    [SerializeField] protected EventType EventType;
     [SerializeField] float Velocity;
 
     [SerializeField] bool StickToTarget;

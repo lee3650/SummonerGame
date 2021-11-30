@@ -21,6 +21,8 @@ public class BeamAttack : Projectile
         myWielder = wielder;
         TargetSearcher.Init();
         Sender = sender;
+
+        EventsToApply.Add(new Event(EventType, Damage, sender));
     }
 
     private void Update()
@@ -35,7 +37,8 @@ public class BeamAttack : Projectile
 
             foreach (Event e in EventsToApply)
             {
-                TargetManager.Target.HandleEvent(new Event(e.MyType, e.Magnitude * Time.deltaTime, Sender));
+                print("Sending event!");
+                TargetManager.Target.HandleEvent(new Event(e.MyType, e.Magnitude * Time.deltaTime, e.Sender));
             }
         } else
         {

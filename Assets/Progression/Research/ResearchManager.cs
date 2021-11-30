@@ -29,6 +29,8 @@ public class ResearchManager : MonoBehaviour
     const string curresearchpath = "curResearch";
     const string researchdatapath = "progress";
 
+    private float overflowRate = 0.2f;
+
     public bool Interactable
     {
         get;
@@ -185,7 +187,7 @@ public class ResearchManager : MonoBehaviour
 
             if (overflow != null)
             {
-                overflow.Progress += 0.10f * amount;
+                overflow.Progress += overflowRate * amount;
 
                 if (overflow.Progress >= overflow.XPReq)
                 {
@@ -199,7 +201,7 @@ public class ResearchManager : MonoBehaviour
                     }
                     else
                     {
-                        overflow.Progress -= 0.10f * amount;
+                        overflow.Progress -= overflowRate * amount;
                     }
                 }
             }

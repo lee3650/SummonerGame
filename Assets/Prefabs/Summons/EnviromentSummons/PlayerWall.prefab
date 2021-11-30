@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: -2753071127080646932}
   - component: {fileID: -7240296653374110979}
   - component: {fileID: 9222658590425354811}
+  - component: {fileID: -4328649381858832822}
+  - component: {fileID: -8278625989217686985}
   m_Layer: 23
   m_Name: PlayerWall
   m_TagString: Untraversable
@@ -239,4 +241,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SquashAndStretch: {fileID: -7240296653374110979}
+  hm: {fileID: -5157839651516772810}
+--- !u!114 &-4328649381858832822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17723146810303837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23082232518a57d46bc5abb48aa7e22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFaction: 0
+--- !u!114 &-8278625989217686985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17723146810303837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fa5591a912b51478fca659292a0034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   hm: {fileID: -5157839651516772810}

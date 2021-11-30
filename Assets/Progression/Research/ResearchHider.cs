@@ -10,6 +10,7 @@ public class ResearchHider : MonoBehaviour
     [SerializeField] ResearchManager ResearchManager;
     [SerializeField] LastLetterPanel LastLetterPanel;
     [SerializeField] GameObject AdvancedResearchPanel;
+    [SerializeField] GameObject WarshipsPanel;
 
     private void Awake()
     {
@@ -25,6 +26,11 @@ public class ResearchHider : MonoBehaviour
         {
             AdvancedResearchPanel.SetActive(true);
         } 
+
+        if (ResearchManager.NumberOfUnlockedResearch() == ResearchManager.LastResearchIndex)
+        {
+            WarshipsPanel.SetActive(true);
+        }
         
         if (index == ResearchManager.LastResearchIndex)
         {
@@ -53,7 +59,7 @@ public class ResearchHider : MonoBehaviour
         {
             SetFirstUnlocksVis(true);
         }
-        if (ResearchManager.NumberOfUnlockedResearch() >= ResearchManager.LastResearchIndex - 2)
+        if (ResearchManager.NumberOfUnlockedResearch() >= ResearchManager.LastResearchIndex)
         {
             SetLastUnlocksVis(true);
         }

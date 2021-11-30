@@ -178,6 +178,11 @@ MonoBehaviour:
     Prefab: {fileID: 694221489078713342, guid: 2aced8f56236c594faa74787016f1c16, type: 3}
     MaintenanceFee: 0
     DisplayName: Gate
+  - BlueprintType: 10
+    Prefab: {fileID: 1336330270589798724, guid: 157387499f89baa439fd8987170e32ee,
+      type: 3}
+    MaintenanceFee: 0
+    DisplayName: Hardened Wall
   SpriteRenderer: {fileID: 6000955293405737802}
   MaintenanceFee: 2.5
   AddToTargeting: 0

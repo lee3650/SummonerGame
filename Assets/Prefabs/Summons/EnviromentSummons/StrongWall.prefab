@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3318463366990952879
+--- !u!1001 &1348104981881121817
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,27 +10,32 @@ PrefabInstance:
     - target: {fileID: -5157839651516772810, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: MaxHealth
-      value: 28
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: -360141125053813988, guid: 21aba1481dee755428f806c196448c90,
+        type: 3}
+      propertyPath: HealToFull
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 17723146810303836, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.2924528
+      value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 17723146810303836, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.2924528
+      value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 17723146810303836, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.2924528
+      value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_Name
-      value: PlayerWall1
+      value: StrongWall
       objectReference: {fileID: 0}
     - target: {fileID: 17723146810303839, guid: 21aba1481dee755428f806c196448c90,
         type: 3}

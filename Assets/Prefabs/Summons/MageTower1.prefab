@@ -87,6 +87,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MageTower1
       objectReference: {fileID: 0}
+    - target: {fileID: 1324122683620253088, guid: ac4588f21415de541b634603d99b37fa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 72b2d7e47ede5d843a7326423d213562, type: 2}
     - target: {fileID: 4611936604948940035, guid: ac4588f21415de541b634603d99b37fa,
         type: 3}
       propertyPath: AttackLength

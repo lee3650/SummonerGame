@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2242978561950543737
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: Summon
+      value: 
+      objectReference: {fileID: 4759831539184421699, guid: 059c8f5d53c696f40b3e8fa0ab5121b0,
+        type: 3}
+    - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: BlueprintType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: itemName
+      value: Hardened Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: WeaponDescription
+      value: Places a hardened wall blueprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: SetColorToWhite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: UseSummonImage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751825, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_Name
+      value: Bedrock Wall Blueprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751826, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee95f4110a11dab4ab47b70bcf838981,
+        type: 3}
+    - target: {fileID: 9095432019461751827, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751827, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751827, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751827, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751827, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751827, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095432019461751837, guid: 1e37f56340da1744eb4893eddcd7ff29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e37f56340da1744eb4893eddcd7ff29, type: 3}

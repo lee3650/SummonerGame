@@ -11,7 +11,9 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
     [SerializeField] TileType TileType;
     [SerializeField] int Precedence;
 
-    protected MapNode prevNode; 
+    private ISubEntity[] SubEntities;
+
+    protected MapNode prevNode;
 
     public virtual void Init()
     {
@@ -29,6 +31,8 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         {
             throw new System.Exception("Prev node was set to null!");
         }
+
+        SubEntities = GetComponents<ISubEntity>();
 
         WriteMyTileToMap(); 
     }
@@ -118,6 +122,16 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
 
     public virtual void HandleEvent(Event e)
     {
+        foreach (ISubEntity s in SubEntities)
+        {
+            e = s.ModifyEvent(e);
+        }
+
+        foreach (ISubEntity s in SubEntities)
+        {
+            s.HandleEvent(e);
+        }
+
         switch (e.MyType)
         {
             case EventType.Fire:
