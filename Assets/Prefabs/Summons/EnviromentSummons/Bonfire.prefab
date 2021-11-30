@@ -41,6 +41,16 @@ PrefabInstance:
       propertyPath: summonName
       value: Bonfire
       objectReference: {fileID: 0}
+    - target: {fileID: 717923584823435164, guid: 54c9f9b8002a79c41aef855f85be16d5,
+        type: 3}
+      propertyPath: HealToFull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 717923584823435164, guid: 54c9f9b8002a79c41aef855f85be16d5,
+        type: 3}
+      propertyPath: SummonType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7598516715349161597, guid: 54c9f9b8002a79c41aef855f85be16d5,
         type: 3}
       propertyPath: PlayThumpOnce

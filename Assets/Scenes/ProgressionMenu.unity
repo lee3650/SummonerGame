@@ -12205,7 +12205,7 @@ MonoBehaviour:
     arrows will block out the sun"
   Prereq: {fileID: 559469054}
   XPReq: 64
-  Unlock: {fileID: 3884099513963472055, guid: a09b1b1045abe6a47879935ccf2e6346, type: 3}
+  Unlock: {fileID: 8375705344897930493, guid: 782246f2402565249955eb37b389f0fa, type: 3}
 --- !u!1 &1351464894
 GameObject:
   m_ObjectHideFlags: 0

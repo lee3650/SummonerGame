@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: -6223222422350412741}
   - component: {fileID: -429856057705913513}
   - component: {fileID: -2906422533994920365}
+  - component: {fileID: -831166794416990595}
   - component: {fileID: 6399818884436308931}
   - component: {fileID: -4570707260985756877}
   - component: {fileID: 4646887753959793306}
@@ -589,6 +590,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireSystem: {fileID: 0}
   sr: {fileID: 0}
+--- !u!114 &-831166794416990595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d09d1785410a0348bc684122ce96e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandleRecurringEvent: {fileID: 6399818884436308931}
 --- !u!114 &6399818884436308931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,7 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fa5591a912b51478fca659292a0034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIEntity: {fileID: 4648206095511936300}
   hm: {fileID: 0}
 --- !u!199 &-4570707260985756877
 ParticleSystemRenderer:

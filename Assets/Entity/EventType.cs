@@ -9,4 +9,6 @@ public enum EventType
     Physical,
     Fall, 
     Poison,
+    CritFire,
+    CritPoison,
 }

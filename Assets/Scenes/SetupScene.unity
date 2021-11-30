@@ -1148,54 +1148,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c9d4b7a5f377e9c4c87cf991a49fb7af, type: 3}
   - {fileID: 21300000, guid: 3f8dc2e008e7252478db6de197f0255a, type: 3}
   - {fileID: 21300000, guid: e698e30c730ce2942a30ab01eca3ef01, type: 3}
---- !u!1 &81363030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 81363031}
-  - component: {fileID: 81363032}
-  m_Layer: 0
-  m_Name: WizardUpgrade0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &81363031
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81363030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 752394673}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &81363032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81363030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 4738709006131037782, guid: f1c25635976a9bc458f36431123e03b9,
-    type: 3}
-  UpgradeCost: 15
-  summonType: 7
-  tier: 0
 --- !u!1 &81921773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,54 +1509,6 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 1622605394}
---- !u!1 &141503883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 141503884}
-  - component: {fileID: 141503885}
-  m_Layer: 0
-  m_Name: ArchersUpgrade0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &141503884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141503883}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 738891421}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &141503885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141503883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 8755474026892675143, guid: e68127a3b5523d845b3048f72b76ef97,
-    type: 3}
-  UpgradeCost: 8
-  summonType: 3
-  tier: 0
 --- !u!1 &159472077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,57 +1776,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177959148}
   m_CullTransparentMesh: 0
---- !u!1 &237911643
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 237911644}
-  - component: {fileID: 237911645}
-  m_Layer: 0
-  m_Name: BombardUpgradeTier0Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &237911644
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237911643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1885388613}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &237911645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237911643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 5
-  reusable: 0
-  description: Unlocked upgrade to bombard
-  followingRewards: []
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 1885388614}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &249737490
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,9 +3958,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1443258493}
-  - {fileID: 1320625725}
+  m_Children: []
   m_Father: {fileID: 10701942}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4581,7 +4432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelParent: {fileID: 384407083}
---- !u!1 &415620906
+--- !u!1 &390247743
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4589,46 +4440,98 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 415620907}
-  - component: {fileID: 415620908}
+  - component: {fileID: 390247744}
+  - component: {fileID: 390247745}
   m_Layer: 0
-  m_Name: MinerUpgrade1
+  m_Name: CharmOfSuffering
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &415620907
+--- !u!4 &390247744
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415620906}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 390247743}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 801525327}
-  m_RootOrder: 0
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &415620908
+--- !u!114 &390247745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415620906}
+  m_GameObject: {fileID: 390247743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSummon: {fileID: 4209696708590055538, guid: a392925be8149c44194d2c6e8e1d62d0,
-    type: 3}
-  UpgradeCost: 17.5
-  summonType: 4
-  tier: 1
+  quality: 3
+  reusable: 0
+  description: Melees poison enemies
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 2752152303800864254, guid: b842919b92d383c43a71445cc513ae43, type: 3}
+  PlayerInventory: {fileID: 333112613}
+--- !u!1 &402467083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402467084}
+  - component: {fileID: 402467085}
+  m_Layer: 0
+  m_Name: DivineVengeance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402467084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402467083}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &402467085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402467083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3.5
+  reusable: 0
+  description: Archers crit enemies that are on fire
+  followingRewards: []
+  UnlockedIndex: 1
+  MyCharm: {fileID: 543993329400653667, guid: e5aa680293d8ee44cbab8347b2fb2be0, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &418358728
 GameObject:
   m_ObjectHideFlags: 0
@@ -5028,6 +4931,106 @@ Transform:
   m_Father: {fileID: 1388708029}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &445683499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445683500}
+  - component: {fileID: 445683501}
+  m_Layer: 0
+  m_Name: CharmOfCombustion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445683500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445683499}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445683501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445683499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 2
+  reusable: 0
+  description: Ballistas crit enemies that are on fire
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 4452670908659965938, guid: 8d88a19b5d8c7ad4789262de17c6386c, type: 3}
+  PlayerInventory: {fileID: 333112613}
+--- !u!1 &448430887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448430888}
+  - component: {fileID: 448430889}
+  m_Layer: 0
+  m_Name: CharmOfCleansing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &448430888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448430887}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448430889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448430887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 2.5
+  reusable: 0
+  description: Ballistas crit enemies that are poisoned.
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 7971377209099756432, guid: cd8a8df9a9387fc4e8fec6fc9ae36706, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &452008620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,10 +5485,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 770666377}
+  - {fileID: 1369750227}
   - {fileID: 1100966064}
-  - {fileID: 587206241}
-  - {fileID: 1303712620}
-  - {fileID: 787163886}
+  - {fileID: 390247744}
+  - {fileID: 719923771}
+  - {fileID: 1530045836}
+  - {fileID: 1861515863}
+  - {fileID: 659997401}
+  - {fileID: 448430888}
+  - {fileID: 445683500}
+  - {fileID: 1688538297}
+  - {fileID: 1154887115}
   m_Father: {fileID: 10701942}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5519,18 +5529,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllRewards:
-  - {fileID: 830656281}
   - {fileID: 1925111384}
+  - {fileID: 1581065122}
   - {fileID: 770666378}
+  - {fileID: 1369750228}
   - {fileID: 1100966065}
+  - {fileID: 390247745}
+  - {fileID: 719923772}
+  - {fileID: 1530045837}
+  - {fileID: 1861515864}
+  - {fileID: 659997402}
+  - {fileID: 448430889}
+  - {fileID: 445683501}
+  - {fileID: 1688538298}
+  LevelEndRewardThreshold: 15
+  ExtraRewards:
+  - {fileID: 973310980}
   - {fileID: 587206242}
   - {fileID: 1303712621}
   - {fileID: 787163887}
-  - {fileID: 1989150297}
-  - {fileID: 738891422}
-  - {fileID: 1522356100}
-  LevelEndRewardThreshold: 5.5
-  ExtraRewards: []
+  - {fileID: 1728834018}
+  - {fileID: 1497181127}
+  - {fileID: 538060175}
+  - {fileID: 402467085}
 --- !u!4 &513537719
 Transform:
   m_ObjectHideFlags: 0
@@ -5873,6 +5894,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldPoint: {x: 0, y: 0}
   MainCamera: {fileID: 646977859}
+--- !u!1 &538060173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538060174}
+  - component: {fileID: 538060175}
+  m_Layer: 0
+  m_Name: CharmOfHellfire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538060174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538060173}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &538060175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538060173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 2
+  reusable: 0
+  description: Archers set enemies on fire
+  followingRewards: []
+  UnlockedIndex: 1
+  MyCharm: {fileID: 9125458475373157650, guid: 3eb48d7bedcb8be4eb8ad16132dbed5a, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &558451568
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,54 +6287,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570699593}
   m_CullTransparentMesh: 0
---- !u!1 &584755806
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 584755807}
-  - component: {fileID: 584755808}
-  m_Layer: 0
-  m_Name: WallGenUpgrade0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &584755807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584755806}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 830656280}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &584755808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584755806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 5507752754734101770, guid: 0a721ac28a4707343aac3d12756737ea,
-    type: 3}
-  UpgradeCost: 9
-  summonType: 6
-  tier: 0
 --- !u!1 &587206240
 GameObject:
   m_ObjectHideFlags: 0
@@ -6292,8 +6315,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 512440607}
-  m_RootOrder: 2
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &587206242
 MonoBehaviour:
@@ -6311,7 +6334,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Defense. Increases archer units armor.
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 1
   MyCharm: {fileID: 3221718363063802801, guid: 75e1d5fe30002d74f827433f0d8d08ed, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &598168296
@@ -7288,54 +7311,6 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
---- !u!1 &656620486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 656620487}
-  - component: {fileID: 656620488}
-  m_Layer: 0
-  m_Name: BarracksUpgrade1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &656620487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656620486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 715970728}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &656620488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656620486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 6994400134034709040, guid: 0d53373877b101941bc8e7df432e87c4,
-    type: 3}
-  UpgradeCost: 10
-  summonType: 5
-  tier: 1
 --- !u!1 &657935417
 GameObject:
   m_ObjectHideFlags: 0
@@ -7493,6 +7468,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657935417}
   m_CullTransparentMesh: 0
+--- !u!1 &659997400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659997401}
+  - component: {fileID: 659997402}
+  m_Layer: 0
+  m_Name: ArchangelCharm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &659997401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659997400}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659997402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659997400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 2
+  reusable: 0
+  description: Archangel Charm. Melees set enemies they hit on fire.
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 5051843325151536231, guid: f06b9376ba5c82b459a76b84e0db1f73, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &675283244
 GameObject:
   m_ObjectHideFlags: 0
@@ -7892,57 +7917,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &715970727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 715970728}
-  - component: {fileID: 715970729}
-  m_Layer: 0
-  m_Name: BarracksUpgradeTier1Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &715970728
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715970727}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 656620487}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &715970729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715970727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 3
-  reusable: 0
-  description: Unlocked upgrade to barracks - increases summon capacity by 1
-  followingRewards: []
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 656620488}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &718218233
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,6 +8066,56 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 1622605394}
+--- !u!1 &719923770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719923771}
+  - component: {fileID: 719923772}
+  m_Layer: 0
+  m_Name: Exorcist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719923771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719923770}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719923772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719923770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4.5
+  reusable: 0
+  description: Melees crit poisoned enemies.
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 7000603334208640464, guid: 6e778008c8c9f98419756b01480d4259, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &720223695
 GameObject:
   m_ObjectHideFlags: 0
@@ -8249,58 +8273,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723938987}
   m_CullTransparentMesh: 0
---- !u!1 &738891420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 738891421}
-  - component: {fileID: 738891422}
-  m_Layer: 0
-  m_Name: ArcherUpgradeTier0Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &738891421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738891420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 141503884}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &738891422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738891420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 4
-  reusable: 0
-  description: Unlocked upgrade to archers
-  followingRewards:
-  - {fileID: 1775540604}
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 141503885}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &739854942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8554,57 +8526,6 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 1622605394}
---- !u!1 &752394672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 752394673}
-  - component: {fileID: 752394674}
-  m_Layer: 0
-  m_Name: WizardUpgradeTier0Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &752394673
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752394672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 81363031}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &752394674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752394672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 2.5
-  reusable: 0
-  description: Unlocked upgrade to Mage Tower - powerful ray attack
-  followingRewards: []
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 81363032}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &765626021
 GameObject:
   m_ObjectHideFlags: 0
@@ -8883,8 +8804,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 512440607}
-  m_RootOrder: 4
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &787163887
 MonoBehaviour:
@@ -8902,7 +8823,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Magic Damage. Increases all magic units damage
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 7
   MyCharm: {fileID: -1595350434836025127, guid: 15ab8c63b500a2e42abb621fccec1823,
     type: 3}
   PlayerInventory: {fileID: 333112613}
@@ -8968,57 +8889,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 23838112c3fdcfb4196226c7e1e866da, type: 3}
   - {fileID: 21300000, guid: 4d314e8e5678e894b9e19766dba2d2ff, type: 3}
   - {fileID: 21300000, guid: ec12f23d8b3b12a4aa7e9f74418ff4cf, type: 3}
---- !u!1 &801525326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 801525327}
-  - component: {fileID: 801525328}
-  m_Layer: 0
-  m_Name: MinerUpgradeTier1Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &801525327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801525326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 415620907}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &801525328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801525326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 1.5
-  reusable: 0
-  description: Unlocked upgrade to miner - +33% money per wave and more health
-  followingRewards: []
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 415620908}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &804466787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9114,58 +8984,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncomePerWave: 0
   PlayerSummoner: {fileID: 333112619}
---- !u!1 &830656279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 830656280}
-  - component: {fileID: 830656281}
-  m_Layer: 0
-  m_Name: WallGeneratorUpgradeTier0Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &830656280
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830656279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 584755807}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &830656281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830656279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 4
-  reusable: 0
-  description: 'Upgrade to wall generator: stronger walls'
-  followingRewards:
-  - {fileID: 1317403867}
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 584755808}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &847125555
 GameObject:
   m_ObjectHideFlags: 0
@@ -9960,54 +9778,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949533618}
   m_CullTransparentMesh: 0
---- !u!1 &951480103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 951480104}
-  - component: {fileID: 951480105}
-  m_Layer: 0
-  m_Name: BarracksUpgrade0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &951480104
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951480103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1989150296}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &951480105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951480103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 1775777384710499795, guid: 4f7642a5dcc26bd418b3c20b6dea335f,
-    type: 3}
-  UpgradeCost: 7
-  summonType: 5
-  tier: 0
 --- !u!1 &954296777
 GameObject:
   m_ObjectHideFlags: 0
@@ -10058,6 +9828,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 616236980}
   PlayerMana: {fileID: 333112618}
+--- !u!1 &973310978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973310979}
+  - component: {fileID: 973310980}
+  m_Layer: 0
+  m_Name: AssassinCharm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &973310979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973310978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973310980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973310978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 2
+  reusable: 0
+  description: Archers poison enemies
+  followingRewards: []
+  UnlockedIndex: 1
+  MyCharm: {fileID: 5187184482957404608, guid: 68bde95b7688ba54a85ecf600686d213, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &974460880
 GameObject:
   m_ObjectHideFlags: 0
@@ -11036,12 +10856,12 @@ MonoBehaviour:
   Prices:
   - minPrice: 0.05
     maxPrice: 0.55
-    Increment: 0.1
+    Increment: 0.25
     startPrice: 0
     Type: 0
   - minPrice: 0.05
     maxPrice: 0.55
-    Increment: 0.1
+    Increment: 0.25
     startPrice: 0
     Type: 1
   - minPrice: 0.5
@@ -11061,12 +10881,12 @@ MonoBehaviour:
     Type: 4
   - minPrice: 0.5
     maxPrice: 2
-    Increment: 0.2
+    Increment: 0.35
     startPrice: 0
     Type: 5
   - minPrice: 0.25
     maxPrice: 1.25
-    Increment: 0.2
+    Increment: 0.3
     startPrice: 0
     Type: 6
   - minPrice: 1
@@ -11091,7 +10911,7 @@ MonoBehaviour:
     Type: 10
   - minPrice: 1
     maxPrice: 8
-    Increment: 1
+    Increment: 1.5
     startPrice: 0
     Type: 11
 --- !u!4 &1071082197
@@ -11322,7 +11142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 512440607}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1100966065
 MonoBehaviour:
@@ -11532,6 +11352,44 @@ MonoBehaviour:
   LevelEndsRewardChance: 98
   CurrentLevelManager: {fileID: 249737491}
   RewardPanel: {fileID: 35126506}
+--- !u!1 &1154887114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154887115}
+  m_Layer: 0
+  m_Name: ConditionalCharms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154887115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154887114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 973310979}
+  - {fileID: 587206241}
+  - {fileID: 1303712620}
+  - {fileID: 787163886}
+  - {fileID: 1728834017}
+  - {fileID: 1497181126}
+  - {fileID: 538060174}
+  - {fileID: 402467084}
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172749640
 GameObject:
   m_ObjectHideFlags: 0
@@ -11670,17 +11528,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1989150296}
-  - {fileID: 715970728}
-  - {fileID: 738891421}
-  - {fileID: 1775540603}
-  - {fileID: 1522356099}
-  - {fileID: 801525327}
-  - {fileID: 830656280}
-  - {fileID: 1317403866}
-  - {fileID: 752394673}
-  - {fileID: 237911644}
+  m_Children: []
   m_Father: {fileID: 10701942}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12942,8 +12790,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 512440607}
-  m_RootOrder: 3
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1303712621
 MonoBehaviour:
@@ -12961,7 +12809,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Damage. Increases archer units damage.
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 1
   MyCharm: {fileID: 1183936544931740549, guid: 812eea273078068489295604211edfe5, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1304991315
@@ -13265,108 +13113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!1 &1317403865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1317403866}
-  - component: {fileID: 1317403867}
-  m_Layer: 0
-  m_Name: WallGeneratorUpgradeTier1Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1317403866
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317403865}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1975842662}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1317403867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317403865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 3
-  reusable: 0
-  description: Unlocked upgrade to miner + 25% money per wave
-  followingRewards: []
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 1975842663}
-  UnlockedUpgradeManager: {fileID: 85803274}
---- !u!1 &1320625724
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1320625725}
-  - component: {fileID: 1320625726}
-  m_Layer: 0
-  m_Name: SummonBombardReward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1320625725
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320625724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 353489393}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1320625726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320625724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ab3c7b096c5433469fe3547536352ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 5
-  reusable: 0
-  description: Staff of bombard summon
-  followingRewards:
-  - {fileID: 237911645}
-  UnlockedIndex: 0
-  PlayerInventory: {fileID: 333112613}
-  Item: {fileID: 6604838406851077853, guid: b94f9188d20504f43b9e3af17e90a58c, type: 3}
 --- !u!1 &1322694780
 GameObject:
   m_ObjectHideFlags: 0
@@ -14153,6 +13899,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameTime: 0.083333336
   TargetImage: {fileID: 2139049541}
+--- !u!1 &1369750226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369750227}
+  - component: {fileID: 1369750228}
+  m_Layer: 0
+  m_Name: Charm of Agility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369750227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369750226}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369750228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369750226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3.5
+  reusable: 0
+  description: Charm of Agility. Melee units gain a chance to dodge attacks.
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 273312711489708807, guid: dc84462e861797b4387fc3b84412a899, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &1371630179
 GameObject:
   m_ObjectHideFlags: 0
@@ -15365,58 +15161,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1443258492
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1443258493}
-  - component: {fileID: 1443258494}
-  m_Layer: 0
-  m_Name: SummonMageReward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1443258493
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443258492}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 353489393}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1443258494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443258492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ab3c7b096c5433469fe3547536352ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 4.5
-  reusable: 0
-  description: Staff of mage summon
-  followingRewards:
-  - {fileID: 752394674}
-  - {fileID: 787163887}
-  UnlockedIndex: 0
-  PlayerInventory: {fileID: 333112613}
-  Item: {fileID: 5348343722147611506, guid: 361c39c3c9e88b647b9978acca48fbcf, type: 3}
 --- !u!1 &1445056092
 GameObject:
   m_ObjectHideFlags: 0
@@ -16020,6 +15764,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479253178}
   m_CullTransparentMesh: 0
+--- !u!1 &1497181125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497181126}
+  - component: {fileID: 1497181127}
+  m_Layer: 0
+  m_Name: Bloodhound Charm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1497181126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497181125}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497181127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497181125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 3.5
+  reusable: 0
+  description: Archers crit enemies that are poisoned.
+  followingRewards: []
+  UnlockedIndex: 1
+  MyCharm: {fileID: 6740333486965349736, guid: 6158611b077bc0440bbc99be4863417a, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &1498837300
 GameObject:
   m_ObjectHideFlags: 0
@@ -16077,58 +15871,6 @@ Transform:
   m_Father: {fileID: 1031502134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1522356098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1522356099}
-  - component: {fileID: 1522356100}
-  m_Layer: 0
-  m_Name: MinerUpgradeTier0Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1522356099
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522356098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1867223820}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1522356100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522356098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 2.5
-  reusable: 0
-  description: Unlocked upgrade to miner + 25% money per wave
-  followingRewards:
-  - {fileID: 801525328}
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 1867223821}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1523646640
 GameObject:
   m_ObjectHideFlags: 0
@@ -16175,6 +15917,56 @@ MonoBehaviour:
   MapDrawer: {fileID: 250621016}
   buffer: 10
   Blacklist: 0400000016000000170000001500000018000000
+--- !u!1 &1530045835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530045836}
+  - component: {fileID: 1530045837}
+  m_Layer: 0
+  m_Name: ApothecaristCharm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1530045836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530045835}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1530045837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530045835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 1
+  reusable: 0
+  description: Apothecarist Charm. Ballistas now poison enemies.
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 8364934115897622267, guid: 5c2ce396105071d409ed160bc26cd7de, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &1539293379
 GameObject:
   m_ObjectHideFlags: 0
@@ -18082,54 +17874,6 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 1622605394}
---- !u!1 &1669743302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1669743303}
-  - component: {fileID: 1669743304}
-  m_Layer: 0
-  m_Name: ArchersUpgrade1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1669743303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669743302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1775540603}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1669743304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669743302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 3539984282568144646, guid: 2357f67e91b86c242af2c183bcd61c67,
-    type: 3}
-  UpgradeCost: 10
-  summonType: 3
-  tier: 1
 --- !u!1 &1675917742
 GameObject:
   m_ObjectHideFlags: 0
@@ -18405,6 +18149,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688350615}
   m_CullTransparentMesh: 0
+--- !u!1 &1688538296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688538297}
+  - component: {fileID: 1688538298}
+  m_Layer: 0
+  m_Name: Pyromaniac
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688538297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688538296}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688538298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688538296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 0.5
+  reusable: 0
+  description: Ballistas set enemies on fire
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 7006286938941033967, guid: f1c4d2403e83eed4eb6a9a47c0bb5d23, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &1698700708
 GameObject:
   m_ObjectHideFlags: 0
@@ -19005,6 +18799,56 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0537bc9b49357b44781febd800408167, type: 3}
   - {fileID: 21300000, guid: a7eca91a21e24b64e9b1fc01ee2516f3, type: 3}
   - {fileID: 21300000, guid: 519e2c4af5745f44fad5a14471edc968, type: 3}
+--- !u!1 &1728834016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1728834017}
+  - component: {fileID: 1728834018}
+  m_Layer: 0
+  m_Name: SunGod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1728834017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728834016}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154887115}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1728834018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728834016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 0.25
+  reusable: 0
+  description: Charm of the Sun God. Mages set enemies on fire
+  followingRewards: []
+  UnlockedIndex: 7
+  MyCharm: {fileID: 3286637919085030829, guid: 0c694b1afd6e04a46bd250f370b28613, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &1738205689
 GameObject:
   m_ObjectHideFlags: 0
@@ -19498,57 +19342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapDrawer: {fileID: 250621016}
---- !u!1 &1775540602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1775540603}
-  - component: {fileID: 1775540604}
-  m_Layer: 0
-  m_Name: ArcherUpgradeTier1Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1775540603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775540602}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1669743303}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1775540604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775540602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 3
-  reusable: 0
-  description: Unlocked tier 2 upgrade to archers
-  followingRewards: []
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 1669743304}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &1802572620
 GameObject:
   m_ObjectHideFlags: 0
@@ -19972,6 +19765,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hotbar: {fileID: 1680095495}
   AnimateInAndOut: {fileID: 1852767915}
+--- !u!1 &1861515862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861515863}
+  - component: {fileID: 1861515864}
+  m_Layer: 0
+  m_Name: GangreneCharm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1861515863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512440607}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861515864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5a1d28a384464796fba231e5728b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quality: 4
+  reusable: 0
+  description: Charm of Gangrene. Melee units crit poisoned enemies.
+  followingRewards: []
+  UnlockedIndex: 0
+  MyCharm: {fileID: 5460030379675950120, guid: 082e2d94e86d2a84bbf8ab3d26248ac0, type: 3}
+  PlayerInventory: {fileID: 333112613}
 --- !u!1 &1865249429
 GameObject:
   m_ObjectHideFlags: 0
@@ -20050,54 +19893,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!1 &1867223819
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1867223820}
-  - component: {fileID: 1867223821}
-  m_Layer: 0
-  m_Name: MinerUpgrade0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1867223820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867223819}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1522356099}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1867223821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867223819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 4373412279247627261, guid: c901d36192ff38a409160167928ed170,
-    type: 3}
-  UpgradeCost: 15
-  summonType: 4
-  tier: 0
 --- !u!1 &1880567739
 GameObject:
   m_ObjectHideFlags: 0
@@ -20174,54 +19969,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880567739}
   m_CullTransparentMesh: 0
---- !u!1 &1885388612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1885388613}
-  - component: {fileID: 1885388614}
-  m_Layer: 0
-  m_Name: BombardUpgrade0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1885388613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885388612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 237911644}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1885388614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885388612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 1858803467095619594, guid: 6240cf2d02deca342bc2e21aa4cc414e,
-    type: 3}
-  UpgradeCost: 15
-  summonType: 8
-  tier: 0
 --- !u!1 &1897247523
 GameObject:
   m_ObjectHideFlags: 0
@@ -20635,8 +20382,8 @@ MonoBehaviour:
   followingRewards: []
   UnlockedIndex: 0
   PlayerManaManager: {fileID: 333112618}
-  min: 10
-  max: 20
+  min: 8
+  max: 18
 --- !u!1 &1931211841
 GameObject:
   m_ObjectHideFlags: 0
@@ -21031,54 +20778,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969957363}
   m_CullTransparentMesh: 0
---- !u!1 &1975842661
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1975842662}
-  - component: {fileID: 1975842663}
-  m_Layer: 0
-  m_Name: WallGenUpgrade1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1975842662
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975842661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1317403866}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1975842663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975842661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSummon: {fileID: 8485753192745286385, guid: c02295627f9ae264ca56cd4d864242d9,
-    type: 3}
-  UpgradeCost: 10
-  summonType: 6
-  tier: 1
 --- !u!1 &1976621160
 GameObject:
   m_ObjectHideFlags: 0
@@ -21168,58 +20867,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1989150295
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1989150296}
-  - component: {fileID: 1989150297}
-  m_Layer: 0
-  m_Name: BarracksUpgradeTier0Reward
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1989150296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989150295}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 951480104}
-  m_Father: {fileID: 1181608945}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1989150297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989150295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25f2f97f82c8a42856214fecd2cd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quality: 4
-  reusable: 0
-  description: Unlocked upgrade to barracks
-  followingRewards:
-  - {fileID: 715970729}
-  UnlockedIndex: 0
-  UnlockedUpgrade: {fileID: 951480105}
-  UnlockedUpgradeManager: {fileID: 85803274}
 --- !u!1 &2000764577
 GameObject:
   m_ObjectHideFlags: 0
