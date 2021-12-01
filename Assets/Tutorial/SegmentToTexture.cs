@@ -6,6 +6,6 @@ using System;
 [Serializable] 
 public class SegmentToImageSequence
 {
-    [SerializeField] public Vector2Int SecAndSeg;
+    [SerializeField] public string label;
     [SerializeField] public ImageSequence Gif;
 }

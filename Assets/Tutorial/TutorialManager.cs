@@ -49,7 +49,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             string fileContents = File.ReadAllText(MainMenuScript.appendPath + tutorialFileName);
             tutorialText = ParseFileContents(fileContents);
             NextLevelEvent.OnNextLevel += OnNextLevel;
-            SectionAndSegment = new Vector2Int();
+            SectionAndSegment = new Vector2Int(0, 1);
             Summoner.SummonsChanged += SummonsChanged;
             IncomeTooltip.MousedOver += MousedOver;
             BlueprintManager.BlueprintsChanged += BlueprintsChanged;
@@ -61,17 +61,12 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     public void OnWaveEnds()
     {
-        //okay well here's one way to do this: we define constant strings (that function as labels - or... we could parse labels). 
-        //Then we put them in order in an array/list. Then we call index of for that variable name? We'd have to duplicate the labels if we parsed them
-        //but we wouldn't have to update anything else... hm. 
-        //Well, okay... if we add more mechanics we may need to do like, a second tutorial or something as well, right? 
-        
-        if (SectionAndSegment.x == 9)
+        if (sectionName == "capacity")
         {
             IncrementSection();
             GivePlayerItem(TrapGenerator);
         }
-        else if (SectionAndSegment.x == 13)
+        else if (sectionName == "level")
         {
             if (CurrentLevelManager.OnLastWave())
             {
@@ -83,7 +78,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     private void MousedOver()
     {
-        if (SectionAndSegment.x == 4)
+        if (sectionName == "income")
         {
             IncrementSection();
             GivePlayerItem(barracksPrefab);
@@ -93,17 +88,14 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     private void SummonsChanged()
     {
         print("Summons changed!");
-        //so, this is unfortunate because there has to be duplication between this and the actual tutorial text
-        //and also this is a really disgusting way to do this - I honestly don't see a better way though. 
-        //maybe each section could expose it's... own tutorial text somehow? 
-        //this is why next time I'm going to do it all at the same time. 
+        print("section name: " + sectionName);
 
-        if (SectionAndSegment.x == 1)
+        if (sectionName == "home tile")
         {
             IncrementSection();
         }
 
-        else if (SectionAndSegment.x == 2)
+        else if (sectionName == "mason")
         {
             //so, this is the mason part. 
             if (BuiltGeqSummons(SummonType.WallGenerator, 1))
@@ -114,14 +106,15 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 GivePlayerItem(wallBlueprintPrefab);
             }
         }
-        else if (SectionAndSegment.x == 3)
+
+        else if (sectionName == "walls")
         {
             if (BuiltGeqSummons(SummonType.Wall, 3))
             {
                 IncrementSection();
             }
         }
-        else if (SectionAndSegment.x == 5)
+        else if (sectionName == "barracks")
         {
             if (BuiltGeqSummons(SummonType.Barracks, 1))
             {
@@ -129,22 +122,22 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 GivePlayerItem(MeleeBlueprint);
             }
         }
-        else if (SectionAndSegment.x == 7)
+        else if (sectionName == "gates")
         {
             if (BuiltGeqSummons(SummonType.Gate, 1))
             {
                 IncrementSection();
             }
         }
-        else if (SectionAndSegment.x == 8)
+        else if (sectionName == "fix troops")
         {
-            if (BuiltGeqSummons(SummonType.MeleeEntity, 4))
+            if (BuiltGeqSummons(SummonType.MeleeEntity, 3))
             {
                 NextWaveButton.SetActive(true);
                 IncrementSection();
             }
         }
-        else if (SectionAndSegment.x == 10)
+        else if (sectionName == "armory")
         {
             if (BuiltGeqSummons(SummonType.TrapGenerator, 1))
             {
@@ -152,17 +145,14 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 GivePlayerItem(ArrowTrap);
             }
         }
-        else if (SectionAndSegment.x == 11)
+        else if (sectionName == "ballista")
         {
-            if (BuiltGeqSummons(SummonType.ArrowTrap, 2))
+            if (BuiltGeqSummons(SummonType.ArrowTrap, 1))
             {
                 IncrementSection();
-                GivePlayerItem(Miner);
-                PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
-                MinerCostDisplay.SetActive(true);
             }
         }
-        else if (SectionAndSegment.x == 12)
+        else if (sectionName == "miner")
         {
             if (BuiltGeqSummons(SummonType.Miner, 2))
             {
@@ -172,13 +162,31 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                 IncrementSection();
             }
         }
+        else if (sectionName == "teardown gate")
+        {
+            if (BuiltEqSummons(SummonType.Gate, 0))
+            {
+                IncrementSection();
+            }
+        }
+
+        else if (sectionName == "teardown melee")
+        {
+            if (BuiltGeqSummons(SummonType.MeleeEntity, 3))
+            {
+                IncrementSection();
+                GivePlayerItem(Miner);
+                PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
+                MinerCostDisplay.SetActive(true);
+            }
+        }
     }
 
     private void BlueprintsChanged()
     {
-        if (SectionAndSegment.x == 6)
+        if (sectionName == "troops")
         {
-            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }, false).Count >= 4)
+            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }, false).Count >= 3)
             {
                 IncrementSection();
                 GivePlayerItem(GatePrefab);
@@ -193,7 +201,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     private void IncrementSection()
     {
-        SectionAndSegment = new Vector2Int(SectionAndSegment.x + 1, 0);
+        SectionAndSegment = new Vector2Int(SectionAndSegment.x + 1, 1);
     }
 
     private void OnNextLevel()
@@ -203,9 +211,9 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         if (levelCounter == 1)
         {
             NextWaveButton.SetActive(false);
-            SectionAndSegment = new Vector2Int(1, 0);
+            SectionAndSegment = new Vector2Int(1, 1);
             GivePlayerItem(WallGenerator);
-        } 
+        }
     }
 
     private void EndTutorial()
@@ -223,7 +231,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             {
                 changeText = false;
                 ShowTutorialText(SectionAndSegment);
-                ImageSequence gif = GetGifFromSection(SectionAndSegment, GetMaxSegment(SectionAndSegment.x));
+                ImageSequence gif = GetGifFromSection(GetMaxSegment(SectionAndSegment.x));
                 if (gif != null)
                 {
                     GifDisplayer.PlayGif(gif);
@@ -238,16 +246,24 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         }
     }
 
+    private string sectionName
+    {
+        get
+        {
+            return tutorialText[SectionAndSegment.x][0].Trim();
+        }
+    }
+
     private int GetMaxSegment(int section)
     {
         return tutorialText[section].Length - 1;
     }
 
-    private ImageSequence GetGifFromSection(Vector2Int sectionAndSegment, int maxSegment)
+    private ImageSequence GetGifFromSection(int maxSegment)
     {
         foreach (SegmentToImageSequence seg in Gifs)
         {
-            if (seg.SecAndSeg == sectionAndSegment || (seg.SecAndSeg.y == -1 && sectionAndSegment.y == maxSegment && seg.SecAndSeg.x == sectionAndSegment.x)) //eventually we'll want to compare the label
+            if ((sectionAndSegment.y == maxSegment && seg.label == sectionName)) //eventually we'll want to compare the label
             {
                 return seg.Gif;
             }
@@ -278,9 +294,9 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     private Vector2Int decrementSegment(Vector2Int start)
     {
         start -= new Vector2Int(0, 1);
-        if (start.y < 0)
+        if (start.y < 1)
         {
-            start = new Vector2Int(start.x, 0);
+            start = new Vector2Int(start.x, 1);
         }
         return start;
     }
@@ -299,7 +315,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     private string GetCompletionText(Vector2Int secAndSeg)
     {
-        return string.Format("({0}/{1})", secAndSeg.y + 1, GetMaxSegment(secAndSeg.x) + 1);
+        return string.Format("({0}/{1})", secAndSeg.y, GetMaxSegment(secAndSeg.x));
     }
 
     private string[][] ParseFileContents(string text)
@@ -318,18 +334,29 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     private bool BuiltGeqSummons(SummonType type, int num)
     {
+        int total = GetNumberOfSummons(type);
+        return total >= num;
+    }
+
+    private int GetNumberOfSummons(SummonType type)
+    {
+        int num = 0;
+
         foreach (Summon s in Summoner.GetSummons())
         {
             if (s.GetSummonType() == type)
             {
-                num--;
-                if (num <= 0)
-                {
-                    return true;
-                }
+                num++;
             }
         }
-        return false; 
+
+        return num;
+    }
+
+    private bool BuiltEqSummons(SummonType type, int num)
+    {
+        int total = GetNumberOfSummons(type);
+        return total == num;
     }
 
     private Vector2Int SectionAndSegment
