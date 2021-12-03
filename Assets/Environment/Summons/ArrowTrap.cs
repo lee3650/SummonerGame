@@ -48,11 +48,6 @@ public class ArrowTrap : PlayerWall, IDamager, IWielder
         Animator.IdleDirection(zRot);
     }
 
-    public Transform GetTransform()
-    {
-        return transform;
-    }
-
     public void OnHit(IEntity hit)
     {
 

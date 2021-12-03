@@ -120,6 +120,11 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         gameObject.SetActive(false);
     }
 
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
     public virtual void HandleEvent(Event e)
     {
         foreach (ISubEntity s in SubEntities)

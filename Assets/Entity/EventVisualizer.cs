@@ -25,6 +25,11 @@ public class EventVisualizer : MonoBehaviour, ISubEntity
 
     public void HandleEvent(Event e)
     {
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
+
         if (e.MyType == EventType.Fire)
         {
             StartCoroutine(EnableFireParticles());

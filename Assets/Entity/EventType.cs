@@ -11,4 +11,6 @@ public enum EventType
     Poison,
     CritFire,
     CritPoison,
+    Heal, 
+    DrainBlood,
 }

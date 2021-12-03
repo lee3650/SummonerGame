@@ -82,10 +82,15 @@ PrefabInstance:
       propertyPath: Occurences
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8775604864804320807, guid: a6d5428c89d2e6945b95ec06890747ab,
+        type: 3}
+      propertyPath: Recurrences
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9152717928565083761, guid: a6d5428c89d2e6945b95ec06890747ab,
         type: 3}
       propertyPath: AttackLength
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9194925930672925244, guid: a6d5428c89d2e6945b95ec06890747ab,
         type: 3}

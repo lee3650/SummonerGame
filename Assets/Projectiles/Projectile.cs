@@ -26,6 +26,11 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
         MovementController.SetVelocity(transform.up, Velocity);
     }
 
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
     public void HandleEvent(Event e)
     {
         

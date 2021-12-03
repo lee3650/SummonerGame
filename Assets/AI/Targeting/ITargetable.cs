@@ -12,6 +12,8 @@ public interface ITargetable : IEntity
 
     bool CanBeTargeted();
 
+    Transform GetTransform();
+
     bool IsDamaged();
 
     bool RequireLineOfSight();

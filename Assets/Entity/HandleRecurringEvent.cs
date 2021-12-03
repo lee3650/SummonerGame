@@ -93,7 +93,17 @@ public class HandleRecurringEvent : MonoBehaviour, ISubEntity
 
     public bool EventRecurs(EventType t)
     {
+        print("Checking if event type " + t + " recurs: ");
+
         Event e = GetEvent(t);
+        if (e == null)
+        {
+            print("e was null!");
+        } else
+        {
+            print("Got event: " + e.MyType + ", recurrences: " + e.Recurrences);
+        }
+
         if (e != null && e.Recurrences > 0)
         {
             return true;

@@ -15,6 +15,11 @@ public class ArcherCover : MonoBehaviour, IEntity
         MaxHealth = Health; 
     }
 
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
     public void HandleEvent(Event e)
     {
         switch (e.MyType)

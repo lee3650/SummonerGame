@@ -15,9 +15,11 @@ public class CharmOfAgility : Charm
         {
             case EventType.Physical:
             case EventType.Magic:
+            case EventType.Fire:
                 if (Random.Range(0, 100) < 25)
                 {
-                    return new Event(e.MyType, 0f, e.Sender);
+                    //technically, show dodge here
+                    return new Event(EventType.Physical, 0f, e.Sender);
                 }
                 break;
         }

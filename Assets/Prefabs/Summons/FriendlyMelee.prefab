@@ -145,6 +145,8 @@ MonoBehaviour:
   EventType: 2
   WielderObject: {fileID: 9194925930672925386}
   AttackStartToDamageDelay: 0
+  Recurrences: 0
+  Spreads: 0
 --- !u!1 &9194925930672925386
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +190,10 @@ GameObject:
   - component: {fileID: 3857370792946808638}
   - component: {fileID: 2721593331261688965}
   - component: {fileID: 283922563438389414}
+  - component: {fileID: 8591199542817165521}
+  - component: {fileID: 2607365241269995001}
+  - component: {fileID: -6416741100109997043}
+  - component: {fileID: -1871567859809453641}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -5526,3 +5532,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireSystem: {fileID: 3857370792946808638}
   sr: {fileID: 9194925930672925244}
+--- !u!114 &8591199542817165521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23082232518a57d46bc5abb48aa7e22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetedBy: 1
+--- !u!114 &2607365241269995001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fa5591a912b51478fca659292a0034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hm: {fileID: 9194925930672925243}
+--- !u!114 &-6416741100109997043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943aa0e6f8dd42e4888086d460da22ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 9194925930672925243}
+--- !u!114 &-1871567859809453641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d09d1785410a0348bc684122ce96e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandleRecurringEvent: {fileID: 2607365241269995001}

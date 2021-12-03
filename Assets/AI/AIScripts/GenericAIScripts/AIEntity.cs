@@ -127,7 +127,17 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
                 {
                     StateController.TransitionToState(AIFallState);
                 }
-                break; 
+                break;
+            case EventType.Heal:
+                HealthManager.Heal(e.Magnitude);
+                break;
+            case EventType.DrainBlood:
+                if (e.Sender != null)
+                {
+                    e.Sender.HandleEvent(new Event(EventType.Heal, e.Magnitude, e.Sender)); //this? 
+                }
+                HealthManager.SubtractHealth(e.Magnitude);
+                break;
         }
     }
     

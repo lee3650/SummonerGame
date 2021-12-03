@@ -10,7 +10,7 @@ public class ApplyCoatingSelf : MonoBehaviour
     {
         if (StandingOnSand())
         {
-            CoatingManager.SetCoating(Coating.GetCoating(CoatingType.Water, 1f));
+            CoatingManager.SetCoating(Coating.GetCoating(CoatingType.Water, 0.2f));
         }
     }
 

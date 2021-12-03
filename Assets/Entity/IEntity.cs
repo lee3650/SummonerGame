@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IEntity
 {
     void HandleEvent(Event e);
+
+    Transform GetTransform();
 }

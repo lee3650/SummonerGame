@@ -47,6 +47,11 @@ public class RewardViewModel : MonoBehaviour, IWaveNotifier
 
     bool ShouldShowReward()
     {
+        if (MainMenuScript.TutorialMode)
+        {
+            return false;
+        }
+
         if (Random.Range(0, 100f) < curChance)
         {
             return true; 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpreadEvents : MonoBehaviour, ISubEntity
 {
-    [SerializeField] Factions TargetFaction;
+    [SerializeField] Factions TargetedBy;
     const float SpreadRange = 2f;
 
     public Event ModifyEvent(Event e)
@@ -17,23 +17,45 @@ public class SpreadEvents : MonoBehaviour, ISubEntity
         if (e.Spreads <= 0)
         {
             return;
-        } 
+        }
 
-        List<ILivingEntity> targets = TargetableEntitiesManager.GetTargets(TargetFaction, 0); //I guess zero is the minimum? 
+        print("trying to spread " + e.MyType);
 
-        foreach (ILivingEntity t in targets)
+        List<ITargetable> targets = FlammableManager.GetFlammablesInRange(transform.position, SpreadRange, TargetedBy);
+
+        print("Targets: " + targets.Count);
+
+        foreach (ITargetable t in targets)
         {
-            HandleRecurringEvent recur = t.GetTransform().GetComponent<HandleRecurringEvent>();
-            if (recur != null)
+            if (e.Spreads <= 0)
             {
-                if (t != GetComponent<ILivingEntity>() && !recur.EventRecurs(e.MyType) && Vector2.Distance(t.GetPosition(), transform.position) < SpreadRange)
+                print("no spreads left!");
+                return;
+            }
+
+            if (t != GetComponent<ITargetable>())
+            {
+                HandleRecurringEvent recur = t.GetTransform().GetComponent<HandleRecurringEvent>();
+
+                bool apply = false;
+                
+                if (recur != null)
                 {
-                    e.Spreads--;
-                    t.HandleEvent(e);
-                    if (e.Spreads <= 0)
+                    if (!recur.EventRecurs(e.MyType))
                     {
-                        return;
+                        apply = true;
                     }
+                } else
+                {
+                    apply = true;
+                }
+
+                if (apply)
+                {
+                    print("apply event to " + e);
+
+                    e.Spreads--;
+                    t.HandleEvent(Event.CopyEvent(e));
                 }
             }
         }

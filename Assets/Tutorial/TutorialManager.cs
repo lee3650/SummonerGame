@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour, IWaveNotifier
@@ -30,7 +31,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] GameObject MinerCostDisplay;
     [SerializeField] GameObject EndPanel;
     [SerializeField] GameEndPanel GameEndPanel;
-    [SerializeField] GameObject NextWaveButton;
+    [SerializeField] Button NextWaveButton;
 
     const string tutorialFileName = "ttl";
 
@@ -93,6 +94,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         if (sectionName == "home tile")
         {
             IncrementSection();
+            NextWaveButton.interactable = false;
         }
 
         else if (sectionName == "mason")
@@ -133,7 +135,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         {
             if (BuiltGeqSummons(SummonType.MeleeEntity, 3))
             {
-                NextWaveButton.SetActive(true);
+                NextWaveButton.interactable = true;
                 IncrementSection();
             }
         }
@@ -186,7 +188,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     {
         if (sectionName == "troops")
         {
-            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }, false).Count >= 3)
+            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }, false).Count >= 4)
             {
                 IncrementSection();
                 GivePlayerItem(GatePrefab);
@@ -210,7 +212,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         levelCounter++;
         if (levelCounter == 1)
         {
-            NextWaveButton.SetActive(false);
+            NextWaveButton.interactable = false;
             SectionAndSegment = new Vector2Int(1, 1);
             GivePlayerItem(WallGenerator);
         }
