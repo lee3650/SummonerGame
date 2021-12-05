@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharmOfAgility : Charm
 {
+    [SerializeField] int DodgeProbability = 25;
+
     public override Event GetAttackModifier(IEntity sender)
     {
         return new Event(EventType.Physical, 0f, sender);
@@ -16,10 +18,9 @@ public class CharmOfAgility : Charm
             case EventType.Physical:
             case EventType.Magic:
             case EventType.Fire:
-                if (Random.Range(0, 100) < 25)
+                if (Random.Range(0, 100) < DodgeProbability)
                 {
-                    //technically, show dodge here
-                    return new Event(EventType.Physical, 0f, e.Sender);
+                    return new Event(EventType.Dodge, 1f, e.Sender);
                 }
                 break;
         }

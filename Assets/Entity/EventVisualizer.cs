@@ -30,6 +30,11 @@ public class EventVisualizer : MonoBehaviour, ISubEntity
             return;
         }
 
+        if (e.MyType == EventType.Dodge)
+        {
+            CritGraphicPool.ShowDodge((Vector2)transform.position + new Vector2(0, 1));
+        }
+
         if (e.MyType == EventType.Fire)
         {
             StartCoroutine(EnableFireParticles());

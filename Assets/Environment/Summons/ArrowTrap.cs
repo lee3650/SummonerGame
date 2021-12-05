@@ -5,10 +5,10 @@ using UnityEngine;
 public class ArrowTrap : PlayerWall, IDamager, IWielder
 {
     [SerializeField] Projectile Projectile;
-    [SerializeField] Transform SpawnPos; 
-    [SerializeField] float AttackLength;
+    [SerializeField] protected Transform SpawnPos; 
+    [SerializeField] protected float AttackLength;
     [SerializeField] float projDir;
-    [SerializeField] DirectionalAnimator Animator;
+    [SerializeField] protected DirectionalAnimator Animator;
     [SerializeField] float animationDelayTime = 0.15f;
     float timer = 0f;
 

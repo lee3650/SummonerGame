@@ -55,10 +55,10 @@ public class CurrentLevelManager : MonoBehaviour
         LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
 
         HeadNode = new StageNode(new Vector2(1, 0), HeadNode);
-        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
+        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.zero);
 
         HeadNode = new StageNode(new Vector2(2, 0), HeadNode);
-        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
+        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.left);
 
         LevelGenerator.RecalculateSpawnRegion(FindEndNodes(RootNode));
 

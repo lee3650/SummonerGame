@@ -13,4 +13,5 @@ public enum EventType
     CritPoison,
     Heal, 
     DrainBlood,
+    Dodge, 
 }

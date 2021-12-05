@@ -45,6 +45,8 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     {
         //so, if it's an entity, we apply event
         //no matter what, we parent if StickToTarget is true. 
+        print("hit!");
+
         if (alreadyHit)
         {
             return; 

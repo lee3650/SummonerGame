@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RewardPanel : MonoBehaviour
 {
-    [SerializeField] GameObject OpenButton; 
+    [SerializeField] OpenButton OpenButton; 
     [SerializeField] TextMeshProUGUI RollDescriptionText;
 
+    [SerializeField] TextMeshProUGUI RewardName;
     [SerializeField] TextMeshProUGUI QualityText;
-    [SerializeField] TextMeshProUGUI OddsText;
-    [SerializeField] TextMeshProUGUI RewardDescriptionText;
+    [SerializeField] TextMeshProUGUI Description;
     [SerializeField] GameObject CloseButton;
     [SerializeField] RewardViewModel RewardViewModel; //I'm definitely not doing this right 
     [SerializeField] TextMeshProUGUI ChestChanceInfo;
+    [SerializeField] GameObject DescInformation;
 
     public void Show(float odds)
     {
-        OpenButton.SetActive(true);
+        OpenButton.Interactable = true;
 
-        RewardDescriptionText.gameObject.SetActive(false);
-        QualityText.gameObject.SetActive(false);
-        OddsText.gameObject.SetActive(false);
+        DescInformation.SetActive(false);
+
         CloseButton.SetActive(false);
 
         ChestChanceInfo.text = string.Format("({0}% chance)", odds);
@@ -31,7 +32,8 @@ public class RewardPanel : MonoBehaviour
 
     public void OpenButtonPressed()
     {
-        OpenButton.gameObject.SetActive(false);
+        DescInformation.SetActive(true);
+        OpenButton.Interactable = false;
         RewardViewModel.WonSpin();
         CloseButton.gameObject.SetActive(true);
     }
@@ -39,14 +41,11 @@ public class RewardPanel : MonoBehaviour
     //this is weird now because it kind of comes out of nowhere. This should really just be one script with the viewmodel and this 
     public void WonReward(Reward reward)
     {
-        RewardDescriptionText.text = "You got: " + reward.Description;
-        RewardDescriptionText.gameObject.SetActive(true);
+        RewardName.text = reward.name;
 
-        QualityText.gameObject.SetActive(true);
-        QualityText.text = string.Format("Quality : {0}", Reward.GetExternalQuality(reward.Quality));
+        Description.text = reward.Description;
 
-        OddsText.gameObject.SetActive(true);
-        OddsText.text = string.Format("Odds: {0}%", reward.MaxScore - reward.MinScore);
+        QualityText.text = string.Format("Quality: {0}", Reward.GetExternalQuality(reward.Quality));
     }
 
     private void Update()

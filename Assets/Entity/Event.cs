@@ -28,6 +28,11 @@ public class Event
         return new Event(e.MyType, e.Magnitude, e.Sender, e.Recurrences, e.Spreads);
     }
 
+    public static Event ScaleEvent(Event e, float scale)
+    {
+        return new Event(e.MyType, e.Magnitude * scale, e.Sender, e.Recurrences, e.Spreads);
+    }
+
     public int Spreads
     {
         get;

@@ -4,48 +4,8 @@ using UnityEngine;
 
 public class XPManager : MonoBehaviour
 {
-    private static bool exitingLevel = true;
-    private static List<XPMessage> XPMessages = new List<XPMessage>()
-    {
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-        new XPMessage("message", 1.5f),
-    };
+    private static bool exitingLevel = false;
+    private static List<XPMessage> XPMessages = new List<XPMessage>();
 
     public static void ResetState()
     {

@@ -1443,7 +1443,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5397100613009754031, guid: 2feb2f99d0871774e83f796572547b30,
+      objectReference: {fileID: 5567138011017637796, guid: 51f37ec83b1fd9741bdb4e7e42bc442c,
         type: 3}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -11251,7 +11251,7 @@ GameObject:
   - component: {fileID: 1273001469}
   - component: {fileID: 1273001470}
   m_Layer: 0
-  m_Name: Bonfire
+  m_Name: Flamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11288,11 +11288,10 @@ MonoBehaviour:
   Gif: {fileID: 2057423176}
   Image: {fileID: -5397100613009754031, guid: 2feb2f99d0871774e83f796572547b30, type: 3}
   TotalIslands: 3
-  Description: Bonfires light arrows that pass through them with fire straight from
-    the depths of Hell
+  Description: Flamethrower.
   Prereq: {fileID: 235256888}
   XPReq: 64
-  Unlock: {fileID: 8788465466712632779, guid: 35f23b0a90921804dbd17c9834283cbb, type: 3}
+  Unlock: {fileID: 8845059949703626669, guid: b2447377bf490ec4290082909b89c0c4, type: 3}
 --- !u!1 &1276204067
 GameObject:
   m_ObjectHideFlags: 0
