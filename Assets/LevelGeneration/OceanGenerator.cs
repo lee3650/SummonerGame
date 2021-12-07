@@ -108,11 +108,11 @@ public class OceanGenerator : MonoBehaviour
         {
             Vector2Int sizes = new Vector2Int(xSize, ySize);
             int islandSize = Random.Range(1, 3); //basically 1 or 2.
-            Vector2Int seed = GetSeed(sizes, (islandSize * islandSize) + 1);
+            Vector2Int seed = GetSeed(sizes, (islandSize * islandSize) + 2);
             FillOutIslandSeed(oceanMap, seed, sizes, islandSize);
         }
 
-        writeMap(oceanMap, "finalmap");
+        //writeMap(oceanMap, "finalmap");
 
         MapDrawer.InstantiateNonCenteredMap(oceanMap, new Vector2Int(-buffer, -buffer)); 
     }

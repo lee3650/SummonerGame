@@ -10,7 +10,7 @@ public class ValleyExpander : MapFeature
         {
             for (int y = 0; y < ySize; y++)
             {
-                if (map[x, y].TileType == TileType.Valley)
+                if (map[x, y].TileType == TileType.DoNotDraw)
                 {
                     MakeValley2x2(xSize, ySize, map, x, y);
                 }
@@ -51,7 +51,7 @@ public class ValleyExpander : MapFeature
                         Vector2Int pos = pointsPerCorner[j] + cur;
                         if (WithinBounds(pos.x, pos.y, xSize, ySize))
                         {
-                            if (map[pos.x, pos.y].TileType == TileType.Valley)
+                            if (map[pos.x, pos.y].TileType == TileType.DoNotDraw)
                             {
                                 scores[i] += 1;
                                 if (scores[i] == 4)
@@ -84,7 +84,7 @@ public class ValleyExpander : MapFeature
         for (int i = 0; i < pointsPerCorner.Length; i++)
         {
             Vector2Int cur = pointsPerCorner[i] + corners[maxIndex] + new Vector2Int(x, y);
-            map[cur.x, cur.y] = new MapNode(false, TileType.Valley);
+            map[cur.x, cur.y] = new MapNode(false, TileType.DoNotDraw);
         }
     }
 

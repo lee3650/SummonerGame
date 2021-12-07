@@ -25,6 +25,8 @@ public class MapGenerator : MonoBehaviour
             feature.AddFeature(xSize, ySize, newMap);
         }
 
+        new SandAndClearingFeature().AddFeature(xSize, ySize, newMap);
+
         new OreFeature().AddFeature(xSize, ySize, newMap);
 
         MapFeature divider = GetDividerForType(type);
@@ -36,7 +38,7 @@ public class MapGenerator : MonoBehaviour
             new DesertFeature().AddFeature(xSize, ySize, newMap); 
         }
 
-        new ValleyExpander().AddFeature(xSize, ySize, newMap); //oh that's cool. 
+        //new ValleyExpander().AddFeature(xSize, ySize, newMap);  
 
         //okay so we'll also have to make a continuity manager no matter what, so keep that in mind. 
 

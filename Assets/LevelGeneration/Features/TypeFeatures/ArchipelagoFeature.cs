@@ -24,23 +24,40 @@ public class ArchipelagoFeature : MapFeature
 
     public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
-        int spawnIslands = Random.Range(1, 3);
+        IslandNode seed;
 
-        List<IslandNode> seeds = new List<IslandNode>();
+        int delta = ChooseSize();
+        int firstY = Random.Range(delta, ySize - delta);
 
-        for (int i = 0; i < spawnIslands; i++)
+        seed = new IslandNode(new Vector2Int(xSize - delta, firstY), delta, null);
+        FillOutIslandNode(seed, map);
+
+        IslandNode leaf = seed;
+
+        while (NumChildren(seed) < 3)
         {
-            int delta = ChooseSize();
-            int firstY = Random.Range(delta, ySize - delta);
-
-            seeds.Add(new IslandNode(new Vector2Int(xSize - delta, firstY), delta, null));
-            FillOutIslandNode(seeds[i], map);
+            BuildChain(map, leaf, 3);
+            leaf = GetLeaf(seed);
         }
+    }
 
-        for (int i = 0; i < seeds.Count; i++)
+    private int NumChildren(IslandNode root)
+    {
+        int count = 0; 
+        foreach (IslandNode c in root.Next)
         {
-            BuildChain(map, seeds[i]);
+            count += NumChildren(c) + 1;
         }
+        return count;
+    }
+
+    private IslandNode GetLeaf(IslandNode root)
+    {
+        if (root.Next.Count == 0)
+        {
+            return root;
+        }
+        return GetLeaf(root.Next[Random.Range(0, root.Next.Count)]);
     }
 
     private void FillOutIslandNode(IslandNode node, MapNode[,] map)
@@ -58,11 +75,9 @@ public class ArchipelagoFeature : MapFeature
         }
     }
 
-    private void BuildChain(MapNode[,] map, IslandNode parent)
+    private void BuildChain(MapNode[,] map, IslandNode parent, int n)
     {
         MonoBehaviour.print("Building chain! Position: " + parent.Position);
-
-        int n = Random.Range(1, 4);
 
         Vector2Int[] dirs = new Vector2Int[n];
 
@@ -88,7 +103,7 @@ public class ArchipelagoFeature : MapFeature
                 children.Add(child);
                 FillOutIslandNode(child, map);
                 DrawBridgeBetweenIslands(map, parent, child);
-                BuildChain(map, child); 
+                BuildChain(map, child, Random.Range(1, 4)); 
             }
         }
     }
@@ -139,7 +154,8 @@ public class ArchipelagoFeature : MapFeature
 
     private int ChooseSize()
     {
-        return Random.Range(1, 3);
+        return 2;
+            //Random.Range(1, 3);
     }
 
     private int GetDist(Vector2Int delta, int size, int childSize)

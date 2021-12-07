@@ -125,7 +125,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 8375705344897930495}
   col: {fileID: 8375705344897930489}
   ItemType: 0
-  itemName: Arror Rain
+  itemName: Arrow Rain
   WeaponType: 2
   ManaDrain: 8
   AttackLength: 0.1
