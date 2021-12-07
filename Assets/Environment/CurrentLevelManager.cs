@@ -49,18 +49,18 @@ public class CurrentLevelManager : MonoBehaviour
     {
         LevelGenerator.SetTotalMapSizeAndInitMap();
         
-        HeadNode = new StageNode(new Vector2(0, 0), null);
-        RootNode = HeadNode;
+        //HeadNode = new StageNode(new Vector2(0, 0), null);
+        //RootNode = HeadNode;
 
-        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.right);
+        LevelGenerator.GenerateNextLevel();
 
-        HeadNode = new StageNode(new Vector2(1, 0), HeadNode);
-        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.zero);
+        //HeadNode = new StageNode(new Vector2(1, 0), HeadNode);
+        //LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.zero);
 
-        HeadNode = new StageNode(new Vector2(2, 0), HeadNode);
-        LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.left);
+        //HeadNode = new StageNode(new Vector2(2, 0), HeadNode);
+        //LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.left);
 
-        LevelGenerator.RecalculateSpawnRegion(FindEndNodes(RootNode));
+        LevelGenerator.RecalculateSpawnRegion();
 
         MapDrawer.ConditionallyDestroyTiles();
 
@@ -242,7 +242,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     private bool IsPointInTotalMapBounds(Vector2 point)
     {
-        return point.x < LevelGenerator.MapStagesWidth && point.x >= 0 && point.y >= 0 && point.y < LevelGenerator.MapStagesHeight;
+        return point.x < LevelGenerator.MapWidth && point.x >= 0 && point.y >= 0 && point.y < LevelGenerator.MapHeight;
     }
 
     public void SpawnNextWave()

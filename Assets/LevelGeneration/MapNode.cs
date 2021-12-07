@@ -105,6 +105,8 @@ public class MapNode
             case TileType.Wall:
             case TileType.OceanTile:
             case TileType.IslandTile:
+            case TileType.LandEdge:
+            case TileType.DoNotDraw:
                 return 100; 
         }
         throw new System.Exception("Could not get traversal cost for tile type " + TileType);
@@ -199,4 +201,6 @@ public enum TileType
     OceanTile, 
     IslandTile, 
     BallistaTile, 
+    DoNotDraw, 
+    LandEdge, 
 }

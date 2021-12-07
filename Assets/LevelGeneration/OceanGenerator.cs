@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class OceanGenerator : MonoBehaviour
 {
     [SerializeField] MapDrawer MapDrawer;
     [SerializeField] int buffer = 12; //buffer is per side. 
     [SerializeField] TileType[] Blacklist;
+    [SerializeField] TileType[] Whitelist;
 
     private Vector2Int[] Adjacents = new Vector2Int[14]
     {
@@ -26,6 +28,19 @@ public class OceanGenerator : MonoBehaviour
         new Vector2Int(2, 2),
     };
 
+    private Vector2Int[] DirAdj = new Vector2Int[]
+    {
+        new Vector2Int(0, 0),
+        new Vector2Int(0, 1),
+        new Vector2Int(0, -1),
+        new Vector2Int(1, 0),
+        new Vector2Int(-1, 0),
+        new Vector2Int(-1, 1),
+        new Vector2Int(-1, -1),
+        new Vector2Int(1, -1),
+        new Vector2Int(1, 1),
+    };
+
     public void DrawOcean()
     {
         MapNode[,] oceanMap = new MapNode[MapManager.xSize + 2 * buffer, MapManager.ySize + 2 * buffer];
@@ -39,34 +54,54 @@ public class OceanGenerator : MonoBehaviour
         {
             for (int y = 0; y < ySize; y++)
             {
-                oceanMap[x, y] = new MapNode(false, TileType.OceanTile);
+                Vector2Int adjust = AdjustMapPosition(new Vector2Int(x, y));
+                bool use = MapManager.NotPartOfMap(adjust);
+
+                if (adjust.y >= 15)
+                {
+                    print("y is " + y + ", use: " + use);
+                } 
+
+                if (use) 
+                {
+                    oceanMap[x, y] = new MapNode(false, TileType.OceanTile);
+                } else
+                {
+                    oceanMap[x, y] = new MapNode(false, TileType.DoNotDraw);
+                }
             }
         }
 
-        //step 2: fill every tile with transition tiles + 1 tile buffer if it's.. basically not a wall. 
-        //I guess we can destroy valleys too then. 
-
+        //step 1.5: put land edge tiles in to transition from the land to the ocean
         for (int x = 0; x < xSize; x++)
         {
             for (int y = 0; y < ySize; y++)
             {
-                for (int i = 0; i < Adjacents.Length; i++)
+                for (int i = 0; i < DirAdj.Length; i++)
                 {
-                    if (AddTransitionTile(AdjustMapPosition(new Vector2Int(x, y) + Adjacents[i]))) 
+                    if (AddWallTile(AdjustMapPosition(new Vector2Int(x, y) + Adjacents[i]), AdjustMapPosition(new Vector2Int(x, y))))
                     {
-                        //if there is a single, non-blacklisted tile in there
-                        //set it to an ocean transition, not an ocean tile
-
-                        oceanMap[x, y] = new MapNode(false, TileType.OceanTransition);
-
+                        oceanMap[x, y] = new MapNode(false, TileType.LandEdge);
+                        break;
                     }
+                }
+            }
+        }
+
+        //step 2: fill every tile with transition tiles + 1 tile buffer if it's.. basically not a wall. 
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                if (AddTransitionTile(new Vector2Int(x, y), oceanMap))
+                {
+                    oceanMap[x, y] = new MapNode(false, TileType.OceanTransition);
                 }
             }
         }
 
         //step 3: put in some little islands - this definitely could cause issues. 
         //okay we need a random tile that isn't near the 'real' map... 
-
         int islandCount = Random.Range(3, 6); 
 
         for (int i = 0; i < islandCount; i++)
@@ -77,7 +112,25 @@ public class OceanGenerator : MonoBehaviour
             FillOutIslandSeed(oceanMap, seed, sizes, islandSize);
         }
 
+        writeMap(oceanMap, "finalmap");
+
         MapDrawer.InstantiateNonCenteredMap(oceanMap, new Vector2Int(-buffer, -buffer)); 
+    }
+
+    public static void writeMap(MapNode[,] map, string message)
+    {
+        string result = message + "\n\n\n";
+
+        for (int y = 0; y < map.GetLength(1); y++)
+        {
+            for (int x = 0; x < map.GetLength(0); x++)
+            {
+                result += map[x, y].TileType.ToString().Substring(0, 1) + " ";
+            }
+            result += "\n";
+        }
+
+        File.WriteAllText("C:/Users/ignor/Documents/ArchDebug/" + message + ".txt", result);
     }
 
     private void FillOutIslandSeed(MapNode[,] oceanMap, Vector2Int seed, Vector2Int sizes, int islandSize) 
@@ -137,29 +190,36 @@ public class OceanGenerator : MonoBehaviour
         }
     }
 
-    private bool BlacklistContains(TileType t)
+    private bool AddWallTile(Vector2Int adjustedPosition, Vector2Int originalPosition)
     {
-        foreach (TileType tile in Blacklist)
+        if (MapManager.IsPointTraversable(adjustedPosition, true) && MapManager.NotPartOfMap(originalPosition))
         {
-            if (t == tile)
-            {
-                return true;
-            }
+            return true;
         }
         return false; 
     }
 
-    private bool AddTransitionTile(Vector2Int adjustedPosition)
+    private bool AddTransitionTile(Vector2Int originalPosition, MapNode[,] oceanMap)
     {
-        if (!BlacklistContains(MapManager.GetTileType(adjustedPosition)))
-        {
-            return true; 
-        }
-        //so, otherwise, we basically need to check if it's drawn or not. 
+        Vector2Int adj = AdjustMapPosition(originalPosition);
 
-        if (MapDrawer.IsTileDrawn(adjustedPosition))
+        if (!MapManager.NotPartOfMap(adj))
         {
-            return true; 
+            return false;
+        }
+
+        if (oceanMap[originalPosition.x, originalPosition.y].TileType == TileType.LandEdge)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < Adjacents.Length; i++)
+        {
+            Vector2Int cur = originalPosition + Adjacents[i];
+            if (MapFeature.InBounds(oceanMap, cur) && oceanMap[cur.x, cur.y].TileType == TileType.LandEdge)
+            {
+                return true;
+            }
         }
 
         return false;

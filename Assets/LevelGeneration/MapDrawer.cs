@@ -79,6 +79,8 @@ public class MapDrawer : MonoBehaviour
 
         return false; 
     }
+
+    //do I need to do this? 
     public void DrawEnclosingWalls(int xSize, int ySize)
     {
         for (int x = -1; x <= xSize; x++)
@@ -123,7 +125,10 @@ public class MapDrawer : MonoBehaviour
         {
             for (int y = (int)start.y; y < (int)end.y; y++)
             {
-                DrawnMap[x, y] = GetInstantiatedTile(x, y, map[x, y]); //okay, so this just uses x and y to place, and then map[x,y] to find the tile type. 
+                if (map[x, y].TileType != TileType.DoNotDraw)
+                {
+                    DrawnMap[x, y] = GetInstantiatedTile(x, y, map[x, y]); //okay, so this just uses x and y to place, and then map[x,y] to find the tile type. 
+                }
             }
         }
     }
@@ -154,13 +159,21 @@ public class MapDrawer : MonoBehaviour
         {
             for (int y = 0; y < ySize; y++)
             {
-                Vector2Int worldPoint = new Vector2Int(x, y) + worldOrigin;
-                GameObject g = GetInstantiatedTile(worldPoint.x, worldPoint.y, map[x, y]);
-
-                SetSpriteWangTiles w;
-                if (g.TryGetComponent<SetSpriteWangTiles>(out w))
+                if (map[x, y].TileType != TileType.DoNotDraw)
                 {
-                    w.InjectMap(map, worldOrigin);
+                    Vector2Int worldPoint = new Vector2Int(x, y) + worldOrigin;
+
+                    GameObject g = GetInstantiatedTile(worldPoint.x, worldPoint.y, map[x, y]);
+
+                    SetSpriteWangTiles w;
+                    if (g.TryGetComponent<SetSpriteWangTiles>(out w))
+                    {
+                        w.InjectMap(map, worldOrigin);
+                    }
+                }
+                else
+                {
+                    print("Skipping point " + x + ", " + y + " because it was do not draw!");
                 }
             }
         }

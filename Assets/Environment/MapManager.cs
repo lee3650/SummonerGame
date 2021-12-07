@@ -38,6 +38,15 @@ public class MapManager
         return Map[x, y];
     }
 
+    public static bool NotPartOfMap(Vector2Int pos)
+    {
+        if (IsPointInBounds(pos.x, pos.y))
+        {
+            return GetTileType(pos) == TileType.DoNotDraw;
+        }
+        return true;
+    }
+
     public static Vector2 GetClosestValidTile(Vector2 start)
     {
         start = VectorRounder.RoundVector(start);

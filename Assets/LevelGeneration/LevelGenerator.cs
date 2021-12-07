@@ -10,81 +10,33 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] MapGenerator MapGenerator;
     [SerializeField] WaveSpawner WaveSpawner;
     [SerializeField] MapDrawer MapDrawer;
-    private int levelNum = 0;
+    
+    public const int MapWidth = 45;
+    public const int MapHeight = 15;
 
-    public const int StageSize = 15;
+    public const int maxLevel = 7;
 
-    public const int MapStagesWidth = 3;
-    public const int MapStagesHeight = 1;
-
-    int maxLevel = 7; //starting at 1, let's say 7? Maybe 6? 
-
-    //so, instead of directly setting the map in the map manager we want to copy it over. 
-    public void GenerateNextLevel(int level, Vector2 pos, Vector2 delta)
+    public void GenerateNextLevel()
     {
-        levelNum = level;
-        DestroyWalls(pos);
+        MapNode[,] newMap = MapGenerator.GenerateLevel(MapWidth, MapHeight);
 
-        List<MapFeature> features = GetMapFeatures(levelNum, delta);
+        TransformOreBasedOnDistance(newMap); //we can do this somewhere else if we need to. 
 
-        MapNode[,] newMap = MapGenerator.GenerateLevel(StageSize, StageSize, features);
+        CopyOverMap(newMap);
 
-        TransformOreBasedOnDistance(newMap, StageSize, StageSize, pos);
-
-        CopyOverMap(newMap, pos);
-
-        MapDrawer.InstantiatePartOfMap(MapManager.GetMap(), GetBottomLeftOfStage(pos), GetTopRightOfStage(pos));
+        MapDrawer.InstantiatePartOfMap(MapManager.GetMap(), new Vector2(0, 0), new Vector2(MapWidth, MapHeight));
     }
 
-    public void RecalculateSpawnRegion(List<StageNode> endNodes)
+    public void RecalculateSpawnRegion() //potentially, we could spawn in any direction now. 
     {
         WaveSpawner.ResetSpawnRegion();
 
-        foreach (StageNode n in endNodes)
-        {
-            List<Vector2> spawnRegion = GenerateSpawnRegion(n.Position, n.Delta); //we'll come back to this. We're probably going to do it in the WaveSpawner. 
-            RemoveInvalidTiles(spawnRegion, MapManager.GetMap());
-            WaveSpawner.AddSpawnRegion(spawnRegion);
-        }
+        List<Vector2> spawnRegion = GenerateSpawnRegion(); //we'll come back to this. We're probably going to do it in the WaveSpawner. 
+        RemoveInvalidTiles(spawnRegion, MapManager.GetMap());
+        WaveSpawner.AddSpawnRegion(spawnRegion);
     }
-
-    List<Vector2> GenerateSpawnRegion(Vector2 sPos, Vector2 delta)
-    {
-        //so, the position doesn't actually matter, basically. 
-        //only the delta, then we just have to adjust it based on the position. 
-        //okay. 
-
-        Vector2 bottomLeft;
-        Vector2 topRight;
-
-        int spawnRegWidth = 1;
-
-        if (delta == new Vector2(1, 0))
-        {
-            bottomLeft = new Vector2(StageSize - spawnRegWidth, 0);
-            topRight = new Vector2(StageSize, StageSize);
-        }
-        else if (delta == new Vector2(0, 1))
-        {
-            bottomLeft = new Vector2(0, StageSize - spawnRegWidth);
-            topRight = new Vector2(StageSize, StageSize);
-        }
-        else if (delta == new Vector2(0, -1))
-        {
-            bottomLeft = new Vector2(0, 0);
-            topRight = new Vector2(StageSize, spawnRegWidth);
-        }
-        else
-        {
-            throw new Exception("Did not expect delta " + delta);
-        }
-
-        topRight = GetTrueMapCoordinate((int)topRight.x, (int)topRight.y, sPos);
-        bottomLeft = GetTrueMapCoordinate((int)bottomLeft.x, (int)bottomLeft.y, sPos);
-
-        return GetPointsWithinBoundaries(bottomLeft, topRight);
-    }
-
+    
+    /*
     void DestroyWalls(Vector2 position)
     {
         List<Vector2> wallTiles = GetPointsWithinBoundaries(GetBottomLeftOfStage(position), GetTopRightOfStage(position));
@@ -95,18 +47,19 @@ public class LevelGenerator : MonoBehaviour
 
         MapDrawer.DestroyTiles(wallTiles);
     }
+     */ 
 
-    void TransformOreBasedOnDistance(MapNode[,] newMap, int xSize, int ySize, Vector2 pos)
+    void TransformOreBasedOnDistance(MapNode[,] newMap)
     {
-        Vector2 centerTile = new Vector2(0f, (float)MapManager.ySize / 2);
+        Vector2 centerTile = new Vector2(0f, (float)MapHeight / 2);
 
-        for (int x = 0; x < xSize; x++)
+        for (int x = 0; x < MapWidth; x++)
         {
-            for (int y = 0; y < ySize; y++)
+            for (int y = 0; y < MapHeight; y++)
             {
                 if (newMap[x, y].TileType == TileType.Ore)
                 {
-                    float distToSafety = Vector2.Distance(centerTile, GetTrueMapCoordinate(x, y, pos));
+                    float distToSafety = Vector2.Distance(centerTile, new Vector2(x, y));
 
                     if (distToSafety < 15f)
                     {
@@ -125,44 +78,23 @@ public class LevelGenerator : MonoBehaviour
 
     public void SetTotalMapSizeAndInitMap()
     {
-        MapManager.SetMapSize(new Vector2(MapStagesWidth * StageSize, MapStagesHeight * StageSize));
+        MapManager.SetMapSize(new Vector2(MapWidth, MapHeight));
         MapManager.InitMap();
         MapDrawer.InitializeMap(); 
-        MapDrawer.DrawEnclosingWalls(MapManager.xSize, MapManager.ySize);
+        //MapDrawer.DrawEnclosingWalls(MapManager.xSize, MapManager.ySize);
     }
 
-    void CopyOverMap(MapNode[,] map, Vector2 pos)
+    void CopyOverMap(MapNode[,] map)
     {
-        Vector2 bottomLeft = GetBottomLeftOfStage(pos);
-        Vector2 topRight = GetTopRightOfStage(pos);
-
-        int minX = (int)bottomLeft.x;
-        int minY = (int)bottomLeft.y;
-
-        for (int x = minX; x < topRight.x; x++)
+        for (int x = 0; x < MapWidth; x++)
         {
-            for (int y = minY; y < topRight.y; y++)
+            for (int y = 0; y < MapHeight; y++)
             {
-                MapManager.WritePoint(x, y, map[x - minX, y - minY]);
+                MapManager.WritePoint(x, y, map[x, y]);
             }
         }
     }
-
-    Vector2 GetTrueMapCoordinate(int x, int y, Vector2 pos)
-    {
-        return new Vector2(x, y) + GetBottomLeftOfStage(pos);
-    }
-
-    Vector2 GetBottomLeftOfStage(Vector2 pos)
-    {
-        return pos * StageSize;
-    }
-
-    Vector2 GetTopRightOfStage(Vector2 pos)
-    {
-        return (pos + new Vector2(1, 1)) * StageSize;
-    }
-
+    
     void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
     {
         for (int i = spawnRegion.Count - 1; i >= 0; i--)
@@ -172,6 +104,11 @@ public class LevelGenerator : MonoBehaviour
                 spawnRegion.RemoveAt(i);
             } 
         }
+    }
+
+    List<Vector2> GenerateSpawnRegion()
+    {
+        return GetPointsWithinBoundaries(new Vector2(MapWidth - 1, 0), new Vector2(MapWidth, MapHeight));
     }
 
     List<MapFeature> GetMapFeatures(int levelNum, Vector2 delta)

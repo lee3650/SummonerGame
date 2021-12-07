@@ -6,12 +6,19 @@ public class MapGenerator : MonoBehaviour
 {
     public const int WallWidth = 0; 
 
-    //so, this should take instead a list of 'features' 
-    public MapNode[,] GenerateLevel(int xSize, int ySize, List<MapFeature> features)
+    public MapNode[,] GenerateLevel(int xSize, int ySize)
     {
         MapNode[,] newMap = new MapNode[xSize, ySize];
 
         InitializeMap(newMap, xSize, ySize);
+
+        MapType type = ChooseMapType();
+        
+        InitializeMapType(type, newMap);
+
+        bool isDesert = ChooseIsDesert(); 
+
+        List<MapFeature> features = GetFeaturesForType(type);
 
         foreach (MapFeature feature in features)
         {
@@ -20,108 +27,107 @@ public class MapGenerator : MonoBehaviour
 
         new OreFeature().AddFeature(xSize, ySize, newMap);
 
-        AddDivider(xSize, ySize, newMap);
+        MapFeature divider = GetDividerForType(type);
 
-        AddWalls(newMap, xSize, ySize);
+        AddDivider(newMap, divider);
 
-        //AddTotems(xSize, ySize, newMap);
+        if (isDesert)
+        {
+            new DesertFeature().AddFeature(xSize, ySize, newMap); 
+        }
 
-        new ValleyExpander().AddFeature(xSize, ySize, newMap);
-        
+        new ValleyExpander().AddFeature(xSize, ySize, newMap); //oh that's cool. 
+
+        //okay so we'll also have to make a continuity manager no matter what, so keep that in mind. 
+
+        ContinuityManager.CalculateContinuity();
+
         return newMap;
     }
 
-    void AddDivider(int xSize, int ySize, MapNode[,] newMap)
+    private bool ChooseIsDesert()
     {
-        List<MapFeature> dividers = new List<MapFeature>()
+        //check gameplay changes! 
+
+        if (MainMenuScript.TutorialMode)
         {
-            new DividerFeature(),
-            new LineDividerFeature(),
-            new DoubleLineFeature(),
-            new MazeFeature(),
-            new MazeFeature(),
-            new MazeFeature(),
-            new MazeFeature(),
-            new MazeFeature(),
-            new MazeFeature(),
-            new MazeFeature(),
-        };
+            return false;
+        }
 
-        MapFeature divider = dividers[Random.Range(0, dividers.Count)];
-
-        divider.AddFeature(xSize, ySize, newMap);
+        return Random.Range(0, 100) < 25;
     }
 
-    void AddWalls(MapNode[,] newMap, int xSize, int ySize)
+    private MapType ChooseMapType()
     {
-        for (int x = 0; x < xSize; x++)
+        if (MainMenuScript.TutorialMode)
         {
-            for (int i = 0; i < WallWidth; i++)
-            {
-                newMap[x, i] = new MapNode(false, TileType.Wall);
-                newMap[x, ySize - i - 1] = new MapNode(false, TileType.Wall);
-            }
+            return MapType.Rectangle;
         }
 
-        for (int y = 0; y < ySize; y++)
-        {
-            for (int i = 0; i < WallWidth; i++)
-            {
-                newMap[i, y] = new MapNode(false, TileType.Wall);
-                newMap[xSize - 1 - i, y] = new MapNode(false, TileType.Wall);
-            }
-        }
+        return MapType.Archipelago;
+
+        MapType[] types = (MapType[])System.Enum.GetValues(typeof(MapType));
+        MapType type = types[Random.Range(0, types.Length)];
+
+        return type; 
     }
 
-    private void AddTotems(int xSize, int ySize, MapNode[,] newMap)
+    private void InitializeMapType(MapType type, MapNode[,] map)
     {
-        //might as well start at 1 because it's impossible to be 1 away from a wall in the bottom left corner. 
-
-        List<TileType> typesToAvoid = new List<TileType>() {
-            TileType.Wall,
-            TileType.Valley,
-            TileType.SummonTotem,
-        };
-
-        List<Vector2Int> prevTotems = new List<Vector2Int>();
-
-        for (int y = 1; y < ySize - 1; y++)
-        {
-            for (int x = 1; x < xSize - 1; x++)
-            {
-                if (CanPlaceTotem(typesToAvoid, x, y, newMap, prevTotems))
-                {
-                    prevTotems.Add(new Vector2Int(x, y));
-                    newMap[x, y] = new MapNode(true, TileType.SummonTotem);
-                }
-            }
-        }
+        MapFeature typeFeature = GetTypeFeature(type);
+        typeFeature.AddFeature(LevelGenerator.MapWidth, LevelGenerator.MapHeight, map);
     }
 
-    private bool CanPlaceTotem(List<TileType> typesToAvoid, int x, int y, MapNode[,] map, List<Vector2Int> prevTotems)
+    private MapFeature GetTypeFeature(MapType type)
     {
-        float minDist = 4.5f; 
+        //check gameplay changes! 
 
-        for (int dx = -1; dx <= 1; dx++)
+        switch (type)
         {
-            for (int dy = -1; dy <= 1; dy++)
-            {
-                if (typesToAvoid.Contains(map[x + dx, y + dy].TileType))
-                {
-                    return false; 
-                }
-            }
+            case MapType.Archipelago:
+                return new ArchipelagoFeature();
+            case MapType.Rectangle:
+                return new RectFeature();
+                /*
+            case MapType.Donut:
+                return new DonutFeature();
+            case MapType.Ellipse:
+                return new EllipseFeature();
+            case MapType.Tree:
+                return new TreeFeature();
+                 */
         }
 
-        foreach (Vector2Int prevTotem in prevTotems)
+        throw new System.Exception("Could not find type feature for " + type);
+    }
+
+    private List<MapFeature> GetFeaturesForType(MapType type)
+    {
+        if (MainMenuScript.TutorialMode)
         {
-            if (Vector2Int.Distance(new Vector2Int(x, y), prevTotem) < minDist)
-            {
-                return false; 
-            }
+            return new List<MapFeature>();
         }
 
-        return true; 
+        switch (type)
+        {
+            case MapType.Archipelago:
+                return new List<MapFeature>();
+            case MapType.Rectangle:
+                return new List<MapFeature>();
+        }
+
+        throw new System.Exception("Could not find regular features for " + type);
+    }
+
+    private MapFeature GetDividerForType(MapType type)
+    {
+        //throw new System.NotImplementedException();
+        return new EmptyDivider();
+    }
+
+    void AddDivider(MapNode[,] newMap, MapFeature divider)
+    {
+        divider.AddFeature(newMap.GetLength(0), newMap.GetLength(1), newMap);
     }
 
     //okay. So, this is the only place we really have to do this. 
@@ -143,7 +149,7 @@ public class MapGenerator : MonoBehaviour
         {
             for (int y = 0; y < ySize; y++)
             {
-                map[x, y] = new MapNode(true, GetRandomTileType(x, y, xSize, ySize, xSeed, ySeed, width));
+                map[x, y] = new MapNode(false, TileType.DoNotDraw);//GetRandomTileType(x, y, xSize, ySize, xSeed, ySeed, width));
             }
         }
     }

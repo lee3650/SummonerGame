@@ -1967,6 +1967,12 @@ MonoBehaviour:
     - {fileID: 3991502614442445202, guid: 4fefb299b0e0ace419f9835b350a1eb2, type: 3}
     UseDefaultObject: 1
     OverridenPrefab: {fileID: 0}
+  - TileType: 30
+    Sprites:
+    - {fileID: 3991502614442445202, guid: 4fefb299b0e0ace419f9835b350a1eb2, type: 3}
+    UseDefaultObject: 0
+    OverridenPrefab: {fileID: 3357513061515230267, guid: 33071e3c996c2ee43a49f02bbde62c1f,
+      type: 3}
   EmptyPrefab: {fileID: 75245369750213584, guid: 5e03ca94930c40d47962e61a7e03720a,
     type: 3}
 --- !u!4 &250621017
@@ -16179,7 +16185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapDrawer: {fileID: 250621016}
   buffer: 10
-  Blacklist: 0400000016000000170000001500000018000000
+  Blacklist: 0200000016000000170000001500000018000000
+  Whitelist: 
 --- !u!1 &1530045835
 GameObject:
   m_ObjectHideFlags: 0
