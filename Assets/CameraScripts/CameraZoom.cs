@@ -20,9 +20,9 @@ public class CameraZoom : MonoBehaviour
 
     void Update()
     {
-        if (Mathf.Abs(Input.mouseScrollDelta.y) > 0 && Input.GetKey(KeyCode.LeftShift))
+        if (Mathf.Abs(Input.mouseScrollDelta.y) > 0)
         {
-            refMultipler += Sensitivity * Input.mouseScrollDelta.y;
+            refMultipler -= Sensitivity * Input.mouseScrollDelta.y;
 
             if (refMultipler < 0.25f)
             {

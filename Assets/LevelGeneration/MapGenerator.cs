@@ -39,11 +39,6 @@ public class MapGenerator : MonoBehaviour
         }
 
         //new ValleyExpander().AddFeature(xSize, ySize, newMap);  
-
-        //okay so we'll also have to make a continuity manager no matter what, so keep that in mind. 
-
-        ContinuityManager.CalculateContinuity();
-
         return newMap;
     }
 
@@ -63,10 +58,10 @@ public class MapGenerator : MonoBehaviour
     {
         if (MainMenuScript.TutorialMode)
         {
-            return MapType.Rectangle;
+            return MapType.Archipelago;
         }
 
-        return MapType.Archipelago;
+        return MapType.Bridged;
 
         MapType[] types = (MapType[])System.Enum.GetValues(typeof(MapType));
         MapType type = types[Random.Range(0, types.Length)];
@@ -88,15 +83,13 @@ public class MapGenerator : MonoBehaviour
         {
             case MapType.Archipelago:
                 return new ArchipelagoFeature();
-            case MapType.Rectangle:
-                return new RectFeature();
+            case MapType.Bridged:
+                return new ArchBridgeFeature();
                 /*
             case MapType.Donut:
                 return new DonutFeature();
-            case MapType.Ellipse:
-                return new EllipseFeature();
-            case MapType.Tree:
-                return new TreeFeature();
+            case MapType.Bridged:
+                return new BridgeFeature();
                  */
         }
 
@@ -114,7 +107,7 @@ public class MapGenerator : MonoBehaviour
         {
             case MapType.Archipelago:
                 return new List<MapFeature>();
-            case MapType.Rectangle:
+            case MapType.Bridged:
                 return new List<MapFeature>();
         }
 
@@ -132,54 +125,14 @@ public class MapGenerator : MonoBehaviour
         divider.AddFeature(newMap.GetLength(0), newMap.GetLength(1), newMap);
     }
 
-    //okay. So, this is the only place we really have to do this. 
-    //Instead of doing it as it is, we're going to randomly choose between
-    //regular land, marsh, stones, and hills. 
-    //that's kind of a lot, but whatever.
-    //So, let's use perlin noise for this, eh? 
     void InitializeMap(MapNode[,] map, int xSize, int ySize)
     {
-        float xSeed = Random.Range(0, 100f);
-        float ySeed = Random.Range(0, 100f);
-
-        float width = Random.Range(5, 10f);
-
-        //so, we want the entire thing to be roughly 5-10 in total, right
-        //so we should adjust our coordinate a little... 
-
         for (int x = 0; x < xSize; x++)
         {
             for (int y = 0; y < ySize; y++)
             {
-                map[x, y] = new MapNode(false, TileType.DoNotDraw);//GetRandomTileType(x, y, xSize, ySize, xSeed, ySeed, width));
+                map[x, y] = new MapNode(false, TileType.DoNotDraw); 
             }
         }
-    }
-
-    TileType GetRandomTileType(int x, int y, int xSize, int ySize, float xSeed, float ySeed, float width)
-    {
-        //wow that's a lot of arguments 
-        //this is actually pretty slow, right, because we do this for every tile and it probably has to write to memory to hold all these arguments
-
-        float adjustedX = xSeed + ((float)x / xSize) * width;
-        float adjustedY = ySeed + ((float)y / ySize) * width;
-
-        float val = Mathf.PerlinNoise(adjustedX, adjustedY);
-
-        //so, we're not going to return TileType.Marsh for now
-
-        if (val < 0.70f)
-        {
-            return TileType.Land;
-        }
-        if (val < 0.85f)
-        {
-            if (!LetterManager.UseGameplayChange(GameplayChange.SandAndClearing)) //this is kinda sketchy but I guess it shows up in references, so it should be okay
-            {
-                return TileType.Land;
-            }
-            return TileType.Stone;
-        }
-        return TileType.Land;
     }
 }

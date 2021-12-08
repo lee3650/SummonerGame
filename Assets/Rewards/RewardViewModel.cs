@@ -61,7 +61,7 @@ public class RewardViewModel : MonoBehaviour, IWaveNotifier
 
     void UpdateCurChance()
     {
-        if (CurrentLevelManager.OnLastWave() && CurrentLevelManager.GetLevelNum() % 2 == 1) //is the first level num 0 or 1?
+        if (CurrentLevelManager.OnLastWave()) // && CurrentLevelManager.GetLevelNum() % 2 == 1) //the first level num == 1
         {
             curChance = LevelEndsRewardChance;
         } else

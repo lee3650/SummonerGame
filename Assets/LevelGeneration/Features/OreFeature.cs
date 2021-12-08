@@ -14,7 +14,7 @@ public class OreFeature : MapFeature
         {
             bool add = false;
 
-            Vector2Int pos = new Vector2Int(Random.Range(0, xSize), Random.Range(0, ySize));
+            Vector2Int pos = new Vector2Int(Random.Range(0, xSize - 3), Random.Range(0, ySize));
             if (map[pos.x, pos.y].TileType != TileType.DoNotDraw)
             {
                 add = true;

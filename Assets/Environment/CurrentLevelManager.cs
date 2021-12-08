@@ -47,24 +47,21 @@ public class CurrentLevelManager : MonoBehaviour
 
     public void EnterFirstLevel()
     {
+        BridgeAdder.ResetBridges();
+
         LevelGenerator.SetTotalMapSizeAndInitMap();
         
-        //HeadNode = new StageNode(new Vector2(0, 0), null);
-        //RootNode = HeadNode;
-
         LevelGenerator.GenerateNextLevel();
-
-        //HeadNode = new StageNode(new Vector2(1, 0), HeadNode);
-        //LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.zero);
-
-        //HeadNode = new StageNode(new Vector2(2, 0), HeadNode);
-        //LevelGenerator.GenerateNextLevel(levelNum, HeadNode.Position, Vector2.left);
 
         LevelGenerator.RecalculateSpawnRegion();
 
         MapDrawer.ConditionallyDestroyTiles();
 
         OceanGenerator.DrawOcean();
+
+        BridgeAdder.WriteBridges();
+
+        ContinuityManager.CalculateContinuity(MapManager.GetMap());
     }
 
     public void EnterNextLevel()

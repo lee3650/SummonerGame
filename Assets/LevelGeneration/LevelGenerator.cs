@@ -31,11 +31,18 @@ public class LevelGenerator : MonoBehaviour
     {
         WaveSpawner.ResetSpawnRegion();
 
-        List<Vector2> spawnRegion = GenerateSpawnRegion(); //we'll come back to this. We're probably going to do it in the WaveSpawner. 
-        RemoveInvalidTiles(spawnRegion, MapManager.GetMap());
+        List<Vector2> spawnRegion = GetValidSpawns(MapManager.GetMap());
+
         WaveSpawner.AddSpawnRegion(spawnRegion);
     }
     
+    public static List<Vector2> GetValidSpawns(MapNode[,] map)
+    {
+        List<Vector2> spawnRegion = GenerateSpawnRegion(); //we'll come back to this. We're probably going to do it in the WaveSpawner. 
+        RemoveInvalidTiles(spawnRegion, map);
+        return spawnRegion;
+    }
+
     /*
     void DestroyWalls(Vector2 position)
     {
@@ -60,11 +67,14 @@ public class LevelGenerator : MonoBehaviour
                 if (newMap[x, y].TileType == TileType.Ore)
                 {
                     float distToSafety = Vector2.Distance(centerTile, new Vector2(x, y));
-
-                    if (distToSafety < 15f)
+                    /*
+                     *   if (distToSafety < 15f)
                     {
                         newMap[x, y] = new MapNode(true, TileType.Copper);
-                    } else if (distToSafety < 27f)
+                    } else
+                     * 
+                     */
+                    if (distToSafety < 27f)
                     {
                         newMap[x, y] = new MapNode(true, TileType.Silver);
                     } else //so, we are going to have to change this when we add more ore types 
@@ -95,7 +105,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
     
-    void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
+    private static void RemoveInvalidTiles(List<Vector2> spawnRegion, MapNode[,] map)
     {
         for (int i = spawnRegion.Count - 1; i >= 0; i--)
         {
@@ -106,7 +116,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    List<Vector2> GenerateSpawnRegion()
+    private static List<Vector2> GenerateSpawnRegion()
     {
         return GetPointsWithinBoundaries(new Vector2(MapWidth - 1, 0), new Vector2(MapWidth, MapHeight));
     }

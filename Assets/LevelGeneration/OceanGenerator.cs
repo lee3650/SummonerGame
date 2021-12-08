@@ -132,7 +132,6 @@ public class OceanGenerator : MonoBehaviour
 
         File.WriteAllText("C:/Users/ignor/Documents/ArchDebug/" + message + ".txt", result);
     }
-
     private void FillOutIslandSeed(MapNode[,] oceanMap, Vector2Int seed, Vector2Int sizes, int islandSize) 
     {
         //okay.

@@ -21,4 +21,9 @@ public class HomeTileSummon : TileRestrictedSummon
         InitializeSpawnedSummon(spawnedSummon.GetComponent<Summon>(), playerSummoner);
     }
     //this is really not a great solution - anything that relies on the health manager on awake is going to break. 
+
+    public override bool CanUseWeapon(Vector2 mousePos)
+    {
+        return base.CanUseWeapon(mousePos) && ContinuityManager.IsPointContinuous(VectorRounder.RoundVectorToInt(mousePos));
+    }
 }

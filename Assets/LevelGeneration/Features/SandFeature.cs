@@ -10,7 +10,7 @@ public class SandAndClearingFeature : MapFeature
 
         Vector2 offset = new Vector2(Random.Range(0f, 10000f), Random.Range(0f, 10000f));
 
-        int clearings = Random.Range(4, 7);
+        int clearings = Random.Range(5, 8);
 
         for (int i = 0; i < clearings; i++)
         {
@@ -26,13 +26,13 @@ public class SandAndClearingFeature : MapFeature
         {
             for (int y = 0; y < ySize; y++)
             {
-                if (map[x, y].TileType != TileType.DoNotDraw)
+                if (map[x, y].TileType != TileType.DoNotDraw && map[x, y].TileType != TileType.Ore && map[x, y].TileType != TileType.Stone)
                 {
                     float val = Mathf.PerlinNoise(x * res + offset.x, y * res + offset.y);
 
                     MonoBehaviour.print("perlin val " + val + ", at " + new Vector2(x * res + offset.x, y * res + offset.y));
 
-                    if (val > 0.4f)
+                    if (val > 0.42f)
                     {
                         map[x, y] = new MapNode(true, TileType.Water);
                     }

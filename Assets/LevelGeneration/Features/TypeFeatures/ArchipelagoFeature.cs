@@ -27,7 +27,7 @@ public class ArchipelagoFeature : MapFeature
         IslandNode seed;
 
         int delta = ChooseSize();
-        int firstY = Random.Range(delta, ySize - delta);
+        int firstY = Random.Range(delta, ySize / 2);
 
         seed = new IslandNode(new Vector2Int(xSize - delta, firstY), delta, null);
         FillOutIslandNode(seed, map);
@@ -131,12 +131,17 @@ public class ArchipelagoFeature : MapFeature
         {
             MonoBehaviour.print("Drawing bridge! Position: " + parent.Position);
 
-            map[cur.x, cur.y] = new MapNode(true, TileType.Land); //land for now, bridge later, I guess
-            map[cur.x + w1.x, cur.y + w1.y] = new MapNode(true, TileType.Land); //land for now, bridge later, I guess
-            map[cur.x + w2.x, cur.y + w2.y] = new MapNode(true, TileType.Land); //land for now, bridge later, I guess
+            AddBridge(cur, w1, parent, child, map);
 
             cur += dint;
         }
+    }
+
+    protected virtual void AddBridge(Vector2Int cur, Vector2Int w1, IslandNode parent, IslandNode child, MapNode[,] map)
+    {
+        map[cur.x, cur.y] = new MapNode(true, TileType.Land); //land for now, bridge later, I guess
+        map[cur.x + w1.x, cur.y + w1.y] = new MapNode(true, TileType.Land); //land for now, bridge later, I guess
+        map[cur.x - w1.x, cur.y - w1.y] = new MapNode(true, TileType.Land); //land for now, bridge later, I guess
     }
 
     private bool PositionAvailable(MapNode[,] map, Vector2Int pos, int size)
@@ -158,7 +163,7 @@ public class ArchipelagoFeature : MapFeature
             //Random.Range(1, 3);
     }
 
-    private int GetDist(Vector2Int delta, int size, int childSize)
+    protected virtual int GetDist(Vector2Int delta, int size, int childSize)
     {
         if (delta.x != 0)
         {
