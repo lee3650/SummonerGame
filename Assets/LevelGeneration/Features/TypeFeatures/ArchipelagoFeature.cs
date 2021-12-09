@@ -34,8 +34,10 @@ public class ArchipelagoFeature : MapFeature
 
         IslandNode leaf = seed;
 
-        while (NumChildren(seed) < 3)
+        int its = 0;
+        while (NumChildren(seed) < 3 && its < 30)
         {
+            its++;
             BuildChain(map, leaf, 3);
             leaf = GetLeaf(seed);
         }

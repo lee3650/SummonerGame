@@ -61,7 +61,7 @@ public class MapGenerator : MonoBehaviour
             return MapType.Archipelago;
         }
 
-        return MapType.Bridged;
+        return MapType.Figure8;
 
         MapType[] types = (MapType[])System.Enum.GetValues(typeof(MapType));
         MapType type = types[Random.Range(0, types.Length)];
@@ -77,20 +77,16 @@ public class MapGenerator : MonoBehaviour
 
     private MapFeature GetTypeFeature(MapType type)
     {
-        //check gameplay changes! 
-
         switch (type)
         {
             case MapType.Archipelago:
                 return new ArchipelagoFeature();
             case MapType.Bridged:
                 return new ArchBridgeFeature();
-                /*
             case MapType.Donut:
                 return new DonutFeature();
-            case MapType.Bridged:
-                return new BridgeFeature();
-                 */
+            case MapType.Figure8:
+                return new Figure8();
         }
 
         throw new System.Exception("Could not find type feature for " + type);
@@ -106,8 +102,9 @@ public class MapGenerator : MonoBehaviour
         switch (type)
         {
             case MapType.Archipelago:
-                return new List<MapFeature>();
+            case MapType.Donut:
             case MapType.Bridged:
+            case MapType.Figure8:
                 return new List<MapFeature>();
         }
 
@@ -116,7 +113,6 @@ public class MapGenerator : MonoBehaviour
 
     private MapFeature GetDividerForType(MapType type)
     {
-        //throw new System.NotImplementedException();
         return new EmptyDivider();
     }
 

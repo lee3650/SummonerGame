@@ -15,6 +15,8 @@ public class HomeTileSummon : TileRestrictedSummon
 
     public override void UseWeapon(Vector2 mousePos)
     {
+        PathManager.HomeTile = VectorRounder.RoundVectorToInt(mousePos);
+
         GameObject spawnedSummon = Instantiate(Summon, VectorRounder.RoundVector(mousePos), Quaternion.Euler(Vector3.zero));
         spawnedSummon.GetComponent<HomeSummon>().SetHealthManager(healthManager);
 

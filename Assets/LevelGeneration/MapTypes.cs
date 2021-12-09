@@ -7,4 +7,5 @@ public enum MapType
     Donut,
     Archipelago, //so meta! 
     Bridged, 
+    Figure8, 
 }

@@ -47,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -123,12 +124,19 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 8248970518221693770}
   col: {fileID: 8248970518221693769}
   ItemType: 0
+  itemName: 
+  WeaponType: 0
   ManaDrain: 0
   AttackLength: 0.1
   WeaponDescription: Places home tile
   DeselectAfterAttacking: 1
+  RepeatAttack: 0
   Summon: {fileID: 7864867464807989639, guid: 1c0546a4121d84045b2c474bca9014d8, type: 3}
   rotationOffset: 0
+  UseSummonImage: 1
+  SetColorToWhite: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0a0000000900000008000000
+  BlacklistedTileTypes: 
+  Summoner: {fileID: 0}
