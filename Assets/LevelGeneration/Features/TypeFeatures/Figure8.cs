@@ -6,8 +6,8 @@ public class Figure8 : DonutFeature
 {
     public override void AddFeature(int xSize, int ySize, MapNode[,] map)
     {
-        int h1 = Random.Range(2 * xSize / 3, 3 * xSize / 4);
-        int h2 = Random.Range(xSize / 4, xSize / 3);
+        int h1 = Mathf.RoundToInt(Random.Range(2 * xSize / 3f, 3 * xSize / 4f));
+        int h2 = Mathf.RoundToInt((int)Random.Range(xSize / 4f, xSize / 3f));
 
         int k = ySize / 2;
 

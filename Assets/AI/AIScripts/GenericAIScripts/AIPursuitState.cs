@@ -11,6 +11,7 @@ public class AIPursuitState : MonoBehaviour, IState
     [SerializeField] protected AIAttackManager AIAttackManager;
     [SerializeField] TargetSearcher TargetSearcher;
     [SerializeField] DirectionalAnimator DirectionalAnimator;
+    [SerializeField] bool TargetHomeTile = false; 
 
     Rigidbody2D rb; 
 
@@ -31,7 +32,14 @@ public class AIPursuitState : MonoBehaviour, IState
             throw new System.Exception("No target?");
         }
 
-        MovementController.SetPathfindGoal(GetPathfindGoal());
+        if (TargetHomeTile)
+        {
+            MovementController.SetPathToHomePath();
+        } 
+        else
+        {
+            MovementController.SetPathfindGoal(GetPathfindGoal());
+        }
         oldTargetPos = TargetManager.Target.GetPosition();
     }
 
@@ -49,11 +57,18 @@ public class AIPursuitState : MonoBehaviour, IState
                     DirectionalAnimator.PlayWalk(rb.velocity);
                 } 
 
-                if (ShouldRecalculatePathfinding())
+                if (!TargetHomeTile && ShouldRecalculatePathfinding())
                 {
                     print("Recalculating pathfinding!");
                     oldTargetPos = TargetManager.Target.GetPosition();
-                    MovementController.SetPathfindGoal(GetPathfindGoal());
+                    if (TargetHomeTile)
+                    {
+                        MovementController.SetPathToHomePath();
+                    }
+                    else
+                    {
+                        MovementController.SetPathfindGoal(GetPathfindGoal());
+                    }
                 }
             }
 

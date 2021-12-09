@@ -30,8 +30,6 @@ public class SandAndClearingFeature : MapFeature
                 {
                     float val = Mathf.PerlinNoise(x * res + offset.x, y * res + offset.y);
 
-                    MonoBehaviour.print("perlin val " + val + ", at " + new Vector2(x * res + offset.x, y * res + offset.y));
-
                     if (val > 0.42f)
                     {
                         map[x, y] = new MapNode(true, TileType.Water);

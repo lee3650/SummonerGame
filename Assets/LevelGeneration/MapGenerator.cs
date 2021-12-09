@@ -35,6 +35,7 @@ public class MapGenerator : MonoBehaviour
 
         if (isDesert)
         {
+            print("is desert!");
             new DesertFeature().AddFeature(xSize, ySize, newMap); 
         }
 

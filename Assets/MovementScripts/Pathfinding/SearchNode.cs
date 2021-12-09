@@ -12,8 +12,30 @@ public class SearchNode
     public float h;
     public float f; 
 
-    public int x, y; 
+    public int x, y;
+
+    public Vector2Int Pos
+    {
+        get
+        {
+            return position;
+        } 
+        set
+        {
+            position = value;
+            x = position.x;
+            y = position.y; 
+        }
+    }
+
+    private Vector2Int position;
     
+    public SearchNode(Vector2Int pos, SearchNode parent)
+    {
+        Pos = pos;
+        ParentNode = parent; 
+    }
+
     public SearchNode(int x, int y)
     {
         this.x = x;

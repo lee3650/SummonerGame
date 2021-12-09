@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1570570612983766584}
   - component: {fileID: 1337009842691720106}
   - component: {fileID: 2105061340760964004}
+  - component: {fileID: -1411548146235610918}
   m_Layer: 16
   m_Name: PlayerGate
   m_TagString: Untraversable
@@ -201,3 +202,16 @@ MonoBehaviour:
   Clips: []
   invertIndex: 0
   OverwriteTileForZeroIndex: 0
+--- !u!114 &-1411548146235610918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694221489078713342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1faa4964128faa7439bfa4a2674b44f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hm: {fileID: 3600352979565121685}

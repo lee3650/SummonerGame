@@ -57,11 +57,6 @@ public class OceanGenerator : MonoBehaviour
                 Vector2Int adjust = AdjustMapPosition(new Vector2Int(x, y));
                 bool use = MapManager.NotPartOfMap(adjust);
 
-                if (adjust.y >= 15)
-                {
-                    print("y is " + y + ", use: " + use);
-                } 
-
                 if (use) 
                 {
                     oceanMap[x, y] = new MapNode(false, TileType.OceanTile);

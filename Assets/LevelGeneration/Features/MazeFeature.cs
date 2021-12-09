@@ -62,12 +62,12 @@ public class MazeFeature : MapFeature
         {
             if (ShouldPlaceWallAtPoint(dx, 0, dir) && TileIsNotBoundary(sx + dx, map))
             {
-                map[sx + dx, sy] = new MapNode(false, TileType.Valley);
+                map[sx + dx, sy] = new MapNode(false, TileType.DoNotDraw);
             }
 
             if (ShouldPlaceWallAtPoint(dx, cellSize - 1, dir))
             {
-                map[sx + dx, sy + cellSize - 1] = new MapNode(false, TileType.Valley);
+                map[sx + dx, sy + cellSize - 1] = new MapNode(false, TileType.DoNotDraw);
             }
         }
 
@@ -75,12 +75,12 @@ public class MazeFeature : MapFeature
         {
             if (ShouldPlaceWallAtPoint(0, dy, dir) && TileIsNotBoundary(sx, map))
             {
-                map[sx, sy + dy] = new MapNode(false, TileType.Valley);
+                map[sx, sy + dy] = new MapNode(false, TileType.DoNotDraw);
             }
 
             if (ShouldPlaceWallAtPoint(cellSize - 1, dy, dir) && TileIsNotBoundary(sx + cellSize - 1, map))
             {
-                map[sx + cellSize - 1, sy + dy] = new MapNode(false, TileType.Valley);
+                map[sx + cellSize - 1, sy + dy] = new MapNode(false, TileType.DoNotDraw);
             }
         }
     }

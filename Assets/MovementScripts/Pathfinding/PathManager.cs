@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathManager : MonoBehaviour
+public class PathManager : MonoBehaviour, IWaveNotifier, IResettable
 {
     private static Vector2Int[] dirs = new Vector2Int[]
     {
@@ -16,28 +16,100 @@ public class PathManager : MonoBehaviour
         new Vector2Int(-1, -1),
     };
 
+    public static bool ResetPaths
+    {
+        get
+        {
+            return resetPaths;
+        }
+        set
+        {
+            if (!WaveSpawner.IsCurrentWaveDefeated)
+            {
+                resetPaths = value; 
+            }
+        }
+    }
+
+    public void ResetState()
+    {
+        resetPaths = false;
+        StartToPath = new Dictionary<Vector2Int, SearchNode>();
+    }
+
+    private static bool resetPaths = false; 
+
+    float WallTimer = 0f;
+    const float WallResetTime = 1f;
+
+    private static Dictionary<Vector2Int, SearchNode> StartToPath = new Dictionary<Vector2Int, SearchNode>(); 
+
+    private void Awake()
+    {
+        StartToPath = new Dictionary<Vector2Int, SearchNode>();
+        WaveSpawner.NotifyWhenWaveEnds(this);
+    }
+
+    public void OnWaveEnds()
+    {
+        StartToPath = new Dictionary<Vector2Int, SearchNode>();
+        WallTimer = 0f;
+        resetPaths = false; 
+    }
+
+    void Update()
+    {
+        if (!WaveSpawner.IsCurrentWaveDefeated)
+        {
+            WallTimer += Time.deltaTime;
+            if (WallTimer > WallResetTime)
+            {
+                WallTimer = 0f;
+                if (ResetPaths)
+                {
+                    StartToPath = new Dictionary<Vector2Int, SearchNode>();
+                }
+            }
+        }
+    }
+
     public static Vector2Int HomeTile
     {
         get;
         set;
     }
 
+    public static SearchNode GetLatestPath(Vector2Int start)
+    {
+        SearchNode path;
+        if  (StartToPath.TryGetValue(start, out path))
+        {
+            return path; 
+        } 
+        else
+        {
+            print("Path manager calculating path to target: " + start);
+            StartToPath[start] = FindPath(start);
+            return StartToPath[start];
+        }
+    }
+
     public static void DrawPath(Vector2Int startLoc)
     {
-        PathNode path = FindPath(startLoc);
+        SearchNode path = FindPath(startLoc);
 
         while (path != null)
         {
             Debug.DrawLine((Vector2)startLoc, (Vector2)path.Pos, Color.red, 10f);
-            path = path.Parent;
+            path = path.ParentNode;
         }
     }
 
-    private static PathNode FindPath(Vector2Int s)
+    private static SearchNode FindPath(Vector2Int s)
     {
-        Dictionary<Vector2Int, float> closedList = new Dictionary<Vector2Int, float>(); 
+        Dictionary<Vector2Int, float> closedList = new Dictionary<Vector2Int, float>();
 
-        PathNode start = new PathNode(HomeTile, null);
+        SearchNode start = new SearchNode(HomeTile, null);
 
         start.g = 0;
         start.h = 0;
@@ -50,11 +122,11 @@ public class PathManager : MonoBehaviour
 
         while (!heap.IsEmpty() && iterations < 1000)
         {
-            PathNode min = heap.DeleteMin(); //get the closest one 
+            SearchNode min = heap.DeleteMin(); //get the closest one 
 
             iterations++;
 
-            if (closedList.TryGetValue(min.Pos, out float f)) //maybe do it at the beginning and not the end? 
+            if (closedList.TryGetValue(min.Pos, out float f)) 
             {
                 if (min.f < f)
                 {
@@ -92,7 +164,7 @@ public class PathManager : MonoBehaviour
 
                 if (trav)
                 {
-                    PathNode node = new PathNode(testPos, min);
+                    SearchNode node = new SearchNode(testPos, min);
                     node.g = min.g + travCost;
                     node.h = GetHToGoal(testPos, s);
                     node.f = node.g + node.h;
@@ -115,8 +187,8 @@ public class PathManager : MonoBehaviour
 
                     if (!skip)
                     {
-                        List<PathNode> points = heap.NodesAtPoint(testPos);
-                        foreach (PathNode n in points)
+                        List<SearchNode> points = heap.NodesAtPoint(testPos);
+                        foreach (SearchNode n in points)
                         {
                             if (n.f <= node.f) //need the equals, otherwise we'll repeat nodes
                             {

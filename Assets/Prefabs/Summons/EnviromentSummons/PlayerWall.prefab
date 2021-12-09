@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 6010119157906490634}
   - component: {fileID: 2480230711469326745}
   - component: {fileID: 926796144925493711}
+  - component: {fileID: -4402883243907999360}
   m_Layer: 23
   m_Name: PlayerWall
   m_TagString: Untraversable
@@ -5021,3 +5022,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: -5157839651516772810}
+--- !u!114 &-4402883243907999360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17723146810303837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1faa4964128faa7439bfa4a2674b44f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hm: {fileID: -5157839651516772810}

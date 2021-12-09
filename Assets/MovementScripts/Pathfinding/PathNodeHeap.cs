@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PathNodeHeap 
 {
-    private List<PathNode> Data;
+    private List<SearchNode> Data;
     private int LastItem;
-    private Dictionary<Vector2Int, List<PathNode>> Table;
+    private Dictionary<Vector2Int, List<SearchNode>> Table;
 
     public PathNodeHeap()
     {
-        Data = new List<PathNode>();
-        Table = new Dictionary<Vector2Int, List<PathNode>>();
+        Data = new List<SearchNode>();
+        Table = new Dictionary<Vector2Int, List<SearchNode>>();
         LastItem = -1;
     }
 
@@ -20,7 +20,7 @@ public class PathNodeHeap
         return LastItem == -1;
     }
 
-    public PathNode PeekMin()
+    public SearchNode PeekMin()
     {
         if (IsEmpty())
         {
@@ -30,7 +30,7 @@ public class PathNodeHeap
         return Data[0];
     }
 
-    public void Insert(PathNode node)
+    public void Insert(SearchNode node)
     {
         LastItem++;
 
@@ -42,12 +42,12 @@ public class PathNodeHeap
             Data[LastItem] = node;
         }
 
-        if (Table.TryGetValue(node.Pos, out List<PathNode> nodes))
+        if (Table.TryGetValue(node.Pos, out List<SearchNode> nodes))
         {
             nodes.Add(node);
         } else
         {
-            Table[node.Pos] = new List<PathNode>() { node };
+            Table[node.Pos] = new List<SearchNode>() { node };
         }
 
         SwimUp(LastItem);
@@ -60,7 +60,7 @@ public class PathNodeHeap
             return;
         }
 
-        PathNode par = Data[GetParent(index)];
+        SearchNode par = Data[GetParent(index)];
 
         if (Data[index].f < par.f)
         {
@@ -69,18 +69,18 @@ public class PathNodeHeap
         }
     }
 
-    public List<PathNode> NodesAtPoint(Vector2Int point)
+    public List<SearchNode> NodesAtPoint(Vector2Int point)
     {
-        if (Table.TryGetValue(point, out List<PathNode> result))
+        if (Table.TryGetValue(point, out List<SearchNode> result))
         {
             return result;
         }
-        return new List<PathNode>();
+        return new List<SearchNode>();
     }
 
-    public PathNode DeleteMin()
+    public SearchNode DeleteMin()
     {
-        PathNode result = Data[0]; //we should throw an exception if the heap is empty, so. 
+        SearchNode result = Data[0]; //we should throw an exception if the heap is empty, so. 
 
         Data[0] = Data[LastItem];
         Data[LastItem] = null;
@@ -106,8 +106,8 @@ public class PathNodeHeap
             if (r <= LastItem)
             {
                 //both a left and right child 
-                PathNode lc = Data[l];
-                PathNode rc = Data[r];
+                SearchNode lc = Data[l];
+                SearchNode rc = Data[r];
 
                 int min = lc.f < rc.f ? l : r; //if lc is < rc, then the minimum is at l. Otherwise, it's at r.
 
@@ -120,7 +120,7 @@ public class PathNodeHeap
             else
             {
                 //only a left child 
-                PathNode lc = Data[l];
+                SearchNode lc = Data[l];
 
                 if (Data[index].f > lc.f)
                 {
@@ -141,7 +141,7 @@ public class PathNodeHeap
 
     private void Swap(int a, int b)
     {
-        PathNode temp = Data[a];
+        SearchNode temp = Data[a];
 
         Data[a] = Data[b];
         Data[b] = temp;

@@ -21,10 +21,5 @@ public class UnlockedItemManager : MonoBehaviour
             GameObject instance = Instantiate(item);
             PlayerInventory.TryToPickUpGameobject(instance);
         }
-
-        foreach (GameObject item in items)
-        {
-            print("Item: " + item.name);
-        }
     }
 }

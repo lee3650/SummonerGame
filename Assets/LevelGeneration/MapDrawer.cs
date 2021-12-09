@@ -171,10 +171,6 @@ public class MapDrawer : MonoBehaviour
                         w.InjectMap(map, worldOrigin);
                     }
                 }
-                else
-                {
-                    print("Skipping point " + x + ", " + y + " because it was do not draw!");
-                }
             }
         }
     }

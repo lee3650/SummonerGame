@@ -27,11 +27,21 @@ public class MovementController : MonoBehaviour
         SpeedSupplier = GetComponent<ISpeedSupplier>();
     }
 
+
     private void Update()
     {
         if (SpeedSupplier != null)
         {
             MoveSpeed = BaseMoveSpeed * SpeedSupplier.GetMoveSpeedAdjustment();
+        }
+    }
+
+    public void SetPathToHomePath()
+    {
+        if (pathfindGoal != PathManager.HomeTile)
+        {
+            pathfindGoal = PathManager.HomeTile;
+            pathfindPath = PathManager.GetLatestPath(VectorRounder.RoundVectorToInt(transform.position)); //hm... this is interesting. Don't even use spawn points. 
         }
     }
 
@@ -98,6 +108,7 @@ public class MovementController : MonoBehaviour
             pathfindPath = new SearchNode((int)goal.x, (int)goal.y);
         } else
         {
+            print("Movement controller calculating path to target!");
             pathfindPath = Pathfinder.GetPathFromPointToPoint(goal, transform.position, CanGoThroughWalls);
         }
     }

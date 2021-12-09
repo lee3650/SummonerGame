@@ -212,6 +212,7 @@ MonoBehaviour:
   AIAttackManager: {fileID: 4648206095511936290}
   TargetSearcher: {fileID: 4648206095511936301}
   DirectionalAnimator: {fileID: 818753487579262456}
+  TargetHomeTile: 1
 --- !u!114 &4648206095511936303
 MonoBehaviour:
   m_ObjectHideFlags: 0

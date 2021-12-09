@@ -10,17 +10,17 @@ public class TestPathNodeHeap : MonoBehaviour
 
         for (int i = 1000; i > 0; i--)
         {
-            PathNode insert = new PathNode(new Vector2Int(), null);
+            SearchNode insert = new SearchNode(new Vector2Int(), null);
             insert.f = Random.Range(0.01f, 1000f);
             heap.Insert(insert);
         }
 
-        PathNode prev = heap.DeleteMin();
+        SearchNode prev = heap.DeleteMin();
         
         int removes = 1;
         while (!heap.IsEmpty())
         {
-            PathNode nextMin = heap.DeleteMin();
+            SearchNode nextMin = heap.DeleteMin();
             removes++;
 
             if (nextMin.f < prev.f)
