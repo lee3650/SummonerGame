@@ -44,7 +44,7 @@ public class AIDeathState : MonoBehaviour, IState
             m.enabled = false;
         }
         SpriteRenderer.sprite = TombstoneSpriteManager.GetRandomTombstone();
-        SpriteRenderer.sortingOrder = -4;
+        SpriteRenderer.sortingOrder = -3;
     }
 
     private void RemoveProjectiles()

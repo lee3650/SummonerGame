@@ -159,6 +159,35 @@ public class InventorySlotManager : MonoBehaviour
          */
     }
     
+    public void ShowHotbarItemsOfTypes(List<BlueprintType> blueprintTypes)
+    {
+        foreach (ItemSlot slot in HotbarSlots)
+        {
+            if (slot.GetAllowedType() == WeaponType.Blueprint)
+            {
+                slot.ResetItem();
+            }
+        }
+
+        int j = 0;
+        for (int i = 0; i < HotbarSlots.Count; i++)
+        {
+            if (HotbarSlots[i].GetAllowedType() == WeaponType.Blueprint)
+            {
+                if (j < blueprintTypes.Count)
+                {
+                    HotbarSlots[i].SetAllowedBlueprint(blueprintTypes[j]);
+                    j++;
+                } else
+                {
+                    HotbarSlots[i].SetAllowedBlueprint(BlueprintType.None);
+                }
+            }
+        }
+
+        UpdateHotbar();
+    }
+
     private void DestroyCurrentDisplay()
     {
         foreach (InventoryRow row in InventoryRows)

@@ -17,4 +17,6 @@ public enum BlueprintType
     Bonfire,
     StrongWall,
     Mage,
+    Any, 
+    None, 
 }

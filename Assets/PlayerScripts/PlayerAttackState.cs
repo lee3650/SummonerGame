@@ -44,7 +44,7 @@ public class PlayerAttackState : MonoBehaviour, IState
             StateController.TransitionToState(PlayerMoveState);
         }
     }
-
+    
     private void DoAttack()
     {
         attackFrame = Time.frameCount;
@@ -142,10 +142,12 @@ public class PlayerAttackState : MonoBehaviour, IState
         {
             return true;
         }
+        /*
         if (PlayerSummonController.HadSelectionThisFrame())
         {
             return true;
         }
+         */
         if (PlayerSummonController.MouseOverUIComponent())
         {
             return true;

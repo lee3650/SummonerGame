@@ -22,7 +22,7 @@ public class Figure8 : DonutFeature
         DrawEllipse(a2, b2, k, h2, map, TileType.Land, true);
 
         //draw the hole 
-        DrawEllipse(a1 - 2, b1 - 2, k, h1, map, TileType.DoNotDraw, false);
-        DrawEllipse(a2 - 2, b2 - 2, k, h2, map, TileType.DoNotDraw, false);
+        DrawEllipse(a1 - 3, b1 - 3, k, h1, map, TileType.DoNotDraw, false);
+        DrawEllipse(a2 - 3, b2 - 3, k, h2, map, TileType.DoNotDraw, false);
     }
 }

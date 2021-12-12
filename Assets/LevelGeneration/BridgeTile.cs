@@ -11,17 +11,14 @@ public class BridgeTile : MonoBehaviour
     [Tooltip("0 is positive, 1 is negative")]
     [SerializeField] GameObject[] cols;
 
-    private void Awake()
+    public void SetGraphic()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero);
-        if (hit)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.zero);
+        foreach (RaycastHit2D hit in hits)
         {
             hit.collider.enabled = false;
         }
-    }
 
-    public void SetGraphic()
-    {
         if (ShouldHide())
         {
             print("hiding!");
@@ -32,6 +29,8 @@ public class BridgeTile : MonoBehaviour
             Sprite s = CalculateSprite();
             GetComponent<SpriteRenderer>().sprite = s;
         }
+
+        TryDisableColliders();
     }
 
     public void TryDisableColliders()

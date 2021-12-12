@@ -8,4 +8,5 @@ public enum MapType
     Archipelago, //so meta! 
     Bridged, 
     Figure8, 
+    Maze, 
 }

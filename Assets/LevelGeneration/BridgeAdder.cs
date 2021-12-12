@@ -35,13 +35,21 @@ public class BridgeAdder : MonoBehaviour
     {
         List<BridgeTile> tiles = new List<BridgeTile>();
 
+        //we have to write all the tiles first or the colliders won't be disabled properly 
         for (int i = 0; i < BridgeTiles.Count; i++)
         {
             Vector2Int b = BridgeTiles[i];
-            if (MapManager.GetTileType(b) == TileType.DoNotDraw) 
+            if (MapManager.GetTileType(b) == TileType.DoNotDraw)
             {
                 MapManager.WritePoint(b.x, b.y, new MapNode(true, TileType.Bridge));
+            }
+        }
 
+        for (int i = 0; i < BridgeTiles.Count; i++)
+        {
+            Vector2Int b = BridgeTiles[i];
+            if (MapManager.GetTileType(b) == TileType.Bridge) 
+            {
                 GameObject prefab;
 
                 if (BridgeDirections[i])
@@ -54,7 +62,6 @@ public class BridgeAdder : MonoBehaviour
                 }
 
                 BridgeTile t = Instantiate(prefab, new Vector3(b.x, b.y, 0), Quaternion.Euler(new Vector3(0, 0, 0))).GetComponent<BridgeTile>();
-                //t.SetUp(BridgeDirections[i]);
                 tiles.Add(t);
             }
         }

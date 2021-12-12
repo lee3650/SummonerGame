@@ -81,7 +81,7 @@ public class SelectedSummonUI : MonoBehaviour
     {
         TooltipPD.HideAllPanels();
 
-        SelectedSummonParent.SetWorldPoint(s.GetTransform().position);
+        SelectedSummonParent.SetWorldPoint(s.GetTransform().position + new Vector3(0, 1.5f, 0));
         SelectedSummonParent.gameObject.SetActive(true);
 
         SummonSelected = true; 

@@ -89,7 +89,7 @@ public class WaveViewModel : MonoBehaviour
         StopSpawningWaves();
 
         UpdateCurrentWaveUI();
-        UpdateNextWaveUI(CurrentLevelManager.GetFirstRoll(), CurrentLevelManager.GetMaxRoll());
+        UpdateNextWaveUI(CurrentLevelManager.GetNextWaveDescription());
 
         NextLevelButton.SetActive(false);
 
@@ -122,7 +122,7 @@ public class WaveViewModel : MonoBehaviour
             CurrentLevelManager.SpawnNextWave();
             timer = 0f;
             SetWaveRollUI(CurrentLevelManager.GetPreviousSecondRoll());
-            UpdateNextWaveUI(CurrentLevelManager.GetFirstRoll(), CurrentLevelManager.GetMaxRoll());
+            UpdateNextWaveUI(CurrentLevelManager.GetNextWaveDescription());
             UpdateCurrentWaveUI();
         }
     }
@@ -150,30 +150,8 @@ public class WaveViewModel : MonoBehaviour
         CurrentWaveText.text = string.Format("{0} / {1}", CurrentLevelManager.GetCurrentWave(), CurrentLevelManager.GetHighestWave());
     }
     
-    public void UpdateNextWaveUI(int firstRoll, int maxRoll) //List<GameObject> NextWave
+    public void UpdateNextWaveUI(string text)
     {
-        NextWaveText.text = string.Format("Scouts found: \n{0} enemies\nPlus between 1 and {1} more", firstRoll, maxRoll);
-
-        /*
-        Dictionary<string, int> enemyNameToNum = new Dictionary<string, int>();
-        
-        foreach (GameObject g in NextWave)
-        {
-            if (enemyNameToNum.ContainsKey(g.name))
-            {
-                enemyNameToNum[g.name] += 1;
-            }
-            else
-            {
-                enemyNameToNum[g.name] = 1;
-            }
-        }
-
-        foreach (KeyValuePair<string, int> keyPair in enemyNameToNum)
-        {
-            NextWaveText.text += keyPair.Key + " x " + keyPair.Value + "\n";
-        }
-         */
+        NextWaveText.text = text;
     }
-
 }

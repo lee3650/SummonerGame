@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour, IPointerUpHandler
     [SerializeField] Sprite DefaultSprite;
     [SerializeField] Color DefaultColor = new Color(1, 1, 1, 0);
     [SerializeField] WeaponType AllowedType;
+    [SerializeField] BlueprintType AllowedBlueprint = BlueprintType.Any; 
     
     public int Index;
 
@@ -28,6 +29,16 @@ public class ItemSlot : MonoBehaviour, IPointerUpHandler
         OnSlotClicked(this);
     }
 
+    public WeaponType GetAllowedType()
+    {
+        return AllowedType;
+    }
+
+    public void SetAllowedBlueprint(BlueprintType type)
+    {
+        AllowedBlueprint = type; 
+    }
+
     public bool IsItemAllowed(Item item)
     {
         Weapon w = item as Weapon;
@@ -38,7 +49,13 @@ public class ItemSlot : MonoBehaviour, IPointerUpHandler
 
         if (w.GetWeaponType() == AllowedType)
         {
-            return true;
+            if (AllowedBlueprint == BlueprintType.Any)
+            {
+                return true;
+            } else if (w.TryGetComponent<BlueprintWeapon>(out BlueprintWeapon bw))
+            {
+                return bw.GetBlueprintType() == AllowedBlueprint;
+            }
         }
 
         return false;

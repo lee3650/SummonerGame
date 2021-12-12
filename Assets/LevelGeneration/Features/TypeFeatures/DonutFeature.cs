@@ -20,8 +20,8 @@ public class DonutFeature : MapFeature
 
         DrawEllipse(a, b, k, h, map, TileType.Land, true);
 
-        a -= 2;
-        b -= 2;
+        a -= 3;
+        b -= 3;
 
         DrawEllipse(a, b, k, h, map, TileType.DoNotDraw, false);
     }

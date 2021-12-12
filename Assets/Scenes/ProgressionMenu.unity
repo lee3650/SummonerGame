@@ -2596,8 +2596,8 @@ MonoBehaviour:
   TotalIslands: 3
   Description: Our mages have discovered a way to turn arrows mid flight. This should
     create some interesting possibilities.
-  Prereq: {fileID: 0}
-  XPReq: 16
+  Prereq: {fileID: 327986780}
+  XPReq: 8
   Unlock: {fileID: 4922086247372503040, guid: bb67c1cff3f597f479b58eeddae5e133, type: 3}
 --- !u!1 &265344405
 GameObject:
@@ -3188,7 +3188,7 @@ MonoBehaviour:
   Description: Highly trained archers of the Republic. Trained with a bow before
     they were born.
   Prereq: {fileID: 2027526313}
-  XPReq: 36
+  XPReq: 4
   Unlock: {fileID: 6639920486162523641, guid: ec5e191ea1fa7994a99505f854e2dd3d, type: 3}
 --- !u!114 &328381161 stripped
 MonoBehaviour:
@@ -5066,8 +5066,8 @@ MonoBehaviour:
   TotalIslands: 3
   Description: Strong walls made of compressed stone. Not even Satan could break
     through these.
-  Prereq: {fileID: 0}
-  XPReq: 24
+  Prereq: {fileID: 327986780}
+  XPReq: 8
   Unlock: {fileID: 6996867747151588200, guid: 8c9f9fca0d412504ab16cd94a706b126, type: 3}
 --- !u!1001 &583473675
 PrefabInstance:
@@ -5557,7 +5557,7 @@ MonoBehaviour:
   Description: Mages from the eastern shores of the republic cast a beam powerful
     enough to cut through space and time itself.
   Prereq: {fileID: 327986780}
-  XPReq: 64
+  XPReq: 16
   Unlock: {fileID: 3884099513963472055, guid: a09b1b1045abe6a47879935ccf2e6346, type: 3}
 --- !u!1 &633417696
 GameObject:
@@ -8017,7 +8017,7 @@ MonoBehaviour:
   TotalIslands: 3
   Description: 'Assassins tip their blades in deadly poisons. '
   Prereq: {fileID: 868996784}
-  XPReq: 64
+  XPReq: 16
   Unlock: {fileID: 8657498176849347674, guid: c768027ababe14a458dcd520f5e68c0d, type: 3}
 --- !u!1 &868996782
 GameObject:
@@ -8068,8 +8068,8 @@ MonoBehaviour:
   Image: {fileID: 2493916760975777912, guid: db44de4cbbdfff044a91eb2975eb6b9a, type: 3}
   TotalIslands: 3
   Description: Former lumberjacks, these axeman can shred bone as easily as timber
-  Prereq: {fileID: 0}
-  XPReq: 36
+  Prereq: {fileID: 327986780}
+  XPReq: 8
   Unlock: {fileID: 5619776627141548842, guid: 0018eae2c4cfe4848915bfed36cd3ece, type: 3}
 --- !u!1 &872252029
 GameObject:
@@ -11290,7 +11290,7 @@ MonoBehaviour:
   TotalIslands: 3
   Description: Flamethrower.
   Prereq: {fileID: 235256888}
-  XPReq: 64
+  XPReq: 16
   Unlock: {fileID: 8845059949703626669, guid: b2447377bf490ec4290082909b89c0c4, type: 3}
 --- !u!1 &1276204067
 GameObject:
@@ -12203,7 +12203,7 @@ MonoBehaviour:
   Description: Gives the player the ability to call arrows down from the sky. "Our
     arrows will block out the sun"
   Prereq: {fileID: 559469054}
-  XPReq: 64
+  XPReq: 16
   Unlock: {fileID: 8375705344897930493, guid: 782246f2402565249955eb37b389f0fa, type: 3}
 --- !u!1 &1351464894
 GameObject:
@@ -17920,7 +17920,7 @@ MonoBehaviour:
   TotalIslands: 3
   Description: 'Required to build ranged units. Can also be used to train mages. '
   Prereq: {fileID: 0}
-  XPReq: 16
+  XPReq: 1
   Unlock: {fileID: 4583727241796758189, guid: 52369e72c10f60841a5805bb3810858f, type: 3}
 --- !u!1 &2031414388
 GameObject:

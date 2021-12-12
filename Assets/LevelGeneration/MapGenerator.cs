@@ -39,7 +39,6 @@ public class MapGenerator : MonoBehaviour
             new DesertFeature().AddFeature(xSize, ySize, newMap); 
         }
 
-        //new ValleyExpander().AddFeature(xSize, ySize, newMap);  
         return newMap;
     }
 
@@ -61,8 +60,6 @@ public class MapGenerator : MonoBehaviour
         {
             return MapType.Archipelago;
         }
-
-        return MapType.Figure8;
 
         MapType[] types = (MapType[])System.Enum.GetValues(typeof(MapType));
         MapType type = types[Random.Range(0, types.Length)];
@@ -88,6 +85,8 @@ public class MapGenerator : MonoBehaviour
                 return new DonutFeature();
             case MapType.Figure8:
                 return new Figure8();
+            case MapType.Maze:
+                return new MazeEllipseFeature();
         }
 
         throw new System.Exception("Could not find type feature for " + type);
@@ -106,6 +105,7 @@ public class MapGenerator : MonoBehaviour
             case MapType.Donut:
             case MapType.Bridged:
             case MapType.Figure8:
+            case MapType.Maze:
                 return new List<MapFeature>();
         }
 

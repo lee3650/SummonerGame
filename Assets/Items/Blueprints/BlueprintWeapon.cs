@@ -45,6 +45,11 @@ public class BlueprintWeapon : SummonWeapon
         return -1 * MaintenanceFee;
     }
 
+    public BlueprintType GetBlueprintType()
+    {
+        return BlueprintType;
+    }
+
     //this is becoming very deep inheritance
     public override void OnSelection()
     {

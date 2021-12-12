@@ -19,7 +19,7 @@ public class CurrentLevelManager : MonoBehaviour
     private int levelNum = 0;
     private int highestWave = 0; //so, this is actually super messed up - if we change this it's going to break NextWaveFunctionMonitor. So, idk, watch out. 
     private int currentWave = 0;
-    private float enemySpawnTime = 0.75f; 
+    private float enemySpawnTime = 0.75f;
     private int baseEnemies = 3;
 
     List<List<GameObject>> LevelWaves = new List<List<GameObject>>();
@@ -50,7 +50,7 @@ public class CurrentLevelManager : MonoBehaviour
         BridgeAdder.ResetBridges();
 
         LevelGenerator.SetTotalMapSizeAndInitMap();
-        
+
         LevelGenerator.GenerateNextLevel();
 
         LevelGenerator.RecalculateSpawnRegion();
@@ -81,7 +81,7 @@ public class CurrentLevelManager : MonoBehaviour
 
         currentWave = 0;
 
-        previousBaseEnemies = baseEnemies;
+        //previousBaseEnemies = baseEnemies;
 
         LevelWaves = new List<List<GameObject>>();
         firstEnemyRoll = new List<int>();
@@ -89,8 +89,8 @@ public class CurrentLevelManager : MonoBehaviour
 
         for (int i = 0; i <= highestWave; i++)
         {
-            int roll = GetEnemyNumber(i);
-            int roll2 = GetEnemyNumber(i);
+            int roll = GetEnemyNumber(i, levelNum);
+            int roll2 = GetEnemyNumber(i, levelNum);
             firstEnemyRoll.Add(roll);
             secondEnemyRoll.Add(roll2);
 
@@ -100,7 +100,6 @@ public class CurrentLevelManager : MonoBehaviour
         HealPlayer();
 
         baseEnemies = CalculateBaseEnemies(levelNum);
-            //LevelWaves[LevelWaves.Count - 2].Count; //this is kind of confusing code, but it generates an additional wave past the highest wave because the UI always needs a next wave 
 
         SetSpawnTime();
 
@@ -122,24 +121,18 @@ public class CurrentLevelManager : MonoBehaviour
         return baseEnemies[level];
     }
 
-    private int GetEnemiesPerWaveMaxRoll(int wave)
+    private int GetEnemiesPerWaveMaxRoll(int wave, int level)
     {
-        return Mathf.RoundToInt(previousBaseEnemies * GetWaveModifier(wave / (highestWave - 1)));
+        int actual = ((level + 1) * (level + 1)) + 4;
+        int prev = (level * level) + 4;
+        return Mathf.RoundToInt(Mathf.Lerp((float)prev, (float)actual, (float)wave/highestWave));
     }
 
-    public int GetPreviousFirstRoll()
+    public int GetEnemiesMinRoll(int wave, int level)
     {
-        return firstEnemyRoll[currentWave - 1];
-    }
-
-    public int GetPreviousSecondRoll()
-    {
-        return secondEnemyRoll[currentWave - 1];
-    }
-
-    public int GetMaxRoll()
-    {
-        return GetEnemiesPerWaveMaxRoll(currentWave) - 1;
+        int actual = (((level + 1 ) * (level + 1)) / 2) + 1;
+        int prev = ((level * level) / 2) + 1;
+        return Mathf.RoundToInt(Mathf.Lerp((float)prev, (float)actual, (float)wave / highestWave));
     }
 
     public int GetFirstRoll()
@@ -147,12 +140,22 @@ public class CurrentLevelManager : MonoBehaviour
         return firstEnemyRoll[currentWave];
     }
 
-    public int GetEnemyNumber(int wave)
+    public int GetPreviousSecondRoll()
     {
-        return Random.Range(1, GetEnemiesPerWaveMaxRoll(wave));
+        return secondEnemyRoll[currentWave - 1];
     }
 
-    void SetSpawnTime()
+    public string GetNextWaveDescription()
+    {
+        return string.Format("Scouts found: {0} enemies\nPlus between {1} and {2} more", GetFirstRoll(), GetEnemiesMinRoll(currentWave, levelNum), GetEnemiesPerWaveMaxRoll(currentWave, levelNum) - 1);
+    }
+
+    public int GetEnemyNumber(int wave, int level)
+    {
+        return Random.Range(GetEnemiesMinRoll(wave, level), GetEnemiesPerWaveMaxRoll(wave, level));
+    }
+
+    private void SetSpawnTime()
     {
         enemySpawnTime = Mathf.Lerp(0.75f, 0.15f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 2));
         print("Spawn time: " + enemySpawnTime);
@@ -247,13 +250,6 @@ public class CurrentLevelManager : MonoBehaviour
         print("Spawned wave: " + currentWave);
 
         float effectiveSpawnTime = enemySpawnTime;
-
-        /*
-        if (OnLastWave())
-        {
-            effectiveSpawnTime += 0.15f;
-        }
-         */
 
         WaveSpawner.SpawnWave(GetNextWave(), effectiveSpawnTime);
         currentWave++;

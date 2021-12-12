@@ -37,6 +37,18 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         base.Init();
     }
 
+    public List<BlueprintType> GetBlueprintTypes()
+    {
+        List<BlueprintType> result = new List<BlueprintType>();
+
+        foreach (BlueprintPrefabData data in BlueprintData)
+        {
+            result.Add(data.BlueprintType);
+        }
+
+        return result; 
+    }
+
     private void WaveEnds()
     {
         //SetActivated();

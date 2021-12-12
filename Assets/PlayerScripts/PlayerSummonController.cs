@@ -13,6 +13,8 @@ public class PlayerSummonController : MonoBehaviour
     [SerializeField] PlayerAttackState PlayerAttackState;
     [SerializeField] Summoner Summoner;
     [SerializeField] BlueprintFees BlueprintFees;
+    [SerializeField] InventorySlotManager WeaponInv;
+    [SerializeField] AnimateInAndOut BlueprintHotbar; 
 
     const float SelectionRadius = 0.1f;
 
@@ -22,7 +24,7 @@ public class PlayerSummonController : MonoBehaviour
 
     private void Awake()
     {
-        ItemSelection.SelectedItemChanged += SelectedItemChanged;
+        //ItemSelection.SelectedItemChanged += SelectedItemChanged; //don't want to do that anymore 
     }
 
     private void SelectedItemChanged()
@@ -93,7 +95,7 @@ public class PlayerSummonController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !MouseOverUIComponent() && !PlayerAttackState.AttackedThisFrame())
+        if (Input.GetMouseButtonDown(0) && !MouseOverUIComponent() && (!PlayerAttackState.AttackedThisFrame() || ItemSelection.SelectedItem == null))
         {
             IControllableSummon s = GetSummonUnderMouse();
             SelectSummon(s);
@@ -191,6 +193,20 @@ public class PlayerSummonController : MonoBehaviour
                 rv.Show();
             }
 
+            BlueprintSatisfier bs;
+            if (SelectedSummon.GetTransform().TryGetComponent<BlueprintSatisfier>(out bs))
+            {
+                List<BlueprintType> blueprints = bs.GetBlueprintTypes();
+
+                //okay, now we just tell the 
+                //hotbar to show only those types
+
+                WeaponInv.ShowHotbarItemsOfTypes(blueprints);
+                if (!BlueprintHotbar.IsShown)
+                {
+                    BlueprintHotbar.ToggleVisibility();
+                }
+            }
             //Time.timeScale = 0.1f;
             //Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
         } 
@@ -205,6 +221,11 @@ public class PlayerSummonController : MonoBehaviour
 
     public void DeselectSummon()
     {
+        if (BlueprintHotbar.IsShown)
+        {
+            BlueprintHotbar.ToggleVisibility();
+        }
+
         SelectedSummonUI.DeselectSummon();
 
         frameOfDeselection = Time.frameCount;

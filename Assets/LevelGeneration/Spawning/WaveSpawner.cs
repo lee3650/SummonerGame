@@ -44,7 +44,7 @@ public class WaveSpawner : MonoBehaviour, IResettable
 
     public void MakeRandomPointsAvailable()
     {
-        int points = Random.Range(1, 4);
+        int points = Random.Range(1, 2); 
         for (int i = 0; i < points; i++)
         {
             if (SpawnRegion.Count == 0)
