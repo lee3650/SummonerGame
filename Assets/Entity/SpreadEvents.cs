@@ -41,7 +41,7 @@ public class SpreadEvents : MonoBehaviour, ISubEntity
                 
                 if (recur != null)
                 {
-                    if (!recur.EventRecurs(e.MyType))
+                    if (!recur.EventRecurs(e.MyType) && recur.AllowSpread())
                     {
                         apply = true;
                     }

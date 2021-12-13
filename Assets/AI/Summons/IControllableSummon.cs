@@ -6,7 +6,7 @@ public interface IControllableSummon
 {
     void HandleCommand(PlayerCommand command);
 
-    string GetStatString();
+    string GetStatString(Vector2 pos);
 
     bool CanBeSelected();
 

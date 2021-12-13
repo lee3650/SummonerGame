@@ -101,7 +101,9 @@ public class ResearchManager : MonoBehaviour
                 max = Mathf.Max(ResearchMap[i].Index, max);
             }
 
-            return max;
+            print("Messing up last research index for the demo!");
+
+            return max + 100; 
         }
     }
 
@@ -143,9 +145,9 @@ public class ResearchManager : MonoBehaviour
 
         foreach (Research r in staticResearchMap)
         {
-            if (r.Unlocked && r.Unlock != null)
+            if (r.Unlocked && r.Unlocks.Length != 0)
             {
-                result.Add(r.Unlock);
+                result.AddRange(r.Unlocks);
             }
         }
 
@@ -227,6 +229,10 @@ public class ResearchManager : MonoBehaviour
         if (staticResearchMap == null)
         {
             return false;
+        }
+        if (index >= staticResearchMap.Length)
+        {
+            return false; 
         }
         return staticResearchMap[index].Unlocked;
     }

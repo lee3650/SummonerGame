@@ -103,6 +103,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     private void BlueprintsChanged()
     {
+        print("Blueprints changed!");
         if (WaveSpawner.IsCurrentWaveDefeated)
         {
             KillUnneededSummons();
@@ -174,7 +175,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         return MySummon.GetSummonType();
     }
 
-    public string GetStatString()
+    public string GetStatString(Vector2 pos)
     {
         string stats = string.Format("Max Summons: {1}\nSummons Types: {2}\nActivated: {3}", Range, CalculateMaxSummons(), GetSummonTypesString(), activated);
         return stats; 

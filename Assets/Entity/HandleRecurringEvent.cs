@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandleRecurringEvent : MonoBehaviour, ISubEntity
+public class HandleRecurringEvent : MonoBehaviour, ISubEntity, IInitialize
 {
     [SerializeField] HealthManager hm;
 
     IEntity Entity;
     List<Event> RecurringEvents = new List<Event>();
+
+    private bool readyForSpread = false;
+
+    public void Init()
+    {
+        readyForSpread = true; 
+    }
 
     private void Awake()
     {
@@ -70,6 +77,11 @@ public class HandleRecurringEvent : MonoBehaviour, ISubEntity
             }
         }
         return null;
+    }
+
+    public bool AllowSpread()
+    {
+        return readyForSpread;
     }
 
     IEnumerator RecurEvent(EventType type)

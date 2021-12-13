@@ -33,7 +33,7 @@ public class WaveViewModel : MonoBehaviour
 
     float waveTime = 30f;
 
-    private const int tutorialSeed = 958;
+    private const int tutorialSeed = 7056;
 
     bool firstLevel = true;
 
@@ -58,13 +58,13 @@ public class WaveViewModel : MonoBehaviour
 
     private IEnumerator SetupFirstLevel()
     {
-        //LoadingPanel.ShowLoadingPanel("Loading..."); //get a battle name at some point
         yield return null;
-            
+        
         if (MainMenuScript.TutorialMode)
         {
-            print("Using tutorial seed!");
-            Random.InitState(tutorialSeed);
+            int s = System.DateTime.Now.Millisecond * System.DateTime.Now.Second;
+            print("Using tutorial seed: " + s);
+            Random.InitState(s);
         }
         else
         {

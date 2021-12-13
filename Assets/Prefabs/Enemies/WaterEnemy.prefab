@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 40
+  MaxHealth: 30
   CurrentHealth: 0
 --- !u!114 &4648206095511936288
 MonoBehaviour:
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3977e08b04754c4eae4a989d5e5eb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarColor: {r: 1, g: 0.047002688, b: 0, a: 1}
   HealthManager: {fileID: 4648206095511936289}
   Height: 0.75
   WidthAdjustment: -0.85

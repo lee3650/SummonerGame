@@ -106,7 +106,6 @@ MonoBehaviour:
   SummonType: 7
   HealToFull: 0
   WaveHealAmt: 10
-  upgradable: 1
   summonTier: 0
   summonName: Archer Barracks
   ManaRefundAmount: 0
@@ -168,7 +167,7 @@ MonoBehaviour:
   TileType: 16
   Precedence: 0
   Range: 15
-  MaxNumSummons: 4
+  MaxNumSummons: 6
   CapacityBuffTile: 13
   BlueprintData:
   - BlueprintType: 3

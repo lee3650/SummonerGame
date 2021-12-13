@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnlockedItemManager : MonoBehaviour
 {
     [SerializeField] PlayerInventory PlayerInventory;
-    [SerializeField] List<GameObject> DefaultItems; 
+    [SerializeField] List<GameObject> DefaultItems;
 
     private void Start()
     {
@@ -14,12 +14,12 @@ public class UnlockedItemManager : MonoBehaviour
         if (!MainMenuScript.TutorialMode)
         {
             items.AddRange(DefaultItems);
-        }
 
-        foreach (GameObject item in items)
-        {
-            GameObject instance = Instantiate(item);
-            PlayerInventory.TryToPickUpGameobject(instance);
+            foreach (GameObject item in items)
+            {
+                GameObject instance = Instantiate(item);
+                PlayerInventory.TryToPickUpGameobject(instance);
+            }
         }
     }
 }

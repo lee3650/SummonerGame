@@ -8,6 +8,15 @@ public class UpgradePath : MonoBehaviour
     [SerializeField] float UpgradeCost;
     [SerializeField] SummonType summonType;
     [SerializeField] int tier;
+    [SerializeField] int requiredResearch; 
+
+    public int ResearchIndex
+    {
+        get
+        {
+            return requiredResearch;
+        }
+    }
 
     public GameObject GetNextSummon()
     {
@@ -18,12 +27,12 @@ public class UpgradePath : MonoBehaviour
         return UpgradeCost;
     }
 
-    public string GetNextSummonStats()
+    public string GetNextSummonStats(Vector2 position)
     {
         IControllableSummon s;
         if (NextSummon.TryGetComponent<IControllableSummon>(out s))
         {
-            return s.GetStatString() + "\nUpgrade Cost: " + UpgradeCost;
+            return s.GetStatString(position) + "\nUpgrade Cost: " + UpgradeCost;
         }
         return "";
     }

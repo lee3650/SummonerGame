@@ -131,8 +131,6 @@ public class ArchipelagoFeature : MapFeature
 
         while (cur != child.Position)
         {
-            MonoBehaviour.print("Drawing bridge! Position: " + parent.Position);
-
             AddBridge(cur, w1, parent, child, map);
 
             cur += dint;

@@ -5,6 +5,8 @@ using UnityEngine;
 public enum GameplayChange
 {
     SandAndClearing,
+    Bridge,
+    Figure8,
     RandomPrices,
     IncrementPrice,
 }

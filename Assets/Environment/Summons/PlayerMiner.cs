@@ -37,8 +37,6 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
     public void OnWaveEnds()
     {
-        print("Got wave ends notification!");
-
         float multiplier = GetMoneyMultipler(transform.position);
         MySummon.GetSummoner().AddMana(multiplier * MoneyPerWave);
     }
@@ -134,14 +132,9 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
         return HealthManager.IsAlive(); 
     }
 
-    public string GetStatString()
+    public string GetStatString(Vector2 pos)
     {
-        return string.Format("Money per wave: {0}", GetMoneyMultipler(transform.position) * MoneyPerWave);
-    }
-
-    public Transform GetTransform()
-    {
-        return transform;
+        return string.Format("Money per wave: {0}", GetMoneyMultipler(pos) * MoneyPerWave);
     }
 
     public void OnHit(IEntity hit)

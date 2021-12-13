@@ -72,7 +72,7 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
         IControllableSummon cs;
         if (Summon.TryGetComponent<IControllableSummon>(out cs))
         {
-            return FormatStringWidth(WeaponDescription + "\n\n" + cs.GetStatString());
+            return FormatStringWidth(WeaponDescription + "\n\n" + cs.GetStatString(Vector2.zero));
         }
         else
         {

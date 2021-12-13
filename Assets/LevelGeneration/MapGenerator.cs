@@ -25,7 +25,10 @@ public class MapGenerator : MonoBehaviour
             feature.AddFeature(xSize, ySize, newMap);
         }
 
-        new SandAndClearingFeature().AddFeature(xSize, ySize, newMap);
+        if (LetterManager.UseGameplayChange(GameplayChange.SandAndClearing) && !MainMenuScript.TutorialMode)
+        {
+            new SandAndClearingFeature().AddFeature(xSize, ySize, newMap);
+        }
 
         new OreFeature().AddFeature(xSize, ySize, newMap);
 
@@ -44,11 +47,13 @@ public class MapGenerator : MonoBehaviour
 
     private bool ChooseIsDesert()
     {
-        //check gameplay changes! 
-
         if (MainMenuScript.TutorialMode)
         {
             return false;
+        }
+        if (LetterManager.UseGameplayChange(GameplayChange.SandAndClearing))
+        {
+            return false; 
         }
 
         return Random.Range(0, 100) < 25;
@@ -62,9 +67,35 @@ public class MapGenerator : MonoBehaviour
         }
 
         MapType[] types = (MapType[])System.Enum.GetValues(typeof(MapType));
+
+        if (!LetterManager.UseGameplayChange(GameplayChange.Bridge))
+        {
+            types = RemoveMapType(types, MapType.Bridged);
+        }
+        if (!LetterManager.UseGameplayChange(GameplayChange.Figure8))
+        {
+            types = RemoveMapType(types, MapType.Figure8);
+        }
+
         MapType type = types[Random.Range(0, types.Length)];
 
         return type; 
+    }
+
+    private MapType[] RemoveMapType(MapType[] types, MapType t)
+    {
+        MapType[] result = new MapType[types.Length - 1];
+        int j = 0; 
+        for (int i = 0; i < types.Length; i++)
+        {
+            if (types[i] != t)
+            {
+                result[j] = types[i];
+                j++;
+            }
+        }
+
+        return result; 
     }
 
     private void InitializeMapType(MapType type, MapNode[,] map)

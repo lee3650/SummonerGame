@@ -6,6 +6,7 @@ public class AIHealthBar : MonoBehaviour, IInitialize
 {
     const float NormalHealth = 25f;
 
+    [SerializeField] Color BarColor = Color.green;
     [SerializeField] HealthManager HealthManager;
     [SerializeField] float Height = 1.5f;
     [SerializeField] float WidthAdjustment = -1f;
@@ -17,6 +18,7 @@ public class AIHealthBar : MonoBehaviour, IInitialize
     {
         healthGraphic = Instantiate<Transform>(Resources.Load<Transform>("healthGraphic"));
         defaultScale = healthGraphic.localScale.x * (HealthManager.GetMaxHealth() / NormalHealth);
+        healthGraphic.GetComponent<SpriteRenderer>().color = BarColor;
         HealthManager.OnDeath += OnDeath;
     }
 
@@ -32,8 +34,16 @@ public class AIHealthBar : MonoBehaviour, IInitialize
     {
         if (HealthManager.IsAlive() && healthGraphic != null)
         {
-            healthGraphic.position = (Vector2)transform.position + new Vector2(WidthAdjustment, Height);
-            healthGraphic.localScale = new Vector3(Mathf.Clamp(defaultScale * HealthManager.GetHealthPercentage(), 0, Mathf.Infinity), healthGraphic.localScale.y);
+            if (HealthManager.GetHealthPercentage() >= 0.99f)
+            {
+                healthGraphic.gameObject.SetActive(false);
+            }
+            else
+            {
+                healthGraphic.gameObject.SetActive(true);
+                healthGraphic.position = (Vector2)transform.position + new Vector2(WidthAdjustment, Height);
+                healthGraphic.localScale = new Vector3(Mathf.Clamp(defaultScale * HealthManager.GetHealthPercentage(), 0, Mathf.Infinity), healthGraphic.localScale.y);
+            }
         }
     }
 }

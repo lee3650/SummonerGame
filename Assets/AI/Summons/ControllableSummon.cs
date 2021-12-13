@@ -27,7 +27,7 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
         originalHealAmount = WaveHealAmt;
     }
 
-    public string GetStatString()
+    public string GetStatString(Vector2 pos)
     {
         string result = "";
 

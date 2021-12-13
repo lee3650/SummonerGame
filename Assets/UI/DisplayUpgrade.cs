@@ -20,7 +20,7 @@ public class DisplayUpgrade : UIPanel
         path = castInput.Value.Item1;
         PlayerSummonController = castInput.Value.Item2; //ewww lol 
         UpgradeButton.onClick.AddListener(delegate { UpgradeSummonButtonPressed(); });
-        text.text = path.GetNextSummonStats();
+        text.text = path.GetNextSummonStats(PlayerSummonController.GetSelectedSummonPosition());
     }
 
     void UpgradeSummonButtonPressed()

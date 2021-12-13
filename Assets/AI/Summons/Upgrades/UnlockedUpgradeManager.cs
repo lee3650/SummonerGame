@@ -5,6 +5,18 @@ using UnityEngine;
 public class UnlockedUpgradeManager : MonoBehaviour
 {
     [SerializeField] private List<UpgradePath> UnlockedUpgrades = new List<UpgradePath>();
+    [SerializeField] private List<UpgradePath> LockedUpgrades = new List<UpgradePath>();
+
+    private void Awake()
+    {
+        foreach (UpgradePath path in LockedUpgrades)
+        {
+            if (ResearchManager.ResearchUnlocked(path.ResearchIndex))
+            {
+                UnlockUpgrade(path);
+            }
+        }
+    }
 
     public void UnlockUpgrade(UpgradePath upgrade)
     {

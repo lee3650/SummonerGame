@@ -89,13 +89,23 @@ public class PlayerSummonController : MonoBehaviour
             {
                 SelectedSummon.HandleCommand(new UpgradeCommand(path));
                 DeselectSummon();
+                Summoner.OnFinancialsChanged(); //maybe that'll do it lol 
             }
         }
     }
 
+    public Vector2 GetSelectedSummonPosition()
+    {
+        if (SelectedSummon == null)
+        {
+            return new Vector2();
+        }
+        return SelectedSummon.GetTransform().position;
+    }
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !MouseOverUIComponent() && (!PlayerAttackState.AttackedThisFrame() || ItemSelection.SelectedItem == null))
+        if (Input.GetMouseButtonDown(0) && !MouseOverUIComponent() && !PlayerAttackState.AttackedThisFrame())
         {
             IControllableSummon s = GetSummonUnderMouse();
             SelectSummon(s);
@@ -176,9 +186,9 @@ public class PlayerSummonController : MonoBehaviour
                 DeselectSummon();
             }
 
-            SelectedSummonUI.SelectSummon(s);
-
             SelectedSummon = s;
+
+            SelectedSummonUI.SelectSummon(s);
 
             SelectableComponent sc;
             if (SelectedSummon.GetTransform().TryGetComponent<SelectableComponent>(out sc))

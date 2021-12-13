@@ -66,7 +66,7 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
         return MySummon.GetSummonType();
     }
 
-    public string GetStatString()
+    public string GetStatString(Vector2 pos)
     {
         string result = "";
 

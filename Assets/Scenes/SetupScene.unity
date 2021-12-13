@@ -635,6 +635,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &16826477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16826478}
+  - component: {fileID: 16826479}
+  m_Layer: 0
+  m_Name: GoldMiner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &16826478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16826477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1136474456}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &16826479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16826477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 4209696708590055538, guid: a392925be8149c44194d2c6e8e1d62d0,
+    type: 3}
+  UpgradeCost: 18
+  summonType: 4
+  tier: 1
+  requiredResearch: 3
 --- !u!1 &29713172
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.3183}
+  m_AnchoredPosition: {x: -453.55005, y: 150.31833}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1214,6 +1263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnlockedUpgrades: []
+  LockedUpgrades:
+  - {fileID: 1650989367}
+  - {fileID: 16826479}
+  - {fileID: 923253103}
 --- !u!4 &85803275
 Transform:
   m_ObjectHideFlags: 0
@@ -1224,7 +1277,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.072708, y: 8.939632, z: -40.39072}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1136474456}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4426,7 +4480,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers crit enemies that are on fire
   followingRewards: []
-  UnlockedIndex: 1
+  UnlockedIndex: 0
   MyCharm: {fileID: 543993329400653667, guid: e5aa680293d8ee44cbab8347b2fb2be0, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &405395745
@@ -5934,7 +5988,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers set enemies on fire
   followingRewards: []
-  UnlockedIndex: 1
+  UnlockedIndex: 0
   MyCharm: {fileID: 9125458475373157650, guid: 3eb48d7bedcb8be4eb8ad16132dbed5a, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &558451568
@@ -6327,7 +6381,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Defense. Increases archer units armor.
   followingRewards: []
-  UnlockedIndex: 1
+  UnlockedIndex: 0
   MyCharm: {fileID: 3221718363063802801, guid: 75e1d5fe30002d74f827433f0d8d08ed, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &598168296
@@ -9420,6 +9474,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899351065}
   m_CullTransparentMesh: 0
+--- !u!1 &923253101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923253102}
+  - component: {fileID: 923253103}
+  m_Layer: 0
+  m_Name: DiamondMiner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &923253102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923253101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1136474456}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923253103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923253101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 6238998978563081699, guid: 8e6720b0093a89746ac739723fcec966,
+    type: 3}
+  UpgradeCost: 25
+  summonType: 4
+  tier: 2
+  requiredResearch: 3
 --- !u!1 &939806394
 GameObject:
   m_ObjectHideFlags: 0
@@ -9679,7 +9782,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers poison enemies
   followingRewards: []
-  UnlockedIndex: 1
+  UnlockedIndex: 0
   MyCharm: {fileID: 5187184482957404608, guid: 68bde95b7688ba54a85ecf600686d213, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &974460880
@@ -10712,13 +10815,13 @@ MonoBehaviour:
     startPrice: 0
     Type: 1
   - minPrice: 0.5
-    maxPrice: 4
-    Increment: 0.5
+    maxPrice: 3
+    Increment: 0.2
     startPrice: 0
     Type: 2
   - minPrice: 0.5
-    maxPrice: 5
-    Increment: 0.5
+    maxPrice: 4.5
+    Increment: 0.2
     startPrice: 0
     Type: 3
   - minPrice: 0
@@ -10737,13 +10840,13 @@ MonoBehaviour:
     startPrice: 0
     Type: 6
   - minPrice: 1
-    maxPrice: 5
-    Increment: 0.5
+    maxPrice: 4
+    Increment: 0.2
     startPrice: 0
     Type: 8
   - minPrice: 1
     maxPrice: 5
-    Increment: 0.5
+    Increment: 0.2
     startPrice: 0
     Type: 7
   - minPrice: 1
@@ -11049,6 +11152,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OceanSource: {fileID: 1132121066}
+--- !u!1 &1136474455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136474456}
+  m_Layer: 0
+  m_Name: MinerUpgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136474456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136474455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1650989366}
+  - {fileID: 16826478}
+  - {fileID: 923253102}
+  m_Father: {fileID: 85803275}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153762964
 GameObject:
   m_ObjectHideFlags: 0
@@ -12503,7 +12639,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Damage. Increases archer units damage.
   followingRewards: []
-  UnlockedIndex: 1
+  UnlockedIndex: 0
   MyCharm: {fileID: 1183936544931740549, guid: 812eea273078068489295604211edfe5, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1304991315
@@ -14576,7 +14712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.88829}
+  m_AnchoredPosition: {x: -437.25012, y: 115.888306}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -15514,7 +15650,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers crit enemies that are poisoned.
   followingRewards: []
-  UnlockedIndex: 1
+  UnlockedIndex: 0
   MyCharm: {fileID: 6740333486965349736, guid: 6158611b077bc0440bbc99be4863417a, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1498837300
@@ -17620,6 +17756,55 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 1622605394}
+--- !u!1 &1650989365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650989366}
+  - component: {fileID: 1650989367}
+  m_Layer: 0
+  m_Name: SilverMiner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1650989366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650989365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1136474456}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650989367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650989365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f71db10531b1944ba20c7e0533f44df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSummon: {fileID: 4373412279247627261, guid: c901d36192ff38a409160167928ed170,
+    type: 3}
+  UpgradeCost: 10
+  summonType: 4
+  tier: 0
+  requiredResearch: 3
 --- !u!1 &1667296792
 GameObject:
   m_ObjectHideFlags: 0

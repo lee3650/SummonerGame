@@ -105,7 +105,7 @@ public class SelectedSummonUI : MonoBehaviour
             //so, yeah that's sketchy because if the object it's asking for changes, we won't know until we get a runtime error 
         }
 
-        PanelDisplayer.ShowPanel(SellInfoDisplayPanel, s.GetStatString());
+        PanelDisplayer.ShowPanel(SellInfoDisplayPanel, s.GetStatString(s.GetTransform().position));
     }
     
     public void DeselectSummon()

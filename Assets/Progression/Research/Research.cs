@@ -12,7 +12,7 @@ public class Research : MonoBehaviour
     public string Description; //eh, that's fine for now, I guess. I'd rather read it from a file. 
     public Research Prereq = null;
     public float XPReq;
-    public GameObject Unlock;
+    public GameObject[] Unlocks;
 
     public bool PrereqUnlocked
     {

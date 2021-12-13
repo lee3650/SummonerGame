@@ -9,7 +9,6 @@ public class Summon : MonoBehaviour
     [SerializeField] SummonType SummonType;
     [SerializeField] bool HealToFull = false; 
     [SerializeField] protected float WaveHealAmt = 10f;
-    [SerializeField] bool upgradable = true;
     [SerializeField] int summonTier = 0;
     [SerializeField] string summonName;
 
@@ -164,14 +163,6 @@ public class Summon : MonoBehaviour
         get
         {
             return summonTier;
-        }
-    }
-
-    public bool Upgradable
-    {
-        get
-        {
-            return upgradable;
         }
     }
 

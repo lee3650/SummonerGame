@@ -20,4 +20,5 @@ public enum SummonType
     Any,
     Gate,
     ArrowTurner,
+    HomeTile, 
 }
