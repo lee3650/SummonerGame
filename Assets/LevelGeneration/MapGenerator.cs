@@ -51,7 +51,7 @@ public class MapGenerator : MonoBehaviour
         {
             return false;
         }
-        if (LetterManager.UseGameplayChange(GameplayChange.SandAndClearing))
+        if (!LetterManager.UseGameplayChange(GameplayChange.SandAndClearing))
         {
             return false; 
         }

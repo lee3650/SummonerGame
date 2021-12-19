@@ -46,12 +46,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5ee6288df55974a9ce881d22efc2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
+  Damage: 7.5
   EventType: 1
   Velocity: 0
   StickToTarget: 0
   MovementController: {fileID: 0}
   col: {fileID: 0}
+  CheckFaction: 0
+  TargetFaction: 0
+  TurnLimit: 0
   Lifespan: 3
   TargetManager: {fileID: 3767114795284416698}
   line: {fileID: 3767114795284416677}
@@ -102,6 +105,7 @@ LineRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

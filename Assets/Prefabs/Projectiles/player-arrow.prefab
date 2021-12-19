@@ -106,6 +106,7 @@ MonoBehaviour:
   col: {fileID: 7956135930774779694}
   CheckFaction: 0
   TargetFaction: 1
+  TurnLimit: 5
 --- !u!114 &7110591748230664654
 MonoBehaviour:
   m_ObjectHideFlags: 0

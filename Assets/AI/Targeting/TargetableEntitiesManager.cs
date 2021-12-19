@@ -31,6 +31,21 @@ public class TargetableEntitiesManager : MonoBehaviour, IResettable
 
         return result; 
     }
+
+    public static List<ILivingEntity> GetAllTargets(Vector2 pos, float rad)
+    {
+        List<ILivingEntity> result = new List<ILivingEntity>();
+
+        for (int i = 0; i < AllTargetables.Count; i++)
+        {
+            if (Vector2.Distance(AllTargetables[i].GetPosition(), pos) < rad) //we can make this marginally faster by comparing with radius squared 
+            {
+                result.Add(AllTargetables[i]);
+            }
+        }
+
+        return result; 
+    }
  
     public static void RemoveTargetable(ILivingEntity targetable)
     {

@@ -136,6 +136,11 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
         {
             sellable.SellPrice = Mathf.RoundToInt(GetManaDrain() * RefundPercent);
         }
+
+        if (FirstUseFree)
+        {
+            FirstUseFree = false; 
+        }
     }
 
     public override float GetRecurringCost()

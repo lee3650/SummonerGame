@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Research : MonoBehaviour
 {
     [SerializeField] private int index;
-    public ImageSequence Gif;
+    public VideoClip Gif;
     public Sprite Image;
     public ResearchSaveData ResearchSaveData = null;
     public int TotalIslands;

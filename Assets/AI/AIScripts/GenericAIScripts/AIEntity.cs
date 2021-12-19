@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngineInternal;
 
-public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitialize
+public class AIEntity : MonoBehaviour, ILivingEntity, IInitialize
 {
     [SerializeField] Factions Faction;
     [SerializeField] int Precedence;
@@ -80,11 +80,6 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
         return false; 
     }
 
-    public float GetMoveSpeedAdjustment()
-    {
-        return CoatingManager.GetMoveSpeedAdjustment();
-    }
-
     public bool RequireLineOfSight()
     {
         return true;
@@ -119,7 +114,9 @@ public class AIEntity : MonoBehaviour, ILivingEntity, ISpeedSupplier, IInitializ
             case EventType.Fire:
             case EventType.Magic:
             case EventType.Physical:
-            case EventType.Poison: 
+            case EventType.Poison:
+            case EventType.Freeze:
+            case EventType.IceDamage: 
                 HealthManager.SubtractHealth(e.Magnitude);
                 break;
             case EventType.Fall:

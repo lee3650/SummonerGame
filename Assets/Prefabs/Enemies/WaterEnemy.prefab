@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4646887753959793306}
   - component: {fileID: 2838826420013821322}
   - component: {fileID: -9032219407055902663}
+  - component: {fileID: 3021554593553079358}
   m_Layer: 12
   m_Name: WaterEnemy
   m_TagString: Untagged
@@ -5367,6 +5368,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 4648206095511936289}
+--- !u!114 &3021554593553079358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648206095511936293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8109ec24dd608545832c97122ff7354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 4648206095511936278}
 --- !u!1 &4648206096231582276
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class LevelUpSFX : MonoBehaviour
 
     private void GainedXP()
     {
+        print("playing gain xp sound!");
         GameplaySFX.PlaySoundOnSource(GainXPSound, SharedSoundManager.GetSFXVolumeLevel(), Source);
     }
 

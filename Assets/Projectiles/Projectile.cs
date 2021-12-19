@@ -13,7 +13,9 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     [SerializeField] Collider2D col;
 
     [SerializeField] bool CheckFaction;
-    [SerializeField] Factions TargetFaction; 
+    [SerializeField] Factions TargetFaction;
+
+    [SerializeField] int TurnLimit = 5; 
 
     bool alreadyHit = false; 
 
@@ -33,11 +35,12 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
 
     public void HandleEvent(Event e)
     {
-        
+
     }
 
     public void AddAttackModifier(Event e)
     {
+        //kind of a crappy solution but we can increase turn limit here 
         EventsToApply.Add(e);
     }
     
@@ -114,8 +117,21 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
 
     }
 
+    private void Update()
+    {
+        if (WaveSpawner.IsCurrentWaveDefeated)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Rotate(float amount)
     {
+        TurnLimit--;
+        if (TurnLimit <= 0)
+        {
+            Destroy(gameObject);
+        }
         transform.eulerAngles = new Vector3(0f, 0f, amount);
         MovementController.SetVelocity(transform.up, Velocity);
     }

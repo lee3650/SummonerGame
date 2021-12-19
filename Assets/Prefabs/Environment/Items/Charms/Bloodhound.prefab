@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackModifier: 1
   ApplyToTypes: 03000000
-  additionalEventType: 5
+  additionalEventType: 6
   eventMagnitude: 4
   Spreads: 0
   Recurrences: 0

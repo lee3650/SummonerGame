@@ -126,6 +126,7 @@ MonoBehaviour:
   col: {fileID: 980799775219698071}
   ItemType: 0
   itemName: Melee Barracks
+  WeaponType: 0
   ManaDrain: 10
   AttackLength: 0.1
   WeaponDescription: Places a barrack. A barrack creates melee units at the end of
@@ -136,6 +137,7 @@ MonoBehaviour:
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 0
+  FirstUseFree: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000001300000011000000

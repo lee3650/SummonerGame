@@ -125,6 +125,7 @@ MonoBehaviour:
   col: {fileID: 434522376300737602}
   ItemType: 0
   itemName: Masonry
+  WeaponType: 0
   ManaDrain: 5
   AttackLength: 0.1
   WeaponDescription: Places a wall generator. A wall generator will place walls or
@@ -136,6 +137,7 @@ MonoBehaviour:
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 0
+  FirstUseFree: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0b000000100000000f00000013000000

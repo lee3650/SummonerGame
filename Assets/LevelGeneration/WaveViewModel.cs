@@ -28,12 +28,7 @@ public class WaveViewModel : MonoBehaviour
 
     [SerializeField] LoadingPanel LoadingPanel;
 
-    private bool RunTimer = false;
-    float timer = 0f;
-
-    float waveTime = 30f;
-
-    private const int tutorialSeed = 7056;
+    private const int tutorialSeed = 1911;
 
     bool firstLevel = true;
 
@@ -62,9 +57,8 @@ public class WaveViewModel : MonoBehaviour
         
         if (MainMenuScript.TutorialMode)
         {
-            int s = System.DateTime.Now.Millisecond * System.DateTime.Now.Second;
-            print("Using tutorial seed: " + s);
-            Random.InitState(s);
+            print("Using tutorial seed: " + tutorialSeed);
+            Random.InitState(tutorialSeed);
         }
         else
         {
@@ -85,8 +79,6 @@ public class WaveViewModel : MonoBehaviour
     private void SetupRegularLevel()
     {
         CurrentLevelManager.EnterNextLevel();
-
-        StopSpawningWaves();
 
         UpdateCurrentWaveUI();
         UpdateNextWaveUI(CurrentLevelManager.GetNextWaveDescription());
@@ -109,34 +101,16 @@ public class WaveViewModel : MonoBehaviour
         NextWaveButton.SetActive(false);
     }
 
-    public void StopSpawningWaves()
-    {
-        RunTimer = false; 
-    }
-
     public void StartNextWave()
     {
         if (!CurrentLevelManager.OnLastWave())
         {
-            //RunTimer = true;
             CurrentLevelManager.SpawnNextWave();
-            timer = 0f;
-            SetWaveRollUI(CurrentLevelManager.GetPreviousSecondRoll());
-            UpdateNextWaveUI(CurrentLevelManager.GetNextWaveDescription());
-            UpdateCurrentWaveUI();
-        }
-    }
 
-    private void Update()
-    {
-        if (RunTimer)
-        {
-            timer += Time.deltaTime;
-            Slider.value = timer; 
-            if (timer > waveTime)
-            {
-                StartNextWave();
-            }
+            UpdateNextWaveUI(CurrentLevelManager.GetNextWaveDescription());
+            SetWaveRollUI(CurrentLevelManager.GetSecondRoll());
+
+            UpdateCurrentWaveUI();
         }
     }
 

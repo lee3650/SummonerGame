@@ -104,6 +104,9 @@ MonoBehaviour:
   StickToTarget: 1
   MovementController: {fileID: 919925079335150361}
   col: {fileID: 388957689}
+  CheckFaction: 0
+  TargetFaction: 0
+  TurnLimit: 5
 --- !u!114 &919925079335150361
 MonoBehaviour:
   m_ObjectHideFlags: 0

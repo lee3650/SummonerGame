@@ -94,6 +94,8 @@ public class CurrentLevelManager : MonoBehaviour
             firstEnemyRoll.Add(roll);
             secondEnemyRoll.Add(roll2);
 
+            print(string.Format("level: {0}, roll between {1} and {2} for wave {3}; first roll: {4}, second: {5}", levelNum, GetEnemiesMinRoll(i, levelNum), GetEnemiesPerWaveMaxRoll(i, levelNum), i, roll, roll2));
+
             LevelWaves.Add(WaveGenerator.GenerateNextWave(roll + roll2));
         }
 
@@ -123,15 +125,15 @@ public class CurrentLevelManager : MonoBehaviour
 
     private int GetEnemiesPerWaveMaxRoll(int wave, int level)
     {
-        int actual = ((level + 1) * (level + 1)) + 4;
-        int prev = (level * level) + 4;
+        int actual = 4 * ((level + 1) * (level + 1)) + 4;
+        int prev = 4 * (level * level) + 4;
         return Mathf.RoundToInt(Mathf.Lerp((float)prev, (float)actual, (float)wave/highestWave));
     }
 
     public int GetEnemiesMinRoll(int wave, int level)
     {
-        int actual = (((level + 1 ) * (level + 1)) / 2) + 1;
-        int prev = ((level * level) / 2) + 1;
+        int actual = (((level + 1 ) * (level + 1)) * 2) + 1;
+        int prev = (2 * (level * level)) + 1;
         return Mathf.RoundToInt(Mathf.Lerp((float)prev, (float)actual, (float)wave / highestWave));
     }
 
@@ -140,14 +142,15 @@ public class CurrentLevelManager : MonoBehaviour
         return firstEnemyRoll[currentWave];
     }
 
-    public int GetPreviousSecondRoll()
+    public int GetSecondRoll()
     {
         return secondEnemyRoll[currentWave - 1];
     }
 
     public string GetNextWaveDescription()
     {
-        return string.Format("Scouts found: {0} enemies\nPlus between {1} and {2} more", GetFirstRoll(), GetEnemiesMinRoll(currentWave, levelNum), GetEnemiesPerWaveMaxRoll(currentWave, levelNum) - 1);
+        print("next wave description for wave " + currentWave + ", levelNum " + (levelNum - 1) + string.Format(" is between {0} and {1}", GetEnemiesMinRoll(currentWave, levelNum - 1), GetEnemiesPerWaveMaxRoll(currentWave, levelNum - 1)));
+        return string.Format("Scouts found: {0} enemies\nPlus between {1} and {2} more", GetFirstRoll(), GetEnemiesMinRoll(currentWave, levelNum - 1), GetEnemiesPerWaveMaxRoll(currentWave, levelNum - 1) - 1);
     }
 
     public int GetEnemyNumber(int wave, int level)
@@ -157,7 +160,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     private void SetSpawnTime()
     {
-        enemySpawnTime = Mathf.Lerp(0.75f, 0.15f, Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 2));
+        enemySpawnTime = Mathf.Lerp(0.75f, 0.1f, ((float)levelNum + 1) / maxLevel); //Mathf.Pow(((float)(levelNum + 1)/ maxLevel), 2));
         print("Spawn time: " + enemySpawnTime);
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class TutorialManager : MonoBehaviour, IWaveNotifier
 {
@@ -20,7 +20,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] GameObject GatePrefab;
     [SerializeField] GameObject MeleeBlueprint;
     [SerializeField] SegmentToImageSequence[] Gifs;
-    [SerializeField] GifDisplayer GifDisplayer;
+    [SerializeField] VideoPlayer GifDisplayer;
     [SerializeField] GameObject TrapGenerator;
     [SerializeField] GameObject ArrowTrap;
     [SerializeField] GameObject Miner;
@@ -156,7 +156,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         }
         else if (sectionName == "miner")
         {
-            if (BuiltGeqSummons(SummonType.Miner, 2))
+            if (BuiltGeqSummons(SummonType.Miner, 1))
             {
                 //well, this is duplicated information - it's assuming the home tile counts as a miner
                 //I kind of need to separate charm type and 'real' type, right? 
@@ -177,6 +177,28 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             if (BuiltGeqSummons(SummonType.MeleeEntity, 3))
             {
                 IncrementSection();
+                GivePlayerItem(Miner);
+                PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
+                MinerCostDisplay.SetActive(true);
+            }
+        }
+
+        else if (sectionName == "rmelee")
+        {
+            if (BuiltEqSummons(SummonType.MeleeEntity, 2))
+            {
+                IncrementSection();
+            }
+        }
+
+        else if (sectionName == "duplicate")
+        {
+            if (BuiltGeqSummons(SummonType.MeleeEntity, 4) && BuiltGeqSummons(SummonType.Wall, 4) && BuiltGeqSummons(SummonType.ArrowTrap, 2))
+            {
+                IncrementSection(); 
+                //so, yeah we do have duplication here because each section knows what it has to do to setup the next section
+                //what'd be better is if in IncrementSection we check the new section and then have each section give itself stuff 
+                //but probably that's not worth it because the tutorial will not change much after this 
                 GivePlayerItem(Miner);
                 PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
                 MinerCostDisplay.SetActive(true);
@@ -213,7 +235,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         if (levelCounter == 1)
         {
             NextWaveButton.interactable = false;
-            SectionAndSegment = new Vector2Int(1, 1);
+            //SectionAndSegment = new Vector2Int(1, 1);
             GivePlayerItem(WallGenerator);
         }
     }
@@ -233,10 +255,12 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             {
                 changeText = false;
                 ShowTutorialText(SectionAndSegment);
-                ImageSequence gif = GetGifFromSection(GetMaxSegment(SectionAndSegment.x));
+                VideoClip gif = GetGifFromSection(GetMaxSegment(SectionAndSegment.x));
                 if (gif != null)
                 {
-                    GifDisplayer.PlayGif(gif);
+                    GifDisplayer.gameObject.SetActive(true);
+                    GifDisplayer.clip = gif;
+                    GifDisplayer.Play();
                 }
             }
 
@@ -261,7 +285,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         return tutorialText[section].Length - 1;
     }
 
-    private ImageSequence GetGifFromSection(int maxSegment)
+    private VideoClip GetGifFromSection(int maxSegment)
     {
         foreach (SegmentToImageSequence seg in Gifs)
         {

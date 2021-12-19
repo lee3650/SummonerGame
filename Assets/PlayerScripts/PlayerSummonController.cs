@@ -22,26 +22,13 @@ public class PlayerSummonController : MonoBehaviour
 
     int frameOfDeselection = -1;
 
-    private void Awake()
-    {
-        //ItemSelection.SelectedItemChanged += SelectedItemChanged; //don't want to do that anymore 
-    }
-
-    private void SelectedItemChanged()
-    {
-        if (SelectedSummon != null)
-        {
-            DeselectSummon();
-        }
-    }
-
     public void SellSummon(Sellable sellable)
     {
         if (SelectedSummon != null)
         {
             ManaManager.IncreaseMana(sellable.SellPrice);
             IControllableSummon s = SelectedSummon;
-            DeselectSummon();
+            DeselectSummonAndHideHotbar();
             TryRefundBuildingSummons(s);
             s.HandleCommand(new SellCommand()); //okay good... this can work then. 
 
@@ -88,8 +75,8 @@ public class PlayerSummonController : MonoBehaviour
             if (ManaManager.TryDecreaseMana(path.GetUpgradeCost()))
             {
                 SelectedSummon.HandleCommand(new UpgradeCommand(path));
-                DeselectSummon();
-                Summoner.OnFinancialsChanged(); //maybe that'll do it lol 
+                DeselectSummonAndHideHotbar();
+                Summoner.OnFinancialsChanged();
             }
         }
     }
@@ -115,7 +102,7 @@ public class PlayerSummonController : MonoBehaviour
         {
             if (SelectedSummon != null)
             {
-                DeselectSummon();
+                DeselectSummonAndHideHotbar();
             }
         }
 
@@ -142,7 +129,7 @@ public class PlayerSummonController : MonoBehaviour
         {
             if (SelectedSummon.CanBeSelected() == false)
             {
-                DeselectSummon();
+                DeselectSummonAndHideHotbar();
             }
         }
     }
@@ -181,9 +168,17 @@ public class PlayerSummonController : MonoBehaviour
     {
         if (s != null)
         {
+            BlueprintSatisfier bs = s.GetTransform().GetComponent<BlueprintSatisfier>();
+
             if (SelectedSummon != null)
             {
-                DeselectSummon();
+                if (bs == null)
+                {
+                    DeselectSummonAndHideHotbar();
+                } else
+                {
+                    DeselectSummon();
+                }
             }
 
             SelectedSummon = s;
@@ -203,8 +198,7 @@ public class PlayerSummonController : MonoBehaviour
                 rv.Show();
             }
 
-            BlueprintSatisfier bs;
-            if (SelectedSummon.GetTransform().TryGetComponent<BlueprintSatisfier>(out bs))
+            if (bs != null)
             {
                 List<BlueprintType> blueprints = bs.GetBlueprintTypes();
 
@@ -212,30 +206,34 @@ public class PlayerSummonController : MonoBehaviour
                 //hotbar to show only those types
 
                 WeaponInv.ShowHotbarItemsOfTypes(blueprints);
-                if (!BlueprintHotbar.IsShown)
-                {
-                    BlueprintHotbar.ToggleVisibility();
-                }
+                BlueprintHotbar.PlayAnimateIn();
             }
-            //Time.timeScale = 0.1f;
-            //Time.fixedDeltaTime = Time.timeScale * Time.fixedDeltaTime;
         } 
         else
         {
             if (SelectedSummon != null)
             {
-                DeselectSummon();
+                DeselectSummonAndHideHotbar();
             }
         }
     }
 
-    public void DeselectSummon()
+    public void HideHotbar()
     {
         if (BlueprintHotbar.IsShown)
         {
             BlueprintHotbar.ToggleVisibility();
         }
+    }
 
+    public void DeselectSummonAndHideHotbar()
+    {
+        HideHotbar();
+        DeselectSummon();
+    }
+
+    public void DeselectSummon()
+    {
         SelectedSummonUI.DeselectSummon();
 
         frameOfDeselection = Time.frameCount;
@@ -253,9 +251,6 @@ public class PlayerSummonController : MonoBehaviour
         }
 
         SelectedSummon = null;
-
-        Time.fixedDeltaTime = 1f/50f;
-        Time.timeScale = 1f;
     }
 
     IControllableSummon GetSummonUnderMouse()

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Video;
 
 public class ResearchPanel : MonoBehaviour
 {
-    [SerializeField] GifDisplayer GifDisplayer;
+    [SerializeField] VideoPlayer Video;
     [SerializeField] TextMeshProUGUI ResearchName;
     [SerializeField] TextMeshProUGUI ResearchDescription;
     [SerializeField] TextMeshProUGUI ResearchRequirements;
@@ -22,7 +23,8 @@ public class ResearchPanel : MonoBehaviour
 
     public void Show(Research research, bool unlocked) //so... somehow, we need to figure out if it's just a letter, right. 
     {
-        GifDisplayer.PlayGif(research.Gif);
+        Video.clip = research.Gif;
+        Video.Play(); //does this start it over too? 
         ResearchName.text = research.name;
 
         if (unlocked)

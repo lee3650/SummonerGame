@@ -126,6 +126,7 @@ MonoBehaviour:
   col: {fileID: 4583727241796758195}
   ItemType: 0
   itemName: Archer Barrack
+  WeaponType: 0
   ManaDrain: 10
   AttackLength: 0.1
   WeaponDescription: Places an archer barrack
@@ -135,6 +136,7 @@ MonoBehaviour:
   rotationOffset: 0
   UseSummonImage: 0
   SetColorToWhite: 0
+  FirstUseFree: 1
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 110000000f0000000b00000013000000

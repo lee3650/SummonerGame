@@ -4802,6 +4802,7 @@ MonoBehaviour:
   col: {fileID: 0}
   CheckFaction: 0
   TargetFaction: 1
+  TurnLimit: 5
   lifespan: 1
   Spreads: 3
   Recurrences: 5

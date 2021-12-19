@@ -11,6 +11,6 @@ public class DemoPanel : MonoBehaviour
 
     public void Survey()
     {
-        System.Diagnostics.Process.Start("https://google.com");
+        System.Diagnostics.Process.Start("https://docs.google.com/forms/d/e/1FAIpQLSdnLDSjYqWpvGJtTTqkpiosMlCCrSeur8tsnZcHzdagJvFXhw/viewform?usp=sf_link");
     }
 }

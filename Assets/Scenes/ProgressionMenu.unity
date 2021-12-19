@@ -1299,7 +1299,7 @@ RectTransform:
   - {fileID: 1543807958}
   - {fileID: 2135247336}
   m_Father: {fileID: 549026569}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1501,7 +1501,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 351
+      value: 218
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -1551,7 +1551,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037791, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_Name
-      value: Bonfire
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037791, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -2046,7 +2046,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 351
+      value: 218
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -2567,7 +2567,7 @@ Transform:
   m_Children:
   - {fileID: 1764239649}
   m_Father: {fileID: 872252030}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &235256888
 MonoBehaviour:
@@ -2581,14 +2581,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de24cf5d13d58647b2d487b2f784a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 1
-  Gif: {fileID: 1764239650}
+  index: 0
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
   Image: {fileID: 1111071321815412634, guid: 421b7de47f7bc5840b1255935793cf89, type: 3}
   TotalIslands: 3
   Description: Our mages have discovered a way to turn arrows mid flight. This should
     create some interesting possibilities.
-  Prereq: {fileID: 327986780}
-  XPReq: 8
+  Prereq: {fileID: 0}
+  XPReq: 1
   Unlocks:
   - {fileID: 4922086247372503040, guid: bb67c1cff3f597f479b58eeddae5e133, type: 3}
 --- !u!1 &265344405
@@ -2636,6 +2636,8 @@ RectTransform:
   - {fileID: 662543678}
   - {fileID: 368022677}
   - {fileID: 1361158579}
+  - {fileID: 1942786609}
+  - {fileID: 699674979}
   m_Father: {fileID: 549026569}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2707,7 +2709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9568735c8530cd34abedd81bd027847f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GifDisplayer: {fileID: 265344409}
+  Video: {fileID: 699674980}
   ResearchName: {fileID: 902321346}
   ResearchDescription: {fileID: 329356260}
   ResearchRequirements: {fileID: 1399623341}
@@ -2952,7 +2954,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 218
+      value: 354.5
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -3159,7 +3161,7 @@ Transform:
   m_Children:
   - {fileID: 841752557}
   m_Father: {fileID: 872252030}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &327986780
 MonoBehaviour:
@@ -3173,13 +3175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de24cf5d13d58647b2d487b2f784a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
-  Gif: {fileID: 841752558}
+  index: 3
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
   Image: {fileID: -8279185905841022901, guid: cde3bcb59ce9a5942b0833bce9dbe906, type: 3}
   TotalIslands: 3
   Description: Highly trained archers of the Republic. Trained with a bow before
     they were born.
-  Prereq: {fileID: 0}
+  Prereq: {fileID: 235256888}
   XPReq: 4
   Unlocks:
   - {fileID: 4583727241796758189, guid: 52369e72c10f60841a5805bb3810858f, type: 3}
@@ -3281,7 +3283,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25
+  m_fontSize: 26
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4998,9 +5000,9 @@ RectTransform:
   - {fileID: 421225111}
   - {fileID: 1565477976}
   - {fileID: 1296395488}
-  - {fileID: 880379098}
   - {fileID: 131392025}
   - {fileID: 1777415712}
+  - {fileID: 880379098}
   - {fileID: 265344406}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -5040,7 +5042,7 @@ Transform:
   m_Children:
   - {fileID: 1181133554}
   m_Father: {fileID: 872252030}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &559469054
 MonoBehaviour:
@@ -5054,12 +5056,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de24cf5d13d58647b2d487b2f784a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
-  Gif: {fileID: 1181133555}
+  index: 2
+  Gif: {fileID: 32900000, guid: e1aa7254302341d40a54888935ebc355, type: 3}
   Image: {fileID: 8541164330889363072, guid: 1c45ca691ae28b44689ec9b27e1bffe2, type: 3}
   TotalIslands: 3
   Description: Gain the ability to upgrade miners
-  Prereq: {fileID: 327986780}
+  Prereq: {fileID: 235256888}
   XPReq: 8
   Unlocks: []
 --- !u!1001 &583473675
@@ -5073,7 +5075,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2493916760975777912, guid: db44de4cbbdfff044a91eb2975eb6b9a,
+      objectReference: {fileID: -2034640586983468411, guid: 22bf9b258d0e7524da6fd28f8ff3cb66,
         type: 3}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -5113,7 +5115,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -5133,12 +5135,12 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 218
+      value: 354.49997
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 300
+      value: 198.77005
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -5183,17 +5185,17 @@ PrefabInstance:
     - target: {fileID: 6084439728493037791, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_Name
-      value: Axeman
+      value: Yeti
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037791, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: RewardIndex
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d408c467153ec4e8eb847e236d7fae, type: 3}
@@ -5667,7 +5669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
-  Gif: {fileID: 1245100099}
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
   Image: {fileID: -1808584093598607374, guid: 6129ffb05af69b848bf05c4c39f9e657, type: 3}
   TotalIslands: 3
   Description: Mages from the eastern shores of the republic cast a beam powerful
@@ -6776,6 +6778,71 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 880339357}
+--- !u!1 &699674978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699674979}
+  - component: {fileID: 699674980}
+  m_Layer: 0
+  m_Name: VideoPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &699674979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699674978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 265344406}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &699674980
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699674978}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 1403131699}
+  m_TargetTexture: {fileID: 8400000, guid: 004e985991721f14f9157941be8624fb, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 01
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &716467558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7129,7 +7196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &761876536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8094,7 +8161,7 @@ Transform:
   m_Children:
   - {fileID: 1635928471}
   m_Father: {fileID: 872252030}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &863405508
 MonoBehaviour:
@@ -8109,11 +8176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  Gif: {fileID: 1635928472}
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
   Image: {fileID: 559020903876888790, guid: c9f05cc24e031cb4ab33a26e714618fa, type: 3}
   TotalIslands: 3
   Description: 'Assassins tip their blades in deadly poisons. '
-  Prereq: {fileID: 327986780}
+  Prereq: {fileID: 868996784}
   XPReq: 8
   Unlocks:
   - {fileID: 8657498176849347674, guid: c768027ababe14a458dcd520f5e68c0d, type: 3}
@@ -8128,7 +8195,7 @@ GameObject:
   - component: {fileID: 868996783}
   - component: {fileID: 868996784}
   m_Layer: 0
-  m_Name: Axeman
+  m_Name: Yeti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8147,7 +8214,7 @@ Transform:
   m_Children:
   - {fileID: 953589253}
   m_Father: {fileID: 872252030}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &868996784
 MonoBehaviour:
@@ -8161,15 +8228,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de24cf5d13d58647b2d487b2f784a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
-  Gif: {fileID: 953589254}
-  Image: {fileID: 2493916760975777912, guid: db44de4cbbdfff044a91eb2975eb6b9a, type: 3}
+  index: 1
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
+  Image: {fileID: -2034640586983468411, guid: 22bf9b258d0e7524da6fd28f8ff3cb66, type: 3}
   TotalIslands: 3
-  Description: Former lumberjacks, these axeman can shred bone as easily as timber
-  Prereq: {fileID: 327986780}
+  Description: Yetis from the northern mountains have agreed to fight for us in exchange
+    for snow cones. Freeze enemies on death and hit.
+  Prereq: {fileID: 235256888}
   XPReq: 8
   Unlocks:
-  - {fileID: 5619776627141548842, guid: 0018eae2c4cfe4848915bfed36cd3ece, type: 3}
+  - {fileID: 6717871810259291672, guid: f19cd775a2a13ea49ad1e94ec3098b40, type: 3}
 --- !u!1 &872252029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8197,12 +8265,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 327986779}
   - {fileID: 235256887}
   - {fileID: 868996783}
+  - {fileID: 559469053}
+  - {fileID: 327986779}
   - {fileID: 863405507}
   - {fileID: 1273001469}
-  - {fileID: 559469053}
   - {fileID: 627888885}
   - {fileID: 1351336093}
   - {fileID: 1678212331}
@@ -8381,7 +8449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &880339356
 Transform:
   m_ObjectHideFlags: 0
@@ -8525,7 +8593,7 @@ RectTransform:
   - {fileID: 606130364}
   - {fileID: 1071670235}
   m_Father: {fileID: 549026569}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9861,17 +9929,17 @@ MonoBehaviour:
   - Type: 1
     GameplayChange: 0
     EnemiesAdded: []
-    TotalIslandsReq: 3
+    TotalIslandsReq: 2
     path: sand
   - Type: 1
     GameplayChange: 3
     EnemiesAdded: []
-    TotalIslandsReq: 6
+    TotalIslandsReq: 3
     path: randomprices
   - Type: 1
     GameplayChange: 4
     EnemiesAdded: []
-    TotalIslandsReq: 9
+    TotalIslandsReq: 4
     path: increment
 --- !u!114 &1050675059 stripped
 MonoBehaviour:
@@ -11337,7 +11405,7 @@ Transform:
   m_Children:
   - {fileID: 2057423175}
   m_Father: {fileID: 872252030}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1273001470
 MonoBehaviour:
@@ -11352,8 +11420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
-  Gif: {fileID: 2057423176}
-  Image: {fileID: -5397100613009754031, guid: 2feb2f99d0871774e83f796572547b30, type: 3}
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
+  Image: {fileID: 1605042504934554296, guid: 51f37ec83b1fd9741bdb4e7e42bc442c, type: 3}
   TotalIslands: 3
   Description: Flamethrower.
   Prereq: {fileID: 235256888}
@@ -12264,7 +12332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 7
-  Gif: {fileID: 887898641}
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
   Image: {fileID: -2235719986969316274, guid: 9a415b4ba67ac9d4bb85ed8248e21d5f, type: 3}
   TotalIslands: 3
   Description: Gives the player the ability to call arrows down from the sky. "Our
@@ -13105,7 +13173,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -13180,7 +13248,7 @@ PrefabInstance:
     - target: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: RewardIndex
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d408c467153ec4e8eb847e236d7fae, type: 3}
@@ -13504,6 +13572,18 @@ MonoBehaviour:
   OverrideUp: {fileID: 0}
   PlayOnPointerUp: 1
   AudioSource: {fileID: 880339357}
+--- !u!114 &1530052824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
+    type: 3}
+  m_PrefabInstance: {fileID: 583473675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f9a1250963aeb4e87f2545c61de2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1536460601
 GameObject:
   m_ObjectHideFlags: 0
@@ -13712,7 +13792,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -13732,7 +13812,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 351
+      value: 218.00002
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -13787,7 +13867,7 @@ PrefabInstance:
     - target: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: RewardIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d408c467153ec4e8eb847e236d7fae, type: 3}
@@ -14115,10 +14195,10 @@ RectTransform:
   - {fileID: 1322363746}
   - {fileID: 189311282}
   - {fileID: 308347335}
-  - {fileID: 1466965272}
   - {fileID: 1538693204}
   - {fileID: 583473676}
   - {fileID: 1627011191}
+  - {fileID: 1466965272}
   - {fileID: 1879415184}
   - {fileID: 141534856}
   - {fileID: 1999254158}
@@ -14745,7 +14825,7 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -14820,7 +14900,7 @@ PrefabInstance:
     - target: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: RewardIndex
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d408c467153ec4e8eb847e236d7fae, type: 3}
@@ -15046,7 +15126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1644957165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15231,7 +15311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 8
-  Gif: {fileID: 978993928}
+  Gif: {fileID: 32900000, guid: fb0500d3a7192264ca6ac06bab97c6eb, type: 3}
   Image: {fileID: -8016141613804390600, guid: a6bec1b0c3304c445a90339793b56af3, type: 3}
   TotalIslands: 3
   Description: Research the technology for war ships. We're going to bring the fight
@@ -15932,7 +16012,7 @@ RectTransform:
   - {fileID: 602921552}
   - {fileID: 1567251664}
   m_Father: {fileID: 549026569}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16459,14 +16539,14 @@ MonoBehaviour:
   ResearchOptions:
   - {fileID: 1050675059}
   - {fileID: 328381161}
+  - {fileID: 1530052824}
   - {fileID: 1627011192}
-  - {fileID: 1879415185}
   ResearchPanel: {fileID: 265344410}
   AllResearch:
   - {fileID: 327986780}
   - {fileID: 235256888}
+  - {fileID: 868996784}
   - {fileID: 559469054}
-  - {fileID: 863405508}
   NumOfFirstResearches: 4
 --- !u!1001 &1879415183
 PrefabInstance:
@@ -16539,12 +16619,12 @@ PrefabInstance:
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 218
+      value: 354.5
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 198.77005
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6084439728493037790, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
@@ -16591,6 +16671,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assassin
       objectReference: {fileID: 0}
+    - target: {fileID: 6084439728493037791, guid: 58d408c467153ec4e8eb847e236d7fae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
         type: 3}
       propertyPath: RewardIndex
@@ -16604,18 +16689,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1879415183}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1879415185 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8486210001697739997, guid: 58d408c467153ec4e8eb847e236d7fae,
-    type: 3}
-  m_PrefabInstance: {fileID: 1879415183}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f9a1250963aeb4e87f2545c61de2a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1897577923
 GameObject:
   m_ObjectHideFlags: 0
@@ -17411,6 +17484,77 @@ MonoBehaviour:
   PushedBackPanel: {fileID: 1180979870}
   ResearchManager: {fileID: 1869128925}
   NextLevelButton: {fileID: 2069310445}
+--- !u!1 &1942786608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942786609}
+  - component: {fileID: 1942786611}
+  - component: {fileID: 1942786610}
+  m_Layer: 5
+  m_Name: VideoDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1942786609
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942786608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 265344406}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 124.09994, y: -3.1780014}
+  m_SizeDelta: {x: 330, y: 260}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1942786610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942786608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 004e985991721f14f9157941be8624fb, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1942786611
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942786608}
+  m_CullTransparentMesh: 0
 --- !u!1 &1956166304
 GameObject:
   m_ObjectHideFlags: 0

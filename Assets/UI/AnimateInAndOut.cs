@@ -55,15 +55,17 @@ public class AnimateInAndOut : MonoBehaviour
             AnimatingOut();
             Animator.Play(AnimateOut.name);
             Shown = false;
+            print("Animating out!");
         }
     }
 
-    private void PlayAnimateIn()
+    public void PlayAnimateIn()
     {
         if (CanPlayAnimation())
         {
-            Animator.Play(AnimateIn.name);
+            Animator.Play(AnimateIn.name, -1, 0f);
             Shown = true;
+            print("Animating in!");
         }
     }
 }

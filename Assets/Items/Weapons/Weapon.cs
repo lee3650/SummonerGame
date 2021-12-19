@@ -11,6 +11,7 @@ public abstract class Weapon : Item, IPurchasable
     [SerializeField] protected string WeaponDescription;
     [SerializeField] bool DeselectAfterAttacking = true;
     [SerializeField] bool RepeatAttack = false;
+    [SerializeField] protected bool FirstUseFree = false;
 
     public virtual float GetCost()
     {
@@ -39,6 +40,10 @@ public abstract class Weapon : Item, IPurchasable
 
     public virtual float GetManaDrain()
     {
+        if (FirstUseFree)
+        {
+            return 0;
+        }
         return ManaDrain;
     }
 

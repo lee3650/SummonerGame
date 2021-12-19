@@ -683,7 +683,7 @@ MonoBehaviour:
   UpgradeCost: 18
   summonType: 4
   tier: 1
-  requiredResearch: 3
+  requiredResearch: 2
 --- !u!1 &29713172
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453.55005, y: 150.31833}
+  m_AnchoredPosition: {x: -453.55005, y: 150.24994}
   m_SizeDelta: {x: 890.8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &36066063
@@ -1103,6 +1103,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 739854944}
   BattleTheme: {fileID: 8300000, guid: c2cc1e152f3ad784686ce3fe33859d1d, type: 3}
+--- !u!1 &64103192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64103193}
+  - component: {fileID: 64103195}
+  - component: {fileID: 64103194}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &64103193
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64103192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1367039904}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 660, y: 520}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &64103194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64103192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 004e985991721f14f9157941be8624fb, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &64103195
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64103192}
+  m_CullTransparentMesh: 0
 --- !u!1 &71644619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3361,7 +3432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb46b4138aede141b40a24d75f77310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMana: 30
+  CurrentMana: 15
   ManaIncrement: 0
   ManaRegenTickRate: 0
 --- !u!114 &333112619
@@ -4480,7 +4551,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers crit enemies that are on fire
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 3
   MyCharm: {fileID: 543993329400653667, guid: e5aa680293d8ee44cbab8347b2fb2be0, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &405395745
@@ -5988,7 +6059,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers set enemies on fire
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 3
   MyCharm: {fileID: 9125458475373157650, guid: 3eb48d7bedcb8be4eb8ad16132dbed5a, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &558451568
@@ -6381,7 +6452,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Defense. Increases archer units armor.
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 3
   MyCharm: {fileID: 3221718363063802801, guid: 75e1d5fe30002d74f827433f0d8d08ed, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &598168296
@@ -9522,7 +9593,7 @@ MonoBehaviour:
   UpgradeCost: 25
   summonType: 4
   tier: 2
-  requiredResearch: 3
+  requiredResearch: 2
 --- !u!1 &939806394
 GameObject:
   m_ObjectHideFlags: 0
@@ -9782,7 +9853,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers poison enemies
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 3
   MyCharm: {fileID: 5187184482957404608, guid: 68bde95b7688ba54a85ecf600686d213, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &974460880
@@ -10860,10 +10931,15 @@ MonoBehaviour:
     startPrice: 0
     Type: 10
   - minPrice: 1
-    maxPrice: 8
+    maxPrice: 7
     Increment: 1.5
     startPrice: 0
     Type: 11
+  - minPrice: 1
+    maxPrice: 5
+    Increment: 0.2
+    startPrice: 0
+    Type: 14
 --- !u!4 &1071082197
 Transform:
   m_ObjectHideFlags: 0
@@ -11878,28 +11954,30 @@ MonoBehaviour:
     type: 3}
   Gifs:
   - label: walls
-    Gif: {fileID: 976485842}
+    Gif: {fileID: 32900000, guid: 7fcc248e3e87bf04ba7adae37b5a0c3c, type: 3}
   - label: barracks
-    Gif: {fileID: 790475119}
+    Gif: {fileID: 32900000, guid: 3923ea07ee68de04fb815b247c1380e4, type: 3}
   - label: troops
-    Gif: {fileID: 71644621}
+    Gif: {fileID: 32900000, guid: 3ed1f17bd649dbb46b779b0e60360358, type: 3}
   - label: gates
-    Gif: {fileID: 1715284646}
+    Gif: {fileID: 32900000, guid: 5701c375e0f52eb41aad4d7923fb8076, type: 3}
   - label: home tile
-    Gif: {fileID: 1019686276}
+    Gif: {fileID: 32900000, guid: 4d0bf890c8d90464e812be253afb48e4, type: 3}
   - label: mason
-    Gif: {fileID: 558451570}
+    Gif: {fileID: 32900000, guid: 5a955077d63db384691416dc782ade3a, type: 3}
   - label: miner
-    Gif: {fileID: 1586505015}
+    Gif: {fileID: 32900000, guid: dfc8779c83ab8d64ab1903cf5a133b20, type: 3}
   - label: fix troops
-    Gif: {fileID: 569714083}
+    Gif: {fileID: 32900000, guid: 857f17820ddbd044e99ee348f950b9a0, type: 3}
   - label: ballista
-    Gif: {fileID: 1907952167}
+    Gif: {fileID: 32900000, guid: 82dfb8c03645ad141adaf9902fd05ec4, type: 3}
   - label: teardown gate
-    Gif: {fileID: 838717512}
-  - label: teardown melee
-    Gif: {fileID: 878693049}
-  GifDisplayer: {fileID: 1367039907}
+    Gif: {fileID: 32900000, guid: d260f23955a56b149ab67c264e545e02, type: 3}
+  - label: rmelee
+    Gif: {fileID: 32900000, guid: 6e5a1d5f54310b34e9420bf323e2ef0b, type: 3}
+  - label: duplicate
+    Gif: {fileID: 32900000, guid: adb8c79001e0bbe439c505809136649c, type: 3}
+  GifDisplayer: {fileID: 1367039908}
   TrapGenerator: {fileID: 764195269237895650, guid: fec93d2494f9ec84ab84e894af28bca4,
     type: 3}
   ArrowTrap: {fileID: 1166623827238931825, guid: eb1272944b3f68d499ca2302458f3eff,
@@ -12639,7 +12717,7 @@ MonoBehaviour:
   reusable: 0
   description: Charm of Archer Damage. Increases archer units damage.
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 3
   MyCharm: {fileID: 1183936544931740549, guid: 812eea273078068489295604211edfe5, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1304991315
@@ -13638,7 +13716,7 @@ GameObject:
   - component: {fileID: 1367039904}
   - component: {fileID: 1367039906}
   - component: {fileID: 1367039905}
-  - component: {fileID: 1367039907}
+  - component: {fileID: 1367039908}
   m_Layer: 5
   m_Name: GifDisplayerParent
   m_TagString: Untagged
@@ -13659,13 +13737,14 @@ RectTransform:
   m_Children:
   - {fileID: 2139049540}
   - {fileID: 1802572621}
+  - {fileID: 64103193}
   m_Father: {fileID: 598168300}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 44}
-  m_SizeDelta: {x: 626.6951, y: 450.82574}
+  m_AnchoredPosition: {x: -0.000019073, y: -24}
+  m_SizeDelta: {x: 732.3294, y: 602.3081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367039905
 MonoBehaviour:
@@ -13704,20 +13783,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367039903}
   m_CullTransparentMesh: 0
---- !u!114 &1367039907
-MonoBehaviour:
+--- !u!328 &1367039908
+VideoPlayer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367039903}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f53bdbcf22e3f364f9c881a5ad7c8b24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frameTime: 0.083333336
-  TargetImage: {fileID: 2139049541}
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 004e985991721f14f9157941be8624fb, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 0
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &1369750226
 GameObject:
   m_ObjectHideFlags: 0
@@ -14712,7 +14811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.25012, y: 115.888306}
+  m_AnchoredPosition: {x: -437.25012, y: 115.82002}
   m_SizeDelta: {x: 874.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1430304168
@@ -15081,7 +15180,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304991317}
   m_HandleRect: {fileID: 1304991316}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15650,7 +15749,7 @@ MonoBehaviour:
   reusable: 0
   description: Archers crit enemies that are poisoned.
   followingRewards: []
-  UnlockedIndex: 0
+  UnlockedIndex: 3
   MyCharm: {fileID: 6740333486965349736, guid: 6158611b077bc0440bbc99be4863417a, type: 3}
   PlayerInventory: {fileID: 333112613}
 --- !u!1 &1498837300
@@ -17804,7 +17903,7 @@ MonoBehaviour:
   UpgradeCost: 10
   summonType: 4
   tier: 0
-  requiredResearch: 3
+  requiredResearch: 2
 --- !u!1 &1667296792
 GameObject:
   m_ObjectHideFlags: 0
@@ -19408,7 +19507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.64, y: 236}
+  m_AnchoredPosition: {x: -308.46, y: 316.2}
   m_SizeDelta: {x: 115.41091, y: 56.902016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802572622
@@ -19454,9 +19553,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1367039907}
-        m_MethodName: Hide
-        m_Mode: 1
+      - m_Target: {fileID: 1367039903}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19484,7 +19583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8942363428803957281, guid: 1c7a4b59b4018bd4f869a051d92d4e93,
+  m_Sprite: {fileID: 2790527244457106677, guid: ab82f177fbd0c654e8b1e6cfdfbb2156,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -19753,7 +19852,7 @@ MonoBehaviour:
   Animator: {fileID: 1852767916}
   AnimateIn: {fileID: 7400000, guid: 9b9acb73dfc005046974bbc613884425, type: 2}
   AnimateOut: {fileID: 7400000, guid: be892a0db8733e74086fd9c077a0b48b, type: 2}
-  InterruptAnimations: 0
+  InterruptAnimations: 1
   Shown: 0
   AnimateInOnStart: 0
 --- !u!95 &1852767916
@@ -20894,7 +20993,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643072444}
   m_HandleRect: {fileID: 1643072443}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21926,7 +22025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2139049540
 RectTransform:
   m_ObjectHideFlags: 0
