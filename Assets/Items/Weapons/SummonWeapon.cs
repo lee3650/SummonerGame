@@ -13,6 +13,7 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
     [SerializeField] float rotationOffset;
     [SerializeField] bool UseSummonImage = true;
     [SerializeField] bool SetColorToWhite = false;
+    [SerializeField] bool FirstUseFree = false;
 
     public bool ReduceMaxMana;
 
@@ -38,6 +39,20 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
                 }
             }
         }
+    }
+
+    public override float GetManaDrain()
+    {
+        if (Summon.TryGetComponent<Summon>(out Summon s))
+        {
+            print("Found summon on... summon");
+            if (FirstUseFree && SummonExistence.TypeDoesNotExist(s.GetSummonType()))
+            {
+                print("returning zero!");
+                return 0;
+            }
+        }
+        return ManaDrain;
     }
 
     public virtual float EffectOnBalance()
@@ -124,6 +139,8 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
     {
         Quaternion rotation = ZeroRotation ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, rotationOffset));
 
+        float price = GetManaDrain();
+
         GameObject summoned = SpawnSummon(Summon, VectorRounder.RoundVector(mousePos), Wielder.GetComponent<Summoner>(), rotation);
 
         if (ReduceMaxMana)
@@ -134,12 +151,7 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
         Sellable sellable;
         if (summoned.TryGetComponent<Sellable>(out sellable))
         {
-            sellable.SellPrice = Mathf.RoundToInt(GetManaDrain() * RefundPercent);
-        }
-
-        if (FirstUseFree)
-        {
-            FirstUseFree = false; 
+            sellable.SellPrice = Mathf.RoundToInt(price * RefundPercent);
         }
     }
 

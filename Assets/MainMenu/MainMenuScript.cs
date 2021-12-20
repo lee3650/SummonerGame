@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     //set this to false if, in the setup scene, we want to not play the tutorial
-    private static bool tutorialMode = true; //we'll have to load this from a file, or use PlayerPrefs. 
+    private static bool tutorialMode = false; //we'll have to load this from a file, or use PlayerPrefs. 
     private static string finishedTutorialKey = "TutorialMode";
     private bool FinishedTutorial;
 
@@ -17,7 +17,7 @@ public class MainMenuScript : MonoBehaviour
 
     private void Awake()
     {
-        FinishedTutorial = true; //PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false;
+        FinishedTutorial = PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false;
         ShowPlayButtons();
     }
     
@@ -32,7 +32,7 @@ public class MainMenuScript : MonoBehaviour
         ResearchManager.ResetState();
         LetterManager.ResetState();
         tutorialMode = false;
-        ShowPlayButtons();
+        //ShowPlayButtons();
     }
 
     public void PlayButtonPressed()

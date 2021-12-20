@@ -66,6 +66,7 @@ public class Summon : MonoBehaviour
         {
             i.Init();
         }
+        SummonExistence.IncrementCount(SummonType);
     }
 
     public virtual void OnWaveEnds()
@@ -175,6 +176,7 @@ public class Summon : MonoBehaviour
     {
         MySummoner.RemoveSummonFromParty(this);
         MySummoner.OnSummonDeath(ManaRefundAmount);
+        SummonExistence.DecrementCount(SummonType);
     }
 
     public string SummonName

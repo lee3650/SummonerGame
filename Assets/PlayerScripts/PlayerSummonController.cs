@@ -177,6 +177,7 @@ public class PlayerSummonController : MonoBehaviour
                     DeselectSummonAndHideHotbar();
                 } else
                 {
+                    ItemSelection.DeselectItem();
                     DeselectSummon();
                 }
             }
