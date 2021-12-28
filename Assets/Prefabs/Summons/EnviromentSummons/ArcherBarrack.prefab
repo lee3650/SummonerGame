@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6892030134738560957}
   - component: {fileID: -8651758193511034256}
   - component: {fileID: -1917334783744031079}
+  - component: {fileID: -4582454014473101448}
   m_Layer: 15
   m_Name: ArcherBarrack
   m_TagString: Untraversable
@@ -180,6 +181,11 @@ MonoBehaviour:
       type: 3}
     MaintenanceFee: 0
     DisplayName: Mage
+  - BlueprintType: 18
+    Prefab: {fileID: 4049063013500657920, guid: 1efdfd87fc8e5264584ac5def219500c,
+      type: 3}
+    MaintenanceFee: 0
+    DisplayName: Ice Archer
   SpriteRenderer: {fileID: 7609072344873876228}
   MaintenanceFee: 0
   AddToTargeting: 0
@@ -250,3 +256,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SquashAndStretch: {fileID: -8651758193511034256}
   hm: {fileID: 5894510192240988270}
+--- !u!114 &-4582454014473101448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609072344873876229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cdfcd57b9bfd524eb86743a464098c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerWall: {fileID: 4188969383076785655}
+  offset: {x: 0, y: 1}
+  HealthManager: {fileID: 5894510192240988270}

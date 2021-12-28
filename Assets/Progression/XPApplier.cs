@@ -77,20 +77,39 @@ public class XPApplier : MonoBehaviour
                 animate = false;
             }
 
+            //so, the issue with this is that it can only do at most 1 xp earned per frame, right. 
+            //Which means that if you have 1000s of xp messages, it's going to 
+            //only apply 1 per frame, so it's going to take 1000s of frames to finish
+            //so... what we want to is 
+            //divide the elapsed time 
+            //by the length of the xp messages
+            //then, um, apply that many
+            //basically. I think it makes sense. 
+
             if (timer > getWaitTime(xpEarned))
             {
+                int numToApply = 1;
+                if (getWaitTime(xpEarned) < Time.deltaTime)
+                {
+                    numToApply = CalcNumToApply(xpEarned.Count, timer);
+                }
+
                 timer = 0f;
-                if (xpEarned.Count == 0)
+
+                for (int i = 0; i < numToApply; i++)
                 {
-                    animate = false;
-                } 
-                else
-                {
-                
-                    XPMessage cur = xpEarned[0];
-                    xpEarned.RemoveAt(0);
-                    ApplyXPMessage(cur);
-                
+                    if (xpEarned.Count == 0)
+                    {
+                        animate = false;
+                    }
+                    else
+                    {
+
+                        XPMessage cur = xpEarned[0];
+                        xpEarned.RemoveAt(0);
+                        ApplyXPMessage(cur);
+
+                    }
                 }
             }
 
@@ -108,6 +127,13 @@ public class XPApplier : MonoBehaviour
         NextLevelButton.SetActive(true);
         HomeButton.SetActive(true);
         ResearchManager.SaveResearchData();
+    }
+
+    private int CalcNumToApply(int count, float timer)
+    {
+        float e = 2.718281828459f;
+        int x = Mathf.RoundToInt(Mathf.Pow(e, Mathf.Log(count) - (2 * timer)));
+        return count - x;
     }
 
     private void ApplyAllRemainingMessage(List<XPMessage> xpEarned)
@@ -152,6 +178,7 @@ public class XPApplier : MonoBehaviour
         ResearchPanel.Show(reward, true);
     }
 
+    //note that CalcNumToApply duplicates this 
     private float getWaitTime(List<XPMessage> xpEarned)
     {
         return 1f / (2 * xpEarned.Count);

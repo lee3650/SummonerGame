@@ -6,6 +6,7 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
 {
     [SerializeField] GameObject Summon;
     [SerializeField] PointToHoldManager PointToHoldManager;
+    [SerializeField] BlueprintBarracks BlueprintBarracks;
 
     [SerializeField] List<string> StatString; 
 
@@ -13,7 +14,7 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
     
     public override void Init()
     {
-        print("Awake called!");
+        print("Initialized a Barracks script! Name: " + name);
         TargetableEntitiesManager.AddTargetable(this);
         WaveSpawner.NotifyWhenWaveEnds(this);
         PointToHoldManager.PointToHold = new Vector2(transform.position.x, transform.position.y) + new Vector2(1, 0);
@@ -110,7 +111,8 @@ public class Barracks : PlayerWall, ILivingEntity, IWaveNotifier, IControllableS
 
     public bool CanBeSold()
     {
-        return AdjacentConnections.DoAdjacentTilesConnectToMiner(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+        Vector2Int pos = VectorRounder.RoundVectorToInt(transform.position);
+        return AdjacentConnections.DoAdjacentTilesConnectToMiner(new List<Vector2Int> { pos, pos + BlueprintBarracks.GetSpawnOffset() });
     }
 
 

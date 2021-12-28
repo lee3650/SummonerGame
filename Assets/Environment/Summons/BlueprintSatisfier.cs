@@ -177,7 +177,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
 
     public string GetStatString(Vector2 pos)
     {
-        string stats = string.Format("Max Summons: {1}\nSummons Types: {2}\nActivated: {3}", Range, CalculateMaxSummons(), GetSummonTypesString(), activated);
+        string stats = string.Format("Max Summons: {1}\nSummons Types: {2}", Range, CalculateMaxSummons(), GetSummonTypesString());
         return stats; 
     }
 
@@ -367,7 +367,7 @@ public class BlueprintSatisfier : PlayerWall, ILivingEntity, IRecurringCost, ICo
         }
     }
 
-    public bool CanBeSold()
+    public virtual bool CanBeSold()
     {
         return AdjacentConnections.DoAdjacentTilesConnectToMiner(new Vector2Int((int)transform.position.x, (int)transform.position.y));
     }

@@ -128,13 +128,14 @@ MonoBehaviour:
   WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
-  WeaponDescription: Places a ranged blueprint
+  WeaponDescription: 
   DeselectAfterAttacking: 0
   RepeatAttack: 0
   Summon: {fileID: 895104399634732807, guid: e1fa421ce2678a240a00763e774e69d0, type: 3}
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 1
+  FirstUseFree: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 3

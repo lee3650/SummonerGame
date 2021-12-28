@@ -95,7 +95,22 @@ public class PlayerSummonController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !MouseOverUIComponent() && !PlayerAttackState.AttackedThisFrame())
         {
             IControllableSummon s = GetSummonUnderMouse();
-            SelectSummon(s);
+
+            if (s != null)
+            {
+                SelectSummon(s);
+            } else
+            {
+                //if we have an item, only deselect it if you clicked far away from a usable tile 
+                if (ItemSelection.HasItem())
+                {
+                    DeselectItemBasedOnAdjacency();
+                } else 
+                {
+                    //if you don't have an item, just deselect the current summon 
+                    DeselectSummonAndHideHotbar();
+                }
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -132,6 +147,30 @@ public class PlayerSummonController : MonoBehaviour
                 DeselectSummonAndHideHotbar();
             }
         }
+    }
+
+    private void DeselectItemBasedOnAdjacency()
+    {
+        bool passed = false;
+
+        Vector2Int[] dirs = new Vector2Int[]
+        {
+            new Vector2Int(0, 1), new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, -1)
+        };
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (PlayerAttackState.IsPositionSpawnable(PlayerInput.GetWorldMousePosition() + dirs[i]))
+            {
+                passed = true;
+                break;
+            }
+        }
+
+        if (!passed)
+        {
+            DeselectSummonAndHideHotbar();
+        } 
     }
 
     private void DesatisfyBlueprint(Blueprint b)
@@ -210,13 +249,6 @@ public class PlayerSummonController : MonoBehaviour
                 BlueprintHotbar.PlayAnimateIn();
             }
         } 
-        else
-        {
-            if (SelectedSummon != null)
-            {
-                DeselectSummonAndHideHotbar();
-            }
-        }
     }
 
     public void HideHotbar()
@@ -246,7 +278,7 @@ public class PlayerSummonController : MonoBehaviour
         }
 
         RangeVisualizer rv; //hm. Is this okay? I mean, it's procedular, but not a bad way, right? 
-        if (SelectedSummon.GetTransform().TryGetComponent<RangeVisualizer>(out rv))
+        if (SelectedSummon != null && SelectedSummon.GetTransform().TryGetComponent<RangeVisualizer>(out rv))
         {
             rv.Hide(); 
         }

@@ -62,7 +62,7 @@ public class MovementController : MonoBehaviour
             //rc.FaceForward();
         }
     }
-    //Is this unity version slower to recompile? 
+
     public void MoveTowardPoint(Vector2 worldPoint)
     {
         Vector2 dir = worldPoint - rb.position;
@@ -93,6 +93,11 @@ public class MovementController : MonoBehaviour
                 pathfindPath = pathfindPath.ParentNode;
             }
         }
+    }
+
+    public bool FoundPath()
+    {
+        return pathfindPath != null;
     }
 
     public SearchNode GetPathfindPath()

@@ -15,6 +15,10 @@ public class HoldPointState : MonoBehaviour, IControllableState
 
     PointToHoldManager PointToHoldManager;
 
+    [SerializeField] private bool waitingForPath = false;
+
+    float noPathTimer = 0f;
+
     void Awake()
     {
         PointToHoldManager = GetComponent<PointToHoldManager>();
@@ -27,7 +31,22 @@ public class HoldPointState : MonoBehaviour, IControllableState
         {
             PointToHoldManager = GetComponent<PointToHoldManager>();
         }
-        MovementController.SetPathfindGoal(PointToHoldManager.PointToHold);
+        print("Entered hold point state! Point to hold is " + PointToHoldManager.PointToHold);
+        
+        if (PointToHoldManager.Initialized)
+        {
+            MovementController.SetPathfindGoal(PointToHoldManager.PointToHold);
+        }
+        
+        if (!MovementController.FoundPath() && PointToHoldManager.Initialized)
+        {
+            waitingForPath = true;
+            noPathTimer = 1f; 
+            CritGraphicPool.ShowNoPath(PointToHoldManager.PointToHold + new Vector2(0, 1));
+        } else
+        {
+            waitingForPath = false; 
+        }
     }
 
     public void UpdateState()
@@ -46,6 +65,25 @@ public class HoldPointState : MonoBehaviour, IControllableState
         {
             AIAttackManager.TryAttack(TargetManager.Target);
         }
+
+        if (waitingForPath)
+        {
+            noPathTimer -= Time.deltaTime;
+            if (noPathTimer <= 0)
+            {
+                CritGraphicPool.ShowNoPath(PointToHoldManager.PointToHold + new Vector2(0, 1));
+                noPathTimer = 1f; 
+            }
+            
+            if (PathsChanged.RecalculatePathfinding())
+            {
+                MovementController.SetPathfindGoal(PointToHoldManager.PointToHold);
+                if (MovementController.FoundPath())
+                {
+                    waitingForPath = false;
+                }
+            }
+        }
     }
 
     public void ExitState()
@@ -58,7 +96,8 @@ public class HoldPointState : MonoBehaviour, IControllableState
         switch (command)
         {
             case HoldPointCommand hp:
-                MovementController.SetPathfindGoal(hp.PointToHold);
+                //MovementController.SetPathfindGoal(hp.PointToHold);
+                EnterState();
                 break;
             case ToggleGuardModeCommand tg:
                 break;

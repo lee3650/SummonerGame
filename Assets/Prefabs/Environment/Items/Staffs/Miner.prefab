@@ -125,16 +125,18 @@ MonoBehaviour:
   col: {fileID: 7818258934224387668}
   ItemType: 0
   itemName: Miner
+  WeaponType: 0
   ManaDrain: 15
   AttackLength: 0.1
-  WeaponDescription: Summons a miner. Miners generate money based on how many ore
-    tiles they are adjacent to. They can only be placed adjacent to an ore tile.
+  WeaponDescription: Miners generate money at the end of every wave based on how
+    many ore tiles they're adjacent to.
   DeselectAfterAttacking: 1
   RepeatAttack: 0
   Summon: {fileID: 8059090261315814483, guid: 87ba03f399c694745b8cc03722422acb, type: 3}
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 0
+  FirstUseFree: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   RequiredTileTypes: 0a0000000900000008000000

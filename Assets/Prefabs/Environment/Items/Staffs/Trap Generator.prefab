@@ -128,8 +128,7 @@ MonoBehaviour:
   WeaponType: 0
   ManaDrain: 8
   AttackLength: 0.1
-  WeaponDescription: Places a trap generator. A trap generator generates  arrow traps
-    and arrow turners.
+  WeaponDescription: Armory
   DeselectAfterAttacking: 1
   RepeatAttack: 0
   Summon: {fileID: 2771856131788798343, guid: c1500481aa36d2c41ac01519b37c31af, type: 3}

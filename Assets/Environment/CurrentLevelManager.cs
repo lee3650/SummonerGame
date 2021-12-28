@@ -125,15 +125,15 @@ public class CurrentLevelManager : MonoBehaviour
 
     private int GetEnemiesPerWaveMaxRoll(int wave, int level)
     {
-        int actual = 4 * ((level + 1) * (level + 1)) + 4;
-        int prev = 4 * (level * level) + 4;
+        int actual = Mathf.RoundToInt(3.5f * ((level + 1) * (level + 1)) + 4);
+        int prev = Mathf.RoundToInt(3.5f * (level * level) + 4);
         return Mathf.RoundToInt(Mathf.Lerp((float)prev, (float)actual, (float)wave/highestWave));
     }
 
     public int GetEnemiesMinRoll(int wave, int level)
     {
-        int actual = (((level + 1 ) * (level + 1)) * 2) + 1;
-        int prev = (2 * (level * level)) + 1;
+        int actual = Mathf.RoundToInt((((level + 1 ) * (level + 1)) * 1.5f) + 1);
+        int prev = Mathf.RoundToInt((1.5f * (level * level)) + 1);
         return Mathf.RoundToInt(Mathf.Lerp((float)prev, (float)actual, (float)wave / highestWave));
     }
 
@@ -142,15 +142,15 @@ public class CurrentLevelManager : MonoBehaviour
         return firstEnemyRoll[currentWave];
     }
 
-    public int GetSecondRoll()
+    public string GetCurrentWaveDescription()
     {
-        return secondEnemyRoll[currentWave - 1];
+        return "There will be " + (secondEnemyRoll[currentWave - 1] + firstEnemyRoll[currentWave - 1]) + " enemies!";
     }
 
     public string GetNextWaveDescription()
     {
         print("next wave description for wave " + currentWave + ", levelNum " + (levelNum - 1) + string.Format(" is between {0} and {1}", GetEnemiesMinRoll(currentWave, levelNum - 1), GetEnemiesPerWaveMaxRoll(currentWave, levelNum - 1)));
-        return string.Format("Scouts found: {0} enemies\nPlus between {1} and {2} more", GetFirstRoll(), GetEnemiesMinRoll(currentWave, levelNum - 1), GetEnemiesPerWaveMaxRoll(currentWave, levelNum - 1) - 1);
+        return string.Format("Scouts found between {0} and {1} enemies", GetFirstRoll() + GetEnemiesMinRoll(currentWave, levelNum - 1), GetFirstRoll() + GetEnemiesPerWaveMaxRoll(currentWave, levelNum - 1) - 1);
     }
 
     public int GetEnemyNumber(int wave, int level)

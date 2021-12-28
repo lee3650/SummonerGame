@@ -22,8 +22,6 @@ public class PlaceHomeState : MonoBehaviour, IState
 
     bool selected = false; 
 
-
-
     public void EnterState()
     {
         actualHomeSummon = Instantiate(HomeSummonPrefab);
@@ -80,7 +78,7 @@ public class PlaceHomeState : MonoBehaviour, IState
 
     bool AttackConditionsMet()
     {
-        return PlayerAttackState.IsPositionSpawnable() && PlayerAttackState.IsWeaponUseable(actualHomeSummon) && PlayerAttackState.InventoryIsValid(actualHomeSummon);
+        return PlayerAttackState.IsPositionSpawnable(PlayerInput.GetWorldMousePosition()) && PlayerAttackState.IsWeaponUseable(actualHomeSummon, PlayerInput.GetWorldMousePosition()) && PlayerAttackState.InventoryIsValid(actualHomeSummon);
     }
 
     public void ExitState()

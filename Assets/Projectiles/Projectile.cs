@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
         //kind of a crappy solution but we can increase turn limit here 
         EventsToApply.Add(e);
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //so, if it's an entity, we apply event
@@ -115,6 +115,11 @@ public class Projectile : MonoBehaviour, IEntity, IDamager
     protected virtual void OnHit()
     {
 
+    }
+
+    public List<Event> GetEventsToApply()
+    {
+        return EventsToApply;
     }
 
     private void Update()

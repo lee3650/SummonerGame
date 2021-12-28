@@ -75,6 +75,11 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
         return true; 
     }
 
+    public TileType GetTileType()
+    {
+        return TileType;
+    }
+
     public bool CanBeTargetedBy(Factions faction)
     {
         if (faction != Factions.Player)

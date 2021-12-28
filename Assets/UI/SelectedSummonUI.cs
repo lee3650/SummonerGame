@@ -37,41 +37,42 @@ public class SelectedSummonUI : MonoBehaviour
     {
         Vector2Int mousePos = VectorRounder.RoundVectorToInt(PlayerInput.GetWorldMousePosition());
 
-        if (!SummonSelected)
+        if (mousePos == lastMousePos)
         {
-            if (mousePos == lastMousePos)
-            {
-                timeSinceMouseMove += Time.deltaTime;
-            } else
-            {
-                timeSinceMouseMove = 0f; 
-            }
+            timeSinceMouseMove += Time.deltaTime;
+        }
+        else
+        {
+            timeSinceMouseMove = 0f;
+        }
 
-            if (MapManager.IsPointInBounds((int)mousePos.x, (int)mousePos.y))
+        if (MapManager.IsPointInBounds((int)mousePos.x, (int)mousePos.y))
+        {
+            if (timeSinceMouseMove > TimeToShowTooltip)
             {
-                if (timeSinceMouseMove > TimeToShowTooltip)
+                TileType mousedTile = MapManager.GetTileType(mousePos);
+                if (mousePos != lastTile && mousedTile != TileType.DoNotDraw)
                 {
-                    TileType mousedTile = MapManager.GetTileType(mousePos);
-                    if (mousePos != lastTile)
-                    {
-                        TooltipParent.gameObject.SetActive(true);
-                        TooltipParent.SetWorldPoint(pi.GetWorldMousePosition());
-                        TooltipPD.HideAllPanels();
-                        lastTile = mousePos;
-                        TooltipPD.ShowPanel(TooltipDisplayPanel, TileDescription.GetTileDescription(mousedTile));
-                    }
-                } else
-                {
-                    TooltipParent.gameObject.SetActive(false);
+                    TooltipParent.gameObject.SetActive(true);
+                    TooltipParent.SetWorldPoint(pi.GetWorldMousePosition());
                     TooltipPD.HideAllPanels();
+                    lastTile = mousePos;
+                    TooltipPD.ShowPanel(TooltipDisplayPanel, TileDescription.GetTileDescription(mousedTile));
                 }
-            } else
+            }
+            else
             {
                 TooltipParent.gameObject.SetActive(false);
                 TooltipPD.HideAllPanels();
-                timeSinceMouseMove = 0f;
                 lastTile = new Vector2Int(-1, -1);
             }
+        }
+        else
+        {
+            TooltipParent.gameObject.SetActive(false);
+            TooltipPD.HideAllPanels();
+            timeSinceMouseMove = 0f;
+            lastTile = new Vector2Int(-1, -1);
         }
 
         lastMousePos = mousePos;

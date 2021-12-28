@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 6639920486162523642, guid: ec5e191ea1fa7994a99505f854e2dd3d,
         type: 3}
       propertyPath: WeaponDescription
-      value: Places a mage blueprint
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6639920486162523642, guid: ec5e191ea1fa7994a99505f854e2dd3d,
         type: 3}

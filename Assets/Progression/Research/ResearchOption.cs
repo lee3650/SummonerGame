@@ -6,17 +6,32 @@ using UnityEngine.UI;
 
 public class ResearchOption : MonoBehaviour, IPointerClickHandler
 {
-    //the only sketchy thing here is that this will have to know about it's current level and constantly show it... 
-    [SerializeField] private int RewardIndex;
+    //the only sketchy thing here is that this will have to know about its current level and constantly show it... 
+    private int RewardIndex;
     private ResearchManager ResearchManager;
 
+    [SerializeField] Research MyResearch;
+    [SerializeField] Image Image; 
     [SerializeField] GameObject LockIcon;
     [SerializeField] Slider Slider;
+    [SerializeField] GameObject Blocker; 
 
     public void Init(ResearchManager rm)
     {
         ResearchManager = rm;
-    }    
+        RewardIndex = MyResearch.Index;
+        MyResearch.Image = Image.sprite;
+    }
+
+    public void Hide()
+    {
+        Blocker.SetActive(true);
+    }
+
+    public void Show()
+    {
+        Blocker.SetActive(false);
+    }
 
     public void OnPointerClick(PointerEventData data)
     {
@@ -25,7 +40,7 @@ public class ResearchOption : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
-        if (ResearchManager != null)
+        if (MyResearch != null)
         {
             if (ResearchManager.ResearchUnlocked(RewardIndex))
             {

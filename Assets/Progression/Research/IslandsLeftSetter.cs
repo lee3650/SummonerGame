@@ -19,6 +19,9 @@ public class IslandsLeftSetter : MonoBehaviour
 
     private void FinishedXPApply()
     {
+        ReadyForButton();
+
+        /*
         if (ResearchManager.CurrentResearch != null)
         {
             if (ResearchManager.CurrentResearch.IslandsLeft <= 0 && !ResearchManager.CurrentResearch.Unlocked)
@@ -34,6 +37,7 @@ public class IslandsLeftSetter : MonoBehaviour
                 ReadyForButton();
             }
         }
+         */
     }
 
     IEnumerator AnimateXPToZero()

@@ -108,15 +108,15 @@ public class WaveViewModel : MonoBehaviour
             CurrentLevelManager.SpawnNextWave();
 
             UpdateNextWaveUI(CurrentLevelManager.GetNextWaveDescription());
-            SetWaveRollUI(CurrentLevelManager.GetSecondRoll());
+            SetWaveRollUI(CurrentLevelManager.GetCurrentWaveDescription());
 
             UpdateCurrentWaveUI();
         }
     }
 
-    public void SetWaveRollUI(int secondRoll)
+    public void SetWaveRollUI(string text)
     {
-        RollResultText.Enable(string.Format("There will be an additional {0} enemies!", secondRoll));
+        RollResultText.Enable(text);
     }
 
     public void UpdateCurrentWaveUI()

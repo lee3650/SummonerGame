@@ -20,4 +20,8 @@ public enum BlueprintType
     Any, 
     None, 
     Yeti, 
+    Spike, 
+    Archangel, 
+    SpikeFactory, 
+    IceArcher, 
 }

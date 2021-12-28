@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
         type: 3}
       propertyPath: WeaponDescription
-      value: Places a hardened wall blueprint
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9095432019461751824, guid: 1e37f56340da1744eb4893eddcd7ff29,
         type: 3}

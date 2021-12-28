@@ -88,7 +88,7 @@ public class PlayerAttackState : MonoBehaviour, IState
             return false;
         }
 
-        if (!IsPositionSpawnable())
+        if (!IsPositionSpawnable(PlayerInput.GetWorldMousePosition()))
         {
             return false;
         }
@@ -98,7 +98,7 @@ public class PlayerAttackState : MonoBehaviour, IState
             return false;
         }
 
-        if (!IsWeaponUseable(weapon))
+        if (!IsWeaponUseable(weapon, PlayerInput.GetWorldMousePosition()))
         {
             return false;
         }
@@ -121,9 +121,13 @@ public class PlayerAttackState : MonoBehaviour, IState
         return true; 
     }
 
-    public bool IsWeaponUseable(Weapon weapon)
+    public bool IsWeaponUseable(Weapon weapon, Vector2 pos)
     {
-        return weapon.CanUseWeapon(PlayerInput.GetWorldMousePosition());
+        if (weapon == null)
+        {
+            return false; 
+        }
+        return weapon.CanUseWeapon(pos);
     }
 
     bool SufficientEnergy(Weapon weapon)
@@ -131,9 +135,9 @@ public class PlayerAttackState : MonoBehaviour, IState
         return ManaManager.GetCurrent() >= weapon.GetManaDrain(); //HealthManager.GetCurrent() + 
     }
 
-    public bool IsPositionSpawnable()
+    public bool IsPositionSpawnable(Vector2 mousePos)
     {
-        return MapManager.IsPointTraversable(PlayerInput.GetWorldMousePosition(), true) && !WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(PlayerInput.GetWorldMousePosition()));
+        return MapManager.IsPointTraversable(mousePos, true) && !WaveSpawner.IsPointInSpawnRegion(VectorRounder.RoundVector(mousePos));
     }
 
     bool PlayerIsSelecting()

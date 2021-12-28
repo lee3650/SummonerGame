@@ -128,15 +128,14 @@ MonoBehaviour:
   WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
-  WeaponDescription: Places a gate blueprint. A wall generator will place a gate
-    on a gate blueprint if it still has generating capacity. Gates have less health
-    than walls but entities friendly to the player can pass through them.
+  WeaponDescription: 
   DeselectAfterAttacking: 0
   RepeatAttack: 0
   Summon: {fileID: 4106016826399803831, guid: 0a3f9d9114d5e99469e0da467d71a6b0, type: 3}
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 1
+  FirstUseFree: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 5

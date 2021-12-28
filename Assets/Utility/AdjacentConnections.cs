@@ -23,26 +23,34 @@ public class AdjacentConnections : MonoBehaviour
             new Vector2Int(0, -1),
     };
     
-    public static bool DoAdjacentTilesConnectToMiner(Vector2Int start)
+    public static bool DoAdjacentTilesConnectToMiner(List<Vector2Int> start)
     {
         return DoAllAdjacentTilesConnectToTile(start, TileType.Miner, DefaultConnectedTiles);
     }
 
-    public static bool DoAllAdjacentTilesConnectToTile(Vector2Int start, TileType goalType, TileType[] connectedTiles)
+    public static bool DoAdjacentTilesConnectToMiner(Vector2Int start)
     {
-        for (int i = 0; i < dirs.Length; i++)
-        {
-            //so, if this tile is traversable, and it's not a miner, then we'll test it, blacklisting ourselves. 
-            Vector2Int cur = start + dirs[i];
+        return DoAllAdjacentTilesConnectToTile(new List<Vector2Int>() { start }, TileType.Miner, DefaultConnectedTiles);
+    }
 
-            if (IsNodeTileAcceptable(cur, connectedTiles))
+    public static bool DoAllAdjacentTilesConnectToTile(List<Vector2Int> starts, TileType goalType, TileType[] connectedTiles)
+    {
+        foreach (Vector2Int start in starts)
+        {
+            for (int i = 0; i < dirs.Length; i++)
             {
-                if (!MapManager.IsTileType(cur.x, cur.y, goalType))
+                //so, if this tile is traversable, and it's not a miner, then we'll test it, blacklisting ourselves. 
+                Vector2Int cur = start + dirs[i];
+
+                if (IsNodeTileAcceptable(cur, connectedTiles) && !starts.Contains(cur))
                 {
-                    bool r = ExistsPathToGoal(cur, start, goalType, connectedTiles);
-                    if (!r)
+                    if (!MapManager.IsTileType(cur.x, cur.y, goalType))
                     {
-                        return false;
+                        bool r = ExistsPathToGoal(cur, starts, goalType, connectedTiles);
+                        if (!r)
+                        {
+                            return false;
+                        }
                     }
                 }
             }
@@ -51,13 +59,13 @@ public class AdjacentConnections : MonoBehaviour
         return true;
     }
 
-    static bool ExistsPathToGoal(Vector2Int start, Vector2Int blacklist, TileType goalType, TileType[] connectedTiles) 
+    static bool ExistsPathToGoal(Vector2Int start, List<Vector2Int> blacklist, TileType goalType, TileType[] connectedTiles) 
     {
         //wait, this doesn't make sense. 
         //we have to do 4 start points. 
 
         List<Vector2Int> closedList = new List<Vector2Int>();
-        closedList.Add(blacklist);
+        closedList.AddRange(blacklist);
 
         List<Vector2Int> openList = new List<Vector2Int>();
 

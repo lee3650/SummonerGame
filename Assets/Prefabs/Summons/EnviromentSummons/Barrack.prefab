@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -4140789016396085564}
   - component: {fileID: 496712400004737135}
   - component: {fileID: -8768587391118137555}
+  - component: {fileID: 713607503372246171}
   m_Layer: 15
   m_Name: Barrack
   m_TagString: Untraversable
@@ -186,6 +187,11 @@ MonoBehaviour:
       type: 3}
     MaintenanceFee: 0
     DisplayName: Assassin
+  - BlueprintType: 16
+    Prefab: {fileID: 7565410628621641245, guid: e04593515cb46764a88c8c2a641f426a,
+      type: 3}
+    MaintenanceFee: 0
+    DisplayName: Dwarves
   SpriteRenderer: {fileID: 5052993147076501496}
   MaintenanceFee: 0
   AddToTargeting: 0
@@ -271,3 +277,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SquashAndStretch: {fileID: 496712400004737135}
   hm: {fileID: 9100241369393230994}
+--- !u!114 &713607503372246171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052993147076501497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cdfcd57b9bfd524eb86743a464098c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerWall: {fileID: 1559716552411547915}
+  offset: {x: 1, y: 0}
+  HealthManager: {fileID: 9100241369393230994}

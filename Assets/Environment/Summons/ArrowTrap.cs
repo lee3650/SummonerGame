@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ArrowTrap : PlayerWall, IDamager, IWielder
 {
-    [SerializeField] Projectile Projectile;
-    [SerializeField] protected Transform SpawnPos; 
+    [SerializeField] protected Projectile Projectile;
+    [SerializeField] protected Transform SpawnPos;
     [SerializeField] protected float AttackLength;
     [SerializeField] float projDir;
     [SerializeField] protected DirectionalAnimator Animator;
@@ -43,9 +43,14 @@ public class ArrowTrap : PlayerWall, IDamager, IWielder
         GameplaySFX.PlayGameSound(Sounds.RangedAttack, transform.position);
         Animator.PlayAttack(zRot);
         yield return new WaitForSeconds(animationDelayTime);
+        DoAttack();
+        Animator.IdleDirection(zRot);
+    }
+
+    protected virtual void DoAttack()
+    {
         Projectile p = Instantiate(Projectile, SpawnPos.position, Quaternion.Euler(new Vector3(0f, 0f, zRot + projDir)));
         p.Fire(this, this);
-        Animator.IdleDirection(zRot);
     }
 
     public void OnHit(IEntity hit)

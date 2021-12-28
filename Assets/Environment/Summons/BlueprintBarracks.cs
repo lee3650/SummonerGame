@@ -29,6 +29,12 @@ public class BlueprintBarracks : BlueprintSatisfier
         return summon; 
     }
 
+    public override bool CanBeSold()
+    {
+        Vector2Int pos = VectorRounder.RoundVectorToInt(transform.position);
+        return AdjacentConnections.DoAdjacentTilesConnectToMiner(new List<Vector2Int> { pos, pos + GetSpawnOffset() });
+    }
+
     protected override void OnDeath()
     {
         RemovePointFromSpawnPoints();

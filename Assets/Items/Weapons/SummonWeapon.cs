@@ -45,10 +45,8 @@ public class SummonWeapon : Weapon, IFinancialPreviewer
     {
         if (Summon.TryGetComponent<Summon>(out Summon s))
         {
-            print("Found summon on... summon");
             if (FirstUseFree && SummonExistence.TypeDoesNotExist(s.GetSummonType()))
             {
-                print("returning zero!");
                 return 0;
             }
         }

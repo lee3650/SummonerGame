@@ -128,9 +128,7 @@ MonoBehaviour:
   WeaponType: 0
   ManaDrain: 5
   AttackLength: 0.1
-  WeaponDescription: Places a wall generator. A wall generator will place walls or
-    gates based on where wall and gate blueprints are placed. At the end of each
-    wave any walls that were destroyed during the wave will be regenerated.
+  WeaponDescription: Masonry
   DeselectAfterAttacking: 1
   RepeatAttack: 0
   Summon: {fileID: 6000955293405737803, guid: b95c67d19141cbb47a53bba798bd2a4c, type: 3}

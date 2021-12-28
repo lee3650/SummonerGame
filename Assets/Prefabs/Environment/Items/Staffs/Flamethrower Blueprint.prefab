@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 1166623827238931824, guid: eb1272944b3f68d499ca2302458f3eff,
         type: 3}
       propertyPath: WeaponDescription
-      value: Flamethrower blueprint
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1166623827238931825, guid: eb1272944b3f68d499ca2302458f3eff,
         type: 3}

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class MainMenuScript : MonoBehaviour
 
     public const string appendPath = "data/";
 
-    [SerializeField] GameObject PlayButton;
+    [SerializeField] Button PlayButton;
     [SerializeField] GameObject TutorialPlayButton;
 
     private void Awake()
@@ -32,7 +32,8 @@ public class MainMenuScript : MonoBehaviour
         ResearchManager.ResetState();
         LetterManager.ResetState();
         tutorialMode = false;
-        //ShowPlayButtons();
+        FinishedTutorial = false; 
+        ShowPlayButtons();
     }
 
     public void PlayButtonPressed()
@@ -51,20 +52,17 @@ public class MainMenuScript : MonoBehaviour
     {
         if (FinishedTutorial)
         {
-            //show both the tutorial button and the play button
-            PlayButton.SetActive(true);
-            TutorialPlayButton.SetActive(true);
+            PlayButton.interactable = true;
         }
         else
         {
-            //show just the tutorial button
-            TutorialPlayButton.SetActive(true);
-            PlayButton.SetActive(false);
+            PlayButton.interactable = false;
         }
     }
 
     public static void TutorialFinished()
     {
+        print("Finished tutorial!");
         tutorialMode = false;
         PlayerPrefs.SetInt(finishedTutorialKey, 1);
     }

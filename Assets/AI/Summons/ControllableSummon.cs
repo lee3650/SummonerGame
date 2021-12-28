@@ -97,7 +97,7 @@ public class ControllableSummon : Summon, IControllableSummon, IRecurringCost
 
     public bool CanBeSold()
     {
-        return true; 
+        return false;
     }
 
     void SellSummon()

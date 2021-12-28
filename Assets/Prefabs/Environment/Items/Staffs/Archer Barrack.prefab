@@ -129,7 +129,7 @@ MonoBehaviour:
   WeaponType: 0
   ManaDrain: 10
   AttackLength: 0.1
-  WeaponDescription: Places an archer barrack
+  WeaponDescription: Archer Barracks
   DeselectAfterAttacking: 1
   RepeatAttack: 0
   Summon: {fileID: 7609072344873876229, guid: d4a8b6a0816f2d34184cdcb1ab31b670, type: 3}

@@ -128,14 +128,14 @@ MonoBehaviour:
   WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
-  WeaponDescription: Places a melee blueprint. A melee blueprint tells the barracks
-    where to send its troops.
+  WeaponDescription: 
   DeselectAfterAttacking: 0
   RepeatAttack: 0
   Summon: {fileID: 3948711407154339661, guid: 11c15ffe86833674ea07f0001b70f13f, type: 3}
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 1
+  FirstUseFree: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 2

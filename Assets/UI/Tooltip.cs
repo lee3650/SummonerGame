@@ -14,7 +14,15 @@ public class Tooltip : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData data)
     {
-        TooltipTransform.gameObject.SetActive(true);
+        if (ShouldShowTooltip())
+        {
+            TooltipTransform.gameObject.SetActive(true);
+        }
+    }
+
+    protected virtual bool ShouldShowTooltip()
+    {
+        return true; 
     }
 
     public void OnPointerExit(PointerEventData data)

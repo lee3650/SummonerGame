@@ -55,7 +55,6 @@ public class AnimateInAndOut : MonoBehaviour
             AnimatingOut();
             Animator.Play(AnimateOut.name);
             Shown = false;
-            print("Animating out!");
         }
     }
 
@@ -65,7 +64,6 @@ public class AnimateInAndOut : MonoBehaviour
         {
             Animator.Play(AnimateIn.name, -1, 0f);
             Shown = true;
-            print("Animating in!");
         }
     }
 }

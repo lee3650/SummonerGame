@@ -7,6 +7,7 @@ public class CritGraphicPool : MonoBehaviour, IResettable
     [SerializeField] SpriteRenderer graphic;
     [SerializeField] Sprite critGraphic;
     [SerializeField] Sprite dodgeGraphic;
+    [SerializeField] Sprite noPathGraphic;
 
     private static SpriteRenderer Graphic;
 
@@ -15,10 +16,12 @@ public class CritGraphicPool : MonoBehaviour, IResettable
     private static List<float> lifetime = new List<float>();
 
     private static Sprite CritGraphic;
+    private static Sprite NoPathGraphic;
     private static Sprite DodgeGraphic;
 
     void Awake()
     {
+        NoPathGraphic = noPathGraphic;
         CritGraphic = critGraphic;
         DodgeGraphic = dodgeGraphic;
         Graphic = graphic;
@@ -56,6 +59,12 @@ public class CritGraphicPool : MonoBehaviour, IResettable
     public static void ShowCrit(Vector2 position)
     {
         AddOrShowGraphic(position, CritGraphic);
+    }
+
+    public static void ShowNoPath(Vector2 pos)
+    {
+        print("Showing no path!");
+        AddOrShowGraphic(pos, NoPathGraphic);
     }
 
     public static void ShowDodge(Vector2 position)

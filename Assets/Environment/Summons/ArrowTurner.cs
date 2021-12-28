@@ -25,6 +25,12 @@ public class ArrowTurner : PlayerWall
         }
     }
 
+    public void SetRotation(float rot)
+    {
+        zRot = rot;
+        Animator.IdleDirection(zRot);
+    }
+
     public override void HandleEvent(Event e)
     {
         //do nothing. I don't want these to be able to be hit

@@ -21,4 +21,6 @@ public enum SummonType
     Gate,
     ArrowTurner,
     HomeTile, 
+    Spikes, 
+    SpikeFactory,
 }

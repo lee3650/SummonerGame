@@ -13,8 +13,80 @@ public class TileRestrictedSummon : SummonWeapon
     {
         Vector2 point = VectorRounder.RoundVector(mousePos);
 
-        bool acceptedTiles = false;
+        BlueprintBarracks bb;
+        if (Summon.TryGetComponent<BlueprintBarracks>(out bb))
+        {
+            Vector2 spawnPoint = point + bb.GetSpawnOffset();
 
+            return (CanAcceptPoint(point) || CanAcceptPoint(spawnPoint)) && ((CanOverridePoint(point)) && CanOverridePoint(spawnPoint));
+        
+        } else
+        {
+            return CanAcceptPoint(point) && CanOverridePoint(point);
+        }
+    }
+
+    private bool CanAcceptPoint(Vector2 point)
+    {
+        if (!CanOverridePoint(point))
+        {
+            return false;
+        }
+
+        bool acceptedTiles = GetAcceptedTiles(point);
+
+        if (AreTilesBlacklisted(point))
+        {
+            return false;
+        }
+
+        return acceptedTiles;
+    }
+
+    private bool CanOverridePoint(Vector2 point)
+    {
+        if (IsPointOre(point))
+        {
+            return false;
+        }
+
+        if (IsPointBuilding(point))
+        {
+            return false; 
+        }
+
+        if (BlueprintBarracks.IsPointSpawnPoint(VectorRounder.RoundVectorToInt(point)))
+        {
+            return false;
+        }
+
+        if (!MapManager.IsPointTraversable(point, false))
+        {
+            return false; 
+        }
+
+        return true; 
+    }
+
+    private bool IsPointBuilding(Vector2 point)
+    {
+        TileType t = MapManager.GetTileType(point);
+        return MapNode.IsTileTypeBuilding(t);
+
+    }
+
+    private bool IsPointOre(Vector2 point)
+    {
+        TileType under = MapManager.GetTileType(point);
+        if (MapNode.IsTileOre(under))
+        {
+            return true;
+        }
+        return false; 
+    }
+
+    private bool GetAcceptedTiles(Vector2 point)
+    {
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
@@ -26,40 +98,37 @@ public class TileRestrictedSummon : SummonWeapon
                     {
                         if (IsAdjacentTileAccepted(point + new Vector2(x, y)))
                         {
-                            acceptedTiles = true;
-                        }
-                        if (IsAdjacentTileBlacklisted(point + new Vector2(x, y)))
-                        {
-                            return false; 
+                            return true; 
                         }
                     }
                 }
             }
         }
 
-        TileType under = MapManager.GetTileType(point);
-        if (MapNode.IsTileOre(under))
-        {
-            return false; 
-        }
+        return false;
+    }
 
-        if (BlueprintBarracks.IsPointSpawnPoint(VectorRounder.RoundVectorToInt(point)))
+    private bool AreTilesBlacklisted(Vector2 point)
+    {
+        for (int x = -1; x < 2; x++)
         {
-            return false; 
-        }
-
-        BlueprintBarracks bb;
-        if (Summon.TryGetComponent<BlueprintBarracks>(out bb))
-        {
-            Vector2 spawnPoint = point + bb.GetSpawnOffset();
-            TileType t = MapManager.GetTileType(spawnPoint);
-            if (!MapManager.IsPointTraversable(spawnPoint, false) || MapNode.IsTileTypeBuilding(t))
+            for (int y = -1; y < 2; y++)
             {
-                return false; 
+                //so, just 'regular' adjacency - no diagonals and not the center tile. 
+                if (y == 0 ^ x == 0) //^ = XOR - wow, I can't believe I used that. 
+                {
+                    if (MapManager.IsPointInBounds((int)point.x + x, (int)point.y + y))
+                    {
+                        if (IsAdjacentTileBlacklisted(point + new Vector2(x, y)))
+                        {
+                            return true;
+                        }
+                    }
+                }
             }
         }
 
-        return acceptedTiles;
+        return false; 
     }
 
     bool IsAdjacentTileAccepted(Vector2 point)

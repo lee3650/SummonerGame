@@ -10,7 +10,8 @@ public class RewardViewModel : MonoBehaviour, IWaveNotifier
     [SerializeField] float LevelEndsRewardChance = 98f;
     [SerializeField] CurrentLevelManager CurrentLevelManager;
     [SerializeField] RewardPanel RewardPanel;
-
+    [SerializeField] PlayerSummonController PlayerSummonController;
+    
     float curChance; 
 
     void Start()
@@ -41,6 +42,7 @@ public class RewardViewModel : MonoBehaviour, IWaveNotifier
         UpdateCurChance();
         if (ShouldShowReward())
         {
+            PlayerSummonController.DeselectSummonAndHideHotbar();
             RewardPanel.Show(curChance);
         }
     }

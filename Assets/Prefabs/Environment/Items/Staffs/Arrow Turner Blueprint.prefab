@@ -128,13 +128,14 @@ MonoBehaviour:
   WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.1
-  WeaponDescription: Places arrow turner blueprint. Fulfilled by wall generators.
+  WeaponDescription: 
   DeselectAfterAttacking: 0
   RepeatAttack: 0
   Summon: {fileID: 8450089276935444039, guid: d99b1d586616bf242a3b84d7ea772224, type: 3}
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 1
+  FirstUseFree: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 6

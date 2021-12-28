@@ -7,7 +7,7 @@ public class Research : MonoBehaviour
 {
     [SerializeField] private int index;
     public VideoClip Gif;
-    public Sprite Image;
+    [HideInInspector] public Sprite Image;
     public ResearchSaveData ResearchSaveData = null;
     public int TotalIslands;
     public string Description; //eh, that's fine for now, I guess. I'd rather read it from a file. 

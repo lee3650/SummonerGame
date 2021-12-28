@@ -128,14 +128,14 @@ MonoBehaviour:
   WeaponType: 1
   ManaDrain: 0
   AttackLength: 0.2
-  WeaponDescription: Places a wall blueprint. A wall generator will place its walls
-    based on where the wall blueprints are.
+  WeaponDescription: 
   DeselectAfterAttacking: 0
   RepeatAttack: 1
   Summon: {fileID: 790292517423554865, guid: 83af48144d84fad489da690235d3dc26, type: 3}
   rotationOffset: 0
   UseSummonImage: 1
   SetColorToWhite: 1
+  FirstUseFree: 0
   ReduceMaxMana: 0
   ZeroRotation: 1
   BlueprintType: 0

@@ -129,8 +129,7 @@ MonoBehaviour:
   WeaponType: 0
   ManaDrain: 10
   AttackLength: 0.1
-  WeaponDescription: Places a barrack. A barrack creates melee units at the end of
-    each wave.
+  WeaponDescription: Melee Barracks
   DeselectAfterAttacking: 1
   RepeatAttack: 0
   Summon: {fileID: 5052993147076501497, guid: 82b14bc9e568fb44b9040f8c98709e67, type: 3}

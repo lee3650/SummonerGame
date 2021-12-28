@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dc653dfb3bf2e4ebc2bed6f511d11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 20
+  MaxHealth: 16
   CurrentHealth: 0
 --- !u!114 &5487195000452624845
 MonoBehaviour:
@@ -5456,7 +5456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa968b424d16855428e35d1adf3e5055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Magnitude: 5
+  Magnitude: 4.5
   EventType: 2
   WielderObject: {fileID: 5487195000452624840}
   AttackStartToDamageDelay: 0

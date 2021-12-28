@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
       propertyPath: BlueprintData.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}
@@ -126,6 +126,38 @@ PrefabInstance:
         type: 3}
       propertyPath: BlueprintData.Array.data[2].DisplayName
       value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[3].BlueprintType
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[3].Prefab
+      value: 
+      objectReference: {fileID: 1722580877095773740, guid: 8c3c51372ee82c340a93fd299179ed51,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[3].DisplayName
+      value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[4].BlueprintType
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[4].Prefab
+      value: 
+      objectReference: {fileID: 8883485587513133770, guid: 31f24e3e08e8fea4dba9142425db88e4,
+        type: 3}
+    - target: {fileID: 6000955293405737800, guid: b95c67d19141cbb47a53bba798bd2a4c,
+        type: 3}
+      propertyPath: BlueprintData.Array.data[4].DisplayName
+      value: Spike Factory
       objectReference: {fileID: 0}
     - target: {fileID: 6000955293405737801, guid: b95c67d19141cbb47a53bba798bd2a4c,
         type: 3}

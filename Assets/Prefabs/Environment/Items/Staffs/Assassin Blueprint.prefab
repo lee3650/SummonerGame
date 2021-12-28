@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 2318945554763282470, guid: 95840a4efb77baa4bb4aaf7d23fb3312,
         type: 3}
       propertyPath: WeaponDescription
-      value: Places assassin blueprint
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2318945554763282470, guid: 95840a4efb77baa4bb4aaf7d23fb3312,
         type: 3}

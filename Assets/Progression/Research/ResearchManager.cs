@@ -101,9 +101,7 @@ public class ResearchManager : MonoBehaviour
                 max = Mathf.Max(ResearchMap[i].Index, max);
             }
 
-            print("Messing up last research index for the demo!");
-
-            return max + 100; 
+            return max; 
         }
     }
 
@@ -261,7 +259,7 @@ public class ResearchManager : MonoBehaviour
         for (int i = 0; i < researches.Length; i++)
         {
             overflow = researches[i];
-            if (!overflow.Unlocked && !ResearchDescendedCurrent(overflow))
+            if (!overflow.Unlocked && !ResearchDescendedCurrent(overflow) && IsResearchVisible(overflow))
             {
                 return;
             }
@@ -270,7 +268,7 @@ public class ResearchManager : MonoBehaviour
         for (int i = 0; i < researches.Length; i++)
         {
             overflow = researches[i];
-            if (!overflow.Unlocked)
+            if (!overflow.Unlocked && IsResearchVisible(overflow))
             {
                 return;
             }
@@ -278,6 +276,19 @@ public class ResearchManager : MonoBehaviour
 
         //otherwise... they're all unlocked.
         overflow = null;
+    }
+
+    private bool IsResearchVisible(Research research)
+    {
+        if (research.Index == LastResearchIndex)
+        {
+            return NumberOfUnlockedResearch() == LastResearchIndex; 
+        }
+        if (research.Index >= NumOfFirstResearches)
+        {
+            return NumberOfUnlockedResearch() >= NumOfFirstResearches;
+        }
+        return true; 
     }
 
     private bool ResearchDescendedCurrent(Research research)

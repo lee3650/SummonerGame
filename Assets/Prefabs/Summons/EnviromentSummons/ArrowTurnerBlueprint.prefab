@@ -86,6 +86,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1276607221562149271, guid: 421b7de47f7bc5840b1255935793cf89,
         type: 3}
+    - target: {fileID: 17723146810303836, guid: 21aba1481dee755428f806c196448c90,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 17723146810303837, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_Name
@@ -146,6 +151,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2480230711469326745, guid: 21aba1481dee755428f806c196448c90,
+        type: 3}
+      propertyPath: FireSystem
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3941265906476139161, guid: 21aba1481dee755428f806c196448c90,
         type: 3}
       propertyPath: m_IsTrigger
@@ -161,6 +171,10 @@ PrefabInstance:
     - {fileID: 9222658590425354811, guid: 21aba1481dee755428f806c196448c90, type: 3}
     - {fileID: -7240296653374110979, guid: 21aba1481dee755428f806c196448c90, type: 3}
     - {fileID: -4402883243907999360, guid: 21aba1481dee755428f806c196448c90, type: 3}
+    - {fileID: 1211626154956730257, guid: 21aba1481dee755428f806c196448c90, type: 3}
+    - {fileID: 6010119157906490634, guid: 21aba1481dee755428f806c196448c90, type: 3}
+    - {fileID: -8278625989217686985, guid: 21aba1481dee755428f806c196448c90, type: 3}
+    - {fileID: -4328649381858832822, guid: 21aba1481dee755428f806c196448c90, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21aba1481dee755428f806c196448c90, type: 3}
 --- !u!1 &8450089276935444039 stripped
 GameObject:

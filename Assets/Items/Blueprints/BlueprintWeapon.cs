@@ -35,6 +35,11 @@ public class BlueprintWeapon : SummonWeapon
         }
     }
 
+    public override float GetCost()
+    {
+        return EffectOnBalance();
+    }
+
     public override float EffectOnBalance()
     {
         return MaintenanceFee;

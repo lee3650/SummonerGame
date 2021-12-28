@@ -22,6 +22,14 @@ public class DirectionalAnimator : MonoBehaviour
         new Vector2Int(-1, 0)
     };
 
+    private static Vector2Int[] DirectionsStatic = new Vector2Int[4]
+    {
+        new Vector2Int(0, 1),
+        new Vector2Int(1, 0),
+        new Vector2Int(0, -1),
+        new Vector2Int(-1, 0)
+    };
+
     private void Awake()
     {
         if (MakeAwakeRotationIdle)
@@ -93,18 +101,18 @@ public class DirectionalAnimator : MonoBehaviour
         return (pointToFace - (Vector2)transform.position).normalized;
     }
 
-    private Vector2Int RoundToCardinalDirection(Vector2 input)
+    public static Vector2Int RoundToCardinalDirection(Vector2 input)
     {
         float min = Mathf.Infinity;
         Vector2Int result = new Vector2Int();
 
-        for (int i = 0; i < Directions.Length; i++)
+        for (int i = 0; i < DirectionsStatic.Length; i++)
         {
-            float cur = (input - Directions[i]).sqrMagnitude;
+            float cur = (input - DirectionsStatic[i]).sqrMagnitude;
             if (cur < min)
             {
-                result = Directions[i];
-                min = cur; 
+                result = DirectionsStatic[i];
+                min = cur;
             }
         }
 

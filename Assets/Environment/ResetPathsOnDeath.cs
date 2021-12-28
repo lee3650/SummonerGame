@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResetPathsOnDeath : MonoBehaviour
 {
+
     [SerializeField] HealthManager hm;
 
     private void Awake()
@@ -13,6 +14,7 @@ public class ResetPathsOnDeath : MonoBehaviour
 
     private void OnDeath()
     {
-        PathManager.ResetPaths = true; 
+        PathManager.ResetPaths = true;
+        PathsChanged.ResetPaths();
     }
 }

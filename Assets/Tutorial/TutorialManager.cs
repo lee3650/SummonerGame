@@ -30,10 +30,13 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     [SerializeField] ResetManager ResetManager;
     [SerializeField] GameObject MinerCostDisplay;
     [SerializeField] GameObject EndPanel;
+    [SerializeField] GameObject IncomeAndBalanceIndicator;
     [SerializeField] GameEndPanel GameEndPanel;
     [SerializeField] Button NextWaveButton;
 
     const string tutorialFileName = "ttl";
+
+    const int minSeg = 1; //the minimum segment is 1 because the 0th is the title of the section 
 
     string[][] tutorialText;
     int levelCounter = 0;
@@ -49,7 +52,6 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
             //convention: use \n to separate each section and use / to separate parts within a section - a segment
             string fileContents = File.ReadAllText(MainMenuScript.appendPath + tutorialFileName);
             tutorialText = ParseFileContents(fileContents);
-            NextLevelEvent.OnNextLevel += OnNextLevel;
             SectionAndSegment = new Vector2Int(0, 1);
             Summoner.SummonsChanged += SummonsChanged;
             IncomeTooltip.MousedOver += MousedOver;
@@ -62,27 +64,22 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     public void OnWaveEnds()
     {
-        if (sectionName == "capacity")
+        if (sectionName == "Next wave")
         {
             IncrementSection();
-            GivePlayerItem(TrapGenerator);
         }
-        else if (sectionName == "level")
+        if (CurrentLevelManager.OnLastWave())
         {
-            if (CurrentLevelManager.OnLastWave())
-            {
-                IncrementSection();
-                EndTutorial();
-            }
+            MainMenuScript.TutorialFinished();
+            EndPanel.SetActive(true);
         }
     }
 
     private void MousedOver()
     {
-        if (sectionName == "income")
+        if (sectionName == "Mouseover")
         {
             IncrementSection();
-            GivePlayerItem(barracksPrefab);
         }
     }
 
@@ -91,129 +88,83 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         print("Summons changed!");
         print("section name: " + sectionName);
 
-        if (sectionName == "home tile")
+        if (sectionName == "Intro")
         {
             IncrementSection();
-            NextWaveButton.interactable = false;
         }
-
-        else if (sectionName == "mason")
+        else if (sectionName == "Masonry")
         {
             //so, this is the mason part. 
             if (BuiltGeqSummons(SummonType.WallGenerator, 1))
             {
                 IncrementSection();
-                //since this section is done we need to also 
-                //give you the wall blueprint item. 
-                GivePlayerItem(wallBlueprintPrefab);
             }
         }
-
-        else if (sectionName == "walls")
+        else if (sectionName == "Units")
         {
-            if (BuiltGeqSummons(SummonType.Wall, 3))
+            if (BuiltGeqSummons(SummonType.Wall, 6))
             {
                 IncrementSection();
             }
         }
-        else if (sectionName == "barracks")
+        else if (sectionName == "Barracks")
         {
             if (BuiltGeqSummons(SummonType.Barracks, 1))
             {
                 IncrementSection();
-                GivePlayerItem(MeleeBlueprint);
             }
         }
-        else if (sectionName == "gates")
+        else if (sectionName == "Melees")
         {
-            if (BuiltGeqSummons(SummonType.Gate, 1))
+            if (BuiltGeqSummons(SummonType.MeleeEntity, 2))
             {
                 IncrementSection();
             }
         }
-        else if (sectionName == "fix troops")
-        {
-            if (BuiltGeqSummons(SummonType.MeleeEntity, 3))
-            {
-                NextWaveButton.interactable = true;
-                IncrementSection();
-            }
-        }
-        else if (sectionName == "armory")
+        else if (sectionName == "Armory")
         {
             if (BuiltGeqSummons(SummonType.TrapGenerator, 1))
             {
                 IncrementSection();
-                GivePlayerItem(ArrowTrap);
             }
         }
-        else if (sectionName == "ballista")
+        else if (sectionName == "Ballista")
         {
             if (BuiltGeqSummons(SummonType.ArrowTrap, 1))
             {
                 IncrementSection();
             }
         }
-        else if (sectionName == "miner")
+        else if (sectionName == "Path")
+        {
+            if (BuiltGeqSummons(SummonType.Gate, 1))
+            {
+                IncrementSection();
+            }
+        }
+        else if (sectionName == "Miner")
         {
             if (BuiltGeqSummons(SummonType.Miner, 1))
             {
-                //well, this is duplicated information - it's assuming the home tile counts as a miner
-                //I kind of need to separate charm type and 'real' type, right? 
-
                 IncrementSection();
             }
         }
-        else if (sectionName == "teardown gate")
+        else if (sectionName == "Duplication")
         {
-            if (BuiltEqSummons(SummonType.Gate, 0))
-            {
-                IncrementSection();
-            }
-        }
-
-        else if (sectionName == "teardown melee")
-        {
-            if (BuiltGeqSummons(SummonType.MeleeEntity, 3))
-            {
-                IncrementSection();
-                GivePlayerItem(Miner);
-                PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
-                MinerCostDisplay.SetActive(true);
-            }
-        }
-
-        else if (sectionName == "rmelee")
-        {
-            if (BuiltEqSummons(SummonType.MeleeEntity, 2))
-            {
-                IncrementSection();
-            }
-        }
-
-        else if (sectionName == "duplicate")
-        {
-            if (BuiltGeqSummons(SummonType.MeleeEntity, 4) && BuiltGeqSummons(SummonType.Wall, 4) && BuiltGeqSummons(SummonType.ArrowTrap, 2))
+            if (BuiltGeqSummons(SummonType.MeleeEntity, 4) && BuiltGeqSummons(SummonType.Wall, 7) && BuiltGeqSummons(SummonType.ArrowTrap, 2))
             {
                 IncrementSection(); 
-                //so, yeah we do have duplication here because each section knows what it has to do to setup the next section
-                //what'd be better is if in IncrementSection we check the new section and then have each section give itself stuff 
-                //but probably that's not worth it because the tutorial will not change much after this 
-                GivePlayerItem(Miner);
-                PlayerMana.IncreaseMana(MinerSummon.GetCurrentMinerCost());
-                MinerCostDisplay.SetActive(true);
             }
         }
     }
 
     private void BlueprintsChanged()
     {
-        if (sectionName == "troops")
+        if (sectionName == "Troubleshooting")
         {
-            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType>() { BlueprintType.Melee }, false).Count >= 4)
+            if (BlueprintManager.GetBlueprintsOfTypes(new List<BlueprintType> { BlueprintType.Melee}, false).Count >= 3)
             {
                 IncrementSection();
-                GivePlayerItem(GatePrefab);
             }
         }
     }
@@ -225,25 +176,71 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     private void IncrementSection()
     {
+        ExitSection();
         SectionAndSegment = new Vector2Int(SectionAndSegment.x + 1, 1);
+        EnterSection();
     }
 
-    private void OnNextLevel()
+    private void ExitSection()
     {
-        // we can safely assume we're in tutorial mode
-        levelCounter++;
-        if (levelCounter == 1)
+        switch (sectionName)
         {
-            NextWaveButton.interactable = false;
-            //SectionAndSegment = new Vector2Int(1, 1);
-            GivePlayerItem(WallGenerator);
+            case "Mouseover":
+                IncomeAndBalanceIndicator.gameObject.SetActive(false);
+                break;
         }
     }
 
-    private void EndTutorial()
+    private void EnterSection()
     {
-        MainMenuScript.TutorialFinished();
-        EndPanel.SetActive(true);
+        print("Entered " + sectionName);
+
+        switch (sectionName)
+        {
+            case "Intro":
+                NextWaveButton.interactable = false;
+                break;
+            case "Masonry":
+                GivePlayerItem(WallGenerator);
+                break;
+            case "Units":
+                GivePlayerItem(wallBlueprintPrefab);
+                break;
+            case "Mouseover":
+                IncomeAndBalanceIndicator.gameObject.SetActive(true);
+                break;
+            case "Barracks":
+                GivePlayerItem(barracksPrefab);
+                break;
+            case "Melees":
+                GivePlayerItem(MeleeBlueprint);
+                break;
+            case "Armory":
+                GivePlayerItem(TrapGenerator);
+                break;
+            case "Ballista":
+                GivePlayerItem(ArrowTrap);
+                break;
+            case "Next wave":
+                NextWaveButton.interactable = true;
+                break;
+            case "Troubleshooting":
+                NextWaveButton.interactable = false;
+                break;
+            case "Path":
+                GivePlayerItem(GatePrefab);
+                break;
+            case "Duplication":
+                break;
+            case "Miner":
+                MinerCostDisplay.SetActive(true);
+                PlayerMana.IncreaseMana(20);
+                GivePlayerItem(Miner);
+                break;
+            case "End":
+                NextWaveButton.interactable = true;
+                break;
+        }
     }
 
     private void Update()
@@ -261,13 +258,20 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
                     GifDisplayer.gameObject.SetActive(true);
                     GifDisplayer.clip = gif;
                     GifDisplayer.Play();
+                } else
+                {
+                    GifDisplayer.gameObject.SetActive(false);
                 }
             }
 
             //well, that's duplication
-            if (Input.anyKeyDown && !Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(2) && !Input.GetKeyDown(KeyCode.Escape) && !Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Input.mouseScrollDelta.y > 0 && !Input.GetKey(KeyCode.LeftShift)))
             {
                 SectionAndSegment = incrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x)); //so, segment is under manual control, section is event controlled
+            }
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || (Input.mouseScrollDelta.y < 0 && !Input.GetKey(KeyCode.LeftShift)))
+            {
+                SectionAndSegment = decrementSegment(SectionAndSegment, minSeg); //so, segment is under manual control, section is event controlled
             }
         }
     }
@@ -297,6 +301,14 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         return null;
     }
 
+    public void EndTutorialIfActive()
+    {
+        if (MainMenuScript.TutorialMode)
+        {
+            MainMenuScript.TutorialFinished();
+        }
+    }
+
     public void NextPage()
     {
         SectionAndSegment = incrementSegment(SectionAndSegment, GetMaxSegment(SectionAndSegment.x));
@@ -304,7 +316,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
 
     public void PrevPage()
     {
-        SectionAndSegment = decrementSegment(SectionAndSegment);
+        SectionAndSegment = decrementSegment(SectionAndSegment, minSeg);
     }
 
     private Vector2Int incrementSegment(Vector2Int start, int max)
@@ -317,12 +329,12 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
         return start;
     }
 
-    private Vector2Int decrementSegment(Vector2Int start)
+    private Vector2Int decrementSegment(Vector2Int start, int min)
     {
         start -= new Vector2Int(0, 1);
-        if (start.y < 1)
+        if (start.y < min)
         {
-            start = new Vector2Int(start.x, 1);
+            start = new Vector2Int(start.x, min);
         }
         return start;
     }
@@ -338,7 +350,7 @@ public class TutorialManager : MonoBehaviour, IWaveNotifier
     {
         return GetCompletionText(SectionAndSegment);
     }
-
+    
     private string GetCompletionText(Vector2Int secAndSeg)
     {
         return string.Format("({0}/{1})", secAndSeg.y, GetMaxSegment(secAndSeg.x));
