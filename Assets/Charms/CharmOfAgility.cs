@@ -20,6 +20,7 @@ public class CharmOfAgility : Charm
             case EventType.Fire:
                 if (Random.Range(0, 100) < DodgeProbability)
                 {
+                    print("dodging!");
                     return new Event(EventType.Dodge, 1f, e.Sender);
                 }
                 break;

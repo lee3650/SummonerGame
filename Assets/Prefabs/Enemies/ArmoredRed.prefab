@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1216583337404414053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836269520404329839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e2a7d5a8b7f99438fcdf28a9a8f41d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TypesToCrit: 0a0000000b000000
+--- !u!1001 &6151305356998116519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2143992938299189330, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: DeathMessage
+      value: Killed Armored Demon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143992938299189330, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: XPGain
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103964693806700265, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: faed4ece395ca3742aac91d6d9e9e238, type: 2}
+    - target: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_Name
+      value: ArmoredRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624844, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624890, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195000452624891, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3109225567217344451, guid: da97eac9d85ac5e4087083ca338e3b0f,
+        type: 3}
+    - target: {fileID: 5487195001173321389, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: EventType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195001173321389, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: Recurrences
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487195001173321389, guid: 10341dc83bd43a8428bf2ec515783d34,
+        type: 3}
+      propertyPath: Magnitude
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10341dc83bd43a8428bf2ec515783d34, type: 3}
+--- !u!1 &1836269520404329839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5487195000452624840, guid: 10341dc83bd43a8428bf2ec515783d34,
+    type: 3}
+  m_PrefabInstance: {fileID: 6151305356998116519}
+  m_PrefabAsset: {fileID: 0}

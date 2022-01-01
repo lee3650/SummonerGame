@@ -10,4 +10,5 @@ public class LetterUnlock
     public List<SpawnToProbability> EnemiesAdded;
     public int TotalIslandsReq;
     public string path;
+    public string Date; 
 }

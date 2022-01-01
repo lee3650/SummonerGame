@@ -12,6 +12,8 @@ public class SpawnToProbability
     public float CalculatedMinimum;
     public float CalculatedMaximum;
 
+    public GameplayChange RequiredChange = GameplayChange.None; 
+
     [Tooltip("Used by letters")]
     public int startingLevel;
 }

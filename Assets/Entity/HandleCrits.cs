@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandleCrits : MonoBehaviour, ISubEntity
 {
     [SerializeField] HandleRecurringEvent HandleRecurringEvent;
+    [SerializeField] HandleIceAndFreeze HandleFreeze;
 
     public Event ModifyEvent(Event e)
     {
@@ -20,6 +21,11 @@ public class HandleCrits : MonoBehaviour, ISubEntity
         if (e.MyType == EventType.CritPoison && HandleRecurringEvent.EventRecurs(EventType.Poison))
         {
             convertToDamage = true;
+        }
+
+        if (e.MyType == EventType.CritFreeze && HandleFreeze.IsFrozen())
+        {
+            convertToDamage = true; 
         }
 
         if (convertToDamage)

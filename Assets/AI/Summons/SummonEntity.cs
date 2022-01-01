@@ -12,11 +12,12 @@ public class SummonEntity : AIEntity
     public override void HandleEvent(Event e)
     {
         e = summon.GetCharmModifiedEvent(e);
-        e = GetAdjacentModifiedEvent(e);
+        //e = GetAdjacentModifiedEvent(e);
         
         base.HandleEvent(e);
     }
 
+    /*
     private Event GetAdjacentModifiedEvent(Event e)
     {
         int adjacentImpassableTiles = MapManager.GetNumOfAdjacentImpassableTiles(Mathf.RoundToInt(PointToHoldManager.PointToHold.x), Mathf.RoundToInt(PointToHoldManager.PointToHold.y));
@@ -33,4 +34,5 @@ public class SummonEntity : AIEntity
 
         return e; 
     }
+     */
 }

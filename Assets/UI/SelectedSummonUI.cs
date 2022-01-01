@@ -23,6 +23,7 @@ public class SelectedSummonUI : MonoBehaviour
     [SerializeField] SellPanel SellPanel; 
 
     [SerializeField] PlayerInput PlayerInput;
+    [SerializeField] ItemSelection ItemSelection;
 
     bool SummonSelected = false;
     Vector2Int lastTile = new Vector2Int(-1, -1);
@@ -75,6 +76,17 @@ public class SelectedSummonUI : MonoBehaviour
             lastTile = new Vector2Int(-1, -1);
         }
 
+        if (ItemSelection.ShouldHidePopupPanels())
+        {
+            SelectedSummonParent.gameObject.SetActive(false);
+        } else
+        {
+            if (SummonSelected)
+            {
+                SelectedSummonParent.gameObject.SetActive(true);
+            }
+        }
+
         lastMousePos = mousePos;
     }
     
@@ -108,7 +120,7 @@ public class SelectedSummonUI : MonoBehaviour
 
         PanelDisplayer.ShowPanel(SellInfoDisplayPanel, s.GetStatString(s.GetTransform().position));
     }
-    
+
     public void DeselectSummon()
     {
         PanelDisplayer.HideAllPanels();

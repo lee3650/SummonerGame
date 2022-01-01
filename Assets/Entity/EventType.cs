@@ -15,5 +15,6 @@ public enum EventType
     DrainBlood,
     Dodge,
     Freeze,
-    IceDamage
+    IceDamage,
+    CritFreeze, 
 }

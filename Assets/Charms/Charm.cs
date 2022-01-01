@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Charm : MonoBehaviour
 {
-    [SerializeField] bool AttackModifier;
+    [SerializeField] CharmType CharmType;
     [SerializeField] SummonType[] ApplyToTypes;
 
     //does nothing by default 
@@ -21,6 +21,6 @@ public abstract class Charm : MonoBehaviour
 
     public bool HasAttackModifier()
     {
-        return AttackModifier;
+        return CharmType == CharmType.AttackModifier; //so eNcApsulAtEd
     }
 }

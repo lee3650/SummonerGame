@@ -2,10 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyEvent : MonoBehaviour
+public class ApplyEvent : MonoBehaviour, IDamager
 {
     [SerializeField] EventType EventType;
-    [SerializeField] float Magnitude; 
+    [SerializeField] float Magnitude;
+
+    private List<Event> Events = new List<Event>();
+
+    void Start()
+    {
+        Events.Add(new Event(EventType, Magnitude, null));
+    }
+
+    public void AddAttackModifier(Event e)
+    {
+        Events.Add(e);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         ILivingEntity entity; 
@@ -13,7 +26,10 @@ public class ApplyEvent : MonoBehaviour
         {
             if (VectorRounder.RoundVector(transform.position) == VectorRounder.RoundVector(entity.GetPosition()))
             {
-                entity.HandleEvent(new Event(EventType, Magnitude * Time.deltaTime, null));
+                foreach (Event e in Events)
+                {
+                    entity.HandleEvent(Event.ScaleEvent(e, Time.deltaTime));
+                }
             }
         }
     }

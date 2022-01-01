@@ -66,7 +66,7 @@ public class CurrentLevelManager : MonoBehaviour
 
     public void EnterNextLevel()
     {
-        WaveGenerator.AddSpawns(AdditionalSpawns[levelNum].Spawns);
+        WaveGenerator.AddSpawns(AdditionalSpawns[levelNum].GetEnabledSpawns());
 
         /*
         if (ShouldGenerateLevel(levelNum))

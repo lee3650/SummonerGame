@@ -75,6 +75,8 @@ GameObject:
   - component: {fileID: 7179513829261621966}
   - component: {fileID: 2501889708414932670}
   - component: {fileID: 5262261224150467899}
+  - component: {fileID: -8951341176070399727}
+  - component: {fileID: 581369702896505754}
   m_Layer: 11
   m_Name: RangedFriendly
   m_TagString: Untagged
@@ -264,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3977e08b04754c4eae4a989d5e5eb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarColor: {r: 0, g: 1, b: 0, a: 1}
   HealthManager: {fileID: 1740066754483794926}
   Height: 0.75
   WidthAdjustment: -0.85
@@ -283,7 +286,6 @@ MonoBehaviour:
   SummonType: 3
   HealToFull: 1
   WaveHealAmt: 10
-  upgradable: 1
   summonTier: 0
   summonName: Ranged Unit
   ManaRefundAmount: 0
@@ -336,6 +338,7 @@ MonoBehaviour:
   StateController: {fileID: 1740066754483794912}
   AIAttackManager: {fileID: -4797642703810614546}
   DirectionalAnimator: {fileID: 7460180578036577217}
+  waitingForPath: 0
 --- !u!114 &7656610161056084375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,3 +746,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandleRecurringEvent: {fileID: 7179513829261621966}
+  HandleFreeze: {fileID: 0}
+--- !u!114 &-8951341176070399727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6020276d7ee41e94a8f814d76c3128a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangedAttackState: {fileID: 6384751669862364838}
+--- !u!114 &581369702896505754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740066754483794719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26aa83e1eb900714ab71bd9a217fc597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 791481969154780677}

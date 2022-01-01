@@ -136,7 +136,6 @@ MonoBehaviour:
   SummonType: 9
   HealToFull: 0
   WaveHealAmt: 10
-  upgradable: 0
   summonTier: 0
   summonName: Ballista
   ManaRefundAmount: 0

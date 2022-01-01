@@ -132,6 +132,8 @@ public class PlayerWall : MonoBehaviour, ITargetable, IEntity, IInitialize
 
     public virtual void HandleEvent(Event e)
     {
+        e = MySummon.GetSummoner().GetCharmModifiedEvent(e, MySummon.GetSummonType());
+
         foreach (ISubEntity s in SubEntities)
         {
             e = s.ModifyEvent(e);

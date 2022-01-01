@@ -112,7 +112,6 @@ MonoBehaviour:
   SummonType: 0
   HealToFull: 1
   WaveHealAmt: 10
-  upgradable: 1
   summonTier: 0
   summonName: Wall
   ManaRefundAmount: 0
@@ -231,7 +230,7 @@ MonoBehaviour:
   JumpOnStart: 1
   gravity: 0.1
   upwardVel: 0.5
-  PlayThump: 0
+  PlayThump: 1
   PlayThumpOnce: 0
 --- !u!114 &9222658590425354811
 MonoBehaviour:

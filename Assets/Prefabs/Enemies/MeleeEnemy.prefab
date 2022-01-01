@@ -592,6 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandleRecurringEvent: {fileID: -8265859168044155274}
+  HandleFreeze: {fileID: -6019847296351914608}
 --- !u!114 &-8265859168044155274
 MonoBehaviour:
   m_ObjectHideFlags: 0

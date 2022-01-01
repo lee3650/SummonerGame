@@ -7,6 +7,7 @@ public class LevelUpSFX : MonoBehaviour
     [SerializeField] XPApplier XPApplier;
     [SerializeField] AudioClip LevelUpSound;
     [SerializeField] AudioSource Source;
+    [SerializeField] AudioSource LevelUpSource;
     [SerializeField] AudioClip GainXPSound;
 
     private void Awake()
@@ -23,6 +24,6 @@ public class LevelUpSFX : MonoBehaviour
 
     private void LeveledUp()
     {
-        GameplaySFX.PlaySoundOnSource(LevelUpSound, SharedSoundManager.GetSFXVolumeLevel(), Source);
+        GameplaySFX.PlaySoundOnSource(LevelUpSound, SharedSoundManager.GetSFXVolumeLevel(), LevelUpSource);
     }
 }

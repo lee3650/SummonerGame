@@ -126,6 +126,7 @@ public class AIEntity : MonoBehaviour, ILivingEntity, IInitialize
                 }
                 break;
             case EventType.Heal:
+                CritGraphicPool.ShowHeal(transform.position + new Vector3(0, 1, 0));
                 HealthManager.Heal(e.Magnitude);
                 break;
             case EventType.DrainBlood:

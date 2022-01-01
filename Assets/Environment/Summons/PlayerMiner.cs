@@ -7,7 +7,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 {
     [SerializeField] float MoneyPerWave = 5f;
     [SerializeField] float Range = 15f;
-    [SerializeField] bool AddToTargeting = true; 
+    [SerializeField] bool AddToTargeting = true;
 
     public override void Init()
     {
@@ -27,7 +27,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
     public override bool ShouldBeOverwritten()
     {
-        return false; 
+        return false;
     }
 
     public List<Event> ModifyEventList(List<Event> umodifiedList)
@@ -99,7 +99,7 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
 
     public bool IsCrossShaped()
     {
-        return false; 
+        return false;
     }
 
     public float GetCrossDelta()
@@ -123,13 +123,13 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
             case UpgradeCommand uc:
                 RemoveSummon();
                 SummonWeapon.UpgradeSummon(uc.UpgradePath, transform.position, MySummon.GetSummoner(), GetComponent<Sellable>());
-                break; 
+                break;
         }
     }
 
     public bool CanBeSelected()
     {
-        return HealthManager.IsAlive(); 
+        return HealthManager.IsAlive();
     }
 
     public string GetStatString(Vector2 pos)
@@ -145,6 +145,12 @@ public class PlayerMiner : PlayerWall, ILivingEntity, IWaveNotifier, IControllab
     public bool CanBeSold()
     {
         return AdjacentConnections.DoAdjacentTilesConnectToMiner(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+    }
+
+    public void MultiplyBaseMoneyPerWave(float amt)
+    {
+        MoneyPerWave *= amt;
+        MySummon.GetSummoner().OnFinancialsChanged();
     }
 
     protected override void OnDeath()

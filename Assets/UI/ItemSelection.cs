@@ -84,6 +84,15 @@ public class ItemSelection : MonoBehaviour
         return false; 
     }
 
+    public bool ShouldHidePopupPanels()
+    {
+        if (HasItem())
+        {
+            return SelectedItem is BlueprintWeapon;
+        }
+        return false; 
+    }
+
     public void DeselectItem()
     {
         if (!PlayerEntity.CanChangeSelectedItem())

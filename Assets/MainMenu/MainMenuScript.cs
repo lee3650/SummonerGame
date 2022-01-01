@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -11,16 +12,40 @@ public class MainMenuScript : MonoBehaviour
     private bool FinishedTutorial;
 
     public const string appendPath = "data/";
+    private const string tutorialFile = "finishedTutorial.txt";
 
     [SerializeField] Button PlayButton;
     [SerializeField] GameObject TutorialPlayButton;
 
     private void Awake()
     {
-        FinishedTutorial = PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false;
+        FinishedTutorial = LoadFinishedTutorial();
         ShowPlayButtons();
     }
-    
+
+    private bool LoadFinishedTutorial()
+    {
+        bool finished = false;
+
+        if (PlayerPrefs.GetInt(finishedTutorialKey, 0) == 1 ? true : false)
+        {
+            finished = true; 
+        }
+
+        if (File.Exists(Application.persistentDataPath + tutorialFile))
+        {
+            finished = true;
+        } else
+        {
+            if (finished)
+            {
+                WriteTutorialFile();
+            }
+        }
+
+        return finished;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -65,6 +90,12 @@ public class MainMenuScript : MonoBehaviour
         print("Finished tutorial!");
         tutorialMode = false;
         PlayerPrefs.SetInt(finishedTutorialKey, 1);
+        WriteTutorialFile();
+    }
+
+    private static void WriteTutorialFile()
+    {
+        File.WriteAllText(Application.persistentDataPath + tutorialFile, "");
     }
 
     public static bool TutorialMode

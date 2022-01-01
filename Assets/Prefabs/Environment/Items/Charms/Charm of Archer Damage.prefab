@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -124,6 +125,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 654597278093879220}
   col: {fileID: 3481185557201460988}
   ItemType: 2
+  itemName: 
 --- !u!114 &1183936544931740549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeff9e1037c0d1c4996d0f96e645a610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackModifier: 1
+  CharmType: 1
   ApplyToTypes: 03000000
   additionalEventType: 2
   eventMagnitude: 3
+  Spreads: 0
+  Recurrences: 0

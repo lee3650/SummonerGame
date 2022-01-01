@@ -15,6 +15,11 @@ public class RangedAttackState : AIAttackState
         StartCoroutine(SpawnProjectile());
     }
 
+    public void SetProjectile(Projectile p)
+    {
+        Projectile = p;
+    }
+
     private IEnumerator SpawnProjectile()
     {
         yield return new WaitForSeconds(ProjectileSpawnDelay);

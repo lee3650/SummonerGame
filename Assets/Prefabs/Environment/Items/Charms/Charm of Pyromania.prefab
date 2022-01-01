@@ -138,5 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83aaf390be8655f40a4202624685bc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackModifier: 0
+  CharmType: 1
   ApplyToTypes: 02000000

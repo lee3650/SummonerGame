@@ -17,6 +17,11 @@ public class HandleIceAndFreeze : MonoBehaviour, ISubEntity, ISpeedSupplier
         return MoveSpeedAdjustment;
     }
 
+    public bool IsFrozen()
+    {
+        return resetSpeedTimer >= 0;
+    }
+
     public void HandleEvent(Event e)
     {
         if (e.MyType == EventType.IceDamage)

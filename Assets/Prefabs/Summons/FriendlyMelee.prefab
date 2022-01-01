@@ -194,6 +194,8 @@ GameObject:
   - component: {fileID: 2607365241269995001}
   - component: {fileID: -6416741100109997043}
   - component: {fileID: -1871567859809453641}
+  - component: {fileID: 7478683562616064972}
+  - component: {fileID: 2288013578330554333}
   m_Layer: 11
   m_Name: FriendlyMelee
   m_TagString: Untagged
@@ -420,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3977e08b04754c4eae4a989d5e5eb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarColor: {r: 0, g: 1, b: 0, a: 1}
   HealthManager: {fileID: 9194925930672925243}
   Height: 0.75
   WidthAdjustment: -0.85
@@ -439,7 +442,6 @@ MonoBehaviour:
   SummonType: 2
   HealToFull: 1
   WaveHealAmt: 10
-  upgradable: 1
   summonTier: 0
   summonName: Melee Unit
   ManaRefundAmount: 0
@@ -491,6 +493,7 @@ MonoBehaviour:
   StateController: {fileID: 9194925930672925237}
   AIAttackManager: {fileID: 9194925930672925241}
   DirectionalAnimator: {fileID: 5993736718554861897}
+  waitingForPath: 0
 --- !u!114 &-6588670612194777328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5584,3 +5587,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandleRecurringEvent: {fileID: 2607365241269995001}
+  HandleFreeze: {fileID: 0}
+--- !u!114 &7478683562616064972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9833b113905914243a39ebfde77ed90f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 9194925930672925243}
+--- !u!114 &2288013578330554333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194925930672925386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26aa83e1eb900714ab71bd9a217fc597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 3711082862545154627}

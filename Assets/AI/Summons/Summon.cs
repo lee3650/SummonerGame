@@ -20,6 +20,8 @@ public class Summon : MonoBehaviour
     private Summoner MySummoner;
     public float ManaRefundAmount;
 
+    ISubCharmHandler[] SubCharmHandlers; 
+
     public void Awake()
     {
         //Watch out if you're changing this - the Home Tile is kind of depending on it not doing anything important 
@@ -34,6 +36,8 @@ public class Summon : MonoBehaviour
         {
             IDamager = GetComponentInChildren<IDamager>();
         }
+
+        SubCharmHandlers = GetComponents<ISubCharmHandler>();
     }
     
     public float GetIncome()
@@ -140,6 +144,14 @@ public class Summon : MonoBehaviour
         if (IDamager != null)
         {
             IDamager.AddAttackModifier(charm.GetAttackModifier(GetComponent<IEntity>()));
+        }
+    }
+
+    public void ApplyCharmToComponents(Charm charm)
+    {
+        foreach (ISubCharmHandler subCharm in SubCharmHandlers)
+        {
+            subCharm.ApplyCharm(charm);
         }
     }
 

@@ -7,11 +7,14 @@ using TMPro;
 public class LastLetterPanel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI Letter;
-
+    [SerializeField] ResearchManager ResearchManager;
+    
     private string path = "king";
 
     public void EndGame()
     {
+        print("ending game!");
+        ResearchManager.SaveResearchData();
         LoadScript.LoadTo(Scenes.CreditsScene, "");
     }
 

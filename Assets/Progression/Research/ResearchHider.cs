@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResearchHider : MonoBehaviour
 {
     //we can make this more generic but we don't really need to right now
-    [SerializeField] GameObject[] FirstHiddenUnlocks;
+    [SerializeField] ResearchOption[] FirstHiddenUnlocks;
     [SerializeField] GameObject[] LastHiddenUnlocks;
     [SerializeField] ResearchManager ResearchManager;
     [SerializeField] LastLetterPanel LastLetterPanel;
@@ -40,11 +40,18 @@ public class ResearchHider : MonoBehaviour
 
     private void SetFirstUnlocksVis(bool vis)
     {
-        foreach (GameObject g in FirstHiddenUnlocks)
+        foreach (ResearchOption g in FirstHiddenUnlocks)
         {
-            g.SetActive(vis);
+            if (vis)
+            {
+                g.Show();
+            } else
+            {
+                g.Hide();
+            }
         }
     }
+
     private void SetLastUnlocksVis(bool vis)
     {
         foreach (GameObject g in LastHiddenUnlocks)

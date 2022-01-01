@@ -15,7 +15,7 @@ MonoBehaviour:
   HealthManager: {fileID: 4836056907481407905}
   sr: {fileID: 8883485587513133771}
   MySummon: {fileID: 33224520978629771}
-  TileType: 1
+  TileType: 28
   Precedence: 1000
   Projectile: {fileID: 6993804556165900099, guid: 8d4aa51b8b88e98429f5b614e63f4a98,
     type: 3}
@@ -56,10 +56,20 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d375d59665b35bd478634ef6194e594c, type: 2}
+    - target: {fileID: 851037916632591693, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 4778944115168144804, guid: bef68b6274e30044fb9834931b758ba3,
         type: 3}
       propertyPath: m_Name
       value: SpikeFactory
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778944115168144804, guid: bef68b6274e30044fb9834931b758ba3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4778944115168144805, guid: bef68b6274e30044fb9834931b758ba3,
         type: 3}

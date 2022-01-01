@@ -52,9 +52,13 @@ public class Summoner : MonoBehaviour, IWaveNotifier
 
     void TryAddCharmToSummon(Summon s, Charm charm)
     {
-        if (charm.ApplyToType(s.GetSummonType()) && charm.HasAttackModifier())
+        if (charm.ApplyToType(s.GetSummonType()))
         {
-            s.AddAttackCharm(charm);
+            if (charm.HasAttackModifier())
+            {
+                s.AddAttackCharm(charm);
+            }
+            s.ApplyCharmToComponents(charm);
         }
     }
 

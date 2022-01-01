@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: -3973196150619937828}
   - component: {fileID: -7636973545977404672}
   - component: {fileID: 7223911854411432005}
+  - component: {fileID: -2620140491431676143}
+  - component: {fileID: 8920080521500773022}
   m_Layer: 15
   m_Name: Miner
   m_TagString: Untraversable
@@ -106,7 +108,6 @@ MonoBehaviour:
   SummonType: 4
   HealToFull: 1
   WaveHealAmt: 10
-  upgradable: 0
   summonTier: 0
   summonName: Miner
   ManaRefundAmount: 0
@@ -235,3 +236,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SquashAndStretch: {fileID: -7636973545977404672}
   hm: {fileID: 6305876023889047352}
+--- !u!114 &-2620140491431676143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059090261315814483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c720df3935a297418411575ed4eeb74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 6305876023889047352}
+  Summon: {fileID: 1506965835460921874}
+--- !u!114 &8920080521500773022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059090261315814483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79141da255fb5048a77f785395de5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMiner: {fileID: 6209397066443110183}

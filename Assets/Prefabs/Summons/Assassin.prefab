@@ -158,5 +158,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assassin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7478683562616064972, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
+    - {fileID: 2288013578330554333, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a6d5428c89d2e6945b95ec06890747ab, type: 3}

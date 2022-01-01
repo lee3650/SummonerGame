@@ -7,12 +7,14 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject PauseButton;
 
-    [SerializeField] AudioSource MusicSource;
     [SerializeField] AudioSource OceanSource;
+    [SerializeField] MusicManager MusicManager;
 
     [SerializeField] Slider MusicSlider;
     [SerializeField] Slider SFXSlider;
     [SerializeField] Slider OceanSlider;
+
+    [SerializeField] SetVolumes SetVolumes;
 
     private bool paused = false;
 
@@ -33,24 +35,13 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0f;
 
-        SetupSliders();
-       
-        MusicSource.Pause();
+        SetVolumes.SetupSliders();
+
+        MusicManager.Pause();
         OceanSource.Pause();
 
         gameObject.SetActive(true);
         PauseButton.SetActive(false);
-    }
-
-    private void SetupSliders()
-    {
-        float music = SharedSoundManager.GetMusicVolumeLevel();
-        float sfx = SharedSoundManager.GetSFXVolumeLevel();
-        float ocean = SharedSoundManager.GetOceanVolume();
-
-        MusicSlider.value = music;
-        SFXSlider.value = sfx;
-        OceanSlider.value = ocean;
     }
 
     public void ResumeGame()
@@ -58,7 +49,7 @@ public class Pause : MonoBehaviour
         SharedSoundManager.WriteVolumes();
         Time.timeScale = 1f;
 
-        MusicSource.Play();
+        MusicManager.Play();
         OceanSource.Play();
 
         gameObject.SetActive(false);

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24edd9fa3fe8a874eb2396d9fef9345a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackModifier: 0
+  CharmType: 1
   ApplyToTypes: 02000000
   DamageReduction: 0.75
 --- !u!212 &-5090687090800542841
@@ -63,6 +63,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -139,3 +140,4 @@ MonoBehaviour:
   SpriteRenderer: {fileID: -5090687090800542841}
   col: {fileID: 1671758543}
   ItemType: 2
+  itemName: 

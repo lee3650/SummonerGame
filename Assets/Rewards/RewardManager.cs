@@ -6,15 +6,19 @@ using UnityEngine;
 public class RewardManager : MonoBehaviour
 {
     [SerializeField] List<Reward> AllRewards;
-    [SerializeField] float LevelEndRewardThreshold = 5.5f;
+    [SerializeField] float LevelEndRewardThreshold;
 
     [SerializeField] List<Reward> ExtraRewards;
 
     //okay so lower quality is better now. So, I guess our threshold should be like, 5 or 6. 
     //5 is kind of a high threshold lol. 5x more likely? 
 
+    private List<Reward> AppliedRewards = new List<Reward>();
+
     private void Awake()
     {
+        AppliedRewards = new List<Reward>();
+
         foreach (Reward w in ExtraRewards)
         {
             if (ResearchManager.ResearchUnlocked(w.UnlockedIndex))
@@ -22,6 +26,23 @@ public class RewardManager : MonoBehaviour
                 AllRewards.Add(w);
             }
         }
+    }
+
+    public void WonReward(Reward w)
+    {
+        AppliedRewards.Add(w);
+    }
+
+    public string GetAllRewardsText()
+    {
+        string result = "";
+
+        foreach (Reward w in AppliedRewards)
+        {
+            result += string.Format("{0}\n{1}\n\n", w.name, w.Description); 
+        }
+
+        return result; 
     }
 
     public Reward ChooseRandomRewardOnWaveEnd(bool excludeWorseRewards)
@@ -40,6 +61,7 @@ public class RewardManager : MonoBehaviour
 
     public void ApplyAndProcessReward(Reward r)
     {
+        WonReward(r);
         ApplyReward(r);
         RemoveRewardIfNecessary(r);
         AddFollowingRewards(r);

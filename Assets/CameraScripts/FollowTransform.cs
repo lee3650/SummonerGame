@@ -10,5 +10,4 @@ public class FollowTransform : MonoBehaviour
     {
         transform.position = new Vector3(Transform.position.x, Transform.position.y, -10f);    
     }
-
 }

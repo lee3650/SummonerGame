@@ -9,4 +9,8 @@ public enum GameplayChange
     Figure8,
     RandomPrices,
     IncrementPrice,
+    None,
+    Armored,
+    Mammoth,
+    Shaman,
 }

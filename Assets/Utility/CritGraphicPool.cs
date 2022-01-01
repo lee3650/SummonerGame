@@ -8,6 +8,7 @@ public class CritGraphicPool : MonoBehaviour, IResettable
     [SerializeField] Sprite critGraphic;
     [SerializeField] Sprite dodgeGraphic;
     [SerializeField] Sprite noPathGraphic;
+    [SerializeField] Sprite healGraphic;
 
     private static SpriteRenderer Graphic;
 
@@ -17,10 +18,12 @@ public class CritGraphicPool : MonoBehaviour, IResettable
 
     private static Sprite CritGraphic;
     private static Sprite NoPathGraphic;
+    private static Sprite HealGraphic;
     private static Sprite DodgeGraphic;
 
     void Awake()
     {
+        HealGraphic = healGraphic;
         NoPathGraphic = noPathGraphic;
         CritGraphic = critGraphic;
         DodgeGraphic = dodgeGraphic;
@@ -70,6 +73,11 @@ public class CritGraphicPool : MonoBehaviour, IResettable
     public static void ShowDodge(Vector2 position)
     {
         AddOrShowGraphic(position, DodgeGraphic);
+    }
+
+    public static void ShowHeal(Vector2 position)
+    {
+        AddOrShowGraphic(position, HealGraphic);
     }
 
     private static void AddOrShowGraphic(Vector2 position, Sprite sprite)

@@ -28,6 +28,12 @@ public class HealthManager : MonoBehaviour, IEnergyManager
         OnHealthChanged();
     }
 
+    public void IncreaseMaxHealth(float amount)
+    {
+        MaxHealth += amount;
+        HealToFull();
+    }
+
     public void Heal(float amt)
     {
         CurrentHealth += amt; 
